@@ -102,11 +102,12 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
         or _easy_field(easy or {}, "sciif")
     )
     impact_factor_source = "sci-select/LetPub or EasyScholar"
-    impact_factor_status = (
-        "profile_snapshot"
-        if metrics.get("impact_factor") or metrics.get("real_time_if") or metrics.get("jif")
-        else "third-party-api"
-    )
+    if metrics.get("impact_factor") or metrics.get("real_time_if") or metrics.get("jif"):
+        impact_factor_status = "profile_snapshot"
+    elif _easy_field(easy or {}, "sciif"):
+        impact_factor_status = "third-party-api"
+    else:
+        impact_factor_status = "not verified"
 
     jcr = (
         metrics.get("jcr_quartile")
@@ -121,6 +122,12 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
     else:
         jcr_status = "not verified"
     cas_major = metrics.get("cas_partition_2025") or (_easy_field(easy or {}, "cas_upgraded_major_quartile"))
+    if metrics.get("cas_partition_2025"):
+        cas_major_status = "profile_snapshot"
+    elif _easy_field(easy or {}, "cas_upgraded_major_quartile"):
+        cas_major_status = "third-party-api"
+    else:
+        cas_major_status = "not verified"
     cas_minor = metrics.get("cas_minor_categories")
     cas_minor_source = "sci-select/ShowJCR"
     cas_minor_status = "profile_snapshot"
@@ -134,22 +141,37 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
             cas_minor = detail.get("小类学科")
             cas_minor_source = "LetPub detail"
             cas_minor_status = "partial"
+    if not cas_minor:
+        cas_minor_source = "sci-select/ShowJCR or EasyScholar"
+        cas_minor_status = "not verified"
     xinrui = metrics.get("xinrui_partition_2026") or (_easy_field(easy or {}, "xinrui_quartile"))
+    if metrics.get("xinrui_partition_2026"):
+        xinrui_status = "profile_snapshot"
+    elif _easy_field(easy or {}, "xinrui_quartile"):
+        xinrui_status = "third-party-api"
+    else:
+        xinrui_status = "not verified"
     warning = metrics.get("warning")
     if warning is None:
         warning = _easy_field(easy or {}, "cas_warning") or _easy_field(easy or {}, "xinrui_warning")
+    if "warning" in metrics and metrics.get("warning") is not None:
+        warning_status = "profile_snapshot"
+    elif _easy_field(easy or {}, "cas_warning") or _easy_field(easy or {}, "xinrui_warning"):
+        warning_status = "third-party-api"
+    else:
+        warning_status = "not verified"
 
     card = {
         "journal_name": metrics.get("name", ""),
         "issn": metrics.get("issn", ""),
         "impact_factor": _field(impact_factor, impact_factor_source, impact_factor_status),
         "jcr_quartile": _field(jcr, "sci-select/ShowJCR or EasyScholar", jcr_status),
-        "cas_major_quartile_2025": _field(cas_major, "sci-select/ShowJCR or EasyScholar", "profile_snapshot" if metrics.get("cas_partition_2025") else "third-party-api"),
+        "cas_major_quartile_2025": _field(cas_major, "sci-select/ShowJCR or EasyScholar", cas_major_status),
         "cas_minor_quartile_2025": _field(cas_minor, cas_minor_source, cas_minor_status),
-        "xinrui_quartile_2026": _field(xinrui, "sci-select/ShowJCR or EasyScholar", "profile_snapshot" if metrics.get("xinrui_partition_2026") else "third-party-api"),
+        "xinrui_quartile_2026": _field(xinrui, "sci-select/ShowJCR or EasyScholar", xinrui_status),
         "letpub_review_speed": _field(metrics.get("speed"), "LetPub", "succeeded" if letpub_status["status"] in {"succeeded", "partial"} else letpub_status["status"], letpub_status["reason"]),
         "indexing": _field(metrics.get("sci_type"), "LetPub/journal-index", "partial" if metrics.get("sci_type") else "not verified"),
-        "warning": _field(warning, "sci-select/ShowJCR or EasyScholar", "partial" if warning is not None else "not verified"),
+        "warning": _field(warning, "sci-select/ShowJCR or EasyScholar", warning_status),
         "_source_status": {
             "journal-index": index_status,
             "letpub": letpub_status,
@@ -163,6 +185,12 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
     }
     if metrics.get("if_year"):
         card["impact_factor"]["year"] = metrics["if_year"]
+    if metrics.get("jcr_release_year"):
+        card["jcr_quartile"]["release_year"] = metrics["jcr_release_year"]
+        card["impact_factor"]["jcr_release_year"] = metrics["jcr_release_year"]
+    if metrics.get("jcr_data_year"):
+        card["jcr_quartile"]["data_year"] = metrics["jcr_data_year"]
+        card["impact_factor"]["data_year"] = metrics["jcr_data_year"]
     if metrics.get("jcr_categories"):
         card["jcr_quartile"]["categories"] = metrics["jcr_categories"]
     elif metrics.get("field"):
