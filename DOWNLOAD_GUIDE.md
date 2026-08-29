@@ -176,6 +176,12 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 
 `ShowJCR` 是数据/应用仓库，不是 Skill；`jcr_mcp` 是可选 MCP 服务，不能替代 `sci-select`。
 
+仓库自带实测运行器：
+
+```text
+python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --pretty
+```
+
 如果安装器无法识别嵌套包，就把相应目录复制到运行时配置的 Skills 目录，并保持目录名与 Skill 名一致。目标路径应从本机配置解析，不要硬编码其他机器的绝对路径。
 
 ## 6. 按任务准备最小下载集

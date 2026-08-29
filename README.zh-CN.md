@@ -124,6 +124,14 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 
 实现提示：`jcr_mcp` 当前提供的是通用期刊搜索/分区接口，不能单独替代字段级来源追踪。若要稳定返回分开的 JCR/CAS/新锐列，建议使用 `sci-select` 配合 ShowJCR 的 CSV/SQLite 数据，或扩展 MCP 返回结构；LetPub 审稿速度仍需实时页面/浏览器核验。
 
+运行仓库自带的实测流程：
+
+```text
+python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --pretty
+```
+
+该运行器会加载已安装的 `sci-select`，调用本地索引和 LetPub；如果配置了 `EASY_SCHOLAR_SECRET_KEY`，再合并 EasyScholar。未配置时不会发送 EasyScholar 请求，并会明确保留字段状态。
+
 **审阅并修回 DOCX 稿件**
 
 `scixz` + 内置 `deterministic-local-file-reading` + 专有 `anthropics-docx` + 公开 `nature-review-studio` 或 `academic-paper-reviewer` + 公开 `check-reporting` + 内置 `revise` + 内置 `manage-refs` 或公开 `verify-refs`。

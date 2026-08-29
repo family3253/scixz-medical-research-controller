@@ -24,6 +24,11 @@ adapter's `references/easyscholar.md` before enabling it.
 
 `find-journal` or `journal-recommender` is not required for an exact lookup. Invoke one only when the user also asks whether the journal fits a manuscript or requests a ranked submission strategy.
 
+The repository smoke runner is `scripts/journal_lookup.py`. It loads the installed
+`sci-select`, calls its local-index/LetPub path, optionally calls the EasyScholar adapter,
+and emits a JSON journal card. It fails closed when `sci-select` is absent and skips
+EasyScholar without sending a request when `EASY_SCHOLAR_SECRET_KEY` is not configured.
+
 ## Outputs
 
 Return one card per journal with:

@@ -122,6 +122,14 @@ Use [`sci-select`](https://github.com/keros68/sci-select) as the primary lookup 
 
 Expected fields: canonical title/ISSN, IF/JIF and edition/year, JCR Q by category, 2025 CAS major/minor quartiles, 2026 Emerging/New Journal classification, LetPub review-speed text with URL/date, indexing, OA/APC, warning status, and `_source_status`. Missing or conflicting values must remain visible.
 
+Run the repository smoke workflow with:
+
+```text
+python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --pretty
+```
+
+The runner loads the installed `sci-select`, uses the local index plus LetPub, and optionally merges EasyScholar when `EASY_SCHOLAR_SECRET_KEY` is configured. Without that variable it skips EasyScholar without sending a request and keeps the field status explicit.
+
 Implementation note: `jcr_mcp` currently exposes a general journal-search/partition interface and does not replace the field-level provenance contract by itself. For separate JCR/CAS/XinRui columns, use `sci-select` with ShowJCR/CSV/SQLite data or extend the MCP response schema; LetPub review speed still requires a live page/browser check.
 
 **Review and revise a DOCX manuscript**
