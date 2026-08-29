@@ -61,6 +61,7 @@ The following are public Skill repositories or public Skill directories verified
 | Manuscript drafting or broad revision | `academic-paper` | [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper) |
 | Literature retrieval/synthesis | `research-lit` | [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit) |
 | Literature retrieval/synthesis | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
+| Known-journal lookup | `sci-select` | [keros68/sci-select](https://github.com/keros68/sci-select) |
 
 Public repositories and versions may change. Use the linked repository's release instructions rather than copying an unpinned local cache.
 
@@ -101,9 +102,27 @@ npx skills add ./bundled-skills/deterministic-local-file-reading --skill determi
 npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
+For the recommended known-journal lookup stack:
+
+```text
+npx skills add keros68/sci-select --skill sci-select -g
+git clone https://github.com/hitfyd/ShowJCR.git
+git clone https://github.com/yosh3289/jcr_mcp.git
+```
+
+`ShowJCR` is a data/application repository rather than a Skill; `jcr_mcp` is an optional MCP server rather than a replacement for `sci-select`.
+
 If the installer does not recognize a nested package, copy that package directory into the runtime's configured Skills directory and keep the directory name equal to the Skill name. Resolve the destination from your runtime configuration; do not hard-code another machine's absolute path.
 
 ### Minimal download sets by task
+
+**Known-journal lookup (journal name → metrics card)**
+
+Use [`sci-select`](https://github.com/keros68/sci-select) as the primary lookup Skill. Add the [`ShowJCR` data repository](https://github.com/hitfyd/ShowJCR) as the local/static source for JCR 2025, 2025 CAS, 2026 Emerging/New Journal data, and warning flags. If you want Codex to call that database as an MCP tool, use [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp), which wraps ShowJCR-style data. LetPub review-speed text is obtained live by `sci-select`; use [`agent-browser`](https://github.com/vercel-labs/agent-browser) or `chrome:control-chrome` only as a browser fallback. Verify current JIF/JCR/coverage at Clarivate or institutional sources. Use bundled `find-journal` only when you also want scope fit and a ranked submission cascade; do not run [`journal-recommender`](https://github.com/zero565656/journal-recommender) and `sci-select` redundantly for an exact-name lookup.
+
+Expected fields: canonical title/ISSN, IF/JIF and edition/year, JCR Q by category, 2025 CAS major/minor quartiles, 2026 Emerging/New Journal classification, LetPub review-speed text with URL/date, indexing, OA/APC, warning status, and `_source_status`. Missing or conflicting values must remain visible.
+
+Implementation note: `jcr_mcp` currently exposes a general journal-search/partition interface and does not replace the field-level provenance contract by itself. For separate JCR/CAS/XinRui columns, use `sci-select` with ShowJCR/CSV/SQLite data or extend the MCP response schema; LetPub review speed still requires a live page/browser check.
 
 **Review and revise a DOCX manuscript**
 

@@ -11,6 +11,7 @@ Do not vendor every dependency into this repository by default. Vendoring create
 | Route | Built into this repository | Download separately | External adapters / notes |
 |---|---|---|---|
 | Core controller | `scixz` | — | Codex-compatible Skill runtime |
+| Known-journal lookup | — | [`sci-select`](https://github.com/keros68/sci-select) | Add [`ShowJCR`](https://github.com/hitfyd/ShowJCR) as the JCR/CAS/XinRui data source or expose it through [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp); LetPub review speed is a live/browser field |
 | Local file intake | `deterministic-local-file-reading` | — | Add the reader matching the file: `anthropics-docx`, `anthropics-pdf`, `anthropics-xlsx`, or `anthropics-pptx` |
 | Manuscript review | — | [`nature-review-studio`](https://github.com/mumdark/nature-review-studio/tree/main/skill) **or** [`academic-paper-reviewer`](https://github.com/bystander563/academic-paper-reviewer-portable); [`check-reporting`](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting) for guideline audit; `scientific-critical-thinking` or `peer-review` for an independent perspective | Use the public source/catalog version |
 | Revision after review | `revise` | [`academic-paper`](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper); add `analyze-stats`/`make-figures` only when a new analysis/figure is required; add [`verify-refs`](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs) after citation edits | — |

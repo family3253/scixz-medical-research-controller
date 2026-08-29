@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22",
+  "generated": "2026-08-29",
   "contract": ["Entry and scope", "Inputs", "Route", "Outputs", "Verification", "Failure/fallback"],
   "functions": [
     {"task": "research-question", "workflow": "workflows/research_question.md", "mode": "panel", "primary": ["clinical-research-idea", "research-ideation"], "status": "complete"},
@@ -13,6 +13,7 @@
     {"task": "manuscript-review", "workflow": "workflows/manuscript_review.md", "mode": "council", "primary": ["nature-review-studio", "academic-paper-reviewer"], "status": "complete"},
     {"task": "reviewer-response", "workflow": "workflows/reviewer_response.md", "mode": "panel/recursive-review", "primary": ["reviewer-response-assistant", "nature-review-studio"], "status": "complete"},
     {"task": "revision-after-review", "workflow": "workflows/revision_after_review.md", "mode": "recursive-review", "primary": ["academic-paper", "revise"], "status": "complete"},
+    {"task": "journal-lookup", "workflow": "workflows/journal_lookup.md", "mode": "single/panel", "primary": ["sci-select"], "status": "complete"},
     {"task": "journal-selection", "workflow": "workflows/journal_selection.md", "mode": "panel", "primary": ["find-journal"], "status": "complete"},
     {"task": "citation-management", "workflow": "workflows/citation_management.md", "mode": "single/panel", "primary": ["bib-search-citation", "manage-refs", "verify-refs"], "status": "complete"},
     {"task": "figure-presentation", "workflow": "workflows/figure_presentation.md", "mode": "panel", "primary": ["make-figures", "scientific-visualization"], "status": "complete"},

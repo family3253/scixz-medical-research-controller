@@ -26,6 +26,11 @@
       "id": "section-depth-and-citation-allocation",
       "prompt": "/scixz 加强论文引言和讨论，要求讨论有深度，并尽量避免与引言重复引用",
       "assertions": ["reads manuscript_section_depth reference", "creates section briefs for requested sections", "routes evidence discovery and reference verification only when needed", "produces separate introduction-only, discussion-only, and justified shared-reference lists", "does not fabricate citations", "checks discussion for finding-meaning-boundary reasoning"]
+    },
+    {
+      "id": "known-journal-lookup",
+      "prompt": "/scixz 查询 Journal of Global Antimicrobial Resistance 的 IF、中科院分区、JCR Q 区、2026 新锐分区和 LetPub 审稿速度",
+      "assertions": ["classifies as journal-lookup rather than journal-selection", "routes sci-select when installed", "uses ShowJCR or jcr_mcp for JCR/CAS/XinRui fields", "uses LetPub/browser evidence for review-speed text", "returns year/source/status for each field", "does not infer missing metrics or call third-party data authoritative"]
     }
   ]
 }

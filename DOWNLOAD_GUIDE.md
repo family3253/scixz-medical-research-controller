@@ -27,6 +27,7 @@ The following public Skill repositories or Skill directories were verified for t
 | Manuscript drafting or broad revision | `academic-paper` | [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper) |
 | Literature retrieval/synthesis | `research-lit` | [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit) |
 | Literature retrieval/synthesis | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
+| Known-journal lookup | `sci-select` | [keros68/sci-select](https://github.com/keros68/sci-select) |
 
 ## 2a. Catalog-dependent route Skills
 
@@ -64,6 +65,16 @@ npx skills add ./bundled-skills/find-journal --skill find-journal -g
 npx skills add ./bundled-skills/deterministic-local-file-reading --skill deterministic-local-file-reading -g
 npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
+
+Recommended known-journal lookup stack:
+
+```text
+npx skills add keros68/sci-select --skill sci-select -g
+git clone https://github.com/hitfyd/ShowJCR.git
+git clone https://github.com/yosh3289/jcr_mcp.git
+```
+
+`ShowJCR` is a data/application repository rather than a Skill; `jcr_mcp` is an optional MCP server and does not replace `sci-select`.
 
 If the installer does not recognize a nested package, copy that package directory into the runtime's configured Skills directory and keep the directory name equal to the Skill name. Resolve the destination from your runtime configuration; do not hard-code another machine's absolute path.
 
@@ -155,9 +166,23 @@ npx skills add ./bundled-skills/deterministic-local-file-reading --skill determi
 npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
+推荐的“输入期刊名查全指标”组合：
+
+```text
+npx skills add keros68/sci-select --skill sci-select -g
+git clone https://github.com/hitfyd/ShowJCR.git
+git clone https://github.com/yosh3289/jcr_mcp.git
+```
+
+`ShowJCR` 是数据/应用仓库，不是 Skill；`jcr_mcp` 是可选 MCP 服务，不能替代 `sci-select`。
+
 如果安装器无法识别嵌套包，就把相应目录复制到运行时配置的 Skills 目录，并保持目录名与 Skill 名一致。目标路径应从本机配置解析，不要硬编码其他机器的绝对路径。
 
 ## 6. 按任务准备最小下载集
+
+### 已知期刊查询（输入期刊名 → 指标卡片）
+
+以 [`sci-select`](https://github.com/keros68/sci-select) 作为主查询 Skill；加入 [`ShowJCR`](https://github.com/hitfyd/ShowJCR) 作为 JCR 2025、2025 中科院、2026 新锐分区和预警标记的数据源。如果希望让 Codex 通过 MCP 直接调用数据库，可使用 [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp)。LetPub 审稿速度由 `sci-select` 在线获取；页面受限时再用 [`agent-browser`](https://github.com/vercel-labs/agent-browser) 或 `chrome:control-chrome` 做浏览器回退。只有在还需要 scope 匹配和投稿梯队时，才加入内置 `find-journal`。
 
 ### 审阅并修回 DOCX 稿件
 

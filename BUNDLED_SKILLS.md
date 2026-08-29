@@ -25,6 +25,8 @@ These components have public GitHub sources and are intentionally referenced as 
 - `academic-paper`: [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper)
 - `research-lit`: [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit)
 - `deep-research`: [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research)
+- `sci-select`: [keros68/sci-select](https://github.com/keros68/sci-select)
+- `journal-recommender`: [zero565656/journal-recommender](https://github.com/zero565656/journal-recommender)
 
 Use the public source or the version pinned by your local Skill catalog.
 

@@ -49,6 +49,20 @@ For a planning or analysis task, use:
 6. `Actionable recommendation`
 7. `Reproducibility and reporting checklist`
 
+For a known-journal lookup (the user provides a journal name rather than an abstract to
+rank), return a structured journal card. At minimum include canonical title and ISSN when
+available; Impact Factor/JIF with edition or data year; JCR quartile with category and
+year; 2025 CAS major and minor quartiles (中科院大类/小类); 2026 Emerging/New Journal
+classification (新锐分区) when explicitly listed; LetPub review-speed text with page URL
+and retrieval date; indexing/coverage, OA/APC, warning status, and a source-status map.
+Mark each field `verified current`, `profile snapshot`, `conflicting`, `not available /
+not verified`, or `not listed` as appropriate. Never infer a quartile from IF, a generic
+tier, or another database. Use `sci-select` as the primary known-journal lookup Skill
+when installed; use ShowJCR data or the `jcr_mcp` adapter for local JCR/CAS/XinRui
+lookups, and a browser route for LetPub or official-source verification. Do not invoke
+`find-journal` or `journal-recommender` for an exact lookup unless the user also asks for
+scope fit or a submission recommendation.
+
 For a non-blocking request, complete the controller gate and execution in the same turn. Do not force a separate acknowledgement round merely to display the internal bureaucracy. Ask the user only when an ambiguity, authority gap, missing input, or external dependency genuinely changes the route.
 
 For manuscript review or reviewer response, hand off to `nature-review-studio` when its two-file DOCX/Markdown contract is appropriate. Do not duplicate that skill's deliverables in the SciXZ narrative.
@@ -56,6 +70,11 @@ For manuscript review or reviewer response, hand off to `nature-review-studio` w
 ## Explicit command examples
 
 Treat `/scixz 审稿 manuscript.pdf`, `/scixz 加强引言和讨论并核查参考文献`, `/scixz 设计研究方案`, `/scixz 分析 GEO 数据`, `/scixz 单细胞分析`, `/scixz 选刊 manuscript.pdf`, `/scixz 回复 reviewer`, and `/scixz 根据审稿意见修改 manuscript` as explicit router requests. The same routing applies when the user omits `/scixz` but clearly asks for a coordinated medical-research workflow.
+
+Treat `/scixz 查询期刊 Journal of Global Antimicrobial Resistance` or `/scixz 查期刊
+IJAA 的 IF、中科院、JCR、新锐和审稿速度` as `journal-lookup` requests. Treat
+`/scixz 为这篇论文推荐投稿期刊` as `journal-selection` instead; the latter remains
+the scope-fit and cascade workflow with its own external evidence gate.
 
 ## Local references
 

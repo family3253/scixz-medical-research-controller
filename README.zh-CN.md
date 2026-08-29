@@ -61,6 +61,7 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 | 稿件撰写或大范围改写 | `academic-paper` | [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper) |
 | 文献检索/综合 | `research-lit` | [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit) |
 | 文献检索/综合 | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
+| 已知期刊查询 | `sci-select` | [keros68/sci-select](https://github.com/keros68/sci-select) |
 
 公开仓库和版本会变化。请优先按照链接仓库的发行说明安装，不要直接复制未固定版本的本地缓存。
 
@@ -101,9 +102,27 @@ npx skills add ./bundled-skills/deterministic-local-file-reading --skill determi
 npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
+推荐的“输入期刊名查全指标”组合安装方式：
+
+```text
+npx skills add keros68/sci-select --skill sci-select -g
+git clone https://github.com/hitfyd/ShowJCR.git
+git clone https://github.com/yosh3289/jcr_mcp.git
+```
+
+其中 `ShowJCR` 是数据/应用仓库，不是 Skill；`jcr_mcp` 是可选 MCP 服务，不能替代 `sci-select` 的查询与格式化层。
+
 如果安装器无法识别嵌套包，就把相应目录复制到运行时配置的 Skills 目录，并保持目录名与 Skill 名一致。目标路径应从本机配置解析，不要硬编码其他机器的绝对路径。
 
 ### 按任务准备最小下载集
+
+**已知期刊查询（输入期刊名 → 指标卡片）**
+
+以 [`sci-select`](https://github.com/keros68/sci-select) 作为主查询 Skill；加入 [`ShowJCR 数据仓库`](https://github.com/hitfyd/ShowJCR) 作为 JCR 2025、2025 中科院、2026 新锐分区和预警标记的本地/静态数据源。如果希望让 Codex 通过 MCP 直接调用数据库，可使用封装 ShowJCR 数据的 [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp)。LetPub 审稿速度由 `sci-select` 在线获取；页面受限时再用 [`agent-browser`](https://github.com/vercel-labs/agent-browser) 或 `chrome:control-chrome` 做浏览器回退。当前 JIF/JCR/收录状态仍应通过 Clarivate 或机构权限复核。只有在还需要 scope 匹配和投稿梯队时，才加入仓库内置的 `find-journal`；对单个期刊精确查询不要与 [`journal-recommender`](https://github.com/zero565656/journal-recommender) 重复运行。
+
+预期输出字段：规范期刊名/ISSN、IF/JIF 及版本年份、按学科分类的 JCR Q 区、2025 中科院大类/小类分区、2026 新锐分区、带页面网址和日期的 LetPub 审稿速度、收录状态、OA/APC、预警状态及 `_source_status`。缺失或冲突字段必须保留并明确标注。
+
+实现提示：`jcr_mcp` 当前提供的是通用期刊搜索/分区接口，不能单独替代字段级来源追踪。若要稳定返回分开的 JCR/CAS/新锐列，建议使用 `sci-select` 配合 ShowJCR 的 CSV/SQLite 数据，或扩展 MCP 返回结构；LetPub 审稿速度仍需实时页面/浏览器核验。
 
 **审阅并修回 DOCX 稿件**
 

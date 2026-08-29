@@ -2,7 +2,7 @@
 
 ## Entry and scope
 
-Use when the user asks where to submit a manuscript, how to rank journals, or how to build a fallback submission cascade. It does not guarantee acceptance and does not use stale metrics as current facts.
+Use when the user asks where to submit a manuscript, how to rank journals, or how to build a fallback submission cascade. It does not guarantee acceptance and does not use stale metrics as current facts. For a known journal name with no manuscript-ranking request, route to `journal-lookup` instead.
 
 ## Inputs
 

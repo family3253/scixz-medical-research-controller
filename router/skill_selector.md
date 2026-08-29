@@ -18,6 +18,7 @@ Use this selector only after the controller reaches `APPROVED_FOR_EXECUTION`. Us
 | source-data/research-integrity audit | `paperconan` when source tables/assets are supplied | `sci-manuscript-preflight`, `verify-refs`, `scientific-critical-thinking` |
 | reviewer response | `reviewer-response-assistant` | `nature-review-studio`, `academic-write-all-skill`, `verification` |
 | revision after review | `academic-paper` or `revise` | `reviewer-response-assistant`, `scientific-writing`, `analyze-stats`, `make-figures`, `verify-refs`, `check-reporting` |
+| known-journal lookup | `sci-select` | ShowJCR data or `jcr_mcp` for JCR/CAS/XinRui fields; `agent-browser` or `chrome:control-chrome` for LetPub/official-source verification; `find-journal` only when scope fit or submission ranking is also requested |
 | journal fit | `find-journal` | required external adapters `jane` (PubMed-similarity) and `ipubmed` (browser-assisted filters/exports), `journal-format-converter`, `venue-templates`, `sync-submission` |
 | citation/reference work | `manage-refs` or `verify-refs` | required external adapters `jane` (candidate discovery) and `ipubmed` (citation-trace/title triage), `citation-management`, `academic-citation-manager`, `zotero-reviewed-import` |
 | figures/presentations | `make-figures` or `scientific-visualization` | `academic-python-plotting`, `present-paper`, `scientific-slides` |

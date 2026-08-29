@@ -15,6 +15,7 @@ Classify the request by the user's actual goal, not by an incidental file type. 
 | manuscript-review | review, peer review, referee, major/minor concerns | reviewer report, decision rationale |
 | reviewer-response | rebuttal, response to reviewers, revision plan | point-by-point response and task table |
 | revision-after-review | revise after comments, R1/R2, major revision, resubmit, tracked changes | revised manuscript, response letter, revision ledger, re-review |
+| journal-lookup | known journal name, query journal, IF, JCR, CAS, 中科院分区, 新锐分区, review speed | structured journal metadata card with dated sources and missing-field status |
 | journal-selection | select journal, scope, APC, impact, fit | ranked fit and submission cascade |
 | citation-management | DOI, references, citation check, BibTeX, Zotero | verified references and normalized citations |
 | figure-presentation | figures, plots, visual abstract, slides | publication figure or presentation artifact |

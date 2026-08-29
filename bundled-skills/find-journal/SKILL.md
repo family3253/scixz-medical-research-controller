@@ -1,6 +1,6 @@
 ---
 name: find-journal
-description: Journal recommendation engine for medical manuscripts. 2-pass matching against a curated public profile library plus any user-local private profiles, enriched with detailed write-paper profiles for top-5 output. Returns ranked recommendations with scope fit rationale, AI disclosure policy, and homepage links. Impact-factor and APC figures in a profile are point-in-time and may be stale — verify current metrics at the journal site. A pre-ranking acceptance-readiness pre-flight scans the manuscript for design-ceiling, unfixable-defect, and importance-risk signals to add an acceptance-feasibility axis alongside scope fit, and the output includes a reject-fallback cascade plan.
+description: Journal recommendation engine for medical manuscripts. 2-pass matching against a curated public profile library plus any user-local private profiles, enriched with detailed write-paper profiles for top-5 output. Returns ranked recommendations with scope fit, a dated metric/classification block (IF, JCR quartile, CAS major/minor quartiles, and CAS Emerging/New Journal classification when available), AI disclosure policy, and homepage links. Metrics may be stale — verify each field at an authoritative source. A pre-ranking acceptance-readiness pre-flight scans the manuscript for design-ceiling, unfixable-defect, and importance-risk signals to add an acceptance-feasibility axis alongside scope fit, and the output includes a reject-fallback cascade plan.
 triggers: find journal, recommend journal, where to submit, which journal, journal selection, target journal, journal match
 tools: Read, Write, Edit, Grep, Glob
 model: inherit
@@ -59,7 +59,8 @@ that have not cleared the public bar live in the private library. See
 3. **Preferred tier**: Q1 / Q1-Q2 / any (default: any)
 4. **OA preference**: Full OA / Hybrid OK / No preference (default: no preference)
 5. **Field focus**: radiology, medical AI, clinical specialty, methodology, education, general medicine
-6. **Journals to exclude**: list any journals that have previously rejected this manuscript
+6. **Metric priorities**: optional IF floor, JCR/CAS quartile preference, Emerging/New Journal preference, indexing requirement, APC, speed, or risk
+7. **Journals to exclude**: list any journals that have previously rejected this manuscript
 
 If the user provides only an abstract, extract the study type from context. If ambiguous, ask.
 
@@ -152,6 +153,10 @@ block (selectivity band, desk-reject triggers, design expectations, cascade/tran
 `${CLAUDE_SKILL_DIR}/references/acceptance_signals_schema.md`). A profile without an
 Acceptance Signals block falls back to its Special Notes plus the Phase 2.5 taxonomy.
 
+When a profile contains metric information, keep it as a dated snapshot rather than a
+current fact. The metric fields and provenance labels are defined in
+`references/journal_metrics_schema.md`.
+
 Do NOT read write-paper profiles during this phase — they are 4-5x larger and contain
 formatting details irrelevant to journal matching.
 
@@ -228,6 +233,11 @@ for the output:
 This enriches the recommendation output without loading all write-paper profiles.
 If no write-paper profile exists, use the compact profile data only.
 
+For every top-5 journal, also construct the metric/classification record defined in
+`references/journal_metrics_schema.md`. Do not infer a quartile from the journal's tier,
+impact factor, reputation, or a different database. A journal may have multiple JCR or
+CAS subject categories; preserve the category labels rather than collapsing them.
+
 
 ---
 
@@ -244,6 +254,21 @@ Reference specific keywords, disease areas, or methodological preferences from t
 **Article types accepted:** [relevant types from profile]
 
 **Open Access:** [Full OA / Hybrid / Subscription]
+
+**Metrics and classifications:**
+
+- **Impact Factor (IF):** [value or `Not available / not verified`] — [JCR edition/year; source URL; verified date]
+- **JCR quartile:** [Q1/Q2/Q3/Q4 or `Not available / not verified`] — [category; JCR year; source URL; verified date]
+- **CAS major quartile (中科院大类分区):** [1/2/3/4 or `Not available / not verified`] — [category; edition/year; source URL; verified date]
+- **CAS minor quartile (中科院小类分区):** [1/2/3/4 or `Not available / not verified`] — [category; edition/year; source URL; verified date]
+- **CAS Emerging/New Journal classification (新锐分区):** [value or `Not listed / not verified`] — [category; edition/year; source URL; verified date]
+- **LetPub review speed:** [verbatim page text or `Not available / not verified`] — [LetPub page URL; retrieval date; source status]
+- **Other indicators:** [CiteScore/SJR/SNIP/indexing status when relevant, each with year, source, and verification state]
+
+Use `profile snapshot` only when the value comes from a dated local profile and has not
+been independently rechecked. Use `verified current` only after checking an authoritative
+source. JANE and iPubMed can support candidate discovery, but they are not authoritative
+sources for IF, JCR, CAS, or Emerging/New Journal classifications.
 
 **Acceptance feasibility:** [High / Medium / Low] — [1 line: how the manuscript's
 Phase 2.5 ceiling meets this journal's bar; spell out any mismatch, e.g., "scope fit
@@ -310,12 +335,15 @@ Always append this disclaimer at the bottom of every recommendation output:
 ---
 **Important Disclaimer**
 
-Impact Factor, APC fees, acceptance rates, and turnaround times change frequently
-and are subject to copyright restrictions. Please verify current values directly
-at each journal's homepage before making your submission decision.
+Impact Factor, JCR/CAS quartiles, Emerging/New Journal classifications, APC fees,
+acceptance rates, and turnaround times change frequently; some values require institutional
+access and may be subject to copyright restrictions. Please verify current values directly
+from the relevant authoritative source before making your submission decision.
 
 Recommended verification sources:
 - Journal Citation Reports (JCR) via institutional access: for Impact Factor
+- Clarivate JCR category page: for JCR quartile and category/year
+- Chinese Academy of Sciences journal ranking release: for CAS major/minor and Emerging/New Journal classification
 - Journal homepage -> Author Guidelines: for current APC and formatting requirements
 - Clarivate Master Journal List: for indexing status
 ```
