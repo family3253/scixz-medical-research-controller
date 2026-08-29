@@ -22,6 +22,11 @@ XinRui, and warning fields, but its secret must come from `EASY_SCHOLAR_SECRET_K
 must never be written to a manifest, README, log, or command-line argument. Read the
 adapter's `references/easyscholar.md` before enabling it.
 
+Clarivate release years and metric data years must be kept separate. As of August 2026,
+the current Clarivate Journal Citation Reports release is the 2026 JCR release, and it
+reflects 2025 citation/JIF data. Prefer output such as `JCR release: 2026; JIF/JCR data
+year: 2025` when both fields are available.
+
 `find-journal` or `journal-recommender` is not required for an exact lookup. Invoke one only when the user also asks whether the journal fits a manuscript or requests a ranked submission strategy.
 
 The repository smoke runner is `scripts/journal_lookup.py`. It loads the installed
@@ -34,7 +39,7 @@ EasyScholar without sending a request when `EASY_SCHOLAR_SECRET_KEY` is not conf
 Return one card per journal with:
 
 - canonical journal title, abbreviation, ISSN/eISSN, publisher, homepage, and author-guideline URL when available;
-- Impact Factor/JIF with the JCR edition or data year and source/status;
+- Impact Factor/JIF with the JCR release year, data/JIF year, and source/status;
 - JCR quartile(s), preserving category labels, year, source, and status;
 - `2025 CAS major quartile` and `2025 CAS minor quartile` (中科院大类/小类) with category, edition, source, and status;
 - `2026 Emerging/New Journal classification` (2026 新锐分区) when explicitly listed, with category, source, and status;
