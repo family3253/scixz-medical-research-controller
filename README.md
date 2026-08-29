@@ -47,25 +47,26 @@ These local-only companion Skills are already included under `bundled-skills/`:
 
 No additional download is needed for these four. If your runtime does not automatically discover nested packages, install each subdirectory as an independent Skill.
 
-### Public Skills to download separately
+### Verified public Skill repositories
 
-These Skills already have discoverable public sources and are intentionally not duplicated here:
+The following are public Skill repositories or public Skill directories verified for this release (checked 2026-08-29). They are intentionally not duplicated here:
 
-| Use case | Download separately |
-|---|---|
-| Manuscript peer review | `nature-review-studio` or `academic-paper-reviewer` |
-| Reporting-guideline audit | `check-reporting` |
-| Reference authenticity audit | `verify-refs` |
-| Submission-readiness preflight | `sci-manuscript-preflight` |
-| Manuscript drafting or broad revision | `academic-paper` |
-| Literature retrieval/synthesis | `research-lit`, `deep-research`, `search-lit`, or `pubmed-database` |
-| Statistical analysis | `analyze-stats` |
-| Figures and tables | `make-figures`, `academic-python-plotting`, or the plotting Skill required by the analysis |
-| Data cleaning and provenance | `clean-data`, `deidentify`, `generate-codebook`, and optionally `version-dataset` |
-| Sample-size planning | `calc-sample-size` |
-| Submission packaging | `sync-submission`, `venue-templates`, and optionally `paper-audit` |
+| Use case | Skill | Repository |
+|---|---|---|
+| Manuscript peer review | `nature-review-studio` | [mumdark/nature-review-studio/skill](https://github.com/mumdark/nature-review-studio/tree/main/skill) |
+| Manuscript peer review | `academic-paper-reviewer` | [bystander563/academic-paper-reviewer-portable](https://github.com/bystander563/academic-paper-reviewer-portable) (Codex-portable) or [fbdeme/academic-paper-reviewer](https://github.com/fbdeme/academic-paper-reviewer) |
+| Reporting-guideline audit | `check-reporting` | [Aperivue/check-reporting/skills/check-reporting](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting) |
+| Reference authenticity audit | `verify-refs` | [Aperivue/verify-refs/skills/verify-refs](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs) |
+| Submission-readiness preflight | `sci-manuscript-preflight` | [VivalavidaLu/sci-manuscript-preflight](https://github.com/VivalavidaLu/sci-manuscript-preflight/tree/master) |
+| Manuscript drafting or broad revision | `academic-paper` | [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper) |
+| Literature retrieval/synthesis | `research-lit` | [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit) |
+| Literature retrieval/synthesis | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
 
-Public repositories and versions may change. Use the Skill catalog or the source repository's release instructions rather than copying an unpinned local cache.
+Public repositories and versions may change. Use the linked repository's release instructions rather than copying an unpinned local cache.
+
+### Catalog-dependent route Skills
+
+The following route names are available in the local Skill catalog, but this release does not assert an exact public GitHub Skill repository for them. Obtain the current version from the active catalog or your authorized distribution: `search-lit`, `pubmed-database`, `analyze-stats`, `make-figures`, `academic-python-plotting`, `clean-data`, `deidentify`, `generate-codebook`, `version-dataset`, `calc-sample-size`, `sync-submission`, `venue-templates`, `paper-audit`, `bulk-rnaseq`, and `scanpy`.
 
 ### Proprietary readers to obtain from an authorized source
 
@@ -114,7 +115,7 @@ If the installer does not recognize a nested package, copy that package director
 
 **Perform a new statistical analysis**
 
-`scixz` + public `analyze-stats` + the relevant data-preparation and plotting Skills. Preserve analysis scripts, inputs, versions, and outputs in a private run directory.
+`scixz` + catalog-provided `analyze-stats` + the relevant data-preparation and plotting Skills. Preserve analysis scripts, inputs, versions, and outputs in a private run directory.
 
 **Work with GEO/RNA-seq or single-cell data**
 

@@ -15,7 +15,18 @@ For the full list of Skills that users must download separately, see [`DOWNLOAD_
 
 ## Public components referenced, not copied
 
-These components have public GitHub sources and are intentionally referenced as dependencies rather than duplicated here: `nature-review-studio`, `academic-paper-reviewer`, `check-reporting`, `verify-refs`, and `sci-manuscript-preflight`. Use the public source or the version pinned by your local Skill catalog.
+These components have public GitHub sources and are intentionally referenced as dependencies rather than duplicated here:
+
+- `nature-review-studio`: [mumdark/nature-review-studio/skill](https://github.com/mumdark/nature-review-studio/tree/main/skill)
+- `academic-paper-reviewer`: [bystander563/academic-paper-reviewer-portable](https://github.com/bystander563/academic-paper-reviewer-portable) or [fbdeme/academic-paper-reviewer](https://github.com/fbdeme/academic-paper-reviewer)
+- `check-reporting`: [Aperivue/check-reporting/skills/check-reporting](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting)
+- `verify-refs`: [Aperivue/verify-refs/skills/verify-refs](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs)
+- `sci-manuscript-preflight`: [VivalavidaLu/sci-manuscript-preflight](https://github.com/VivalavidaLu/sci-manuscript-preflight/tree/master)
+- `academic-paper`: [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper)
+- `research-lit`: [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit)
+- `deep-research`: [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research)
+
+Use the public source or the version pinned by your local Skill catalog.
 
 ## Deliberately excluded
 

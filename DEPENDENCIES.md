@@ -12,15 +12,15 @@ Do not vendor every dependency into this repository by default. Vendoring create
 |---|---|---|---|
 | Core controller | `scixz` | — | Codex-compatible Skill runtime |
 | Local file intake | `deterministic-local-file-reading` | — | Add the reader matching the file: `anthropics-docx`, `anthropics-pdf`, `anthropics-xlsx`, or `anthropics-pptx` |
-| Manuscript review | — | `nature-review-studio` **or** `academic-paper-reviewer`; `check-reporting` for guideline audit; `scientific-critical-thinking` or `peer-review` for an independent perspective | Use the public source/catalog version |
-| Revision after review | `revise` | `academic-paper`; add `analyze-stats`/`make-figures` only when a new analysis/figure is required; add `verify-refs` after citation edits | — |
+| Manuscript review | — | [`nature-review-studio`](https://github.com/mumdark/nature-review-studio/tree/main/skill) **or** [`academic-paper-reviewer`](https://github.com/bystander563/academic-paper-reviewer-portable); [`check-reporting`](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting) for guideline audit; `scientific-critical-thinking` or `peer-review` for an independent perspective | Use the public source/catalog version |
+| Revision after review | `revise` | [`academic-paper`](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper); add `analyze-stats`/`make-figures` only when a new analysis/figure is required; add [`verify-refs`](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs) after citation edits | — |
 | Journal selection | `find-journal` | — | JANE **and** iPubMed are mandatory evidence branches; verify current journal policy at the journal site |
-| Citation management | `manage-refs` | `verify-refs` if preferred | JANE **and** iPubMed are mandatory discovery/triage branches; canonical verification remains local/authoritative |
-| Literature synthesis | — | `research-lit` or `deep-research`; add `pubmed-database` or `search-lit` when direct retrieval is needed | — |
+| Citation management | `manage-refs` | [`verify-refs`](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs) if preferred | JANE **and** iPubMed are mandatory discovery/triage branches; canonical verification remains local/authoritative |
+| Literature synthesis | — | [`research-lit`](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit) or [`deep-research`](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research); add `pubmed-database` or `search-lit` when direct retrieval is needed | — |
 | Statistical analysis | — | `analyze-stats` | Use the relevant R/Python runtime and preserve analysis scripts plus outputs |
 | Data preparation | — | `clean-data`, `deidentify`, `generate-codebook`; add `version-dataset` for deterministic manifests | — |
 | Sample-size planning | — | `calc-sample-size` | Record assumptions and reproducible calculations |
-| Submission preflight | — | `sci-manuscript-preflight`; optional `paper-audit`, `verify-refs`, `check-reporting`, `sync-submission`, `venue-templates` | — |
+| Submission preflight | — | [`sci-manuscript-preflight`](https://github.com/VivalavidaLu/sci-manuscript-preflight/tree/master); optional `paper-audit`, [`verify-refs`](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs), [`check-reporting`](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting), `sync-submission`, `venue-templates` | — |
 
 ## Common document runtimes
 

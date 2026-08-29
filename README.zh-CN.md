@@ -47,25 +47,26 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 这 4 个不需要再下载。如果运行环境不会自动发现嵌套目录，请把每个子目录作为独立 Skill 安装。
 
-### 需要自行下载的公开 Skill
+### 已核实的公开 Skill 仓库
 
-已有公开来源、因此没有重复复制到本仓库的 Skill 包括：
+以下是本版本已核实、可直接访问的公开 Skill 仓库或 Skill 目录（核对日期：2026-08-29）。它们因此没有重复复制到本仓库：
 
-| 用途 | 需要自行下载 |
-|---|---|
-| 稿件同行评审 | `nature-review-studio` 或 `academic-paper-reviewer` |
-| 报告规范核查 | `check-reporting` |
-| 参考文献真实性核查 | `verify-refs` |
-| 投稿前预检 | `sci-manuscript-preflight` |
-| 稿件撰写或大范围改写 | `academic-paper` |
-| 文献检索/综合 | `research-lit`、`deep-research`、`search-lit` 或 `pubmed-database` |
-| 统计分析 | `analyze-stats` |
-| 图表制作 | `make-figures`、`academic-python-plotting` 或分析所需的绘图 Skill |
-| 数据清洗与溯源 | `clean-data`、`deidentify`、`generate-codebook`，必要时加 `version-dataset` |
-| 样本量规划 | `calc-sample-size` |
-| 投稿打包 | `sync-submission`、`venue-templates`，必要时加 `paper-audit` |
+| 用途 | Skill | 仓库地址 |
+|---|---|---|
+| 稿件同行评审 | `nature-review-studio` | [mumdark/nature-review-studio/skill](https://github.com/mumdark/nature-review-studio/tree/main/skill) |
+| 稿件同行评审 | `academic-paper-reviewer` | [bystander563/academic-paper-reviewer-portable](https://github.com/bystander563/academic-paper-reviewer-portable)（Codex 便携版）或 [fbdeme/academic-paper-reviewer](https://github.com/fbdeme/academic-paper-reviewer) |
+| 报告规范核查 | `check-reporting` | [Aperivue/check-reporting/skills/check-reporting](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting) |
+| 参考文献真实性核查 | `verify-refs` | [Aperivue/verify-refs/skills/verify-refs](https://github.com/Aperivue/verify-refs/tree/main/skills/verify-refs) |
+| 投稿前预检 | `sci-manuscript-preflight` | [VivalavidaLu/sci-manuscript-preflight](https://github.com/VivalavidaLu/sci-manuscript-preflight/tree/master) |
+| 稿件撰写或大范围改写 | `academic-paper` | [Imbad0202/academic-research-skills/academic-paper](https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper) |
+| 文献检索/综合 | `research-lit` | [wanshuiyin/Auto-claude-code-research-in-sleep/skills/research-lit](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/research-lit) |
+| 文献检索/综合 | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
 
-公开仓库和版本会变化。请通过 Skill catalog 或源仓库的发行说明安装，不要直接复制未固定版本的本地缓存。
+公开仓库和版本会变化。请优先按照链接仓库的发行说明安装，不要直接复制未固定版本的本地缓存。
+
+### 依赖 Skill catalog 的路线
+
+以下名称存在于本地 Skill catalog，但本版本没有为它们确认到可直接对应的公开 GitHub Skill 仓库。因此请从当前 catalog 或有授权的发行源获取：`search-lit`、`pubmed-database`、`analyze-stats`、`make-figures`、`academic-python-plotting`、`clean-data`、`deidentify`、`generate-codebook`、`version-dataset`、`calc-sample-size`、`sync-submission`、`venue-templates`、`paper-audit`、`bulk-rnaseq` 和 `scanpy`。
 
 ### 需要从授权来源获取的专有读取器
 
@@ -114,7 +115,7 @@ npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 
 **新增统计分析**
 
-`scixz` + 公开 `analyze-stats` + 所需的数据准备和绘图 Skill。分析脚本、输入、版本和输出应保存在私有运行目录。
+`scixz` + 由 catalog 提供的 `analyze-stats` + 所需的数据准备和绘图 Skill。分析脚本、输入、版本和输出应保存在私有运行目录。
 
 **GEO/RNA-seq 或单细胞分析**
 
