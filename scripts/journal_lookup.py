@@ -23,6 +23,8 @@ def _candidate_sci_select_roots(explicit: str = "") -> Iterable[Path]:
     configured = os.environ.get("SCIXZ_SCI_SELECT_PATH", "").strip()
     if configured:
         yield Path(configured).expanduser()
+    repo_bundled = Path(__file__).resolve().parents[1] / "bundled-skills" / "sci-select"
+    yield repo_bundled
     codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser()
     yield codex_home / "skills" / "sci-select"
     yield Path.home() / ".agents" / "skills" / "sci-select"
@@ -93,7 +95,31 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
         else {"status": "skipped", "reason": "EASY_SCHOLAR_SECRET_KEY not configured or adapter not found"}
     )
 
-    jcr = metrics.get("jcr_quartile") or (_easy_field(easy or {}, "jcr_quartile"))
+    impact_factor = (
+        metrics.get("impact_factor")
+        or metrics.get("real_time_if")
+        or metrics.get("jif")
+        or _easy_field(easy or {}, "sciif")
+    )
+    impact_factor_source = "sci-select/LetPub or EasyScholar"
+    impact_factor_status = (
+        "profile_snapshot"
+        if metrics.get("impact_factor") or metrics.get("real_time_if") or metrics.get("jif")
+        else "third-party-api"
+    )
+
+    jcr = (
+        metrics.get("jcr_quartile")
+        or metrics.get("jcr_partition")
+        or metrics.get("jcr_q")
+        or _easy_field(easy or {}, "jcr_quartile")
+    )
+    if any(metrics.get(k) for k in ("jcr_quartile", "jcr_partition", "jcr_q")):
+        jcr_status = "profile_snapshot"
+    elif _easy_field(easy or {}, "jcr_quartile"):
+        jcr_status = "third-party-api"
+    else:
+        jcr_status = "not verified"
     cas_major = metrics.get("cas_partition_2025") or (_easy_field(easy or {}, "cas_upgraded_major_quartile"))
     cas_minor = metrics.get("cas_minor_categories")
     cas_minor_source = "sci-select/ShowJCR"
@@ -116,8 +142,8 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
     card = {
         "journal_name": metrics.get("name", ""),
         "issn": metrics.get("issn", ""),
-        "impact_factor": _field(metrics.get("impact_factor") or _easy_field(easy or {}, "sciif"), "sci-select/ShowJCR or EasyScholar", "profile_snapshot" if metrics.get("impact_factor") else "third-party-api"),
-        "jcr_quartile": _field(jcr, "sci-select/ShowJCR or EasyScholar", "profile_snapshot" if metrics.get("jcr_quartile") else "third-party-api"),
+        "impact_factor": _field(impact_factor, impact_factor_source, impact_factor_status),
+        "jcr_quartile": _field(jcr, "sci-select/ShowJCR or EasyScholar", jcr_status),
         "cas_major_quartile_2025": _field(cas_major, "sci-select/ShowJCR or EasyScholar", "profile_snapshot" if metrics.get("cas_partition_2025") else "third-party-api"),
         "cas_minor_quartile_2025": _field(cas_minor, cas_minor_source, cas_minor_status),
         "xinrui_quartile_2026": _field(xinrui, "sci-select/ShowJCR or EasyScholar", "profile_snapshot" if metrics.get("xinrui_partition_2026") else "third-party-api"),
@@ -139,6 +165,8 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
         card["impact_factor"]["year"] = metrics["if_year"]
     if metrics.get("jcr_categories"):
         card["jcr_quartile"]["categories"] = metrics["jcr_categories"]
+    elif metrics.get("field"):
+        card["jcr_quartile"]["categories"] = metrics["field"]
     if easy:
         card["easyscholar_raw_fields"] = easy.get("fields", {})
         card["easyscholar_custom_rank"] = easy.get("custom_rank", [])

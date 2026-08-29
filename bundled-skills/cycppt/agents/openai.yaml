@@ -1,0 +1,4 @@
+interface:
+  display_name: "CYCPPT"
+  short_description: "Create editable, claim-driven medical and journal-club PPTX"
+  default_prompt: "Use $cycppt to route my source, build a claim-driven evidence plan when it is a literature presentation, and produce validated editable and image-only PPTX outputs."

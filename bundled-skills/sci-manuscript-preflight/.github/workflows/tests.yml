@@ -1,0 +1,36 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  regression-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run offline regression tests
+        run: python -m unittest discover -s tests -v
+
+  paperconan-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install compatible paperconan
+        run: python -m pip install "paperconan[all]>=0.8,<0.9"
+      - name: Create synthetic source table
+        run: python -c "from pathlib import Path; Path('smoke-data').mkdir(); Path('smoke-data/source.csv').write_text('sample,value\ns1,1.13\ns2,2.41\ns3,3.06\ns4,4.72\n', encoding='utf-8')"
+      - name: Run real scanner through release gate
+        run: python scripts/table_integrity_gate.py --input-dir smoke-data --out smoke-out --profile review
+      - name: Verify gate artifacts and coverage
+        run: python -c "import json; from pathlib import Path; gate=json.loads(Path('smoke-out/gate.json').read_text()); assert gate['coverage']['complete']; assert Path('smoke-out/findings.tsv').is_file(); assert Path('smoke-out/gate_report.md').is_file()"

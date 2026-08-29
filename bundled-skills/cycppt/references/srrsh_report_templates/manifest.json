@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "template_id": "srrsh-report-2024-v9",
+  "organization": {
+    "zh": "浙江大学医学院附属邵逸夫医院",
+    "short_zh": "邵逸夫医院",
+    "en": "Sir Run Run Shaw Hospital"
+  },
+  "source_template": "srrsh_report_template_2024_v9.pptx",
+  "strict_campus_match": true,
+  "default_campus": null,
+  "campuses": {
+    "qingchun": {
+      "canonical_zh": "庆春院区",
+      "aliases": ["庆春", "庆春院区", "qingchun"],
+      "cover": "covers/qingchun.png",
+      "source_slide": 1
+    },
+    "qiantang": {
+      "canonical_zh": "钱塘院区",
+      "aliases": ["钱塘", "钱塘院区", "qiantang"],
+      "cover": "covers/qiantang.png",
+      "source_slide": 2
+    },
+    "alaer": {
+      "canonical_zh": "阿拉尔院区",
+      "aliases": ["阿拉尔", "阿拉尔院区", "新疆阿拉尔", "alaer", "alar"],
+      "cover": "covers/alaer.png",
+      "source_slide": 3
+    },
+    "grand_canal": {
+      "canonical_zh": "大运河院区",
+      "aliases": ["大运河", "大运河院区", "grandcanal", "grand_canal"],
+      "cover": "covers/grand_canal.png",
+      "source_slide": 4
+    },
+    "shaoxing": {
+      "canonical_zh": "绍兴院区",
+      "aliases": ["绍兴", "绍兴院区", "shaoxing"],
+      "cover": "covers/shaoxing.png",
+      "source_slide": 5
+    }
+  },
+  "ending": {
+    "mode": "common",
+    "image": "ending/thank_you.png",
+    "source_slide": 8,
+    "campus_specific": false
+  },
+  "usage_contract": {
+    "cover": "Use only on the first slide of a Sir Run Run Shaw Hospital report. Preserve the selected campus photograph and campus name; replace the topic, date, and presenter placeholders.",
+    "ending": "Use only on the final slide. The provided thank-you page is common to all campuses.",
+    "campus_guard": "Never infer or default the campus. If the report request does not clearly name one of the five campuses, ask the user before planning the cover.",
+    "excluded_source_slides": {
+      "6": "template instructions",
+      "7": "body-slide master, not a cover or ending"
+    }
+  }
+}

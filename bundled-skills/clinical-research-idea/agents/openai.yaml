@@ -1,0 +1,4 @@
+interface:
+  display_name: "临床科研选题设计"
+  short_description: "生成、核验、评估并优选可实施且符合伦理规范的临床研究问题与方案"
+  default_prompt: "Use $clinical-research-idea to generate and stress-test clinically meaningful research ideas for my topic and available data."

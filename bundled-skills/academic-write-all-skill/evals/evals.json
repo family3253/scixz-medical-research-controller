@@ -1,0 +1,278 @@
+{
+  "skill_name": "academic-write-all-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我有研究结果，但还不知道论文怎么搭结构。请先帮我列一个论文提纲，不要直接写正文。",
+      "expected_output": "Routes to outline-only / paper-production behavior, giving a paper structure with section jobs and missing-info guidance instead of drafting full prose.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我收到一堆审稿意见，很乱。先别帮我写回复信，先帮我整理成修订路线图和 response matrix 骨架。",
+      "expected_output": "Routes to revision-coach behavior, turning reviewer comments into an executable revision roadmap and response-matrix scaffold instead of a polished rebuttal letter.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我想写一篇投稿级综述，但我现在只有十几篇文献和一个很粗的主题。你直接帮我起草完整综述正文。",
+      "expected_output": "Routes to review-project downgrade behavior, refusing to pretend submission-grade readiness and instead offering a safer evidence-synthesis or framework-draft level output.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "这个任务超出你当前能力时，不要硬写。先看看有没有本地 skill 可以借用；如果本地没有，再从 GitHub 找可靠实现来学习，但要告诉我哪些是借来的。",
+      "expected_output": "Uses guarded self-update behavior: checks local skills first, falls back to GitHub/official patterns cautiously, and explicitly labels borrowed capability rather than pretending it is native.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "请测试一下成人 MDR-GNB 临床预测模型的综述。如果文献还不够做投稿级综述，就先给我 review-grade 证据综合和结构框架，并说明你借用了哪些本地 skill 或外部实现模式。",
+      "expected_output": "Routes to review-project plus research-lifecycle behavior, performs evidence-aware literature synthesis for adult MDR-GNB prediction models, downgrades honestly if corpus is incomplete, and explicitly labels any borrowed local-skill or external-learning pattern.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "请按临床预测模型综述的方式，给我评估成人 MDR-GNB 相关 nomogram / risk score 文献。你至少要分清风险因素研究和真正的预测模型，并把证据放进 appraisal/evidence matrix 的结构里。如果这一步超出你当前原生能力，就明确说明你借用了什么外部标准。",
+      "expected_output": "Routes to prediction-model review mode, distinguishes true prediction models from mere risk-factor studies, organizes evidence in a model-appraisal structure, and explicitly labels any borrowed external standard or methodology.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "现在强制你进入外部 fallback：请用 TRIPOD / PROBAST / CHARMS 风格来评估成人 MDR-GNB 临床预测模型综述框架，并明确告诉我哪些方法学要求是你从外部标准借来的，哪些只是你当前 skill 的原生能力。不要伪装成你天生就会这套框架。",
+      "expected_output": "Forces external fallback to prediction-model appraisal standards, explicitly labels TRIPOD/PROBAST/CHARMS-style borrowed methodology, preserves integrity gates, and avoids presenting borrowed standards as native capability.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "帮我模拟审稿委员会审一下这篇质性论文，重点从理论贡献、方法透明度、文献缺口、逻辑链条和 desk reject 风险五个角度给我拆开看，不要给我一个笼统的通用审稿意见。",
+      "expected_output": "Routes to the qualitative review-committee path rather than generic academic-paper-reviewer behavior, keeps the five review lenses distinct, and treats the output as a vulnerability scan for revision planning.",
+      "files": [],
+      "expectations": [
+        "The primary route is the qualitative review-committee path rather than generic academic-paper-reviewer behavior.",
+        "The output keeps the theoretical, methodological, literature-gap, logic, and desk-reject lenses distinct instead of merging them into one generic review block.",
+        "The response frames the result as a vulnerability scan or revision-planning audit rather than claiming full submission-ready validation."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "帮我把下面参考文献改成 APA 7，并顺便看看摘要结构和换投期刊格式要不要一起调。优先选一条主路径，不要把同一件排版工作拆成很多平行实现。",
+      "expected_output": "Routes through academic formatting adaptation with a single primary path, preferring ai4scholar-排版助手 for cross-formatting scope while preserving stage-aware wrapping rather than activating several parallel formatting implementations.",
+      "files": [],
+      "expectations": [
+        "The response chooses a single primary formatting path rather than activating several formatting implementations in parallel.",
+        "Because the request bundles citation formatting with abstract structure and resubmission-format concerns, the primary downstream specialist is ai4scholar-排版助手 rather than APA-only formatting logic.",
+        "The response explicitly avoids splitting the task into multiple co-equal formatting paths."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Reviewer 2 说我的回复信不够具体。请先判断这是不是 reviewer-response-assistant 主导的任务，而不是让你自己一边做 submission review 一边又写 rebuttal。",
+      "expected_output": "Selects reviewer-response-assistant as the primary downstream path for rebuttal-package work, with awas acting as the stage-aware wrapper instead of duplicating the same job in parallel modes.",
+      "files": [],
+      "expectations": [
+        "The response identifies reviewer-response-assistant as the primary downstream path for the rebuttal-package task.",
+        "Submission or review mode is described as stage control or wrapper logic rather than a parallel rebuttal implementation.",
+        "The response does not propose doing submission review and rebuttal drafting as two co-equal primary tasks."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "帮我重构这一段论文论证逻辑。我不想同时得到语言润色、深度改写、去 AI 味三套并行方案，你要先选一个主路径并说明为什么。",
+      "expected_output": "Chooses one primary route for logic repair—preferably the argument-structure path when the bottleneck is reasoning—rather than mixing logic-skeleton, manuscript-rewriter, and expression-polisher outputs in parallel.",
+      "files": [],
+      "expectations": [
+        "The response chooses one primary route for logic repair instead of offering several parallel rewrite paths.",
+        "When the bottleneck is reasoning or argument flow, the preferred primary path is logic repair rather than wording polish.",
+        "The response does not simultaneously activate logic-skeleton, manuscript-rewriter, and expression-polisher as co-equal primary solutions."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "我既想让你根据图表推进论文写作，又想顺手优化图和考虑后续编译。请不要把 figure-and-compile-aware、画图 skill、修图 skill 全都当成并列主任务，先定一个主路径。",
+      "expected_output": "Routes to a single primary figure-and-compile-aware path at the awas level, then uses narrower figure skills only as downstream specialists instead of parallel co-equal routes.",
+      "files": [],
+      "expectations": [
+        "The response sets a single primary awas path for figure-guided writing rather than treating writing and figure refinement as co-equal main tasks.",
+        "For prose-from-figures plus downstream visual cleanup, the primary path is figure-and-compile-aware.",
+        "Narrower figure skills are described as downstream specialists rather than parallel primary routes."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "不要写论文正文，只帮我把现有图做成期刊风格并再出一个新媒体版图。主路径不要先走 figure-and-compile-aware。",
+      "expected_output": "Routes directly to narrow figure specialists for a pure-visual request, preferring figure-polishing / new-media figure adaptation rather than making figure-and-compile-aware the primary path.",
+      "files": [],
+      "expectations": [
+        "The response treats this as a pure-visual request rather than a writing-coupled figure workflow.",
+        "The primary route goes directly to narrow figure specialists such as figure-polishing or new-media figure adaptation.",
+        "The response does not make figure-and-compile-aware the primary path."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "我要写一篇远程办公生产力的论文引言。不要用‘近年来’、‘随着科技的发展’这种陈词滥调。请按一条完整主路径来组织：先给我一个具体事实或理论悖论开头，再顺滑转到文献缺口，再写研究目的，最后给出结构路标。不要把这些拆成几条平行方案乱飞。",
+      "expected_output": "Routes to the native Introduction Funnel Workflow as one integrated primary path, covering background anchor hook, literature turn to gap, contribution focus, and structure roadmap without scattering the task across several unrelated specialist paths.",
+      "files": [],
+      "expectations": [
+        "The response treats introduction drafting as one integrated funnel workflow with a single primary path.",
+        "The opening avoids stale generic time-transition cliches and uses a concrete fact, policy shift, empirical pattern, or theoretical tension.",
+        "The response progresses through background, gap, purpose, and structure rather than scattering the task across parallel specialist routes."
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "这是我拼起来的引言草稿。你先不要整段重写，只检查它是不是从宏观背景一路收敛到研究目的，中间有没有硬跳、重复、或者 AI 填充废话，并给我几个可直接替换的衔接短语。",
+      "expected_output": "Keeps Introduction Funnel Workflow as the primary path and performs the funnel-QA stage as diagnosis only, identifying broken transitions and offering concrete bridging suggestions rather than silently switching into full rewrite mode.",
+      "files": [],
+      "expectations": [
+        "The response treats this as the QA stage of the introduction funnel rather than as a full rewrite request.",
+        "The output diagnoses transition breaks, repetition, or AI filler instead of rewriting the whole introduction by default.",
+        "The response provides concrete bridging phrase suggestions or sentence-direction fixes for the broken transitions."
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "我有一堆实验结果文件，想知道到底哪个模型更好，以及下一步该补什么实验。先别给我写报告，先分析结果并做比较。",
+      "expected_output": "Selects AWAS as the first intake but routes the main bottleneck to analyze-results, explicitly keeping report writing for a later stage.",
+      "files": [],
+      "expectations": [
+        "The response identifies result analysis as the primary bottleneck rather than jumping directly into report writing.",
+        "The primary downstream owner is analyze-results.",
+        "The response keeps results-report or manuscript prose as a later downstream stage rather than a parallel path."
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "我已经把实验结果分析完了，现在需要一个给组会/项目复盘用的结果总结报告，要求按观察、解释、影响、下一步来组织。",
+      "expected_output": "Selects AWAS as the intake and routes to results-report as the primary downstream owner once analysis is already complete.",
+      "files": [],
+      "expectations": [
+        "The response recognizes that strict analysis is already done.",
+        "The primary downstream owner is results-report.",
+        "The response does not re-run analyze-results as a co-equal path unless evidence of missing analysis appears."
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "帮我找这个主题在 Zotero 里的文献，并把它们整理成 Obsidian 里的论文笔记和一个项目综述图谱。先别写论文。",
+      "expected_output": "Selects AWAS as the intake and routes to zotero-obsidian-bridge as the primary downstream literature-memory owner instead of treating writing as the main path.",
+      "files": [],
+      "expectations": [
+        "The response identifies literature memory / knowledge-base organization as the main bottleneck.",
+        "The primary downstream owner is zotero-obsidian-bridge.",
+        "The response does not jump into manuscript drafting."
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "我想做一个研究方向的 startup-phase ideation，重点是找 gap、定方法，不是马上写论文。你别一上来就进 academic-paper。",
+      "expected_output": "Routes through AWAS intake and selects research-ideation as the primary downstream owner for startup-phase idea -> gap -> method work.",
+      "files": [],
+      "expectations": [
+        "The response keeps AWAS as the intake wrapper.",
+        "The primary downstream owner is research-ideation rather than academic-paper.",
+        "The response explicitly preserves the pre-manuscript stage boundary."
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "我想画一个临床森林图，最好先看看本机 PlotCase 里有没有现成模板。如果没有，再考虑别的方案。不要直接给我 Python 代码。",
+      "expected_output": "Selects AWAS as the intake and routes to PlotCase as the primary downstream owner because the user explicitly wants local PlotCase template search first.",
+      "files": [],
+      "expectations": [
+        "The response recognizes explicit PlotCase-first intent.",
+        "The primary downstream owner is plotcase rather than academic-python-plotting.",
+        "The response does not pretend PlotCase has a stable external API."
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "给我一段能直接放进论文补充材料的 Python 作图代码，用来画热图和显著性标记。不要 GUI 工具。",
+      "expected_output": "Selects AWAS as the intake and routes to academic-python-plotting as the primary downstream owner because the user explicitly wants code-first Python output.",
+      "files": [],
+      "expectations": [
+        "The response recognizes code-first Python plotting as the main bottleneck.",
+        "The primary downstream owner is academic-python-plotting.",
+        "The response does not route to PlotCase as a co-equal alternative."
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "帮我把 reviewer comments 变成 response letter 和 response matrix。不要同时再做一套 submission review。",
+      "expected_output": "Selects AWAS as the intake and routes to reviewer-response-assistant as the primary downstream owner, explicitly avoiding a parallel submission-review path.",
+      "files": [],
+      "expectations": [
+        "The response keeps reviewer-response-assistant as the primary downstream owner.",
+        "The response does not activate submission review as a co-equal primary path.",
+        "The response frames AWAS as stage control and wrapper logic only."
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "现在不是让我写论文，是让你继续改造 AWAS 自己，把新的路由规则评测一遍，必要的话重写 skill 描述。",
+      "expected_output": "Keeps AWAS as the object being edited and routes the main process to superpowers-writing-skills rather than any academic content specialist.",
+      "files": [],
+      "expectations": [
+        "The response recognizes that the task is about editing the skill ecosystem itself, not handling an academic content request.",
+        "The primary process owner is superpowers-writing-skills.",
+        "The response does not route into normal manuscript, plotting, retrieval, or rebuttal skills."
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "帮我设计整个本地 agent/skill 体系的优先级，明确 OMO agent、AWAS、superpowers、PlotCase 和本地 academic skill 的层级与顺序。这不是在做论文内容。",
+      "expected_output": "Treats this as a system/meta task where OMO-level reasoning and ecosystem-editing process skills outrank AWAS as an academic intake owner.",
+      "files": [],
+      "expectations": [
+        "The response identifies the task as system/meta scope rather than an academic content request.",
+        "The route gives priority to OMO system-layer reasoning and skill-ecosystem editing rather than treating AWAS as the academic owner.",
+        "The response does not mistakenly route into manuscript, plotting, retrieval, or results-report execution paths."
+      ]
+    },
+    {
+      "id": 25,
+      "prompt": "我有一套预测模型综述材料，想让你帮我决定先做 screening、evidence extraction 还是直接写综述正文。你可以请 OMO 的 oracle 帮你判断，但不要让它取代 AWAS 的学术总入口。",
+      "expected_output": "Keeps AWAS as the academic intake owner while allowing OMO support agents such as oracle to remain advisory rather than becoming a second academic workflow owner.",
+      "files": [],
+      "expectations": [
+        "The response keeps AWAS as the intake owner for the academic task.",
+        "Any OMO support agent is positioned as advisory or judgment support only.",
+        "The response does not let OMO become a co-equal owner of screening, extraction, or writing execution."
+      ]
+    },
+    {
+      "id": 26,
+      "prompt": "我现在写的是中国药科大学专硕论文，不是同等学历。模板文件之间如果打架，以 F:\\e\\毕设\\参考\\论文格式.doc 为准。请先按这个学校场景定 route，不要按 generic thesis 来。",
+      "expected_output": "Routes through the dedicated China Pharmaceutical University thesis scenario with a professional-master bias and treats F:\\e\\毕设\\参考\\论文格式.doc as the controlling authority over conflicting local files.",
+      "files": [],
+      "expectations": [
+        "The response recognizes the task as a China Pharmaceutical University professional-master thesis scenario rather than a generic thesis task.",
+        "The response treats F:\\e\\毕设\\参考\\论文格式.doc as the highest-priority local authority when local files conflict.",
+        "The response does not default to the 同等学历 template or to generic thesis defaults."
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "帮我把中国药科大学专硕论文这一章改得更符合学校格式：前置部分、摘要、页码、参考文献都按学校规则优先。之后如果要改投稿论文风格，再另说。",
+      "expected_output": "Keeps the native route in the China Pharmaceutical University thesis scenario, prioritizes school-format compliance over journal-style compactness, and treats paper conversion as a second-stage task.",
+      "files": [],
+      "expectations": [
+        "The response prioritizes school-format thesis compliance over journal-style writing preferences.",
+        "The response keeps thesis work and paper-conversion work as separate stages.",
+        "The response frames front matter, abstract, pagination, and references as school-governed constraints rather than optional style choices."
+      ]
+    },
+    {
+      "id": 28,
+      "prompt": "这是中国药科大学专硕论文，而且本地还有一份《人工智能技术辅助研究与写作承诺书》。如果学校规则要求它属于前置件并影响页码排除，请把它纳入判断，不要按旧模板忽略。",
+      "expected_output": "Keeps the CPU professional-master thesis route and treats the AI-assisted research-and-writing commitment sheet as a formal front-matter compliance artifact when the higher-priority local authority file requires it.",
+      "files": [],
+      "expectations": [
+        "The response recognizes the AI-assisted research-and-writing commitment sheet as a school-compliance artifact rather than an optional note.",
+        "The response lets the higher-priority local authority file override older template defaults if they omit this sheet.",
+        "The response includes pagination or front-matter consequences in the compliance judgment."
+      ]
+    }
+  ]
+}

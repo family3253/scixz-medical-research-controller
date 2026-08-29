@@ -23,9 +23,9 @@ For local file-reading tasks, do not bounce between unrelated readers. Resolve p
 2. If the user gives a relative path, resolve it against the current workspace root.
 3. If the user gives only a filename, search in this order:
    - current workspace recursively
-   - the configured research workspace recursively
-   - the configured downloads directory recursively
-   - the configured documents directory recursively
+   - `<PRIVATE_WORKSPACE>` recursively
+   - `D:\下载` recursively
+   - `<USER_HOME>\Documents` recursively
 4. If exactly one match is found, lock onto that absolute path for the rest of the task.
 5. If multiple matches are found, ask one short disambiguation question with absolute candidate paths.
 6. Do not re-resolve the same file to a different location later in the task.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Word PDF 偶数页处理"
+  short_description: "拆分大 Word 或批量转换 Word，压缩溢出页并生成偶数页 PDF"
+  default_prompt: "Use $word-pdf-even-pages to split large table-based Word files if needed, convert Word files to PDF, reduce minor overflow pages without changing font sizes, enforce even page counts, and merge the outputs."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "跨学科综述写作器"
+  short_description: "面向多学科综述的证据工作流与脚本"
+  default_prompt: "Use $cross-disciplinary-review-writer to route the review type, build the evidence workflow, and check whether the project meets its gate profile."

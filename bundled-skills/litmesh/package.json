@@ -1,0 +1,39 @@
+{
+  "name": "litmesh",
+  "version": "0.3.0",
+  "description": "LitMesh — keyless academic literature toolkit. Aggregates Semantic Scholar, PubMed, OpenAlex (Google Scholar), arXiv, bioRxiv/medRxiv, DOI and a local auto-cite pipeline into one agent-agnostic Node CLI. Runs in WorkBuddy / Claude Code / Codex with no API key in direct mode.",
+  "type": "module",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "keywords": [
+    "academic",
+    "literature",
+    "paper-search",
+    "semantic-scholar",
+    "pubmed",
+    "google-scholar",
+    "arxiv",
+    "biorxiv",
+    "medrxiv",
+    "doi",
+    "auto-cite",
+    "citation",
+    "workbuddy-skill",
+    "claude-code-skill",
+    "codex"
+  ],
+  "dependencies": {
+    "@deepseek-ai/cordis": "4.0.1",
+    "@deepseek-ai/dsh-credentials": "0.1.0-rc.6",
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.6",
+    "@deepseek-ai/schemastery": "3.18.1",
+    "pdf-parse": "^2.4.5"
+  },
+  "scripts": {
+    "list": "node litmesh.mjs --list",
+    "install:deps": "npm install"
+  }
+}

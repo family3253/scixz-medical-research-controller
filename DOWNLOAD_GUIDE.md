@@ -1,21 +1,26 @@
 # SciXZ dependency download guide
 
-This guide answers a practical question: after cloning this repository, which Skills must the user download separately?
+This guide answers a practical question: after cloning this repository, what is already bundled, and which external services or proprietary components must the user still obtain separately?
 
 ## 1. Included in this repository
 
-These four local-only Skills are already available under `bundled-skills/`:
+This repository includes 260 deduplicated top-level companion Skills under `bundled-skills/`. Install all bundled Skills with:
 
-- `revise`
-- `find-journal`
-- `deterministic-local-file-reading`
-- `manage-refs`
+```text
+python scripts/install_bundled_skills.py
+```
 
-No additional download is needed for these four. Install each subdirectory as an independent Skill if your runtime does not automatically discover nested packages.
+Install selected bundled Skills with:
 
-## 2. Verified public Skills to download separately
+```text
+python scripts/install_bundled_skills.py find-journal sci-select --overwrite
+```
 
-The following public Skill repositories or Skill directories were verified for this release (checked 2026-08-29):
+See [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md) for the full list.
+
+## 2. Verified public Skill sources
+
+The following public Skill repositories or Skill directories were verified for this release. They are now also bundled when present in the local catalog; the source links remain here for inspection and upgrades:
 
 | Use case | Skill | Repository |
 |---|---|---|
@@ -57,13 +62,16 @@ npx skills add <owner>/<repo> --list
 npx skills add <owner>/<repo> --skill <skill-name> -g
 ```
 
-For a Skill bundled in this repository, install from its directory:
+For all bundled Skills:
 
 ```text
-npx skills add ./bundled-skills/revise --skill revise -g
+python scripts/install_bundled_skills.py
+```
+
+For one bundled Skill:
+
+```text
 npx skills add ./bundled-skills/find-journal --skill find-journal -g
-npx skills add ./bundled-skills/deterministic-local-file-reading --skill deterministic-local-file-reading -g
-npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
 Recommended known-journal lookup stack:
@@ -100,22 +108,27 @@ Add the domain Skill for the requested analysis (for example `bulk-rnaseq` or `s
 
 # SciXZ 配套 Skill 下载说明
 
-本文件专门说明：把仓库克隆下来之后，哪些 Skill 已经内置，哪些必须由使用者自行下载。
+本文件专门说明：把仓库克隆下来之后，哪些 Skill 已经内置，哪些外部服务或专有组件仍需使用者自行准备。
 
 ## 1. 仓库内置
 
-以下 4 个本地独有 Skill 已放在 `bundled-skills/` 中：
+本仓库已经在 `bundled-skills/` 下内置 260 个去重后的顶层配套 Skill。全部安装：
 
-- `revise`
-- `find-journal`
-- `deterministic-local-file-reading`
-- `manage-refs`
+```text
+python scripts/install_bundled_skills.py
+```
 
-这 4 个不需要再下载。如果运行环境不会自动发现嵌套目录，请把每个子目录作为独立 Skill 安装。
+只安装或刷新部分 Skill：
 
-## 2. 需要自行下载的公开 Skill
+```text
+python scripts/install_bundled_skills.py find-journal sci-select --overwrite
+```
 
-已有公开来源、因此没有重复复制到本仓库的 Skill 包括：
+完整清单见 [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md)。
+
+## 2. 已核实的公开 Skill 来源
+
+以下公开来源已核实；只要本机 catalog 中存在，对应 Skill 也已经随仓库打包。保留来源地址是为了方便检查上游历史和升级：
 
 | 用途 | 需要自行下载的 Skill |
 |---|---|
@@ -131,7 +144,7 @@ Add the domain Skill for the requested analysis (for example `bulk-rnaseq` or `s
 | 样本量规划 | `calc-sample-size` |
 | 投稿打包 | `sync-submission`、`venue-templates`，必要时加 `paper-audit` |
 
-公开仓库和版本会变化。请通过 Skill catalog 或源仓库的发行说明安装，不要直接复制未固定版本的本地缓存。
+公开仓库和版本会变化。严格复现时优先使用本仓库内置版本；升级时先与上游仓库比对。
 
 ## 3. 需要从授权来源获取的专有读取器
 
@@ -157,13 +170,16 @@ npx skills add <owner>/<repo> --list
 npx skills add <owner>/<repo> --skill <skill-name> -g
 ```
 
-对于本仓库内置的 Skill，可从对应目录安装：
+对于本仓库内置的全部 Skill：
 
 ```text
-npx skills add ./bundled-skills/revise --skill revise -g
+python scripts/install_bundled_skills.py
+```
+
+对于单个本仓库内置 Skill：
+
+```text
 npx skills add ./bundled-skills/find-journal --skill find-journal -g
-npx skills add ./bundled-skills/deterministic-local-file-reading --skill deterministic-local-file-reading -g
-npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
 推荐的“输入期刊名查全指标”组合：

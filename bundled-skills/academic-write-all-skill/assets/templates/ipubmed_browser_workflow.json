@@ -1,0 +1,29 @@
+{
+  "provider": "ipubmed",
+  "browser": "chromium",
+  "headless": false,
+  "start_url": "https://shiny.zhihuishuju.com/ipubmed/",
+  "actions": [
+    {
+      "type": "goto",
+      "url": "https://shiny.zhihuishuju.com/ipubmed/"
+    },
+    {
+      "type": "wait_for_timeout",
+      "ms": 4000
+    },
+    {
+      "type": "click",
+      "selector": "button.accordion-button",
+      "nth": 0
+    },
+    {
+      "type": "wait_for_timeout",
+      "ms": 1000
+    }
+  ],
+  "extract": {
+    "mode": "evaluate",
+    "script": "() => { const pickText = (node) => (node.innerText || node.textContent || '').replace(/\\s+/g, ' ').trim(); const nodes = Array.from(document.querySelectorAll('button[id], .accordion-button, .shiny-input-container, .form-group, table tr, .dataTables_wrapper tr')); return nodes.map((node, idx) => ({ citation_id: `ipubmed-${idx + 1}`, title: pickText(node), access_mode: 'authorized-browser', source_provider: 'ipubmed', notes: [node.id ? `id=${node.id}` : '', node.className ? `class=${String(node.className)}` : '', 'browser-captured structured block from live IPubMed page'].filter(Boolean).join('; ') })).filter(row => row.title && row.title.length > 6).slice(0, 30); }"
+  }
+}

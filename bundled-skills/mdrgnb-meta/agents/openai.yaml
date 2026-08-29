@@ -1,0 +1,4 @@
+interface:
+  display_name: "MDR-GNB Meta v6.1"
+  short_description: "Close and update adult current-state MDR-GNB diagnostic-model reviews"
+  default_prompt: "Use $mdrgnb-meta v6.1 to screen diagnostic branches, source-verify and standardize extraction, classify algorithms, appraise PROBAST+AI/TRIPOD+AI, synthesize AUC and threshold evidence, and build bilingual reproducible outputs using the closed 41-report audit pool and 39-report primary diagnostic set."

@@ -1,0 +1,49 @@
+{
+  "skill_name": "humanizer-zh",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "下面这段硕士论文讨论部分还是很重的AI味和翻译腔，不要改动事实、术语和引用，只做中文母语化润色，让它像中国学生真的写出来的，不要太像模板总结：\n\n“综上所述，本研究结果具有重要的理论意义与现实价值，在一定程度上丰富了平台治理研究的相关讨论，并为后续研究提供了有益参考。具体而言，算法可见性不仅提升了用户对平台规则的理解程度，而且也增强了其对平台治理过程的感知，这一发现充分体现了透明治理在数字平台情境中的关键作用。”",
+      "expected_output": "Diagnoses empty academic inflation and template rhythm, rewrites into more natural Chinese academic prose, preserves the core claim about 算法可见性, and does not add new evidence or citations.",
+      "files": [],
+      "expectations": [
+        "The rewrite preserves the term 算法可见性",
+        "The rewrite does not invent new studies, citations, or data",
+        "The rewrite reduces empty evaluative phrasing such as 重要意义 or 有益参考"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "这是技术文档里的一段模块说明，意思不要改，术语和步骤顺序也不要乱动，只把那种像拼接出来的说明书腔降下来：\n\n“该模块在完成数据读取之后，会进一步对异常值进行识别，并在此基础上实现后续结果的输出。对于已经被识别出的异常记录，系统将通过预定义规则完成标记处理，从而为后续模型训练阶段提供相对稳定的数据基础。”",
+      "expected_output": "Produces a clearer Chinese technical rewrite with earlier predicates and more natural cadence, while preserving the sequence 数据读取 -> 异常值识别 -> 标记处理 -> 模型训练准备.",
+      "files": [],
+      "expectations": [
+        "The rewrite preserves the technical sequence 数据读取 -> 异常值识别 -> 标记处理 -> 模型训练准备",
+        "The rewrite does not remove the term 预定义规则",
+        "The rewrite makes the sentence structure more direct without becoming colloquial"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "下面是论文结果段落，结构和数据都已经定了。你只做最后一层中文母语化润色，不能改变量名、括号内数值、统计符号、编号和术语，也不要改成口语：\n\n“（1）在控制年龄、性别及基线BMI后，睡眠时长与焦虑症状评分之间仍然呈显著负相关（beta=-0.27, P<0.01）。进一步分层分析显示，该关联主要存在于女性亚组（beta=-0.31, P<0.01），而在男性亚组中未达到统计学显著性（P=0.08）。”",
+      "expected_output": "Keeps numbering, statistics, subgroup labels, and variable names intact, but smooths the Chinese rhythm so the paragraph reads like authored results prose rather than assembled reporting language.",
+      "files": [],
+      "expectations": [
+        "The rewrite preserves （1） and all reported numeric values exactly",
+        "The rewrite preserves beta and P notation exactly",
+        "The rewrite does not change the subgroup labels 女性亚组 and 男性亚组"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "我这篇毕业论文要严格按 1-2-3 三轮降AIGC 做，而且要继续衔接上一次记录。现在不要自由润色，也不要深度重写，你先按这个流程接着处理。",
+      "expected_output": "Does not behave like a generic humanizer. It should recognize that this is a ddaigc-style round-tracked task and route to `ddaigc` or `ddaigc-humanizer-stack` rather than performing direct humanization.",
+      "files": [],
+      "expectations": [
+        "The response does not perform direct generic humanization",
+        "The response recognizes the task as round-tracked de-AIGC rather than ordinary smoothing",
+        "The response routes to ddaigc or ddaigc-humanizer-stack instead of pretending humanizer-zh should own the task"
+      ]
+    }
+  ]
+}

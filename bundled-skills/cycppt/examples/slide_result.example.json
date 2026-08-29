@@ -1,0 +1,35 @@
+{
+  "slide_id": "slide02",
+  "slide_number": 2,
+  "status": "IMAGE_READY",
+  "passed": true,
+  "prompt": "prompts/slide02.txt",
+  "output": "slides/slide02.png",
+  "reference_images": [
+    "slides/slide01.png",
+    "references/style_selector/assets/001_template.jpg"
+  ],
+  "figure_inputs": [],
+  "image_backend": {
+    "tool_call": "editppt image edit"
+  },
+  "size_px": [2560, 1440],
+  "attempt_count": 2,
+  "quality_review": {
+    "passed": true,
+    "attempt": 2,
+    "checks": {
+      "text_readable": true,
+      "no_garbled_text": true,
+      "layout_complete": true,
+      "style_consistent": true,
+      "evidence_preserved": true,
+      "safe_margins": true,
+      "no_visual_artifacts": true
+    },
+    "issues": [],
+    "reason": "第二次生成修复了右侧图注过小问题，并通过页面计划、模板和证据对照。"
+  },
+  "warnings": [],
+  "errors": []
+}

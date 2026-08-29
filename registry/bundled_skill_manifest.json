@@ -1,0 +1,2132 @@
+{
+  "generatedAt": "2026-08-30T00:00:00+08:00",
+  "repository": "https://github.com/family3253/scixz-medical-research-controller",
+  "policy": "Bundled from local top-level skill packages after deduplication; excludes system/plugin caches, explicit Proprietary skills, virtual environments, dependency caches, browser state, credentials, manuscript/data artifacts, and the SciXZ controller itself because it is the repository root package.",
+  "sourcePriority": [
+    "agents",
+    "codex"
+  ],
+  "counts": {
+    "bundledTopLevelSkills": 260,
+    "excludedExplicit": 5
+  },
+  "excluded": [
+    {
+      "name": "anthropics-docx",
+      "folder": "anthropics-docx",
+      "sourceRoot": "codex",
+      "reason": "controller/proprietary/excluded-by-name",
+      "license": "Proprietary. LICENSE.txt has complete terms"
+    },
+    {
+      "name": "anthropics-pdf",
+      "folder": "anthropics-pdf",
+      "sourceRoot": "codex",
+      "reason": "controller/proprietary/excluded-by-name",
+      "license": "Proprietary. LICENSE.txt has complete terms"
+    },
+    {
+      "name": "anthropics-pptx",
+      "folder": "anthropics-pptx",
+      "sourceRoot": "codex",
+      "reason": "controller/proprietary/excluded-by-name",
+      "license": "Proprietary. LICENSE.txt has complete terms"
+    },
+    {
+      "name": "anthropics-xlsx",
+      "folder": "anthropics-xlsx",
+      "sourceRoot": "codex",
+      "reason": "controller/proprietary/excluded-by-name",
+      "license": "Proprietary. LICENSE.txt has complete terms"
+    },
+    {
+      "name": "scixz",
+      "folder": "scixz",
+      "sourceRoot": "codex",
+      "reason": "controller/proprietary/excluded-by-name",
+      "license": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "academic-aio",
+      "folder": "academic-aio",
+      "bundledPath": "bundled-skills/academic-aio",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.107
+    },
+    {
+      "name": "academic-chart-to-new-media",
+      "folder": "academic-chart-to-new-media",
+      "bundledPath": "bundled-skills/academic-chart-to-new-media",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "academic-citation-manager",
+      "folder": "academic-citation-manager",
+      "bundledPath": "bundled-skills/academic-citation-manager",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.222
+    },
+    {
+      "name": "academic-expression-polisher",
+      "folder": "academic-expression-polisher",
+      "bundledPath": "bundled-skills/academic-expression-polisher",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "academic-manuscript-rewriter",
+      "folder": "academic-manuscript-rewriter",
+      "bundledPath": "bundled-skills/academic-manuscript-rewriter",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "academic-outline-normalizer",
+      "folder": "academic-outline-normalizer",
+      "bundledPath": "bundled-skills/academic-outline-normalizer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "academic-paper",
+      "folder": "academic-paper",
+      "bundledPath": "bundled-skills/academic-paper",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.557
+    },
+    {
+      "name": "academic-paper-reviewer",
+      "folder": "academic-paper-reviewer",
+      "bundledPath": "bundled-skills/academic-paper-reviewer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.208
+    },
+    {
+      "name": "academic-pipeline",
+      "folder": "academic-pipeline",
+      "bundledPath": "bundled-skills/academic-pipeline",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.166
+    },
+    {
+      "name": "academic-python-plotting",
+      "folder": "academic-python-plotting",
+      "bundledPath": "bundled-skills/academic-python-plotting",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.005
+    },
+    {
+      "name": "academic-research-suite",
+      "folder": "academic-research-suite",
+      "bundledPath": "bundled-skills/academic-research-suite",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 33.373
+    },
+    {
+      "name": "academic-table-normalizer",
+      "folder": "academic-table-normalizer",
+      "bundledPath": "bundled-skills/academic-table-normalizer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "academic-write-all-skill",
+      "folder": "academic-write-all-skill",
+      "bundledPath": "bundled-skills/academic-write-all-skill",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.397
+    },
+    {
+      "name": "add-journal",
+      "folder": "add-journal",
+      "bundledPath": "bundled-skills/add-journal",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.02
+    },
+    {
+      "name": "add-skill",
+      "folder": "add-skill",
+      "bundledPath": "bundled-skills/add-skill",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "agent-browser",
+      "folder": "agent-browser",
+      "bundledPath": "bundled-skills/agent-browser",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.012
+    },
+    {
+      "name": "ai4scholar-排版助手",
+      "folder": "ai4scholar",
+      "bundledPath": "bundled-skills/ai4scholar-----",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "aihot",
+      "folder": "aihot",
+      "bundledPath": "bundled-skills/aihot",
+      "sourceRoot": "codex",
+      "license": "MIT. See LICENSE",
+      "approxSizeMB": 0.052
+    },
+    {
+      "name": "analyze-results",
+      "folder": "analyze-results",
+      "bundledPath": "bundled-skills/analyze-results",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "analyze-stats",
+      "folder": "analyze-stats",
+      "bundledPath": "bundled-skills/analyze-stats",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.471
+    },
+    {
+      "name": "apa7-citation-formatter",
+      "folder": "apa7-citation-formatter",
+      "bundledPath": "bundled-skills/apa7-citation-formatter",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "architecture-zoo",
+      "folder": "architecture-zoo",
+      "bundledPath": "bundled-skills/architecture-zoo",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.044
+    },
+    {
+      "name": "arxiv",
+      "folder": "arxiv",
+      "bundledPath": "bundled-skills/arxiv",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "author-strategy",
+      "folder": "author-strategy",
+      "bundledPath": "bundled-skills/author-strategy",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.116
+    },
+    {
+      "name": "auto-paper-improvement-loop",
+      "folder": "auto-paper-improvement-loop",
+      "bundledPath": "bundled-skills/auto-paper-improvement-loop",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "auto-review-loop",
+      "folder": "auto-review-loop",
+      "bundledPath": "bundled-skills/auto-review-loop",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.009
+    },
+    {
+      "name": "auto-review-loop-llm",
+      "folder": "auto-review-loop-llm",
+      "bundledPath": "bundled-skills/auto-review-loop-llm",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "auto-review-loop-minimax",
+      "folder": "auto-review-loop-minimax",
+      "bundledPath": "bundled-skills/auto-review-loop-minimax",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "awesome-claude-skills",
+      "folder": "awesome-claude-skills",
+      "bundledPath": "bundled-skills/awesome-claude-skills",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "batch-cohort",
+      "folder": "batch-cohort",
+      "bundledPath": "bundled-skills/batch-cohort",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.035
+    },
+    {
+      "name": "bggg-creator-image2ppt",
+      "folder": "bggg-creator-image2ppt",
+      "bundledPath": "bundled-skills/bggg-creator-image2ppt",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 18.201
+    },
+    {
+      "name": "bggg-creator-image2psd",
+      "folder": "bggg-creator-image2psd",
+      "bundledPath": "bundled-skills/bggg-creator-image2psd",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 85.298
+    },
+    {
+      "name": "bib-search-citation",
+      "folder": "bib-search-citation",
+      "bundledPath": "bundled-skills/bib-search-citation",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.111
+    },
+    {
+      "name": "brave-search",
+      "folder": "brave-search",
+      "bundledPath": "bundled-skills/brave-search",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.03
+    },
+    {
+      "name": "bulk-rnaseq",
+      "folder": "bulk-rnaseq",
+      "bundledPath": "bundled-skills/bulk-rnaseq",
+      "sourceRoot": "codex",
+      "license": "MIT",
+      "approxSizeMB": 0.051
+    },
+    {
+      "name": "calc-sample-size",
+      "folder": "calc-sample-size",
+      "bundledPath": "bundled-skills/calc-sample-size",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.057
+    },
+    {
+      "name": "check-reporting",
+      "folder": "check-reporting",
+      "bundledPath": "bundled-skills/check-reporting",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.426
+    },
+    {
+      "name": "citation-management",
+      "folder": "citation-management",
+      "bundledPath": "bundled-skills/citation-management",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "clean-data",
+      "folder": "clean-data",
+      "bundledPath": "bundled-skills/clean-data",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.06
+    },
+    {
+      "name": "clinical-decision-support",
+      "folder": "clinical-decision-support",
+      "bundledPath": "bundled-skills/clinical-decision-support",
+      "sourceRoot": "codex",
+      "license": "MIT",
+      "approxSizeMB": 0.186
+    },
+    {
+      "name": "clinical-research-idea",
+      "folder": "clinical-research-idea",
+      "bundledPath": "bundled-skills/clinical-research-idea",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.035
+    },
+    {
+      "name": "codex",
+      "folder": "codex",
+      "bundledPath": "bundled-skills/codex",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "context-master",
+      "folder": "context-master",
+      "bundledPath": "bundled-skills/context-master",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.1
+    },
+    {
+      "name": "contribute",
+      "folder": "contribute",
+      "bundledPath": "bundled-skills/contribute",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.065
+    },
+    {
+      "name": "cpu-thesis-pipeline",
+      "folder": "anti-baibai-awas-pipeline",
+      "bundledPath": "bundled-skills/cpu-thesis-pipeline",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.028
+    },
+    {
+      "name": "cross-disciplinary-review-writer",
+      "folder": "cross-disciplinary-review-writer",
+      "bundledPath": "bundled-skills/cross-disciplinary-review-writer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.148
+    },
+    {
+      "name": "cross-national",
+      "folder": "cross-national",
+      "bundledPath": "bundled-skills/cross-national",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.016
+    },
+    {
+      "name": "cycppt",
+      "folder": "cycppt",
+      "bundledPath": "bundled-skills/cycppt",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 54.394
+    },
+    {
+      "name": "daily-digest",
+      "folder": "daily-digest",
+      "bundledPath": "bundled-skills/daily-digest",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.005
+    },
+    {
+      "name": "ddaigc",
+      "folder": "ddaigc",
+      "bundledPath": "bundled-skills/ddaigc",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.11
+    },
+    {
+      "name": "ddaigc-humanizer-stack",
+      "folder": "ddaigc-humanizer-stack",
+      "bundledPath": "bundled-skills/ddaigc-humanizer-stack",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "deep-research",
+      "folder": "deep-research",
+      "bundledPath": "bundled-skills/deep-research",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.44
+    },
+    {
+      "name": "define-variables",
+      "folder": "define-variables",
+      "bundledPath": "bundled-skills/define-variables",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.022
+    },
+    {
+      "name": "deidentify",
+      "folder": "deidentify",
+      "bundledPath": "bundled-skills/deidentify",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.088
+    },
+    {
+      "name": "denario",
+      "folder": "denario",
+      "bundledPath": "bundled-skills/denario",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "design-ai-benchmarking",
+      "folder": "design-ai-benchmarking",
+      "bundledPath": "bundled-skills/design-ai-benchmarking",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.023
+    },
+    {
+      "name": "design-study",
+      "folder": "design-study",
+      "bundledPath": "bundled-skills/design-study",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.046
+    },
+    {
+      "name": "desk-reject-screening-editor",
+      "folder": "desk-reject-screening-editor",
+      "bundledPath": "bundled-skills/desk-reject-screening-editor",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "deterministic-local-file-reading",
+      "folder": "deterministic-local-file-reading",
+      "bundledPath": "bundled-skills/deterministic-local-file-reading",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "diagram-design",
+      "folder": "diagram-design",
+      "bundledPath": "bundled-skills/diagram-design",
+      "sourceRoot": "codex",
+      "license": "MIT",
+      "approxSizeMB": 2.597
+    },
+    {
+      "name": "document-skills",
+      "folder": "document-skills",
+      "bundledPath": "bundled-skills/document-skills",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "dokobot",
+      "folder": "dokobot",
+      "bundledPath": "bundled-skills/dokobot",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.005
+    },
+    {
+      "name": "dse-loop",
+      "folder": "dse-loop",
+      "bundledPath": "bundled-skills/dse-loop",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.013
+    },
+    {
+      "name": "elite-powerpoint-designer",
+      "folder": "elite-powerpoint-designer",
+      "bundledPath": "bundled-skills/elite-powerpoint-designer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.05
+    },
+    {
+      "name": "epidemiology-methods",
+      "folder": "epidemiology-methods",
+      "bundledPath": "bundled-skills/epidemiology-methods",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.009
+    },
+    {
+      "name": "excalidraw-diagram",
+      "folder": "excalidraw-diagram",
+      "bundledPath": "bundled-skills/excalidraw-diagram",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.018
+    },
+    {
+      "name": "experiment-plan",
+      "folder": "experiment-plan",
+      "bundledPath": "bundled-skills/experiment-plan",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.009
+    },
+    {
+      "name": "explainability",
+      "folder": "explainability",
+      "bundledPath": "bundled-skills/explainability",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.033
+    },
+    {
+      "name": "feishu-doc",
+      "folder": "feishu-doc",
+      "bundledPath": "bundled-skills/feishu-doc",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 1.397
+    },
+    {
+      "name": "feishu-notify",
+      "folder": "feishu-notify",
+      "bundledPath": "bundled-skills/feishu-notify",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "fill-icmje-coi",
+      "folder": "fill-icmje-coi",
+      "bundledPath": "bundled-skills/fill-icmje-coi",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.048
+    },
+    {
+      "name": "fill-protocol",
+      "folder": "fill-protocol",
+      "bundledPath": "bundled-skills/fill-protocol",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.056
+    },
+    {
+      "name": "find-cohort-gap",
+      "folder": "find-cohort-gap",
+      "bundledPath": "bundled-skills/find-cohort-gap",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.068
+    },
+    {
+      "name": "find-journal",
+      "folder": "find-journal",
+      "bundledPath": "bundled-skills/find-journal",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.219
+    },
+    {
+      "name": "find-skills",
+      "folder": "find-skills",
+      "bundledPath": "bundled-skills/find-skills",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "fulltext-retrieval",
+      "folder": "fulltext-retrieval",
+      "bundledPath": "bundled-skills/fulltext-retrieval",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.05
+    },
+    {
+      "name": "generate-codebook",
+      "folder": "generate-codebook",
+      "bundledPath": "bundled-skills/generate-codebook",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.026
+    },
+    {
+      "name": "ggplot2",
+      "folder": "ggplot2",
+      "bundledPath": "bundled-skills/ggplot2",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "gog",
+      "folder": "gog",
+      "bundledPath": "bundled-skills/gog",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "grant-builder",
+      "folder": "grant-builder",
+      "bundledPath": "bundled-skills/grant-builder",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.009
+    },
+    {
+      "name": "grounded-theory-concept-network",
+      "folder": "grounded-theory-concept-network",
+      "bundledPath": "bundled-skills/grounded-theory-concept-network",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "gsd",
+      "folder": "gsd",
+      "bundledPath": "bundled-skills/gsd",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "gsd-oc-select-model",
+      "folder": "gsd-oc-select-model",
+      "bundledPath": "bundled-skills/gsd-oc-select-model",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.021
+    },
+    {
+      "name": "hatch-pet",
+      "folder": "hatch-pet",
+      "bundledPath": "bundled-skills/hatch-pet",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.291
+    },
+    {
+      "name": "humanize",
+      "folder": "humanize",
+      "bundledPath": "bundled-skills/humanize",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.046
+    },
+    {
+      "name": "humanizer",
+      "folder": "humanizer",
+      "bundledPath": "bundled-skills/humanizer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.034
+    },
+    {
+      "name": "humanizer-zh",
+      "folder": "humanizer-zh",
+      "bundledPath": "bundled-skills/humanizer-zh",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.015
+    },
+    {
+      "name": "hv-analysis",
+      "folder": "hv-analysis",
+      "bundledPath": "bundled-skills/hv-analysis",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.032
+    },
+    {
+      "name": "hypogenic",
+      "folder": "hypogenic",
+      "bundledPath": "bundled-skills/hypogenic",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "idea-creator",
+      "folder": "idea-creator",
+      "bundledPath": "bundled-skills/idea-creator",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "idea-discovery",
+      "folder": "idea-discovery",
+      "bundledPath": "bundled-skills/idea-discovery",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.009
+    },
+    {
+      "name": "idea-discovery-robot",
+      "folder": "idea-discovery-robot",
+      "bundledPath": "bundled-skills/idea-discovery-robot",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.014
+    },
+    {
+      "name": "intake-project",
+      "folder": "intake-project",
+      "bundledPath": "bundled-skills/intake-project",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "journal-figure-polisher",
+      "folder": "journal-figure-polisher",
+      "bundledPath": "bundled-skills/journal-figure-polisher",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "journal-format-converter",
+      "folder": "journal-format-converter",
+      "bundledPath": "bundled-skills/journal-format-converter",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "jupyter-notebook",
+      "folder": "jupyter-notebook",
+      "bundledPath": "bundled-skills/jupyter-notebook",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.03
+    },
+    {
+      "name": "jupyter-to-marimo",
+      "folder": "jupyter-to-marimo",
+      "bundledPath": "bundled-skills/jupyter-to-marimo",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "kepano-defuddle",
+      "folder": "kepano-defuddle",
+      "bundledPath": "bundled-skills/kepano-defuddle",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "kepano-json-canvas",
+      "folder": "kepano-json-canvas",
+      "bundledPath": "bundled-skills/kepano-json-canvas",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.014
+    },
+    {
+      "name": "kepano-obsidian-bases",
+      "folder": "kepano-obsidian-bases",
+      "bundledPath": "bundled-skills/kepano-obsidian-bases",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.02
+    },
+    {
+      "name": "kepano-obsidian-cli",
+      "folder": "kepano-obsidian-cli",
+      "bundledPath": "bundled-skills/kepano-obsidian-cli",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "kepano-obsidian-markdown",
+      "folder": "kepano-obsidian-markdown",
+      "bundledPath": "bundled-skills/kepano-obsidian-markdown",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.009
+    },
+    {
+      "name": "khazix-writer",
+      "folder": "khazix-writer",
+      "bundledPath": "bundled-skills/khazix-writer",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.051
+    },
+    {
+      "name": "latex-compile-qa",
+      "folder": "latex-compile-qa",
+      "bundledPath": "bundled-skills/latex-compile-qa",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "leader",
+      "folder": "leader",
+      "bundledPath": "bundled-skills/leader",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.015
+    },
+    {
+      "name": "lit-sync",
+      "folder": "lit-sync",
+      "bundledPath": "bundled-skills/lit-sync",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.028
+    },
+    {
+      "name": "literature-dialogue-builder",
+      "folder": "literature-dialogue-builder",
+      "bundledPath": "bundled-skills/literature-dialogue-builder",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "literature-gap-dialogue-validator",
+      "folder": "literature-gap-dialogue-validator",
+      "bundledPath": "bundled-skills/literature-gap-dialogue-validator",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "litmesh",
+      "folder": "litmesh",
+      "bundledPath": "bundled-skills/litmesh",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.651
+    },
+    {
+      "name": "logic-skeleton-rewriter",
+      "folder": "logic-skeleton-rewriter",
+      "bundledPath": "bundled-skills/logic-skeleton-rewriter",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "ma-scout",
+      "folder": "ma-scout",
+      "bundledPath": "bundled-skills/ma-scout",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.035
+    },
+    {
+      "name": "make-figures",
+      "folder": "make-figures",
+      "bundledPath": "bundled-skills/make-figures",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 1.973
+    },
+    {
+      "name": "manage-project",
+      "folder": "manage-project",
+      "bundledPath": "bundled-skills/manage-project",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.025
+    },
+    {
+      "name": "manage-refs",
+      "folder": "manage-refs",
+      "bundledPath": "bundled-skills/manage-refs",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.298
+    },
+    {
+      "name": "marginaleffects",
+      "folder": "marginaleffects",
+      "bundledPath": "bundled-skills/marginaleffects",
+      "sourceRoot": "agents",
+      "license": "CC-BY-4.0",
+      "approxSizeMB": 0.571
+    },
+    {
+      "name": "marimo-notebook",
+      "folder": "marimo-notebook",
+      "bundledPath": "bundled-skills/marimo-notebook",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.03
+    },
+    {
+      "name": "markitdown",
+      "folder": "markitdown",
+      "bundledPath": "bundled-skills/markitdown",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "mdrgnb-daily-push",
+      "folder": "mdrgnb-daily-push",
+      "bundledPath": "bundled-skills/mdrgnb-daily-push",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "mdrgnb-meta",
+      "folder": "mdrgnb-meta",
+      "bundledPath": "bundled-skills/mdrgnb-meta",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.439
+    },
+    {
+      "name": "mermaid-visualizer",
+      "folder": "mermaid-visualizer",
+      "bundledPath": "bundled-skills/mermaid-visualizer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.019
+    },
+    {
+      "name": "meta-analysis",
+      "folder": "meta-analysis",
+      "bundledPath": "bundled-skills/meta-analysis",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.215
+    },
+    {
+      "name": "mllm-eval",
+      "folder": "mllm-eval",
+      "bundledPath": "bundled-skills/mllm-eval",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.037
+    },
+    {
+      "name": "model-card",
+      "folder": "model-card",
+      "bundledPath": "bundled-skills/model-card",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.037
+    },
+    {
+      "name": "model-evaluation",
+      "folder": "model-evaluation",
+      "bundledPath": "bundled-skills/model-evaluation",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.056
+    },
+    {
+      "name": "model-scaffold",
+      "folder": "model-scaffold",
+      "bundledPath": "bundled-skills/model-scaffold",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.107
+    },
+    {
+      "name": "model-validation",
+      "folder": "model-validation",
+      "bundledPath": "bundled-skills/model-validation",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.048
+    },
+    {
+      "name": "monitor-experiment",
+      "folder": "monitor-experiment",
+      "bundledPath": "bundled-skills/monitor-experiment",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "multi-search-engine",
+      "folder": "multi-search-engine",
+      "bundledPath": "bundled-skills/multi-search-engine",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.029
+    },
+    {
+      "name": "nature-review-studio",
+      "folder": "nature-review-studio",
+      "bundledPath": "bundled-skills/nature-review-studio",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.04
+    },
+    {
+      "name": "neat-freak",
+      "folder": "neat-freak",
+      "bundledPath": "bundled-skills/neat-freak",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.078
+    },
+    {
+      "name": "notion",
+      "folder": "notion",
+      "bundledPath": "bundled-skills/notion",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.005
+    },
+    {
+      "name": "novelty-check",
+      "folder": "novelty-check",
+      "bundledPath": "bundled-skills/novelty-check",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "numpy-best-practices",
+      "folder": "numpy-best-practices",
+      "bundledPath": "bundled-skills/numpy-best-practices",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "obsidian-canvas-creator",
+      "folder": "obsidian-canvas-creator",
+      "bundledPath": "bundled-skills/obsidian-canvas-creator",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.036
+    },
+    {
+      "name": "obsidian-plugin-excalidraw",
+      "folder": "obsidian-plugin-excalidraw",
+      "bundledPath": "bundled-skills/obsidian-plugin-excalidraw",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.027
+    },
+    {
+      "name": "obsidian-plugin-tasks",
+      "folder": "obsidian-plugin-tasks",
+      "bundledPath": "bundled-skills/obsidian-plugin-tasks",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.044
+    },
+    {
+      "name": "obsidian-plugin-templater",
+      "folder": "obsidian-plugin-templater",
+      "bundledPath": "bundled-skills/obsidian-plugin-templater",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.047
+    },
+    {
+      "name": "ocr-document-processor",
+      "folder": "ocr-document-processor",
+      "bundledPath": "bundled-skills/ocr-document-processor",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.037
+    },
+    {
+      "name": "office-to-md",
+      "folder": "office-to-md",
+      "bundledPath": "bundled-skills/office-to-md",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.013
+    },
+    {
+      "name": "openclaw-medical-peer-review",
+      "folder": "openclaw-medical-peer-review",
+      "bundledPath": "bundled-skills/openclaw-medical-peer-review",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.05
+    },
+    {
+      "name": "opencode-agent-creator",
+      "folder": "opencode-agent-creator",
+      "bundledPath": "bundled-skills/opencode-agent-creator",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.266
+    },
+    {
+      "name": "opencode-desktop-repair",
+      "folder": "opencode-desktop-repair",
+      "bundledPath": "bundled-skills/opencode-desktop-repair",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "openspec-archiving",
+      "folder": "openspec-archiving",
+      "bundledPath": "bundled-skills/openspec-archiving",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "openspec-context-loading",
+      "folder": "openspec-context-loading",
+      "bundledPath": "bundled-skills/openspec-context-loading",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "openspec-implementation",
+      "folder": "openspec-implementation",
+      "bundledPath": "bundled-skills/openspec-implementation",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "openspec-proposal-creation",
+      "folder": "openspec-proposal-creation",
+      "bundledPath": "bundled-skills/openspec-proposal-creation",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.027
+    },
+    {
+      "name": "orchestrate",
+      "folder": "orchestrate",
+      "bundledPath": "bundled-skills/orchestrate",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.059
+    },
+    {
+      "name": "paddleocr-text-recognition",
+      "folder": "paddleocr-text-recognition",
+      "bundledPath": "bundled-skills/paddleocr-text-recognition",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.045
+    },
+    {
+      "name": "pandas-pro",
+      "folder": "pandas-pro",
+      "bundledPath": "bundled-skills/pandas-pro",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.07
+    },
+    {
+      "name": "paper-audit",
+      "folder": "paper-audit",
+      "bundledPath": "bundled-skills/paper-audit",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.718
+    },
+    {
+      "name": "paper-by-paper-prediction-review",
+      "folder": "paper-by-paper-prediction-review",
+      "bundledPath": "bundled-skills/paper-by-paper-prediction-review",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.013
+    },
+    {
+      "name": "paper-compile",
+      "folder": "paper-compile",
+      "bundledPath": "bundled-skills/paper-compile",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "paper-figure",
+      "folder": "paper-figure",
+      "bundledPath": "bundled-skills/paper-figure",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "paper-plan",
+      "folder": "paper-plan",
+      "bundledPath": "bundled-skills/paper-plan",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "paper-write",
+      "folder": "paper-write",
+      "bundledPath": "bundled-skills/paper-write",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.022
+    },
+    {
+      "name": "paper-writing",
+      "folder": "paper-writing",
+      "bundledPath": "bundled-skills/paper-writing",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "paperconan",
+      "folder": "paperconan",
+      "bundledPath": "bundled-skills/paperconan",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.117
+    },
+    {
+      "name": "pathway-enrichment",
+      "folder": "pathway-enrichment",
+      "bundledPath": "bundled-skills/pathway-enrichment",
+      "sourceRoot": "codex",
+      "license": "MIT",
+      "approxSizeMB": 0.039
+    },
+    {
+      "name": "PDF OCR Extraction",
+      "folder": "pdf-ocr-extraction",
+      "bundledPath": "bundled-skills/PDF-OCR-Extraction",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "pdf-extraction",
+      "folder": "pdf-extraction",
+      "bundledPath": "bundled-skills/pdf-extraction",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.014
+    },
+    {
+      "name": "pdf-ocr-skill",
+      "folder": "pdf-ocr-skill",
+      "bundledPath": "bundled-skills/pdf-ocr-skill",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.068
+    },
+    {
+      "name": "peer-review",
+      "folder": "peer-review",
+      "bundledPath": "bundled-skills/peer-review",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.439
+    },
+    {
+      "name": "pencil-design",
+      "folder": "pencil-design",
+      "bundledPath": "bundled-skills/pencil-design",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.072
+    },
+    {
+      "name": "pharmacoepidemiology",
+      "folder": "pharmacoepidemiology",
+      "bundledPath": "bundled-skills/pharmacoepidemiology",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.024
+    },
+    {
+      "name": "pixel-art",
+      "folder": "pixel-art",
+      "bundledPath": "bundled-skills/pixel-art",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.005
+    },
+    {
+      "name": "playwright-scraper-skill",
+      "folder": "playwright-scraper-skill",
+      "bundledPath": "bundled-skills/playwright-scraper-skill",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.037
+    },
+    {
+      "name": "plotcase",
+      "folder": "plotcase",
+      "bundledPath": "bundled-skills/plotcase",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.064
+    },
+    {
+      "name": "polish-language",
+      "folder": "polish-language",
+      "bundledPath": "bundled-skills/polish-language",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.023
+    },
+    {
+      "name": "powerpoint-automation",
+      "folder": "powerpoint-automation",
+      "bundledPath": "bundled-skills/powerpoint-automation",
+      "sourceRoot": "agents",
+      "license": "CC BY-NC-SA 4.0",
+      "approxSizeMB": 0.611
+    },
+    {
+      "name": "preprocess-imaging",
+      "folder": "preprocess-imaging",
+      "bundledPath": "bundled-skills/preprocess-imaging",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.037
+    },
+    {
+      "name": "present-paper",
+      "folder": "present-paper",
+      "bundledPath": "bundled-skills/present-paper",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.299
+    },
+    {
+      "name": "proof-writer",
+      "folder": "proof-writer",
+      "bundledPath": "bundled-skills/proof-writer",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "publish-skill",
+      "folder": "publish-skill",
+      "bundledPath": "bundled-skills/publish-skill",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.034
+    },
+    {
+      "name": "pubmed-database",
+      "folder": "pubmed-database",
+      "bundledPath": "bundled-skills/pubmed-database",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.044
+    },
+    {
+      "name": "pytest-coverage",
+      "folder": "pytest-coverage",
+      "bundledPath": "bundled-skills/pytest-coverage",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.001
+    },
+    {
+      "name": "python-executor",
+      "folder": "python-executor",
+      "bundledPath": "bundled-skills/python-executor",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "python-performance-optimization",
+      "folder": "python-performance-optimization",
+      "bundledPath": "bundled-skills/python-performance-optimization",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.02
+    },
+    {
+      "name": "python-testing-patterns",
+      "folder": "python-testing-patterns",
+      "bundledPath": "bundled-skills/python-testing-patterns",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.025
+    },
+    {
+      "name": "quadrants",
+      "folder": "quadrants",
+      "bundledPath": "bundled-skills/quadrants",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "qualitative-method-transparency-auditor",
+      "folder": "qualitative-method-transparency-auditor",
+      "bundledPath": "bundled-skills/qualitative-method-transparency-auditor",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "qualitative-theory-contribution-interrogator",
+      "folder": "qualitative-theory-contribution-interrogator",
+      "bundledPath": "bundled-skills/qualitative-theory-contribution-interrogator",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "qualitative-thick-description",
+      "folder": "qualitative-thick-description",
+      "bundledPath": "bundled-skills/qualitative-thick-description",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "qualitative-transcript-cleaner",
+      "folder": "qualitative-transcript-cleaner",
+      "bundledPath": "bundled-skills/qualitative-transcript-cleaner",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "quarto-authoring",
+      "folder": "quarto-authoring",
+      "bundledPath": "bundled-skills/quarto-authoring",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.11
+    },
+    {
+      "name": "radiomics-ml",
+      "folder": "radiomics-ml",
+      "bundledPath": "bundled-skills/radiomics-ml",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.037
+    },
+    {
+      "name": "real-world-evidence",
+      "folder": "real-world-evidence",
+      "bundledPath": "bundled-skills/real-world-evidence",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.013
+    },
+    {
+      "name": "remotion-skill",
+      "folder": "remotion-skill",
+      "bundledPath": "bundled-skills/remotion-skill",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.078
+    },
+    {
+      "name": "render-pdf-doc",
+      "folder": "render-pdf-doc",
+      "bundledPath": "bundled-skills/render-pdf-doc",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.042
+    },
+    {
+      "name": "replicate-study",
+      "folder": "replicate-study",
+      "bundledPath": "bundled-skills/replicate-study",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.033
+    },
+    {
+      "name": "research-ideation",
+      "folder": "research-ideation",
+      "bundledPath": "bundled-skills/research-ideation",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.054
+    },
+    {
+      "name": "research-lit",
+      "folder": "research-lit",
+      "bundledPath": "bundled-skills/research-lit",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "research-pipeline",
+      "folder": "research-pipeline",
+      "bundledPath": "bundled-skills/research-pipeline",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "research-refine",
+      "folder": "research-refine",
+      "bundledPath": "bundled-skills/research-refine",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.027
+    },
+    {
+      "name": "research-refine-pipeline",
+      "folder": "research-refine-pipeline",
+      "bundledPath": "bundled-skills/research-refine-pipeline",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "research-review",
+      "folder": "research-review",
+      "bundledPath": "bundled-skills/research-review",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "research-writing-assistant",
+      "folder": "research-writing-assistant",
+      "bundledPath": "bundled-skills/research-writing-assistant",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 13.054
+    },
+    {
+      "name": "results-report",
+      "folder": "results-report",
+      "bundledPath": "bundled-skills/results-report",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.014
+    },
+    {
+      "name": "review-paper",
+      "folder": "review-paper",
+      "bundledPath": "bundled-skills/review-paper",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "reviewer-response-assistant",
+      "folder": "reviewer-response-assistant",
+      "bundledPath": "bundled-skills/reviewer-response-assistant",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "revise",
+      "folder": "revise",
+      "bundledPath": "bundled-skills/revise",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.08
+    },
+    {
+      "name": "rlang-patterns",
+      "folder": "rlang-patterns",
+      "bundledPath": "bundled-skills/rlang-patterns",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "run-experiment",
+      "folder": "run-experiment",
+      "bundledPath": "bundled-skills/run-experiment",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "rwd-cohort-analysis",
+      "folder": "rwd-cohort-analysis",
+      "bundledPath": "bundled-skills/rwd-cohort-analysis",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.018
+    },
+    {
+      "name": "scanpy",
+      "folder": "scanpy",
+      "bundledPath": "bundled-skills/scanpy",
+      "sourceRoot": "codex",
+      "license": "BSD-3-Clause",
+      "approxSizeMB": 0.116
+    },
+    {
+      "name": "scansci-pdf",
+      "folder": "scansci-pdf",
+      "bundledPath": "bundled-skills/scansci-pdf",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.019
+    },
+    {
+      "name": "sci-manuscript-preflight",
+      "folder": "sci-manuscript-preflight",
+      "bundledPath": "bundled-skills/sci-manuscript-preflight",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.101
+    },
+    {
+      "name": "sci-select",
+      "folder": "sci-select",
+      "bundledPath": "bundled-skills/sci-select",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 9.691
+    },
+    {
+      "name": "scientific-critical-thinking",
+      "folder": "scientific-critical-thinking",
+      "bundledPath": "bundled-skills/scientific-critical-thinking",
+      "sourceRoot": "codex",
+      "license": "MIT license",
+      "approxSizeMB": 0.101
+    },
+    {
+      "name": "scientific-schematics",
+      "folder": "scientific-schematics",
+      "bundledPath": "bundled-skills/scientific-schematics",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "scientific-slides",
+      "folder": "scientific-slides",
+      "bundledPath": "bundled-skills/scientific-slides",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "scientific-visualization",
+      "folder": "scientific-visualization",
+      "bundledPath": "bundled-skills/scientific-visualization",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "scientific-writing",
+      "folder": "scientific-writing",
+      "bundledPath": "bundled-skills/scientific-writing",
+      "sourceRoot": "codex",
+      "license": "MIT",
+      "approxSizeMB": 0.165
+    },
+    {
+      "name": "scipy-best-practices",
+      "folder": "scipy-best-practices",
+      "bundledPath": "bundled-skills/scipy-best-practices",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "search-lit",
+      "folder": "search-lit",
+      "bundledPath": "bundled-skills/search-lit",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.057
+    },
+    {
+      "name": "self-improving-agent",
+      "folder": "self-improving-agent",
+      "bundledPath": "bundled-skills/self-improving-agent",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.054
+    },
+    {
+      "name": "self-review",
+      "folder": "self-review",
+      "bundledPath": "bundled-skills/self-review",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.838
+    },
+    {
+      "name": "setup-medsci",
+      "folder": "setup-medsci",
+      "bundledPath": "bundled-skills/setup-medsci",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "shiny-bslib",
+      "folder": "shiny-bslib",
+      "bundledPath": "bundled-skills/shiny-bslib",
+      "sourceRoot": "agents",
+      "license": "MIT",
+      "approxSizeMB": 0.116
+    },
+    {
+      "name": "skill-creator",
+      "folder": "skill-creator",
+      "bundledPath": "bundled-skills/skill-creator",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.22
+    },
+    {
+      "name": "stata-academic-graphing",
+      "folder": "stata-academic-graphing",
+      "bundledPath": "bundled-skills/stata-academic-graphing",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.005
+    },
+    {
+      "name": "storage-analyzer",
+      "folder": "storage-analyzer",
+      "bundledPath": "bundled-skills/storage-analyzer",
+      "sourceRoot": "codex",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.062
+    },
+    {
+      "name": "summarize",
+      "folder": "summarize",
+      "bundledPath": "bundled-skills/summarize",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "superpowers-brainstorming",
+      "folder": "superpowers-brainstorming",
+      "bundledPath": "bundled-skills/superpowers-brainstorming",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.05
+    },
+    {
+      "name": "superpowers-dispatching-parallel-agents",
+      "folder": "superpowers-dispatching-parallel-agents",
+      "bundledPath": "bundled-skills/superpowers-dispatching-parallel-agents",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "superpowers-executing-plans",
+      "folder": "superpowers-executing-plans",
+      "bundledPath": "bundled-skills/superpowers-executing-plans",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.002
+    },
+    {
+      "name": "superpowers-finishing-a-development-branch",
+      "folder": "superpowers-finishing-a-development-branch",
+      "bundledPath": "bundled-skills/superpowers-finishing-a-development-branch",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "superpowers-receiving-code-review",
+      "folder": "superpowers-receiving-code-review",
+      "bundledPath": "bundled-skills/superpowers-receiving-code-review",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "superpowers-requesting-code-review",
+      "folder": "superpowers-requesting-code-review",
+      "bundledPath": "bundled-skills/superpowers-requesting-code-review",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "superpowers-subagent-driven-development",
+      "folder": "superpowers-subagent-driven-development",
+      "bundledPath": "bundled-skills/superpowers-subagent-driven-development",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.019
+    },
+    {
+      "name": "superpowers-systematic-debugging",
+      "folder": "superpowers-systematic-debugging",
+      "bundledPath": "bundled-skills/superpowers-systematic-debugging",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.04
+    },
+    {
+      "name": "superpowers-test-driven-development",
+      "folder": "superpowers-test-driven-development",
+      "bundledPath": "bundled-skills/superpowers-test-driven-development",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.018
+    },
+    {
+      "name": "superpowers-using-git-worktrees",
+      "folder": "superpowers-using-git-worktrees",
+      "bundledPath": "bundled-skills/superpowers-using-git-worktrees",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.006
+    },
+    {
+      "name": "superpowers-using-superpowers",
+      "folder": "superpowers-using-superpowers",
+      "bundledPath": "bundled-skills/superpowers-using-superpowers",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "superpowers-verification-before-completion",
+      "folder": "superpowers-verification-before-completion",
+      "bundledPath": "bundled-skills/superpowers-verification-before-completion",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.004
+    },
+    {
+      "name": "superpowers-writing-plans",
+      "folder": "superpowers-writing-plans",
+      "bundledPath": "bundled-skills/superpowers-writing-plans",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.007
+    },
+    {
+      "name": "superpowers-writing-skills",
+      "folder": "superpowers-writing-skills",
+      "bundledPath": "bundled-skills/superpowers-writing-skills",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.101
+    },
+    {
+      "name": "survival-analysis",
+      "folder": "survival-analysis",
+      "bundledPath": "bundled-skills/survival-analysis",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "sync-submission",
+      "folder": "sync-submission",
+      "bundledPath": "bundled-skills/sync-submission",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.254
+    },
+    {
+      "name": "task-status",
+      "folder": "task-status",
+      "bundledPath": "bundled-skills/task-status",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.04
+    },
+    {
+      "name": "tavily-best-practices",
+      "folder": "tavily-best-practices",
+      "bundledPath": "bundled-skills/tavily-best-practices",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.07
+    },
+    {
+      "name": "tavily-crawl",
+      "folder": "tavily-crawl",
+      "bundledPath": "bundled-skills/tavily-crawl",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.014
+    },
+    {
+      "name": "tavily-extract",
+      "folder": "tavily-extract",
+      "bundledPath": "bundled-skills/tavily-extract",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.01
+    },
+    {
+      "name": "tavily-research",
+      "folder": "tavily-research",
+      "bundledPath": "bundled-skills/tavily-research",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.008
+    },
+    {
+      "name": "tavily-search",
+      "folder": "tavily-search",
+      "bundledPath": "bundled-skills/tavily-search",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.011
+    },
+    {
+      "name": "uncertainty-imaging",
+      "folder": "uncertainty-imaging",
+      "bundledPath": "bundled-skills/uncertainty-imaging",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.04
+    },
+    {
+      "name": "using-superpowers",
+      "folder": "using-superpowers",
+      "bundledPath": "bundled-skills/using-superpowers",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.013
+    },
+    {
+      "name": "venue-templates",
+      "folder": "venue-templates",
+      "bundledPath": "bundled-skills/venue-templates",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.0
+    },
+    {
+      "name": "verify-refs",
+      "folder": "verify-refs",
+      "bundledPath": "bundled-skills/verify-refs",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.081
+    },
+    {
+      "name": "version-dataset",
+      "folder": "version-dataset",
+      "bundledPath": "bundled-skills/version-dataset",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.022
+    },
+    {
+      "name": "weekly-report-generator",
+      "folder": "weekly-report-generator",
+      "bundledPath": "bundled-skills/weekly-report-generator",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.003
+    },
+    {
+      "name": "wenxian",
+      "folder": "wenxian",
+      "bundledPath": "bundled-skills/wenxian",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 11.599
+    },
+    {
+      "name": "word-pdf-even-pages",
+      "folder": "word-pdf-even-pages",
+      "bundledPath": "bundled-skills/word-pdf-even-pages",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.053
+    },
+    {
+      "name": "wps-excel",
+      "folder": "wps-excel",
+      "bundledPath": "bundled-skills/wps-excel",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.014
+    },
+    {
+      "name": "wps-office",
+      "folder": "wps-office",
+      "bundledPath": "bundled-skills/wps-office",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.013
+    },
+    {
+      "name": "wps-ppt",
+      "folder": "wps-ppt",
+      "bundledPath": "bundled-skills/wps-ppt",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.017
+    },
+    {
+      "name": "wps-word",
+      "folder": "wps-word",
+      "bundledPath": "bundled-skills/wps-word",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.012
+    },
+    {
+      "name": "write-paper",
+      "folder": "write-paper",
+      "bundledPath": "bundled-skills/write-paper",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.751
+    },
+    {
+      "name": "write-protocol",
+      "folder": "write-protocol",
+      "bundledPath": "bundled-skills/write-protocol",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.028
+    },
+    {
+      "name": "zotero-obsidian-bridge",
+      "folder": "zotero-obsidian-bridge",
+      "bundledPath": "bundled-skills/zotero-obsidian-bridge",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 0.021
+    },
+    {
+      "name": "zotero-reviewed-import",
+      "folder": "zotero-reviewed-import",
+      "bundledPath": "bundled-skills/zotero-reviewed-import",
+      "sourceRoot": "agents",
+      "license": "not declared in SKILL.md",
+      "approxSizeMB": 4.698
+    }
+  ]
+}

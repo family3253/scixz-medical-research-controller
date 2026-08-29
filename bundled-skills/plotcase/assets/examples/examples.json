@@ -1,0 +1,1416 @@
+[
+  {
+    "id": "barplot-个性化环状条形图",
+    "title": "个性化环状条形图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "个性化环状条形图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 个性化环状条形图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/个性化环状条形图/data/data_2.tsv"
+  },
+  {
+    "id": "barplot-区域缩柱状图_(基础入门)",
+    "title": "区域缩柱状图_(基础入门)",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "区域缩柱状图_(基础入门)"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 区域缩柱状图_(基础入门)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/区域缩柱状图_(基础入门)/data/17GUSformat.xlsx"
+  },
+  {
+    "id": "barplot-基因富集分析条图",
+    "title": "基因富集分析条图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "基因富集分析条图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 基因富集分析条图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/基因富集分析条图/data/DEGs_kegg.csv"
+  },
+  {
+    "id": "barplot-多元素组合分布条图",
+    "title": "多元素组合分布条图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "多元素组合分布条图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 多元素组合分布条图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/多元素组合分布条图/data/43016_2026_1303_MOESM3_ESM.xlsx"
+  },
+  {
+    "id": "barplot-多层注释柱状图",
+    "title": "多层注释柱状图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "多层注释柱状图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 多层注释柱状图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/多层注释柱状图/data/data.tsv"
+  },
+  {
+    "id": "barplot-条形图与直方分布图组合",
+    "title": "条形图与直方分布图组合",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "条形图与直方分布图组合"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 条形图与直方分布图组合",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/条形图与直方分布图组合/data/data.tsv"
+  },
+  {
+    "id": "barplot-极坐标堆砌柱状图",
+    "title": "极坐标堆砌柱状图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "极坐标堆砌柱状图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 极坐标堆砌柱状图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/极坐标堆砌柱状图/data/realm_data.tsv"
+  },
+  {
+    "id": "barplot-柱状图添加显著性标记_(进阶版)",
+    "title": "柱状图添加显著性标记_(进阶版)",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "柱状图添加显著性标记_(进阶版)"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 柱状图添加显著性标记_(进阶版)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/柱状图添加显著性标记_(进阶版)/data/data.tsv"
+  },
+  {
+    "id": "barplot-柱状图添加显著性标记_基础版",
+    "title": "柱状图添加显著性标记_基础版",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "柱状图添加显著性标记_基础版"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 柱状图添加显著性标记_基础版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/柱状图添加显著性标记_基础版/data/data.tsv"
+  },
+  {
+    "id": "barplot-正负分布堆砌条形图",
+    "title": "正负分布堆砌条形图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "正负分布堆砌条形图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 正负分布堆砌条形图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/正负分布堆砌条形图/data/data.txt"
+  },
+  {
+    "id": "barplot-配对连线条图",
+    "title": "配对连线条图",
+    "category": "barplot",
+    "keywords": [
+      "barplot",
+      "配对连线条图"
+    ],
+    "tags": [
+      "barplot"
+    ],
+    "summary": "PlotCase bundled example under barplot: 配对连线条图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/barplot/配对连线条图/data/data.tsv"
+  },
+  {
+    "id": "boxplot-多组配对连线箱线图",
+    "title": "多组配对连线箱线图",
+    "category": "boxplot",
+    "keywords": [
+      "boxplot",
+      "多组配对连线箱线图"
+    ],
+    "tags": [
+      "boxplot"
+    ],
+    "summary": "PlotCase bundled example under boxplot: 多组配对连线箱线图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/boxplot/多组配对连线箱线图/data/cell_abundance_sample_timepoint.txt"
+  },
+  {
+    "id": "boxplot-方差分析箱线图_进阶版",
+    "title": "方差分析箱线图_进阶版",
+    "category": "boxplot",
+    "keywords": [
+      "boxplot",
+      "方差分析箱线图_进阶版"
+    ],
+    "tags": [
+      "boxplot"
+    ],
+    "summary": "PlotCase bundled example under boxplot: 方差分析箱线图_进阶版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/boxplot/方差分析箱线图_进阶版/data/data.tsv"
+  },
+  {
+    "id": "boxplot-配对连线箱线图",
+    "title": "配对连线箱线图",
+    "category": "boxplot",
+    "keywords": [
+      "boxplot",
+      "配对连线箱线图"
+    ],
+    "tags": [
+      "boxplot"
+    ],
+    "summary": "PlotCase bundled example under boxplot: 配对连线箱线图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/boxplot/配对连线箱线图/data/boxplot_data.tsv"
+  },
+  {
+    "id": "circos-circlize绘制和弦图",
+    "title": "circlize绘制和弦图",
+    "category": "circos",
+    "keywords": [
+      "circos",
+      "circlize绘制和弦图"
+    ],
+    "tags": [
+      "circos"
+    ],
+    "summary": "PlotCase bundled example under circos: circlize绘制和弦图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/circos/circlize绘制和弦图/data/43018_2024_870_MOESM8_ESM.xlsx"
+  },
+  {
+    "id": "circos-circlize绘制和弦图进阶版",
+    "title": "circlize绘制和弦图进阶版",
+    "category": "circos",
+    "keywords": [
+      "circos",
+      "circlize绘制和弦图进阶版"
+    ],
+    "tags": [
+      "circos"
+    ],
+    "summary": "PlotCase bundled example under circos: circlize绘制和弦图进阶版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/circos/circlize绘制和弦图进阶版/data/data.tsv"
+  },
+  {
+    "id": "circos-多类别关联网络弦图",
+    "title": "多类别关联网络弦图",
+    "category": "circos",
+    "keywords": [
+      "circos",
+      "多类别关联网络弦图"
+    ],
+    "tags": [
+      "circos"
+    ],
+    "summary": "PlotCase bundled example under circos: 多类别关联网络弦图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/circos/多类别关联网络弦图/data/circle.CSV"
+  },
+  {
+    "id": "circos-细胞通讯和弦图",
+    "title": "细胞通讯和弦图",
+    "category": "circos",
+    "keywords": [
+      "circos",
+      "细胞通讯和弦图"
+    ],
+    "tags": [
+      "circos"
+    ],
+    "summary": "PlotCase bundled example under circos: 细胞通讯和弦图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/circos/细胞通讯和弦图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-circlize风格多层次极坐标热图",
+    "title": "circlize风格多层次极坐标热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "circlize风格多层次极坐标热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: circlize风格多层次极坐标热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/circlize风格多层次极坐标热图/data/41591_2025_3891_MOESM5_ESM.xlsx"
+  },
+  {
+    "id": "heatmap-分面热图",
+    "title": "分面热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "分面热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 分面热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/分面热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-回归方差分解热图",
+    "title": "回归方差分解热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "回归方差分解热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 回归方差分解热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/回归方差分解热图/data/env.tsv"
+  },
+  {
+    "id": "heatmap-基因表达注释热图",
+    "title": "基因表达注释热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "基因表达注释热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 基因表达注释热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/基因表达注释热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-多元素个性化对角线热图",
+    "title": "多元素个性化对角线热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多元素个性化对角线热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多元素个性化对角线热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多元素个性化对角线热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-多元素个性化气泡热图",
+    "title": "多元素个性化气泡热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多元素个性化气泡热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多元素个性化气泡热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多元素个性化气泡热图/data/heat.tsv"
+  },
+  {
+    "id": "heatmap-多分组气泡热图",
+    "title": "多分组气泡热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多分组气泡热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多分组气泡热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多分组气泡热图/data/prevlance.stat5.tsv"
+  },
+  {
+    "id": "heatmap-多层嵌套分面热图",
+    "title": "多层嵌套分面热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多层嵌套分面热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多层嵌套分面热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多层嵌套分面热图/data/41591_2025_3891_MOESM6_ESM.xlsx"
+  },
+  {
+    "id": "heatmap-多类别分面注释热图",
+    "title": "多类别分面注释热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多类别分面注释热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多类别分面注释热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多类别分面注释热图/data/heta.tsv"
+  },
+  {
+    "id": "heatmap-多类别注释风格热图",
+    "title": "多类别注释风格热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多类别注释风格热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多类别注释风格热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多类别注释风格热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-多重注释分组热图",
+    "title": "多重注释分组热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "多重注释分组热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 多重注释分组热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/多重注释分组热图/data/data.xlsx"
+  },
+  {
+    "id": "heatmap-对角线相关性热图",
+    "title": "对角线相关性热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "对角线相关性热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 对角线相关性热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/对角线相关性热图/data/41586_2025_9686_MOESM8_ESM.xlsx"
+  },
+  {
+    "id": "heatmap-差异表达基因的层次聚类热图",
+    "title": "差异表达基因的层次聚类热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "差异表达基因的层次聚类热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 差异表达基因的层次聚类热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/差异表达基因的层次聚类热图/data/heatmap_gene.tsv"
+  },
+  {
+    "id": "heatmap-气泡配对连线个性化热图",
+    "title": "气泡配对连线个性化热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "气泡配对连线个性化热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 气泡配对连线个性化热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/气泡配对连线个性化热图/data/heatmap1.tsv"
+  },
+  {
+    "id": "heatmap-热图添加层次折叠聚类树",
+    "title": "热图添加层次折叠聚类树",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "热图添加层次折叠聚类树"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 热图添加层次折叠聚类树",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/热图添加层次折叠聚类树/data/Figure5-metabolicfunctions_logtpm.csv"
+  },
+  {
+    "id": "heatmap-热图添加渐变色背景",
+    "title": "热图添加渐变色背景",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "热图添加渐变色背景"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 热图添加渐变色背景",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/热图添加渐变色背景/data/Source Data to Main Figures.xlsx"
+  },
+  {
+    "id": "heatmap-环状分组热图",
+    "title": "环状分组热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "环状分组热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 环状分组热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/环状分组热图/data/group2.tsv"
+  },
+  {
+    "id": "heatmap-环状注释热图",
+    "title": "环状注释热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "环状注释热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 环状注释热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/环状注释热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-相关性分面热图",
+    "title": "相关性分面热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "相关性分面热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 相关性分面热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/相关性分面热图/data/annotation.tsv"
+  },
+  {
+    "id": "heatmap-相关性注释热图",
+    "title": "相关性注释热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "相关性注释热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 相关性注释热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/相关性注释热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-离散气泡热图",
+    "title": "离散气泡热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "离散气泡热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 离散气泡热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/离散气泡热图/data/data3.tsv"
+  },
+  {
+    "id": "heatmap-离散热图与条图组合",
+    "title": "离散热图与条图组合",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "离散热图与条图组合"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 离散热图与条图组合",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/离散热图与条图组合/data/41467_2022_35431_MOESM8_ESM.xlsx"
+  },
+  {
+    "id": "heatmap-系统发育树组合离散热图",
+    "title": "系统发育树组合离散热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "系统发育树组合离散热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 系统发育树组合离散热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/系统发育树组合离散热图/data/Fig2a.csv"
+  },
+  {
+    "id": "heatmap-边框分组注释热图",
+    "title": "边框分组注释热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "边框分组注释热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 边框分组注释热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/边框分组注释热图/data/data.tsv"
+  },
+  {
+    "id": "heatmap-配对连线热图",
+    "title": "配对连线热图",
+    "category": "heatmap",
+    "keywords": [
+      "heatmap",
+      "配对连线热图"
+    ],
+    "tags": [
+      "heatmap"
+    ],
+    "summary": "PlotCase bundled example under heatmap: 配对连线热图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/heatmap/配对连线热图/data/data.tsv"
+  },
+  {
+    "id": "map-地图嵌套子图",
+    "title": "地图嵌套子图",
+    "category": "map",
+    "keywords": [
+      "map",
+      "地图嵌套子图"
+    ],
+    "tags": [
+      "map"
+    ],
+    "summary": "PlotCase bundled example under map: 地图嵌套子图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/map/地图嵌套子图/data/ASIR.tsv"
+  },
+  {
+    "id": "map-地图添加3D饼图注释",
+    "title": "地图添加3D饼图注释",
+    "category": "map",
+    "keywords": [
+      "map",
+      "地图添加3D饼图注释"
+    ],
+    "tags": [
+      "map"
+    ],
+    "summary": "PlotCase bundled example under map: 地图添加3D饼图注释",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/map/地图添加3D饼图注释/data/california.png"
+  },
+  {
+    "id": "map-采样点地图",
+    "title": "采样点地图",
+    "category": "map",
+    "keywords": [
+      "map",
+      "采样点地图"
+    ],
+    "tags": [
+      "map"
+    ],
+    "summary": "PlotCase bundled example under map: 采样点地图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/map/采样点地图/data/data.tsv"
+  },
+  {
+    "id": "map-采样点地图进阶版",
+    "title": "采样点地图进阶版",
+    "category": "map",
+    "keywords": [
+      "map",
+      "采样点地图进阶版"
+    ],
+    "tags": [
+      "map"
+    ],
+    "summary": "PlotCase bundled example under map: 采样点地图进阶版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/map/采样点地图进阶版/data/data.tsv"
+  },
+  {
+    "id": "network-ggraph构建疾病遗传调控网络图",
+    "title": "ggraph构建疾病遗传调控网络图",
+    "category": "network",
+    "keywords": [
+      "network",
+      "ggraph构建疾病遗传调控网络图"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: ggraph构建疾病遗传调控网络图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/ggraph构建疾病遗传调控网络图/data/43587_2025_1027_MOESM9_ESM.xlsx"
+  },
+  {
+    "id": "network-ggraph环形网络图_多维数据圈层",
+    "title": "ggraph环形网络图_多维数据圈层",
+    "category": "network",
+    "keywords": [
+      "network",
+      "ggraph环形网络图_多维数据圈层"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: ggraph环形网络图_多维数据圈层",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/ggraph环形网络图_多维数据圈层/data/network_data.tsv"
+  },
+  {
+    "id": "network-GO通路相似性网络图_基于基因重叠度",
+    "title": "GO通路相似性网络图_基于基因重叠度",
+    "category": "network",
+    "keywords": [
+      "network",
+      "GO通路相似性网络图_基于基因重叠度"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: GO通路相似性网络图_基于基因重叠度",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/GO通路相似性网络图_基于基因重叠度/data/GO_pathway.tsv"
+  },
+  {
+    "id": "network-STRING_BioNet网络模块解析代码实战",
+    "title": "STRING_BioNet网络模块解析代码实战",
+    "category": "network",
+    "keywords": [
+      "network",
+      "STRING_BioNet网络模块解析代码实战"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: STRING_BioNet网络模块解析代码实战",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/STRING_BioNet网络模块解析代码实战/data/41590_2025_2341_MOESM4_ESM.xlsx"
+  },
+  {
+    "id": "network-微生物与代谢物共生网络图",
+    "title": "微生物与代谢物共生网络图",
+    "category": "network",
+    "keywords": [
+      "network",
+      "微生物与代谢物共生网络图"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: 微生物与代谢物共生网络图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/微生物与代谢物共生网络图/data/input.zip"
+  },
+  {
+    "id": "network-环形网络图的构建方法",
+    "title": "环形网络图的构建方法",
+    "category": "network",
+    "keywords": [
+      "network",
+      "环形网络图的构建方法"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: 环形网络图的构建方法",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/环形网络图的构建方法/data/41588_2025_2326_MOESM8_ESM.xlsx"
+  },
+  {
+    "id": "network-网络图_基础入门版",
+    "title": "网络图_基础入门版",
+    "category": "network",
+    "keywords": [
+      "network",
+      "网络图_基础入门版"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: 网络图_基础入门版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/网络图_基础入门版/data/edge.tsv"
+  },
+  {
+    "id": "network-蛋白互作网络图",
+    "title": "蛋白互作网络图",
+    "category": "network",
+    "keywords": [
+      "network",
+      "蛋白互作网络图"
+    ],
+    "tags": [
+      "network"
+    ],
+    "summary": "PlotCase bundled example under network: 蛋白互作网络图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/network/蛋白互作网络图/data/string_interactions.tsv"
+  },
+  {
+    "id": "pie-3D饼图",
+    "title": "3D饼图",
+    "category": "pie",
+    "keywords": [
+      "pie",
+      "3D饼图"
+    ],
+    "tags": [
+      "pie"
+    ],
+    "summary": "PlotCase bundled example under pie: 3D饼图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/pie/3D饼图/data/41588_2025_2351_MOESM6_ESM.xlsx"
+  },
+  {
+    "id": "pie-多层饼图",
+    "title": "多层饼图",
+    "category": "pie",
+    "keywords": [
+      "pie",
+      "多层饼图"
+    ],
+    "tags": [
+      "pie"
+    ],
+    "summary": "PlotCase bundled example under pie: 多层饼图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/pie/多层饼图/data/data.tsv"
+  },
+  {
+    "id": "pie-循环绘制饼图",
+    "title": "循环绘制饼图",
+    "category": "pie",
+    "keywords": [
+      "pie",
+      "循环绘制饼图"
+    ],
+    "tags": [
+      "pie"
+    ],
+    "summary": "PlotCase bundled example under pie: 循环绘制饼图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/pie/循环绘制饼图/data/GUSsStat.csv"
+  },
+  {
+    "id": "point-PCA散点图",
+    "title": "PCA散点图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "PCA散点图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: PCA散点图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/PCA散点图/data/F1.xlsx"
+  },
+  {
+    "id": "point-PCOA分析图",
+    "title": "PCOA分析图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "PCOA分析图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: PCOA分析图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/PCOA分析图/data/group.csv"
+  },
+  {
+    "id": "point-三元相图",
+    "title": "三元相图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "三元相图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 三元相图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/三元相图/data/41586_2025_9686_MOESM9_ESM.xlsx"
+  },
+  {
+    "id": "point-双Y轴散点面积组合图",
+    "title": "双Y轴散点面积组合图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "双Y轴散点面积组合图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 双Y轴散点面积组合图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/双Y轴散点面积组合图/data/data1.tsv"
+  },
+  {
+    "id": "point-四象限散点图",
+    "title": "四象限散点图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "四象限散点图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 四象限散点图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/四象限散点图/data/data.tsv"
+  },
+  {
+    "id": "point-堆积气泡图",
+    "title": "堆积气泡图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "堆积气泡图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 堆积气泡图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/堆积气泡图/data/data.tsv"
+  },
+  {
+    "id": "point-多组火山图",
+    "title": "多组火山图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "多组火山图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 多组火山图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/多组火山图/data/data.tsv"
+  },
+  {
+    "id": "point-散点图叠加多坐标轴",
+    "title": "散点图叠加多坐标轴",
+    "category": "point",
+    "keywords": [
+      "point",
+      "散点图叠加多坐标轴"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 散点图叠加多坐标轴",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/散点图叠加多坐标轴/data/41591_2025_3891_MOESM5_ESM.xlsx"
+  },
+  {
+    "id": "point-散点图叠加多组拟合曲线",
+    "title": "散点图叠加多组拟合曲线",
+    "category": "point",
+    "keywords": [
+      "point",
+      "散点图叠加多组拟合曲线"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 散点图叠加多组拟合曲线",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/散点图叠加多组拟合曲线/data/data.txt"
+  },
+  {
+    "id": "point-散点图叠加拟合曲线_(基础入门)",
+    "title": "散点图叠加拟合曲线_(基础入门)",
+    "category": "point",
+    "keywords": [
+      "point",
+      "散点图叠加拟合曲线_(基础入门)"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 散点图叠加拟合曲线_(基础入门)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/散点图叠加拟合曲线_(基础入门)/data/41467_2025_60327_MOESM6_ESM.xlsx"
+  },
+  {
+    "id": "point-散点图叠加边际分布",
+    "title": "散点图叠加边际分布",
+    "category": "point",
+    "keywords": [
+      "point",
+      "散点图叠加边际分布"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 散点图叠加边际分布",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/散点图叠加边际分布/data/F7a.txt"
+  },
+  {
+    "id": "point-散点饼图_(基础入门)",
+    "title": "散点饼图_(基础入门)",
+    "category": "point",
+    "keywords": [
+      "point",
+      "散点饼图_(基础入门)"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 散点饼图_(基础入门)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/散点饼图_(基础入门)/data/pie2.tsv"
+  },
+  {
+    "id": "point-曼哈顿图",
+    "title": "曼哈顿图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "曼哈顿图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 曼哈顿图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/曼哈顿图/data/chr.txt"
+  },
+  {
+    "id": "point-气泡图高阶用法添加时间轨迹趋势线",
+    "title": "气泡图高阶用法添加时间轨迹趋势线",
+    "category": "point",
+    "keywords": [
+      "point",
+      "气泡图高阶用法添加时间轨迹趋势线"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 气泡图高阶用法添加时间轨迹趋势线",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/气泡图高阶用法添加时间轨迹趋势线/data/F1.tsv"
+  },
+  {
+    "id": "point-渐变火山图",
+    "title": "渐变火山图",
+    "category": "point",
+    "keywords": [
+      "point",
+      "渐变火山图"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 渐变火山图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/渐变火山图/data/41586_2025_9686_MOESM8_ESM.xlsx"
+  },
+  {
+    "id": "point-点线图_(基础入门)",
+    "title": "点线图_(基础入门)",
+    "category": "point",
+    "keywords": [
+      "point",
+      "点线图_(基础入门)"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 点线图_(基础入门)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/点线图_(基础入门)/data/data.tsv"
+  },
+  {
+    "id": "point-配对散点图_(基础入门)",
+    "title": "配对散点图_(基础入门)",
+    "category": "point",
+    "keywords": [
+      "point",
+      "配对散点图_(基础入门)"
+    ],
+    "tags": [
+      "point"
+    ],
+    "summary": "PlotCase bundled example under point: 配对散点图_(基础入门)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/point/配对散点图_(基础入门)/data/data.tsv"
+  },
+  {
+    "id": "sankey-多层级桑基图",
+    "title": "多层级桑基图",
+    "category": "sankey",
+    "keywords": [
+      "sankey",
+      "多层级桑基图"
+    ],
+    "tags": [
+      "sankey"
+    ],
+    "summary": "PlotCase bundled example under sankey: 多层级桑基图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/sankey/多层级桑基图/data/sankey_data.tsv"
+  },
+  {
+    "id": "sankey-渐变色桑基图",
+    "title": "渐变色桑基图",
+    "category": "sankey",
+    "keywords": [
+      "sankey",
+      "渐变色桑基图"
+    ],
+    "tags": [
+      "sankey"
+    ],
+    "summary": "PlotCase bundled example under sankey: 渐变色桑基图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/sankey/渐变色桑基图/data/data.tsv"
+  },
+  {
+    "id": "sankey-节点融合桑基图",
+    "title": "节点融合桑基图",
+    "category": "sankey",
+    "keywords": [
+      "sankey",
+      "节点融合桑基图"
+    ],
+    "tags": [
+      "sankey"
+    ],
+    "summary": "PlotCase bundled example under sankey: 节点融合桑基图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/sankey/节点融合桑基图/data/data1_1.tsv"
+  },
+  {
+    "id": "tree-ggtree绘制系统发育树",
+    "title": "ggtree绘制系统发育树",
+    "category": "tree",
+    "keywords": [
+      "tree",
+      "ggtree绘制系统发育树"
+    ],
+    "tags": [
+      "tree"
+    ],
+    "summary": "PlotCase bundled example under tree: ggtree绘制系统发育树",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/tree/ggtree绘制系统发育树/data/data.csv"
+  },
+  {
+    "id": "tree-多层级系统发育树图",
+    "title": "多层级系统发育树图",
+    "category": "tree",
+    "keywords": [
+      "tree",
+      "多层级系统发育树图"
+    ],
+    "tags": [
+      "tree"
+    ],
+    "summary": "PlotCase bundled example under tree: 多层级系统发育树图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/tree/多层级系统发育树图/data/pMAGs_bact_gtdtk_midroot.tree"
+  },
+  {
+    "id": "venn-维恩点图",
+    "title": "维恩点图",
+    "category": "venn",
+    "keywords": [
+      "venn",
+      "维恩点图"
+    ],
+    "tags": [
+      "venn"
+    ],
+    "summary": "PlotCase bundled example under venn: 维恩点图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/venn/维恩点图/data/NCOMMS-24-29043C_Source Data to Main Figures.xlsx"
+  },
+  {
+    "id": "violin-分裂小提琴图",
+    "title": "分裂小提琴图",
+    "category": "violin",
+    "keywords": [
+      "violin",
+      "分裂小提琴图"
+    ],
+    "tags": [
+      "violin"
+    ],
+    "summary": "PlotCase bundled example under violin: 分裂小提琴图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/violin/分裂小提琴图/data/data.tsv"
+  },
+  {
+    "id": "violin-分裂小提琴图分面版",
+    "title": "分裂小提琴图分面版",
+    "category": "violin",
+    "keywords": [
+      "violin",
+      "分裂小提琴图分面版"
+    ],
+    "tags": [
+      "violin"
+    ],
+    "summary": "PlotCase bundled example under violin: 分裂小提琴图分面版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/violin/分裂小提琴图分面版/data/violin_data.tsv"
+  },
+  {
+    "id": "violin-小提琴图添加显著性标记",
+    "title": "小提琴图添加显著性标记",
+    "category": "violin",
+    "keywords": [
+      "violin",
+      "小提琴图添加显著性标记"
+    ],
+    "tags": [
+      "violin"
+    ],
+    "summary": "PlotCase bundled example under violin: 小提琴图添加显著性标记",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/violin/小提琴图添加显著性标记/data/data.tsv"
+  },
+  {
+    "id": "violin-小提琴图自定义刻度值",
+    "title": "小提琴图自定义刻度值",
+    "category": "violin",
+    "keywords": [
+      "violin",
+      "小提琴图自定义刻度值"
+    ],
+    "tags": [
+      "violin"
+    ],
+    "summary": "PlotCase bundled example under violin: 小提琴图自定义刻度值",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/violin/小提琴图自定义刻度值/data/gene.tsv"
+  },
+  {
+    "id": "云雨图-云雨图添加统计信息",
+    "title": "云雨图添加统计信息",
+    "category": "云雨图",
+    "keywords": [
+      "云雨图",
+      "云雨图添加统计信息"
+    ],
+    "tags": [
+      "云雨图"
+    ],
+    "summary": "PlotCase bundled example under 云雨图: 云雨图添加统计信息",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/云雨图/云雨图添加统计信息/data/data.tsv"
+  },
+  {
+    "id": "冲积图-物种组成冲积图",
+    "title": "物种组成冲积图",
+    "category": "冲积图",
+    "keywords": [
+      "冲积图",
+      "物种组成冲积图"
+    ],
+    "tags": [
+      "冲积图"
+    ],
+    "summary": "PlotCase bundled example under 冲积图: 物种组成冲积图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/冲积图/物种组成冲积图/data/NCOMMS-24-29043C_Source Data to Main Figures.xlsx"
+  },
+  {
+    "id": "哑铃图-哑铃图进阶展示差异信息",
+    "title": "哑铃图进阶展示差异信息",
+    "category": "哑铃图",
+    "keywords": [
+      "哑铃图",
+      "哑铃图进阶展示差异信息"
+    ],
+    "tags": [
+      "哑铃图"
+    ],
+    "summary": "PlotCase bundled example under 哑铃图: 哑铃图进阶展示差异信息",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/哑铃图/哑铃图进阶展示差异信息/data/data.tsv"
+  },
+  {
+    "id": "哑铃图-环形哑铃通路图",
+    "title": "环形哑铃通路图",
+    "category": "哑铃图",
+    "keywords": [
+      "哑铃图",
+      "环形哑铃通路图"
+    ],
+    "tags": [
+      "哑铃图"
+    ],
+    "summary": "PlotCase bundled example under 哑铃图: 环形哑铃通路图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/哑铃图/环形哑铃通路图/data/data.tsv"
+  },
+  {
+    "id": "山脊图-山脊密度图",
+    "title": "山脊密度图",
+    "category": "山脊图",
+    "keywords": [
+      "山脊图",
+      "山脊密度图"
+    ],
+    "tags": [
+      "山脊图"
+    ],
+    "summary": "PlotCase bundled example under 山脊图: 山脊密度图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/山脊图/山脊密度图/data/dataForFig2AB.csv"
+  },
+  {
+    "id": "折线图-折线图添加密度分布",
+    "title": "折线图添加密度分布",
+    "category": "折线图",
+    "keywords": [
+      "折线图",
+      "折线图添加密度分布"
+    ],
+    "tags": [
+      "折线图"
+    ],
+    "summary": "PlotCase bundled example under 折线图: 折线图添加密度分布",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/折线图/折线图添加密度分布/data/f1g.tsv"
+  },
+  {
+    "id": "旭日图-旭日图_(基础入门)",
+    "title": "旭日图_(基础入门)",
+    "category": "旭日图",
+    "keywords": [
+      "旭日图",
+      "旭日图_(基础入门)"
+    ],
+    "tags": [
+      "旭日图"
+    ],
+    "summary": "PlotCase bundled example under 旭日图: 旭日图_(基础入门)",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/旭日图/旭日图_(基础入门)/data/data.tsv"
+  },
+  {
+    "id": "森林图-多因素Cox森林图",
+    "title": "多因素Cox森林图",
+    "category": "森林图",
+    "keywords": [
+      "森林图",
+      "多因素Cox森林图"
+    ],
+    "tags": [
+      "森林图"
+    ],
+    "summary": "PlotCase bundled example under 森林图: 多因素Cox森林图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/森林图/多因素Cox森林图/data/43018_2025_1072_MOESM3_ESM.xlsx"
+  },
+  {
+    "id": "森林图-森林图进阶图例映射版",
+    "title": "森林图进阶图例映射版",
+    "category": "森林图",
+    "keywords": [
+      "森林图",
+      "森林图进阶图例映射版"
+    ],
+    "tags": [
+      "森林图"
+    ],
+    "summary": "PlotCase bundled example under 森林图: 森林图进阶图例映射版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/森林图/森林图进阶图例映射版/data/data.tsv"
+  },
+  {
+    "id": "游泳图-游泳图_进阶版",
+    "title": "游泳图_进阶版",
+    "category": "游泳图",
+    "keywords": [
+      "游泳图",
+      "游泳图_进阶版"
+    ],
+    "tags": [
+      "游泳图"
+    ],
+    "summary": "PlotCase bundled example under 游泳图: 游泳图_进阶版",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/游泳图/游泳图_进阶版/data/anno_df.tsv"
+  },
+  {
+    "id": "生存分析-Kaplan_Meier生存曲线",
+    "title": "Kaplan_Meier生存曲线",
+    "category": "生存分析",
+    "keywords": [
+      "生存分析",
+      "Kaplan_Meier生存曲线"
+    ],
+    "tags": [
+      "生存分析"
+    ],
+    "summary": "PlotCase bundled example under 生存分析: Kaplan_Meier生存曲线",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/生存分析/Kaplan_Meier生存曲线/data/patient_metadata.csv"
+  },
+  {
+    "id": "维诺图-维诺图",
+    "title": "维诺图",
+    "category": "维诺图",
+    "keywords": [
+      "维诺图",
+      "维诺图"
+    ],
+    "tags": [
+      "维诺图"
+    ],
+    "summary": "PlotCase bundled example under 维诺图: 维诺图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/维诺图/维诺图/data/data.tsv"
+  },
+  {
+    "id": "维诺图-维诺图划分子区域",
+    "title": "维诺图划分子区域",
+    "category": "维诺图",
+    "keywords": [
+      "维诺图",
+      "维诺图划分子区域"
+    ],
+    "tags": [
+      "维诺图"
+    ],
+    "summary": "PlotCase bundled example under 维诺图: 维诺图划分子区域",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/维诺图/维诺图划分子区域/data/data.tsv"
+  },
+  {
+    "id": "雷达图-雷达图批量绘制",
+    "title": "雷达图批量绘制",
+    "category": "雷达图",
+    "keywords": [
+      "雷达图",
+      "雷达图批量绘制"
+    ],
+    "tags": [
+      "雷达图"
+    ],
+    "summary": "PlotCase bundled example under 雷达图: 雷达图批量绘制",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/雷达图/雷达图批量绘制/data/data.tsv"
+  },
+  {
+    "id": "面积图-堆砌流动面积图",
+    "title": "堆砌流动面积图",
+    "category": "面积图",
+    "keywords": [
+      "面积图",
+      "堆砌流动面积图"
+    ],
+    "tags": [
+      "面积图"
+    ],
+    "summary": "PlotCase bundled example under 面积图: 堆砌流动面积图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/面积图/堆砌流动面积图/data/41586_2025_9686_MOESM6_ESM.xlsx"
+  },
+  {
+    "id": "面积图-柱状图组合面积图",
+    "title": "柱状图组合面积图",
+    "category": "面积图",
+    "keywords": [
+      "面积图",
+      "柱状图组合面积图"
+    ],
+    "tags": [
+      "面积图"
+    ],
+    "summary": "PlotCase bundled example under 面积图: 柱状图组合面积图",
+    "example_path": "<USER_HOME>/Downloads/PlotCase-win-x64-1.0.3/PlotCase-win-x64-1.0.3/resources/app.asar.unpacked/content/面积图/柱状图组合面积图/data/data1.tsv"
+  }
+]

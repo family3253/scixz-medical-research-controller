@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zotero Reviewed Import"
+  short_description: "Resumable reviewed-XLSX to Zotero import workflow"
+  default_prompt: "Use $zotero-reviewed-import to turn a reviewed bibliography workbook into a resumable Zotero import run, inspect resume state first, and continue from the recorded run directory instead of reconstructing history from chat."

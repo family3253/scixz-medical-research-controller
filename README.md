@@ -10,9 +10,9 @@ The controller uses a three-department gate—中书省 (draft), 门下省 (revi
 
 - The portable `scixz` controller and its routing contracts.
 - Collaboration, role, workflow, consensus, evaluation, and verification contracts.
-- The local-only companion Skills that are otherwise difficult to discover: `revise`, `find-journal`, `deterministic-local-file-reading`, and `manage-refs`. See [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md).
+- A deduplicated public bundle of 260 companion Skills under [`bundled-skills/`](bundled-skills/), including local-only Skills and public-source Skills that would otherwise be hard for another user to reconstruct from this machine.
 - Portable runtime-binding examples; machine-specific paths and private state are intentionally excluded.
-- A complete download matrix for Skills that users must obtain separately: [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
+- A complete dependency and download guide for external services, proprietary readers, and source repositories: [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
 
 ## Quick start
 
@@ -30,26 +30,33 @@ The entry point is [`SKILL.md`](SKILL.md). For complex requests, SciXZ creates i
 
 ## Bundled versus external Skills
 
-The local-only companion Skills are placed under [`bundled-skills/`](bundled-skills/) so others can find and install them independently. They are not silently relicensed by the top-level MIT license; see the per-component notes in [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md).
+Companion Skills are placed under [`bundled-skills/`](bundled-skills/) so others can find and install them independently. This release now includes both local-only Skills and public-source Skills that were present in the local catalog. The bundle is deduplicated by Skill name and excludes virtual environments, dependency caches, browser state, credentials, manuscripts, datasets, and other private runtime artifacts.
 
-Skills that already have public GitHub sources are referenced but not duplicated. Skills with an explicit proprietary license, such as the `anthropics-*` document readers, are not copied into this public repository. Install them from their authoritative distribution when a route needs them. JANE and iPubMed are external evidence adapters, not bundled Skills.
+Bundling does not relicense third-party components under the top-level MIT license. Inspect each component's own license files or source notes before redistributing it on its own. See [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md) and the machine-readable [`registry/bundled_skill_manifest.json`](registry/bundled_skill_manifest.json). A readable full list is also available in [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md).
+
+Skills with an explicit proprietary license, such as the `anthropics-*` document readers, are not copied into this public repository. Install them from their authorized distribution when a route needs them. JANE, iPubMed, ShowJCR data, JCR MCP servers, Clarivate access, LetPub web pages, and EasyScholar API credentials are external sources/adapters, not secrets or services bundled into this repository.
 
 ## Dependency and download guide
 
 ### Included in this repository
 
-These local-only companion Skills are already included under `bundled-skills/`:
+The repository includes 260 top-level companion Skills under `bundled-skills/`. Install all of them with:
 
-- `revise`
-- `find-journal`
-- `deterministic-local-file-reading`
-- `manage-refs`
+```text
+python scripts/install_bundled_skills.py
+```
 
-No additional download is needed for these four. If your runtime does not automatically discover nested packages, install each subdirectory as an independent Skill.
+Install or refresh selected Skills with:
+
+```text
+python scripts/install_bundled_skills.py find-journal sci-select --overwrite
+```
+
+If your runtime does not automatically discover nested packages, install the relevant subdirectory as an independent Skill.
 
 ### Verified public Skill repositories
 
-The following are public Skill repositories or public Skill directories verified for this release (checked 2026-08-29). They are intentionally not duplicated here:
+The following public Skill repositories or public Skill directories were verified for this release and are now also bundled when present locally. The links are retained so users can inspect upstream history or install directly from the source:
 
 | Use case | Skill | Repository |
 |---|---|---|
@@ -63,7 +70,7 @@ The following are public Skill repositories or public Skill directories verified
 | Literature retrieval/synthesis | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
 | Known-journal lookup | `sci-select` | [keros68/sci-select](https://github.com/keros68/sci-select) |
 
-Public repositories and versions may change. Use the linked repository's release instructions rather than copying an unpinned local cache.
+Public repositories and versions may change. For strict reproducibility, use the bundled copy from this repository; for updates, compare with the linked upstream before replacing a local Skill.
 
 ### Catalog-dependent route Skills
 
@@ -93,13 +100,16 @@ npx skills add <owner>/<repo> --list
 npx skills add <owner>/<repo> --skill <skill-name> -g
 ```
 
-For a Skill bundled in this repository:
+For all bundled Skills:
 
 ```text
-npx skills add ./bundled-skills/revise --skill revise -g
+python scripts/install_bundled_skills.py
+```
+
+For one bundled Skill:
+
+```text
 npx skills add ./bundled-skills/find-journal --skill find-journal -g
-npx skills add ./bundled-skills/deterministic-local-file-reading --skill deterministic-local-file-reading -g
-npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
 For the recommended known-journal lookup stack:
@@ -177,4 +187,4 @@ This release contains no manuscripts, patient-level data, extraction workbooks, 
 
 ## License
 
-The SciXZ controller and repository-authored documentation are released under the MIT License. Bundled companion Skills retain the provenance and licensing notes recorded in [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md); inspect those notes before redistributing a component on its own.
+The SciXZ controller and repository-authored documentation are released under the MIT License. Bundled companion Skills retain their own provenance and licensing notes recorded in [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md) and [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md); inspect those notes before redistributing a component on its own.

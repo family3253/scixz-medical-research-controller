@@ -1,0 +1,26 @@
+# Session Manifest
+
+- session_id:
+- project_goal:
+- review_type:
+- source_plan:
+- current_stage:
+- upstream_artifacts:
+  - candidate_pool:
+  - title_abstract_screening:
+  - fulltext_screening:
+  - evidence_extraction:
+  - figure_plan:
+  - visual_evidence_pack:
+- downstream_targets:
+  - outline:
+  - draft_sections:
+  - claim_mapping:
+  - decision_record:
+  - gate_report:
+- memory_artifacts:
+  - sentinel_watch_report:
+  - lessons_memory:
+- verification_artifacts:
+  - citation_authenticity_report:
+- notes:

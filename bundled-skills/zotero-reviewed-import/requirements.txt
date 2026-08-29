@@ -1,0 +1,8 @@
+bibtexparser
+python-docx
+habanero
+httpx
+thefuzz
+openpyxl
+pyzotero
+requests

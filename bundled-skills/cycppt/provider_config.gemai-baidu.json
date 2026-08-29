@@ -1,0 +1,27 @@
+{
+  "image_provider": {
+    "kind": "openai_compatible",
+    "base_url": "https://api.gemai.cc/v1",
+    "api_key_env": "GEMAI_API_KEY",
+    "model": "gpt-image-2",
+    "size": "2560x1440",
+    "timeout_seconds": 600,
+    "supports_text_to_image": true,
+    "supports_image_input": true,
+    "supports_image_edit": true,
+    "max_concurrent_slide_generation": 2,
+    "max_concurrent_clean_background": null
+  },
+  "ocr_provider": {
+    "kind": "paddle_ocr_v5_api",
+    "job_url": "https://paddleocr.aistudio-app.com/api/v2/ocr/jobs",
+    "api_key_env": "AISTUDIO_OCR_TOKEN",
+    "model": "PP-OCRv5",
+    "poll_interval_seconds": 5,
+    "timeout_seconds": 600,
+    "max_concurrent_ocr": 2,
+    "returns_bounding_boxes": true,
+    "returns_confidence": true,
+    "returns_polygons": true
+  }
+}

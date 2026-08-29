@@ -1,0 +1,28 @@
+{
+  "ocr_providers": [
+    {
+      "kind": "local_paddleocr_v5",
+      "python": "<USER_HOME>/paddleocr_env/Scripts/python.exe",
+      "lang": "ch",
+      "det_model": "PP-OCRv5_server_det",
+      "rec_model": "PP-OCRv5_server_rec",
+      "disable_model_source_check": false,
+      "max_concurrent_ocr": 2,
+      "returns_bounding_boxes": true,
+      "returns_confidence": true,
+      "returns_polygons": true
+    },
+    {
+      "kind": "paddle_ocr_v5_api",
+      "job_url": "https://paddleocr.aistudio-app.com/api/v2/ocr/jobs",
+      "api_key_env": "AISTUDIO_OCR_TOKEN",
+      "model": "PP-OCRv5",
+      "poll_interval_seconds": 5,
+      "timeout_seconds": 600,
+      "max_concurrent_ocr": 2,
+      "returns_bounding_boxes": true,
+      "returns_confidence": true,
+      "returns_polygons": true
+    }
+  ]
+}

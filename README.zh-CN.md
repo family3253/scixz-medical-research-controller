@@ -10,9 +10,9 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 - 可移植的 `scixz` 控制器与路由契约。
 - 协作、角色、工作流、共识、评估和验证契约。
-- 一组本地独有、难以从外部发现的配套 Skill：`revise`、`find-journal`、`deterministic-local-file-reading` 和 `manage-refs`，详见 [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md)。
+- 260 个去重后的配套 Skill，放在 [`bundled-skills/`](bundled-skills/)；其中包括本地独有 Skill，也包括本机 catalog 中已经安装的公开来源 Skill，方便他人复现。
 - 可移植的运行时绑定示例；机器专属路径和私有状态不会纳入公开版本。
-- 需要自行下载的 Skill 完整清单：[`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md)。
+- 外部服务、专有读取器和上游仓库地址的完整说明：[`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md)。
 
 ## 快速开始
 
@@ -30,26 +30,33 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 ## 配套 Skill 与外部依赖
 
-本地独有的配套 Skill 位于 [`bundled-skills/`](bundled-skills/)，方便其他人发现并独立安装、替换和升级。它们不会被顶层 MIT 许可证自动重新授权；各组件的来源和许可说明见 [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md)。
+配套 Skill 位于 [`bundled-skills/`](bundled-skills/)，方便其他人发现并独立安装、替换和升级。本版本已经把本地独有 Skill 和本机 catalog 中存在的公开来源 Skill 一并打包。打包过程按 Skill 名去重，并排除了虚拟环境、依赖缓存、浏览器状态、凭据、稿件、数据集和其他私有运行产物。
 
-已有公开 GitHub 来源的 Skill 只作为依赖引用，不重复复制。明确标注为 Proprietary 的 Skill（例如 `anthropics-*` 文档读取器）没有复制到公开仓库，需要使用其权威发行版本。JANE 和 iPubMed 是外部证据适配器，不是随仓库分发的 Skill。
+打包不代表第三方组件自动改用本仓库顶层 MIT 许可证。单独再分发某个组件前，请检查组件自身的许可证文件或来源说明。详见 [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md)、机器可读清单 [`registry/bundled_skill_manifest.json`](registry/bundled_skill_manifest.json)，以及可读完整表 [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md)。
+
+明确标注为 Proprietary 的 Skill（例如 `anthropics-*` 文档读取器）没有复制到公开仓库，需要使用其授权发行版本。JANE、iPubMed、ShowJCR 数据、JCR MCP 服务、Clarivate 访问、LetPub 网页和 EasyScholar API 凭据都属于外部来源/适配器，不是随仓库公开的密钥或服务。
 
 ## 依赖与下载说明
 
 ### 仓库内置
 
-以下本地独有的配套 Skill 已经放在 `bundled-skills/` 中：
+本仓库已经在 `bundled-skills/` 下包含 260 个顶层配套 Skill。全部安装：
 
-- `revise`
-- `find-journal`
-- `deterministic-local-file-reading`
-- `manage-refs`
+```text
+python scripts/install_bundled_skills.py
+```
 
-这 4 个不需要再下载。如果运行环境不会自动发现嵌套目录，请把每个子目录作为独立 Skill 安装。
+只安装或刷新部分 Skill：
+
+```text
+python scripts/install_bundled_skills.py find-journal sci-select --overwrite
+```
+
+如果运行环境不会自动发现嵌套包，请把相关子目录作为独立 Skill 安装。
 
 ### 已核实的公开 Skill 仓库
 
-以下是本版本已核实、可直接访问的公开 Skill 仓库或 Skill 目录（核对日期：2026-08-29）。它们因此没有重复复制到本仓库：
+以下是本版本已核实、可直接访问的公开 Skill 仓库或 Skill 目录。只要本机 catalog 中存在，它们现在也已经随本仓库打包；保留链接是为了方便用户查看上游历史或直接从源仓库安装：
 
 | 用途 | Skill | 仓库地址 |
 |---|---|---|
@@ -63,7 +70,7 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 | 文献检索/综合 | `deep-research` | [Imbad0202/academic-research-skills/deep-research](https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research) |
 | 已知期刊查询 | `sci-select` | [keros68/sci-select](https://github.com/keros68/sci-select) |
 
-公开仓库和版本会变化。请优先按照链接仓库的发行说明安装，不要直接复制未固定版本的本地缓存。
+公开仓库和版本会变化。严格复现时优先使用本仓库内置版本；升级时先与上游仓库比对，再替换本地 Skill。
 
 ### 依赖 Skill catalog 的路线
 
@@ -93,13 +100,16 @@ npx skills add <owner>/<repo> --list
 npx skills add <owner>/<repo> --skill <skill-name> -g
 ```
 
-对于本仓库内置的 Skill，可从对应目录安装：
+对于本仓库内置的全部 Skill：
 
 ```text
-npx skills add ./bundled-skills/revise --skill revise -g
+python scripts/install_bundled_skills.py
+```
+
+对于单个本仓库内置 Skill：
+
+```text
 npx skills add ./bundled-skills/find-journal --skill find-journal -g
-npx skills add ./bundled-skills/deterministic-local-file-reading --skill deterministic-local-file-reading -g
-npx skills add ./bundled-skills/manage-refs --skill manage-refs -g
 ```
 
 推荐的“输入期刊名查全指标”组合安装方式：
@@ -177,4 +187,4 @@ SciXZ 用于科研规划和评价，不用于自主诊疗、处方、患者管�
 
 ## 许可证
 
-SciXZ 控制器和仓库自有文档采用 MIT License。配套 Skill 保留 [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md) 中记录的来源与许可说明；单独再分发某个组件前，请先核对其许可条件。
+SciXZ 控制器和仓库自有文档采用 MIT License。配套 Skill 保留 [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md) 与 [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md) 中记录的来源与许可说明；单独再分发某个组件前，请先核对其许可条件。
