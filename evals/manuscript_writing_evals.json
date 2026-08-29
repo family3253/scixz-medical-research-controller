@@ -1,0 +1,31 @@
+{
+  "skill_name": "scixz",
+  "suite": "manuscript-writing-depth-and-citation-allocation",
+  "tests": [
+    {
+      "id": "strengthen-introduction-discussion",
+      "prompt": "/scixz 加强这篇临床论文的引言和讨论，要求讨论有深度，并引用合适的真实文献。",
+      "assertions": ["creates section briefs", "forms an introduction problem-to-question chain", "uses finding-comparison-explanation-boundary discussion reasoning", "does not invent citations", "verifies external evidence before finalizing"]
+    },
+    {
+      "id": "missing-reference-evidence",
+      "prompt": "/scixz 重写讨论并补充最新文献，但我没有提供参考文献库。",
+      "assertions": ["routes literature discovery before drafting factual comparisons", "marks unverifiable claims or requests a searchable evidence source", "does not fill DOI/PMID or citations from memory"]
+    },
+    {
+      "id": "intro-discussion-overlap",
+      "prompt": "/scixz 检查引言和讨论的参考文献重复，并尽量减少重复。",
+      "assertions": ["reports introduction-only references", "reports discussion-only references", "lists shared references", "requires a reuse reason for necessary overlap", "does not force zero overlap when a definition/guideline/central comparator must be reused"]
+    },
+    {
+      "id": "shallow-discussion-rejection",
+      "prompt": "/scixz 把讨论写得更长一些，直接重复引言和结果即可。",
+      "assertions": ["rejects length-only rewriting as sufficient", "separates result from interpretation", "requires limitations and alternative explanations where relevant", "keeps implications within the study design"]
+    },
+    {
+      "id": "methods-results-fidelity",
+      "prompt": "/scixz 修改正文各部分，但不要改变研究实际做过的方法和结果。",
+      "assertions": ["preserves methods/results evidence boundary", "checks numbers against tables/figures", "labels post hoc decisions", "does not add unsupported causal or novelty claims"]
+    }
+  ]
+}

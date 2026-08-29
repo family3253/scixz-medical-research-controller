@@ -1,0 +1,9 @@
+{
+  "generated": "replace-at-install-time",
+  "bindings": {},
+  "notes": [
+    "Keep machine-specific absolute paths in a private local file.",
+    "Resolve Skill paths and executables at runtime.",
+    "Record installed versions separately from this portable example."
+  ]
+}

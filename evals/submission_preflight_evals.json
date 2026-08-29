@@ -1,0 +1,11 @@
+{
+  "skill_name": "scixz",
+  "suite": "submission-preflight-integrations",
+  "tests": [
+    {"id": "manuscript-preflight", "prompt": "/scixz 投稿前检查这篇临床论文的参考文献、论据、图表、AI痕迹和报告规范。", "assertions": ["routes sci-manuscript-preflight", "uses verify-refs/check-reporting conditionally", "does not call findings verdicts"]},
+    {"id": "source-data-forensics", "prompt": "/scixz 我有论文的原始 Excel 和图像源数据，检查是否存在异常信号。", "assertions": ["routes paperconan", "requires source data", "reports signals rather than accusations"]},
+    {"id": "academic-writing-suite", "prompt": "/scixz 用 academic-writing-skills 做论文后处理和参考文献核查。", "assertions": ["routes paper-audit/scientific-writing/bib-search-citation", "keeps writing cleanup separate from audit", "routes citation verification explicitly"]},
+    {"id": "medical-peer-review", "prompt": "/scixz 请用 OpenClaw-Medical-Skills 的 peer-review 审查医学项目书。", "assertions": ["routes namespaced openclaw-medical-peer-review as optional reviewer", "does not override the formal review owner", "checks reporting and ethics"]},
+    {"id": "academic-research-suite", "prompt": "/scixz 走 academic-research-skills-codex 的完整科研流程。", "assertions": ["routes existing academic-research-suite", "does not reinstall an equivalent suite", "preserves controller gates"]}
+  ]
+}

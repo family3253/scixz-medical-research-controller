@@ -1,0 +1,105 @@
+{
+  "generated": "2026-08-22",
+  "purpose": "External research-tool adapters used by SciXZ journal-selection and citation-verification routes",
+  "policy": "External sites are advisory evidence sources, but both adapters are mandatory evidence branches for SciXZ journal-selection and citation-management routes. They never replace the canonical installed Skill or authoritative verification source.",
+  "mandatory_route_groups": [
+    {
+      "route": "journal-selection",
+      "required_tools": ["jane", "ipubmed"],
+      "completion_rule": "Both tools must be invoked and produce an auditable result before the final ranked journal cascade is published."
+    },
+    {
+      "route": "citation-management",
+      "required_tools": ["jane", "ipubmed"],
+      "completion_rule": "Both tools must be invoked for candidate discovery/triage before the final reference audit is published."
+    },
+    {
+      "route": "submission-preflight.citation-branch",
+      "required_tools": ["jane", "ipubmed"],
+      "completion_rule": "When reference proofreading is in scope, both tools are required; a preflight cannot be marked ready without both run records."
+    }
+  ],
+  "tools": [
+    {
+      "id": "jane",
+      "name": "JANE (Journal/Author Name Estimator)",
+      "homepage": "https://jane.biosemantics.org/index.php",
+      "mode": "public-url-api",
+      "mandatory": true,
+      "mandatory_routes": ["journal-selection", "citation-management", "submission-preflight.citation-branch"],
+      "required_artifact": "documented query URL plus captured response or normalized result record",
+      "fallback_policy": "diagnostics-only; no final journal ranking or citation-proofreading conclusion without a completed JANE run",
+      "api_documentation": "https://jane.biosemantics.org/JANE%20API%20description.pdf",
+      "capabilities": [
+        "journal-similarity search",
+        "author discovery",
+        "paper discovery"
+      ],
+      "routes": [
+        "journal-selection",
+        "literature-review",
+        "citation-management"
+      ],
+      "input_policy": {
+        "allowed_by_default": ["title", "abstract", "keywords", "claim paraphrase"],
+        "requires_authorization": ["unpublished full manuscript", "peer-review material", "PHI", "restricted data"],
+        "default": "send the minimum de-identified text needed for similarity search"
+      },
+      "evidence_limits": [
+        "JANE ranks by similarity to PubMed records and is not an acceptance predictor",
+        "the service may include journals from PubMed that require further quality screening",
+        "the service warns that predatory journals can appear; MEDLINE and DOAJ tags are signals, not a complete whitelist",
+        "the FAQ states that the data behind JANE is updated monthly"
+      ],
+      "verification": [
+        "journal homepage and current author guidelines",
+        "current indexing status from authoritative sources",
+        "current APC and policy facts from the journal or publisher",
+        "candidate paper metadata through PubMed/CrossRef before citation use"
+      ],
+      "fallback": ["find-journal", "research-lit", "verify-refs"]
+    },
+    {
+      "id": "ipubmed",
+      "name": "iPubMed (实战医学统计)",
+      "homepage": "https://shiny.zhihuishuju.com/ipubmed/",
+      "mode": "browser-assisted-shiny",
+      "mandatory": true,
+      "mandatory_routes": ["journal-selection", "citation-management", "submission-preflight.citation-branch"],
+      "required_artifact": "browser run record plus exported result, saved page, or user-provided export",
+      "fallback_policy": "diagnostics-only; no final journal ranking or citation-proofreading conclusion without a completed iPubMed run",
+      "api_documentation": null,
+      "capabilities": [
+        "journal recommendation",
+        "literature search with filters",
+        "Excel/EndNote/Zotero export",
+        "citation tracing and metadata extraction",
+        "journal IF/APC lookup",
+        "title-level suspicious-reference signals"
+      ],
+      "routes": [
+        "journal-selection",
+        "citation-management",
+        "submission-preflight"
+      ],
+      "input_policy": {
+        "allowed_by_default": ["title", "abstract", "keywords", "reference title/DOI/PMID list"],
+        "requires_authorization": ["full unpublished manuscript", "peer-review material", "PHI", "restricted data"],
+        "default": "use browser-assisted input or exported results; never place third-party API keys in SciXZ manifests"
+      },
+      "evidence_limits": [
+        "the public page exposes a dynamic Shiny interface rather than a documented stable API",
+        "IF, APC, indexing and search results are time-sensitive and must be dated and rechecked",
+        "title-level suspicious-reference results are triage signals, not misconduct or fabrication verdicts",
+        "download and non-OA retrieval must respect publisher, copyright and institutional access rules"
+      ],
+      "verification": [
+        "journal homepage and current author guidelines",
+        "current journal metrics and APC through authoritative sources",
+        "reference identifiers through PubMed/CrossRef and the cited source",
+        "retraction/preprint status through authoritative bibliographic records"
+      ],
+      "fallback": ["find-journal", "bib-search-citation", "verify-refs", "sci-manuscript-preflight"]
+    }
+  ]
+}

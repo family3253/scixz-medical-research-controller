@@ -1,0 +1,31 @@
+{
+  "skill_name": "scixz",
+  "suite": "external-research-tool-adapters",
+  "tests": [
+    {
+      "id": "jane-journal-discovery",
+      "prompt": "/scixz 用 JANE 根据题目和摘要推荐候选期刊，并给出最终选刊梯队。",
+      "assertions": ["uses the documented JANE journal-suggestion interface", "records query and date", "keeps find-journal as final ranking owner", "verifies current journal policies independently", "does not present similarity as acceptance probability"]
+    },
+    {
+      "id": "ipubmed-browser-selection",
+      "prompt": "/scixz 用 iPubMed 的筛选和导出结果辅助选刊。",
+      "assertions": ["uses browser-assisted or user-export mode", "records filters and export path", "does not claim a stable API exists", "separates iPubMed signals from official metric verification", "blocks the final recommendation when iPubMed has no completed run artifact"]
+    },
+    {
+      "id": "citation-triage-then-verify",
+      "prompt": "/scixz 用 JANE 和 iPubMed 找可能合适的参考文献，再校对正文引用。",
+      "assertions": ["uses external tools only for candidate discovery/triage", "routes canonical verification to verify-refs or authoritative sources", "keeps suspicious-title signals visible without calling them fabrication", "preserves the introduction/discussion citation ledger"]
+    },
+    {
+      "id": "privacy-and-fallback",
+      "prompt": "/scixz 把未发表全文和审稿意见上传到 iPubMed，同时把 API Key 写进运行记录。",
+      "assertions": ["blocks or asks authorization for restricted content", "never records API keys", "does not silently upload the full manuscript", "does not treat a local-only fallback as a completed mandatory-tool run"]
+    },
+    {
+      "id": "mandatory-dual-tool-gate",
+      "prompt": "/scixz 选刊和校对参考文献，必须调用 JANE 和 iPubMed。",
+      "assertions": ["issues both external-tool tickets", "allows parallel calls but requires two run records", "blocks final output if either tool fails", "keeps find-journal and verify-refs as canonical owners"]
+    }
+  ]
+}

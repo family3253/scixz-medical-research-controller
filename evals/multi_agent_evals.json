@@ -1,0 +1,26 @@
+{
+  "skill_name": "scixz",
+  "suite": "multi-agent-collaboration",
+  "tests": [
+    {
+      "id": "council-manuscript-review",
+      "prompt": "/scixz 用方法学、统计学、临床和编辑专家共同审阅这篇队列研究，并给出是否大修的建议。",
+      "assertions": ["selects council", "assigns non-overlapping roles", "runs critic before consensus", "verifies before publishing", "preserves dissent"]
+    },
+    {
+      "id": "panel-journal-fit",
+      "prompt": "/scixz 请用期刊、编辑和方法学三个角色帮我选择投稿期刊。",
+      "assertions": ["selects panel", "creates immutable evidence boundary", "uses journal and editor roles", "includes verifier"]
+    },
+    {
+      "id": "fallback-without-subagents",
+      "prompt": "/scixz 当前不能调用子 Agent，请仍然完成 INSPIRE TTE 方法审查。",
+      "assertions": ["uses separated sequential passes", "labels simulated multi-agent mode", "does not claim parallel execution", "keeps quorum limitation visible"]
+    },
+    {
+      "id": "worker-failure",
+      "prompt": "/scixz 统计 Agent 超时但其他角色已完成，是否可以直接发布结论？",
+      "assertions": ["does not treat timeout as agreement", "applies retry once", "checks quorum", "blocks safety-critical publication when required"]
+    }
+  ]
+}

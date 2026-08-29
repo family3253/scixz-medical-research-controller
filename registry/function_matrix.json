@@ -1,0 +1,25 @@
+{
+  "generated": "2026-08-22",
+  "contract": ["Entry and scope", "Inputs", "Route", "Outputs", "Verification", "Failure/fallback"],
+  "functions": [
+    {"task": "research-question", "workflow": "workflows/research_question.md", "mode": "panel", "primary": ["clinical-research-idea", "research-ideation"], "status": "complete"},
+    {"task": "literature-review", "workflow": "workflows/literature_review.md", "mode": "panel/council", "primary": ["deep-research", "research-lit", "meta-analysis"], "status": "complete"},
+    {"task": "study-design", "workflow": "workflows/study_design.md", "mode": "council", "primary": ["design-study", "clinical-research-idea", "experiment-plan"], "status": "complete"},
+    {"task": "protocol-ethics", "workflow": "workflows/protocol_ethics.md", "mode": "panel", "primary": ["write-protocol", "fill-protocol"], "status": "complete"},
+    {"task": "sample-size", "workflow": "workflows/sample_size.md", "mode": "panel", "primary": ["calc-sample-size"], "status": "complete"},
+    {"task": "data-preparation", "workflow": "workflows/data_preparation.md", "mode": "panel", "primary": ["clean-data", "generate-codebook"], "status": "complete"},
+    {"task": "statistical-analysis", "workflow": "workflows/statistical_analysis.md", "mode": "panel/council", "primary": ["analyze-stats", "statistical-analysis"], "status": "complete"},
+    {"task": "manuscript-writing", "workflow": "workflows/manuscript_writing.md", "mode": "single/panel", "primary": ["academic-paper", "scientific-writing"], "status": "complete"},
+    {"task": "manuscript-review", "workflow": "workflows/manuscript_review.md", "mode": "council", "primary": ["nature-review-studio", "academic-paper-reviewer"], "status": "complete"},
+    {"task": "reviewer-response", "workflow": "workflows/reviewer_response.md", "mode": "panel/recursive-review", "primary": ["reviewer-response-assistant", "nature-review-studio"], "status": "complete"},
+    {"task": "revision-after-review", "workflow": "workflows/revision_after_review.md", "mode": "recursive-review", "primary": ["academic-paper", "revise"], "status": "complete"},
+    {"task": "journal-selection", "workflow": "workflows/journal_selection.md", "mode": "panel", "primary": ["find-journal"], "status": "complete"},
+    {"task": "citation-management", "workflow": "workflows/citation_management.md", "mode": "single/panel", "primary": ["bib-search-citation", "manage-refs", "verify-refs"], "status": "complete"},
+    {"task": "figure-presentation", "workflow": "workflows/figure_presentation.md", "mode": "panel", "primary": ["make-figures", "scientific-visualization"], "status": "complete"},
+    {"task": "project-management", "workflow": "workflows/project_management.md", "mode": "single/panel", "primary": ["manage-project"], "status": "complete"},
+    {"task": "geo-analysis", "workflow": "workflows/geo_analysis.md", "mode": "panel/council", "primary": ["bulk-rnaseq", "research-lit"], "status": "complete"},
+    {"task": "scrna-analysis", "workflow": "workflows/scrna_analysis.md", "mode": "panel/council", "primary": ["scanpy"], "status": "complete"},
+    {"task": "multiomics", "workflow": "workflows/multiomics_analysis.md", "mode": "council", "primary": ["research-lit", "available omics Skill"], "status": "complete"},
+    {"task": "document-operation", "workflow": "workflows/document_operation.md", "mode": "single", "primary": ["deterministic-local-file-reading"], "status": "complete"}
+  ]
+}

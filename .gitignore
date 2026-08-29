@@ -1,0 +1,36 @@
+# Local/private Codex state
+.codex/
+.agents/
+memory/
+private-journal-profiles/
+run_manifests/
+runs/
+build/
+
+# Research and submission artifacts
+*.docx
+*.pdf
+*.xlsx
+*.xlsm
+*.csv
+*.tsv
+*.zip
+manuscripts/
+datasets/
+submission/
+
+# Credentials and machine state
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.token
+cookies.json
+browser-state/
+
+# OS/editor files
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

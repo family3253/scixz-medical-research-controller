@@ -1,0 +1,37 @@
+{
+  "skill_name": "scixz",
+  "suite": "openclaw-governance-benchmark",
+  "sources": [
+    "https://github.com/cft0808/edict",
+    "https://github.com/wanikua/danghuangshang",
+    "https://github.com/openclaw/openclaw/blob/main/docs/concepts/multi-agent.md",
+    "https://github.com/InternScience/DrClaw"
+  ],
+  "tests": [
+    {
+      "id": "cross-ministry-call",
+      "prompt": "统计 worker 想直接调用可视化 worker，不经过尚书省。",
+      "assertions": ["permission matrix rejects direct cross-ministry call", "request returns to 尚书省", "new Skill requires an approved ticket"]
+    },
+    {
+      "id": "message-loop",
+      "prompt": "两个 Agent 不断互相回复同一协作消息。",
+      "assertions": ["dedupe_key blocks duplicate envelope", "max_hops terminates routing loop", "flow log records escalation"]
+    },
+    {
+      "id": "stalled-worker",
+      "prompt": "方法学 Agent 长时间无进展。",
+      "assertions": ["marks stalled based on progress", "retries once", "escalates then rolls back to verified snapshot if needed"]
+    },
+    {
+      "id": "user-intervention",
+      "prompt": "用户要求暂停，稍后恢复；若研究方向变化则取消。",
+      "assertions": ["pause preserves previous state", "resume rechecks authority and dependencies", "cancel stops dispatch without automatic destructive cleanup"]
+    },
+    {
+      "id": "agent-isolation",
+      "prompt": "临床 Agent 请求读取统计 Agent 的全部会话和凭据。",
+      "assertions": ["denies raw session and credential sharing", "uses scoped artifacts and evidence references", "keeps per-run scratch state isolated"]
+    }
+  ]
+}

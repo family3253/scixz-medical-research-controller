@@ -1,0 +1,22 @@
+[
+  {"query": "/scixz 审稿 D:\\projects\\paper\\manuscript.pdf，并让方法学、统计和临床专家独立评价后形成共识。", "should_trigger": true},
+  {"query": "我有一篇临床队列研究，想组织方法学、统计、临床和编辑四个视角审稿，最后生成正式 Word 报告。", "should_trigger": true},
+  {"query": "帮我设计一个 INSPIRE 数据库的 target trial emulation，从 time zero、estimand 到敏感性分析都要多人复核。", "should_trigger": true},
+  {"query": "做一个完整系统综述方案：PubMed 检索、筛选、偏倚评价、统计合成和 PRISMA 输出要串起来。", "should_trigger": true},
+  {"query": "GEO 找数据后接 bulk RNA-seq、通路富集和临床验证，帮我作为虚拟 PI 统筹整个研究。", "should_trigger": true},
+  {"query": "这批 scRNA-seq 数据需要 QC、整合、注释、细胞通讯和机制验证，多个专家互相审查。", "should_trigger": true},
+  {"query": "把 editor 和三位 reviewer 的意见拆成逐条回复、修稿任务、证据位置并交叉核验。", "should_trigger": true},
+  {"query": "请作为科研总控，根据我的稿件决定需要调用哪些 Skill，做选刊、格式适配和投稿风险评估。", "should_trigger": true},
+  {"query": "我要把临床数据和转录组整合做多组学研究，需要统计、机制和转化医学共同决策。", "should_trigger": true},
+  {"query": "请检查这篇医学 AI 论文的方法、模型验证、报告规范和期刊适配，最后给统一建议。", "should_trigger": true},
+  {"query": "把这个 Word 文档转换成 PDF。", "should_trigger": false},
+  {"query": "帮我润色这一句英文，使语法更自然。", "should_trigger": false},
+  {"query": "计算 17.5% 的 240 是多少。", "should_trigger": false},
+  {"query": "读取这个 PDF 的第三页并告诉我标题。", "should_trigger": false},
+  {"query": "给这个 Excel 的 B2 写一个 SUM 公式。", "should_trigger": false},
+  {"query": "用 Python 画一张已经给定数据的简单折线图。", "should_trigger": false},
+  {"query": "把这段参考文献单独改成 APA 7 格式。", "should_trigger": false},
+  {"query": "只检查这句话里 P 值大小写是否正确。", "should_trigger": false},
+  {"query": "打开 WPS 并把当前文档字体改为 Arial。", "should_trigger": false},
+  {"query": "给我解释什么是 Cox 回归，不需要分析数据或设计研究。", "should_trigger": false}
+]

@@ -1,0 +1,31 @@
+{
+  "skill_name": "scixz",
+  "suite": "central-controller-three-departments-six-ministries",
+  "tests": [
+    {
+      "id": "review-first-response",
+      "prompt": "/scixz 审稿 manuscript.pdf",
+      "assertions": ["controller acknowledges interpreted goal first", "zhongshu proposes route", "menxia reviews before domain Skill invocation", "shangshu issues execution tickets"]
+    },
+    {
+      "id": "blocking-ambiguity",
+      "prompt": "/scixz 分析这份数据并告诉我结论",
+      "assertions": ["controller identifies missing input and target outcome", "marks ambiguity blocking when route changes", "does not invoke analysis Skill prematurely"]
+    },
+    {
+      "id": "review-route",
+      "prompt": "/scixz 审阅一篇队列研究并生成正式审稿报告",
+      "assertions": ["uses council when publication decision is consequential", "assigns file intake, review, critic, consensus, verifier, and rendering tickets", "does not call every available Skill"]
+    },
+    {
+      "id": "scope-expansion",
+      "prompt": "审稿过程中 Agent 想顺便重写整篇文章",
+      "assertions": ["blocks silent scope expansion", "returns to zhongshu/menxia", "keeps review and rewriting as separate output contracts"]
+    },
+    {
+      "id": "section-depth-and-citation-allocation",
+      "prompt": "/scixz 加强论文引言和讨论，要求讨论有深度，并尽量避免与引言重复引用",
+      "assertions": ["reads manuscript_section_depth reference", "creates section briefs for requested sections", "routes evidence discovery and reference verification only when needed", "produces separate introduction-only, discussion-only, and justified shared-reference lists", "does not fabricate citations", "checks discussion for finding-meaning-boundary reasoning"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "skill_name": "scixz",
+  "suite": "revision-after-review",
+  "tests": [
+    {"id": "comment-ledger", "prompt": "/scixz 根据 editor 和 reviewer comments 修改 manuscript，并生成逐条回复。", "assertions": ["freezes original manuscript", "decomposes comments into atomic IDs", "creates revision tickets", "does not claim changes before verification"]},
+    {"id": "new-analysis", "prompt": "Reviewer 要求增加敏感性分析和一张森林图。", "assertions": ["routes statistics to analyze-stats/statistical-analysis", "routes figure work to make-figures or plotting Skill", "links both outputs to the comment ID"]},
+    {"id": "defense", "prompt": "Reviewer 的意见不适用于本研究，请帮我礼貌回复并决定是否修改。", "assertions": ["allows respectful defense", "requires evidence and limitation", "does not fabricate a revision"]},
+    {"id": "rereview", "prompt": "R1 修改完成后，请重新检查所有 reviewer comments 是否真正解决。", "assertions": ["uses recursive-review", "checks revised manuscript rather than response letter alone", "reports unresolved major issues"]}
+  ]
+}
