@@ -2,6 +2,8 @@
 
 This directory records the companion Skills copied into the public SciXZ release. They are kept in separate subdirectories so that users can install only the routes they need.
 
+For the full list of Skills that users must download separately, see [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
+
 ## Included local-only components
 
 | Component | Role in SciXZ routes | Source / licensing note |

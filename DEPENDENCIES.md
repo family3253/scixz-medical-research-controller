@@ -8,19 +8,19 @@ Do not vendor every dependency into this repository by default. Vendoring create
 
 ## Required by route
 
-| Route | Required local Skills | External adapters / notes |
-|---|---|---|
-| Core controller | `scixz` | Codex-compatible Skill runtime |
-| Local file intake | `deterministic-local-file-reading` | Add the reader matching the file: `anthropics-docx`, `anthropics-pdf`, `anthropics-xlsx`, or `anthropics-pptx` |
-| Manuscript review | `nature-review-studio` **or** `academic-paper-reviewer` | `check-reporting` for reporting-guideline audit; `scientific-critical-thinking` or `peer-review` as an independent perspective |
-| Revision after review | `revise` **or** `academic-paper` | Add `analyze-stats`/`make-figures` only when a new analysis/figure is required; add `verify-refs` after citation edits |
-| Journal selection | `find-journal` | JANE **and** iPubMed are mandatory evidence branches; verify current journal policy at the journal site |
-| Citation management | `verify-refs` or `manage-refs` | JANE **and** iPubMed are mandatory discovery/triage branches; canonical verification remains local/authoritative |
-| Literature synthesis | `research-lit` or `deep-research` | Add `pubmed-database` or `search-lit` when direct bibliographic retrieval is needed |
-| Statistical analysis | `analyze-stats` | Use the relevant R/Python runtime and preserve analysis scripts plus outputs |
-| Data preparation | `clean-data`, `deidentify`, `generate-codebook` | Add `version-dataset` for deterministic dataset manifests |
-| Sample-size planning | `calc-sample-size` | Record assumptions and reproducible calculations |
-| Submission preflight | `sci-manuscript-preflight` | Optional `paper-audit`, `verify-refs`, `check-reporting`, `sync-submission`, `venue-templates` |
+| Route | Built into this repository | Download separately | External adapters / notes |
+|---|---|---|---|
+| Core controller | `scixz` | — | Codex-compatible Skill runtime |
+| Local file intake | `deterministic-local-file-reading` | — | Add the reader matching the file: `anthropics-docx`, `anthropics-pdf`, `anthropics-xlsx`, or `anthropics-pptx` |
+| Manuscript review | — | `nature-review-studio` **or** `academic-paper-reviewer`; `check-reporting` for guideline audit; `scientific-critical-thinking` or `peer-review` for an independent perspective | Use the public source/catalog version |
+| Revision after review | `revise` | `academic-paper`; add `analyze-stats`/`make-figures` only when a new analysis/figure is required; add `verify-refs` after citation edits | — |
+| Journal selection | `find-journal` | — | JANE **and** iPubMed are mandatory evidence branches; verify current journal policy at the journal site |
+| Citation management | `manage-refs` | `verify-refs` if preferred | JANE **and** iPubMed are mandatory discovery/triage branches; canonical verification remains local/authoritative |
+| Literature synthesis | — | `research-lit` or `deep-research`; add `pubmed-database` or `search-lit` when direct retrieval is needed | — |
+| Statistical analysis | — | `analyze-stats` | Use the relevant R/Python runtime and preserve analysis scripts plus outputs |
+| Data preparation | — | `clean-data`, `deidentify`, `generate-codebook`; add `version-dataset` for deterministic manifests | — |
+| Sample-size planning | — | `calc-sample-size` | Record assumptions and reproducible calculations |
+| Submission preflight | — | `sci-manuscript-preflight`; optional `paper-audit`, `verify-refs`, `check-reporting`, `sync-submission`, `venue-templates` | — |
 
 ## Common document runtimes
 

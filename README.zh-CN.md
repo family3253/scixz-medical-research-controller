@@ -12,6 +12,7 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 - 协作、角色、工作流、共识、评估和验证契约。
 - 一组本地独有、难以从外部发现的配套 Skill：`revise`、`find-journal`、`deterministic-local-file-reading` 和 `manage-refs`，详见 [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md)。
 - 可移植的运行时绑定示例；机器专属路径和私有状态不会纳入公开版本。
+- 需要自行下载的 Skill 完整清单：[`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md)。
 
 ## 快速开始
 
@@ -45,6 +46,8 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 6. 使用仓库内的本地独有 `find-journal`，并保留 JANE 与 iPubMed 的可审计证据分支。
 
 各路线的依赖和运行时说明见 [`DEPENDENCIES.md`](DEPENDENCIES.md)。
+
+如果是在新机器上部署 SciXZ，建议先阅读 [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md)，其中区分了仓库内置的本地 Skill、需要自行下载的公开 Skill、专有读取器以及 JANE/iPubMed 外部适配器。
 
 ## 安全与公开边界
 

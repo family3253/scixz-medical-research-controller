@@ -12,6 +12,7 @@ The controller uses a three-department gate—中书省 (draft), 门下省 (revi
 - Collaboration, role, workflow, consensus, evaluation, and verification contracts.
 - The local-only companion Skills that are otherwise difficult to discover: `revise`, `find-journal`, `deterministic-local-file-reading`, and `manage-refs`. See [`BUNDLED_SKILLS.md`](BUNDLED_SKILLS.md).
 - Portable runtime-binding examples; machine-specific paths and private state are intentionally excluded.
+- A complete download matrix for Skills that users must obtain separately: [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
 
 ## Quick start
 
@@ -45,6 +46,8 @@ For review, revision, journal selection, and citation QC, the usual route is:
 6. The bundled local-only `find-journal` Skill, with auditable JANE and iPubMed evidence branches.
 
 See [`DEPENDENCIES.md`](DEPENDENCIES.md) for route-by-route requirements and runtime notes.
+
+If you are setting up SciXZ on a new machine, start with [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md). It distinguishes bundled local-only Skills, public Skills to download separately, proprietary readers, and external JANE/iPubMed adapters.
 
 ## Safety and public-release boundary
 
