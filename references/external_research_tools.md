@@ -42,6 +42,20 @@ Use iPubMed for:
 
 Its outputs remain `external-signal` until verified. IF, APC, indexing, retraction, preprint status, and citation metadata must be checked with authoritative sources. A suspicious-title signal is not a fabrication, misconduct, or retraction verdict.
 
+## EasyScholar (optional journal-rank API)
+
+EasyScholar is an optional third-party API branch for known-journal lookup. The local
+adapter may supplement `sciif`, JCR, CAS upgraded major/minor, XinRui, and warning fields;
+it does not provide LetPub review-speed text and is not a substitute for Clarivate, the
+applicable CAS release, or the journal publisher.
+
+Keep the credential in the machine-local `EASY_SCHOLAR_SECRET_KEY` environment variable.
+Never place it in a prompt, registry, run manifest, command-line argument, log, screenshot,
+README, or Git commit. URL-encode the journal name and limit requests to at most two per
+second. Label returned data `third-party-api` and retain retrieval time, API status, and
+field-level missing/conflict states. The EasyScholar branch is optional and does not alter
+the mandatory JANE/iPubMed gate for `journal-selection` or citation-management.
+
 ## Combined routing policy
 
 ### Journal selection

@@ -155,7 +155,9 @@ Acceptance Signals block falls back to its Special Notes plus the Phase 2.5 taxo
 
 When a profile contains metric information, keep it as a dated snapshot rather than a
 current fact. The metric fields and provenance labels are defined in
-`references/journal_metrics_schema.md`.
+`references/journal_metrics_schema.md`. For an exact known-journal lookup, the optional
+EasyScholar adapter in `scripts/easyscholar_lookup.py` can add third-party `sciif`, JCR,
+CAS-upgraded, XinRui, and warning fields; read `references/easyscholar.md` before using it.
 
 Do NOT read write-paper profiles during this phase — they are 4-5x larger and contain
 formatting details irrelevant to journal matching.
@@ -263,6 +265,7 @@ Reference specific keywords, disease areas, or methodological preferences from t
 - **CAS minor quartile (中科院小类分区):** [1/2/3/4 or `Not available / not verified`] — [category; edition/year; source URL; verified date]
 - **CAS Emerging/New Journal classification (新锐分区):** [value or `Not listed / not verified`] — [category; edition/year; source URL; verified date]
 - **LetPub review speed:** [verbatim page text or `Not available / not verified`] — [LetPub page URL; retrieval date; source status]
+- **EasyScholar rank fields:** [normalized `sciif`, JCR/CAS/XinRui/warning fields or `Not available / not verified`] — [API retrieval date; source status; third-party aggregation note]
 - **Other indicators:** [CiteScore/SJR/SNIP/indexing status when relevant, each with year, source, and verification state]
 
 Use `profile snapshot` only when the value comes from a dated local profile and has not

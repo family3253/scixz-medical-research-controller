@@ -4,6 +4,10 @@ This directory records the companion Skills copied into the public SciXZ release
 
 For the full list of Skills that users must download separately, see [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
 
+The optional EasyScholar integration is a small adapter script inside the bundled
+`find-journal` package. It is not a separate Skill and it requires a machine-local
+`EASY_SCHOLAR_SECRET_KEY`; no key is included in this repository.
+
 ## Included local-only components
 
 | Component | Role in SciXZ routes | Source / licensing note |

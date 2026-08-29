@@ -182,7 +182,7 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 
 ### 已知期刊查询（输入期刊名 → 指标卡片）
 
-以 [`sci-select`](https://github.com/keros68/sci-select) 作为主查询 Skill；加入 [`ShowJCR`](https://github.com/hitfyd/ShowJCR) 作为 JCR 2025、2025 中科院、2026 新锐分区和预警标记的数据源。如果希望让 Codex 通过 MCP 直接调用数据库，可使用 [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp)。LetPub 审稿速度由 `sci-select` 在线获取；页面受限时再用 [`agent-browser`](https://github.com/vercel-labs/agent-browser) 或 `chrome:control-chrome` 做浏览器回退。只有在还需要 scope 匹配和投稿梯队时，才加入内置 `find-journal`。
+以 [`sci-select`](https://github.com/keros68/sci-select) 作为主查询 Skill；加入 [`ShowJCR`](https://github.com/hitfyd/ShowJCR) 作为 JCR 2025、2025 中科院、2026 新锐分区和预警标记的数据源。也可以在本地设置 `EASY_SCHOLAR_SECRET_KEY`，启用 `bundled-skills/find-journal/scripts/easyscholar_lookup.py` 这个可选 API 适配器，补充 `sciif`、JCR/中科院升级版、新锐和预警字段。如果希望让 Codex 通过 MCP 直接调用数据库，可使用 [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp)。LetPub 审稿速度由 `sci-select` 在线获取；页面受限时再用 [`agent-browser`](https://github.com/vercel-labs/agent-browser) 或 `chrome:control-chrome` 做浏览器回退。只有在还需要 scope 匹配和投稿梯队时，才加入内置 `find-journal`。
 
 ### 审阅并修回 DOCX 稿件
 

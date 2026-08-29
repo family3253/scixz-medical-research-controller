@@ -58,8 +58,10 @@ and retrieval date; indexing/coverage, OA/APC, warning status, and a source-stat
 Mark each field `verified current`, `profile snapshot`, `conflicting`, `not available /
 not verified`, or `not listed` as appropriate. Never infer a quartile from IF, a generic
 tier, or another database. Use `sci-select` as the primary known-journal lookup Skill
-when installed; use ShowJCR data or the `jcr_mcp` adapter for local JCR/CAS/XinRui
-lookups, and a browser route for LetPub or official-source verification. Do not invoke
+when installed; optionally use the EasyScholar adapter with a local
+`EASY_SCHOLAR_SECRET_KEY` to add third-party rank fields; use ShowJCR data or the
+`jcr_mcp` adapter for local JCR/CAS/XinRui lookups, and a browser route for LetPub or
+official-source verification. Do not invoke
 `find-journal` or `journal-recommender` for an exact lookup unless the user also asks for
 scope fit or a submission recommendation.
 
