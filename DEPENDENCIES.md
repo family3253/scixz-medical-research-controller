@@ -2,7 +2,7 @@
 
 ## Principle
 
-SciXZ owns routing, governance, collaboration, consensus, and verification contracts. Domain Skills remain separate packages so that each can be versioned, licensed, updated, or replaced independently.
+SciXZ owns routing, governance, collaboration, consensus, and verification contracts. Domain Skills remain separate packages so that each can be versioned, licensed, updated, or replaced independently. This repository includes only four local-only companion Skills under `bundled-skills/`; Skills that already have discoverable public sources are referenced rather than duplicated.
 
 Do not vendor every dependency into this repository by default. Vendoring creates duplicate copies, version drift, license ambiguity, and a larger risk of publishing private configuration. If a deployment needs a frozen bundle, create a separately reviewed release bundle with each dependency's license and source commit recorded.
 
@@ -46,8 +46,8 @@ For journal-selection and citation-management routes, SciXZ requires auditable J
 ## Suggested setup order
 
 1. Install SciXZ and confirm that `SKILL.md` is discoverable.
-2. Install the one route owner Skill required by the task.
-3. Install only the supporting Skills named by the approved route.
+2. Install the one route owner Skill required by the task; use `bundled-skills/` for the local-only companions in this repository.
+3. Install only the supporting Skills named by the approved route; use the public source or local catalog for public companions.
 4. Check optional runtimes (Word/PDF/XLSX/R/Python) before execution.
 5. Run a read-only health check and record versions in a local, non-public run manifest.
 
