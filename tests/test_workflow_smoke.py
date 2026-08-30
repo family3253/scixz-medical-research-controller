@@ -50,8 +50,11 @@ def test_peer_review_and_revision_keep_evidence_locations_and_unresolved_tickets
     assert review["outputs"]["optional_external_review"]["status"] == "EXTERNAL_SIGNAL_READY_FOR_VERIFICATION"
     parallel = review["outputs"]["parallel_review_contract"]
     assert parallel["shared_frozen_input"] is True
+    assert parallel["companion_evidence_supported"] is True
+    assert parallel["branch_evidence_scopes_may_differ"] is True
     assert set(parallel["branches"]) == {"local_primary_review", "paperreview_external_signal"}
     assert "fresh synthesis sub-agent" in parallel["fusion_owner"]
+    assert any("PR-xx" in item for item in parallel["strict_fusion_checks"])
     assert any("external advisory signal" in item for item in review["limitations"])
     assert any(item["action_status"] == "blocked_data" for item in revision["outputs"]["comment_ledger"])
     assert any("No response letter claims" in item for item in revision["limitations"])

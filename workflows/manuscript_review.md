@@ -16,7 +16,7 @@ Final synthesis is a barrier stage, not part of either branch. When both artifac
 
 ## Outputs
 
-Evidence-anchored overall assessment, major/minor concerns, editorial recommendation, cross-review consensus, uncertainty, and revision tasks. Any PaperReview.ai result is retained as an `external-signal` and converted into a separately labelled, evidence-anchored issue ledger. The final synthesis must record the disposition of every external issue. When bilingual Word output is requested, render the verified final-review JSON through `scripts/render_final_review_docx.py` as one Chinese and one English DOCX. Formal `nature-review-studio` output is exactly one DOCX plus one same-stem Markdown file.
+Evidence-anchored overall assessment, major/minor concerns, editorial recommendation, cross-review consensus, uncertainty, and revision tasks. Any PaperReview.ai result is retained as an `external-signal` and converted into a separately labelled, evidence-anchored issue ledger with stable `PR-xx` identifiers. The final synthesis must record exactly one disposition for every external issue and include a cross-branch agreement/disagreement matrix. When bilingual Word output is requested, render the verified final-review JSON through `scripts/render_final_review_docx.py --fusion-bundle ...` as one Chinese and one English DOCX; strict mode blocks omitted, duplicated, or unknown external issue IDs. Formal `nature-review-studio` output is exactly one DOCX plus one same-stem Markdown file.
 
 ## Verification
 
@@ -28,9 +28,9 @@ If the manuscript is unavailable, stop and request it. If formal rendering is un
 
 ## Execution steps
 
-1. Perform deterministic intake once and freeze the manuscript/evidence fingerprint shared by both branches.
+1. Perform deterministic intake once and freeze an evidence manifest: the exact uploaded PDF fingerprint shared by both branches plus fingerprints for any companion tables, supplements, or data files. Record branch visibility for every item.
 2. In parallel, run Branch A's independent methodology, statistics, clinical, reporting, reviewer, and editor perspectives and, when explicitly authorized, start Branch B's PaperReview upload/poll run in private local state.
 3. Complete and freeze the local primary-review artifact without reading the PaperReview result. Polling continues independently within its bounded deadline.
-4. Validate both branch artifacts and their identical input fingerprints. Do not cross the fusion barrier while either requested branch is pending or invalid.
-5. Build the strict fusion bundle and dispatch a fresh synthesis sub-agent with no hidden branch history. It compares both issue ledgers, independently checks the manuscript, resolves or preserves disagreements, and records every external disposition.
-6. Run Critic, Consensus/政事堂, and Verifier on the fused output, then write the bilingual final-review JSON and render the Chinese/English DOCX reports.
+4. Validate both branch artifacts and their identical uploaded-PDF fingerprints. If local review used companion evidence unavailable to PaperReview, mark branch scopes as non-identical and carry the frozen companion files into fresh synthesis; do not describe the evidence scopes as identical.
+5. Build the strict fusion bundle and dispatch a fresh synthesis sub-agent with no hidden branch history. It compares both issue ledgers, independently checks the manuscript, resolves or preserves disagreements, and records every canonical `PR-xx` disposition exactly once.
+6. Run Critic, Consensus/政事堂, and Verifier on the fused output, then write the bilingual final-review JSON and render the Chinese/English DOCX reports in strict fusion mode.

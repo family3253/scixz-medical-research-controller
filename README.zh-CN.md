@@ -34,11 +34,12 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 ```text
 python scripts/workflow_smoke.py --all --fixtures tests/fixtures/workflow_smoke --output workflow-smoke-report.json
+python -X utf8 -m pytest -q
 ```
 
 报告会为每条路线输出结构化工件、所需 Skill、检查项、限制、下一步与就绪度评分。该评分只表示已通过的确定性输入/安全检查比例，不表示已经完成 LLM 审稿、在线选刊、文档修改、统计计算或生物学分析。需要真实数据或外部服务的步骤仍会被明确门控。此前没有确定所有者的两条路线已经补为仓库自有、可运行的预检 Skill：[`statistical-analysis`](bundled-skills/statistical-analysis/) 与 [`multiomics-analysis`](bundled-skills/multiomics-analysis/)。
 
-审稿路线已接入 [PaperReview.ai](https://paperreview.ai/) 作为可选、受保护的并行审稿分支。完成一次冻结输入并对指定英文 PDF 获得明确授权后，SciXZ 同时启动本地主审稿链和网站上传/轮询链，两条分支互不读取对方结论。只有两个同指纹工件都完成后，才交给一个未参与前两路的全新综合子 Agent 对照审阅、独立核验稿件证据、保留分歧并逐条处置外部意见，最后输出中英文 Word。邮箱与访问令牌只保留在私有本地状态中，绝不提交到仓库。详见 [`references/external_review_tools.md`](references/external_review_tools.md)。
+审稿路线已接入 [PaperReview.ai](https://paperreview.ai/) 作为可选、受保护的并行审稿分支。完成一次冻结输入并对指定英文 PDF 获得明确授权后，SciXZ 同时启动本地主审稿链和网站上传/轮询链，两条分支互不读取对方结论。只有两个同指纹工件都完成后，才交给一个未参与前两路的全新综合子 Agent 对照审阅、独立核验稿件证据、保留分歧，并对每个标准化 `PR-xx` 外部问题恰好处置一次。单独表格或补充材料会作为伴随证据单独计算指纹，最终报告必须说明 PaperReview 未读取这些文件。严格渲染会拦截漏项、重复 ID 或未知 ID，并把双路径一致/互补/分歧矩阵写入中英文 Word。邮箱与访问令牌只保留在私有本地状态中，绝不提交到仓库。详见 [`references/external_review_tools.md`](references/external_review_tools.md)。
 
 ## 提示词/仓库全面吸收升级
 

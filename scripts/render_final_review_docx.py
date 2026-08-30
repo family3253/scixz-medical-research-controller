@@ -28,7 +28,7 @@ def _text(value: Any, language: str, path: str, errors: List[str]) -> str:
     return value[language].strip()
 
 
-def validate(review: Dict[str, Any]) -> List[str]:
+def validate(review: Dict[str, Any], expected_external_issue_ids: Optional[List[str]] = None, expected_fingerprint: Optional[str] = None, expected_local_issue_ids: Optional[List[str]] = None, expected_evidence_manifest: Optional[Dict[str, Any]] = None) -> List[str]:
     errors: List[str] = []
     for key in REQUIRED:
         if key not in review or review.get(key) is None:
@@ -42,6 +42,8 @@ def validate(review: Dict[str, Any]) -> List[str]:
         for key in ("manuscript_title", "review_scope"):
             if not isinstance(metadata.get(key), str) or not metadata[key].strip():
                 errors.append(f"metadata.{key} is required")
+        if expected_fingerprint and metadata.get("manuscript_fingerprint") != expected_fingerprint:
+            errors.append("metadata.manuscript_fingerprint must match the fusion bundle")
     if not isinstance(review.get("external_signal_integration"), list):
         errors.append("external_signal_integration must be a list")
         return errors
@@ -67,6 +69,88 @@ def validate(review: Dict[str, Any]) -> List[str]:
             else:
                 _text(item.get("external_issue"), language, f"external_signal_integration[{index}].external_issue", errors)
                 _text(item.get("rationale"), language, f"external_signal_integration[{index}].rationale", errors)
+    if expected_external_issue_ids is not None:
+        integrations = review.get("external_signal_integration", [])
+        observed: List[str] = []
+        for index, item in enumerate(integrations, 1):
+            if not isinstance(item, dict):
+                continue
+            source_id = item.get("source_issue_id")
+            if not isinstance(source_id, str) or not source_id.strip():
+                errors.append(f"external_signal_integration[{index}].source_issue_id is required for parallel fusion")
+            else:
+                observed.append(source_id.strip())
+            if not isinstance(item.get("manuscript_location"), str) or not item["manuscript_location"].strip():
+                errors.append(f"external_signal_integration[{index}].manuscript_location is required for parallel fusion")
+        if len(observed) != len(set(observed)):
+            errors.append("external issue dispositions contain duplicate source_issue_id values")
+        missing = sorted(set(expected_external_issue_ids) - set(observed))
+        extra = sorted(set(observed) - set(expected_external_issue_ids))
+        if missing:
+            errors.append("external issue dispositions are missing: " + ", ".join(missing))
+        if extra:
+            errors.append("external issue dispositions contain unknown ids: " + ", ".join(extra))
+        trace = review.get("synthesis_trace")
+        if not isinstance(trace, dict):
+            errors.append("synthesis_trace is required for parallel fusion")
+        else:
+            declared = trace.get("external_issue_ids_expected")
+            if not isinstance(declared, list) or set(declared) != set(expected_external_issue_ids) or len(declared) != len(expected_external_issue_ids):
+                errors.append("synthesis_trace.external_issue_ids_expected must match the fusion bundle")
+            matrix = trace.get("agreement_disagreement_matrix")
+            if not isinstance(matrix, list) or not matrix:
+                errors.append("synthesis_trace.agreement_disagreement_matrix must be a non-empty list")
+            else:
+                allowed = {"agreement", "complementary", "disagreement", "local-only", "external-only"}
+                matrix_local_ids: List[str] = []
+                matrix_external_ids: List[str] = []
+                for index, row in enumerate(matrix, 1):
+                    if not isinstance(row, dict) or not str(row.get("id", "")).strip():
+                        errors.append(f"synthesis_trace.agreement_disagreement_matrix[{index}] needs id")
+                        continue
+                    if row.get("classification") not in allowed:
+                        errors.append(f"synthesis_trace.agreement_disagreement_matrix[{index}] has invalid classification")
+                    for key in ("local_issue_ids", "external_issue_ids"):
+                        if not isinstance(row.get(key), list):
+                            errors.append(f"synthesis_trace.agreement_disagreement_matrix[{index}].{key} must be a list")
+                    if isinstance(row.get("local_issue_ids"), list):
+                        matrix_local_ids.extend(str(value).strip() for value in row["local_issue_ids"] if str(value).strip())
+                    if isinstance(row.get("external_issue_ids"), list):
+                        matrix_external_ids.extend(str(value).strip() for value in row["external_issue_ids"] if str(value).strip())
+                    for language in LANGUAGES:
+                        _text(row.get("resolution"), language, f"synthesis_trace.agreement_disagreement_matrix[{index}].resolution", errors)
+                for label, observed_ids, expected_ids in (
+                    ("external", matrix_external_ids, expected_external_issue_ids),
+                    ("local", matrix_local_ids, expected_local_issue_ids),
+                ):
+                    if expected_ids is None:
+                        continue
+                    if len(observed_ids) != len(set(observed_ids)):
+                        errors.append(f"agreement/disagreement matrix contains duplicate {label} issue ids")
+                    missing_ids = sorted(set(expected_ids) - set(observed_ids))
+                    unknown_ids = sorted(set(observed_ids) - set(expected_ids))
+                    if missing_ids:
+                        errors.append(f"agreement/disagreement matrix is missing {label} issue ids: " + ", ".join(missing_ids))
+                    if unknown_ids:
+                        errors.append(f"agreement/disagreement matrix contains unknown {label} issue ids: " + ", ".join(unknown_ids))
+            if not isinstance(trace.get("dissenting_sources"), list):
+                errors.append("synthesis_trace.dissenting_sources must be a list")
+            companions = (expected_evidence_manifest or {}).get("companion_evidence", [])
+            if companions:
+                scope = trace.get("evidence_scope")
+                if not isinstance(scope, dict):
+                    errors.append("synthesis_trace.evidence_scope is required when companion evidence exists")
+                else:
+                    expected_companion_fingerprints = [item.get("fingerprint") for item in companions]
+                    if scope.get("shared_uploaded_pdf_fingerprint") != expected_fingerprint:
+                        errors.append("synthesis_trace.evidence_scope shared PDF fingerprint must match the fusion bundle")
+                    if scope.get("branch_scopes_identical") is not False:
+                        errors.append("synthesis_trace.evidence_scope must disclose that branch scopes are not identical")
+                    observed_companions = scope.get("companion_evidence_fingerprints")
+                    if not isinstance(observed_companions, list) or set(observed_companions) != set(expected_companion_fingerprints) or len(observed_companions) != len(expected_companion_fingerprints):
+                        errors.append("synthesis_trace.evidence_scope companion fingerprints must match the fusion bundle")
+                    for language in LANGUAGES:
+                        _text(scope.get("external_branch_limitations"), language, "synthesis_trace.evidence_scope.external_branch_limitations", errors)
     return errors
 
 
@@ -76,8 +160,15 @@ def _shade(cell: Any, fill: str) -> None:
         if child.tag == qn("w:shd"):
             properties.remove(child)
     shading = OxmlElement("w:shd")
+    shading.set(qn("w:val"), "clear")
     shading.set(qn("w:fill"), fill)
-    properties.append(shading)
+    elements_after_shading = {qn(name) for name in ("w:noWrap", "w:tcMar", "w:textDirection", "w:tcFitText", "w:vAlign", "w:hideMark")}
+    for index, child in enumerate(properties):
+        if child.tag in elements_after_shading:
+            properties.insert(index, shading)
+            break
+    else:
+        properties.append(shading)
 
 
 def _set_cell_text(cell: Any, text: str, bold: bool = False) -> None:
@@ -101,6 +192,9 @@ def _configure(document: Document) -> None:
     normal.font.name = "Arial"
     normal._element.rPr.rFonts.set(qn("w:eastAsia"), "Microsoft YaHei")
     normal.font.size = Pt(10.5)
+    zoom = document.settings.element.find(qn("w:zoom"))
+    if zoom is not None:
+        zoom.set(qn("w:percent"), "100")
 
 
 def _heading(document: Document, text: str, level: int = 1) -> None:
@@ -174,8 +268,31 @@ def render(review: Dict[str, Any], language: str, output: Path) -> None:
     for item in review["external_signal_integration"]:
         issue = _text(item["external_issue"], language, "external_issue", [])
         rationale = _text(item["rationale"], language, "rationale", [])
-        document.add_paragraph(f"[{item['disposition']}] {issue}", style="List Bullet")
+        prefix = item.get("source_issue_id")
+        location = item.get("manuscript_location")
+        label = " / ".join(str(value) for value in (prefix, item["disposition"], location) if value)
+        document.add_paragraph(f"[{label}] {issue}", style="List Bullet")
         document.add_paragraph(rationale)
+    trace = review.get("synthesis_trace")
+    if isinstance(trace, dict) and trace.get("agreement_disagreement_matrix"):
+        _heading(document, "Cross-Branch Agreement and Disagreement" if language == "en" else "双路径一致性与分歧")
+        matrix = document.add_table(rows=1, cols=4)
+        matrix.style = "Table Grid"
+        matrix.alignment = WD_TABLE_ALIGNMENT.CENTER
+        headers = ["ID", "Class" if language == "en" else "分类", "Source issues" if language == "en" else "来源问题", "Resolution" if language == "en" else "核验结论"]
+        for cell, header in zip(matrix.rows[0].cells, headers):
+            _set_cell_text(cell, header, bold=True)
+            _shade(cell, "D9EAF7")
+        for row in trace["agreement_disagreement_matrix"]:
+            cells = matrix.add_row().cells
+            sources = ", ".join(row.get("local_issue_ids", []) + row.get("external_issue_ids", [])) or "-"
+            values = [row.get("id", ""), row.get("classification", ""), sources, _text(row.get("resolution"), language, "resolution", [])]
+            for cell, value in zip(cells, values):
+                _set_cell_text(cell, str(value))
+        scope = trace.get("evidence_scope")
+        if isinstance(scope, dict):
+            _heading(document, "Evidence-Scope Boundary" if language == "en" else "证据范围边界")
+            document.add_paragraph(_text(scope.get("external_branch_limitations"), language, "external_branch_limitations", []))
     _heading(document, "Limitations and Verification" if language == "en" else "限制与核验边界")
     for item in review["limitations"]:
         _bullet(document, _text(item, language, "limitations", []))
@@ -193,11 +310,32 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--input", required=True)
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--stem", default="scixz_final_review")
+    parser.add_argument("--fusion-bundle", help="Enable strict parallel-fusion coverage checks against this bundle")
     args = parser.parse_args(argv)
     review = json.loads(Path(args.input).read_text(encoding="utf-8-sig"))
     if not isinstance(review, dict):
         parser.error("input must be a JSON object")
-    errors = validate(review)
+    expected_ids: Optional[List[str]] = None
+    expected_local_ids: Optional[List[str]] = None
+    expected_fingerprint: Optional[str] = None
+    expected_evidence_manifest: Optional[Dict[str, Any]] = None
+    if args.fusion_bundle:
+        fusion = json.loads(Path(args.fusion_bundle).read_text(encoding="utf-8-sig"))
+        if not isinstance(fusion, dict):
+            parser.error("fusion bundle must be a JSON object")
+        expected_ids = fusion.get("barrier", {}).get("external_issue_ids_requiring_disposition")
+        expected_local_ids = fusion.get("barrier", {}).get("local_issue_ids_requiring_matrix_mapping")
+        expected_fingerprint = fusion.get("manuscript", {}).get("fingerprint")
+        expected_evidence_manifest = fusion.get("evidence_manifest")
+        if not isinstance(expected_ids, list) or not expected_ids:
+            parser.error("fusion bundle lacks external issue ids")
+        if not isinstance(expected_local_ids, list) or not expected_local_ids:
+            parser.error("fusion bundle lacks local issue ids")
+        if not isinstance(expected_fingerprint, str) or not expected_fingerprint.startswith("sha256:"):
+            parser.error("fusion bundle lacks a manuscript fingerprint")
+        if not isinstance(expected_evidence_manifest, dict):
+            parser.error("fusion bundle lacks an evidence manifest")
+    errors = validate(review, expected_ids, expected_fingerprint, expected_local_ids, expected_evidence_manifest)
     if errors:
         parser.exit(2, "Final review DOCX rendering blocked: " + "; ".join(errors) + "\n")
     destination = Path(args.output_dir)

@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -39,6 +40,49 @@ def _fingerprint(path: Path) -> str:
     return "sha256:" + digest.hexdigest()
 
 
+def _numbered_questions(value: Any) -> List[str]:
+    if not isinstance(value, str) or not value.strip():
+        return []
+    pattern = re.compile(r"(?ms)^\s*\d+[.)]\s+(.+?)(?=^\s*\d+[.)]\s+|\Z)")
+    return [re.sub(r"\s+", " ", match.group(1)).strip() for match in pattern.finditer(value)]
+
+
+def _leaf_bullets(value: Any) -> List[str]:
+    if not isinstance(value, str) or not value.strip():
+        return []
+    issues: List[str] = []
+    for line in value.splitlines():
+        match = re.match(r"^\s{2,}-\s+(.+)$", line)
+        if match:
+            issues.append(re.sub(r"\s+", " ", match.group(1)).strip())
+    return issues
+
+
+def _external_issue_ledger(sections: Dict[str, Any]) -> Dict[str, Any]:
+    questions = _numbered_questions(sections.get("questions"))
+    source = "sections.questions"
+    issues = questions
+    if not issues:
+        issues = _leaf_bullets(sections.get("weaknesses"))
+        source = "sections.weaknesses.leaf_bullets"
+    if not issues:
+        for key in ("weaknesses", "detailed_comments"):
+            value = sections.get(key)
+            if isinstance(value, str) and value.strip():
+                issues.append(re.sub(r"\s+", " ", value).strip())
+                source = f"sections.{key}.whole_section"
+                break
+    return {
+        "schema": "scixz-external-review-issue-ledger-v1",
+        "canonical_source": source,
+        "issue_count": len(issues),
+        "issues": [
+            {"id": f"PR-{index:02d}", "source": source, "text": text}
+            for index, text in enumerate(issues, 1)
+        ],
+    }
+
+
 def build_bundle(manuscript: Path, artifact: Dict[str, Any], provider_review: Dict[str, Any]) -> Dict[str, Any]:
     if not manuscript.is_file():
         raise ValueError("manuscript does not exist")
@@ -51,6 +95,9 @@ def build_bundle(manuscript: Path, artifact: Dict[str, Any], provider_review: Di
     sections = provider_review.get("sections") or {}
     if not isinstance(sections, dict):
         raise ValueError("provider review sections must be an object")
+    issue_ledger = _external_issue_ledger(sections)
+    if not issue_ledger["issues"]:
+        raise ValueError("provider review contains no canonical external issues")
     return {
         "schema": "scixz-paperreview-synthesis-bundle-v1",
         "status": "READY_FOR_SCIXZ_FINAL_REVIEW",
@@ -65,19 +112,21 @@ def build_bundle(manuscript: Path, artifact: Dict[str, Any], provider_review: Di
                 "sections": sections,
                 "numerical_score": provider_review.get("numerical_score"),
             },
+            "issue_ledger": issue_ledger,
         },
         "required_synthesis_steps": [
             "Read the frozen manuscript independently before treating any external statement as a finding.",
-            "Decompose every external statement into an atomic issue; locate it in the manuscript or mark it unresolved.",
+            "Use the canonical external issue ledger; locate every issue in the manuscript or mark it unresolved.",
             "Verify methodology, statistics, reporting, ethics, and claim scope through the primary SciXZ review routes.",
             "For each external issue record one disposition: incorporated, incorporated-with-revision, rejected, or unresolved, with a reason.",
             "Do not copy the provider's editorial score or wording into the final recommendation without independent justification.",
             "Produce the bilingual final-review JSON required by render_final_review_docx.py.",
         ],
         "final_review_contract": {
-            "required": ["metadata", "decision", "overall_assessment", "strengths", "major_concerns", "minor_concerns", "external_signal_integration", "limitations"],
+            "required": ["metadata", "decision", "overall_assessment", "strengths", "major_concerns", "minor_concerns", "external_signal_integration", "limitations", "synthesis_trace"],
             "language_fields": ["zh", "en"],
             "external_dispositions": ["incorporated", "incorporated-with-revision", "rejected", "unresolved"],
+            "external_issue_ids": [item["id"] for item in issue_ledger["issues"]],
         },
         "boundary": "This bundle imports an external signal. It is not itself a peer-review decision or a final manuscript review.",
     }

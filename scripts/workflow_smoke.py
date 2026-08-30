@@ -170,12 +170,20 @@ def _route_checks(route: str, payload: Dict[str, Any]) -> Tuple[str, List[Dict[s
             "review_outline": {"major": payload.get("major_concerns", []), "minor": payload.get("minor_concerns", []), "evidence_locations": evidence_locations},
             "parallel_review_contract": {
                 "shared_frozen_input": True,
+                "shared_uploaded_pdf_fingerprint": True,
+                "companion_evidence_supported": True,
+                "branch_evidence_scopes_may_differ": True,
                 "branches": {
                     "local_primary_review": "independent",
                     "paperreview_external_signal": "optional-explicit-authorization",
                 },
                 "fusion_barrier": "both requested branches completed with identical manuscript fingerprints",
                 "fusion_owner": "fresh synthesis sub-agent that authored neither branch",
+                "strict_fusion_checks": [
+                    "every local issue id appears in the agreement/disagreement matrix exactly once",
+                    "every canonical external PR-xx issue is dispositioned and mapped exactly once",
+                    "companion evidence fingerprints and asymmetric branch visibility are disclosed",
+                ],
             },
         })
         if payload.get("paperreview_artifact"):

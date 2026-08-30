@@ -47,7 +47,7 @@ the manuscript evidence. The reviewer writes a validated bilingual `final-review
 as the structural template, then:
 
 ```text
-python scripts/render_final_review_docx.py --input C:\private-runs\final-review.json --output-dir C:\private-runs\final-review-docx
+python scripts/render_final_review_docx.py --input C:\private-runs\final-review.json --fusion-bundle C:\private-runs\parallel-review-fusion.json --output-dir C:\private-runs\final-review-docx
 ```
 
 This produces `scixz_final_review_zh.docx` and `scixz_final_review_en.docx`.
@@ -63,15 +63,24 @@ review owner; `check-reporting` and `statistical-analysis` retain their domain c
 After both branches complete, validate their shared manuscript fingerprint and run:
 
 ```text
-python scripts/build_parallel_review_fusion_bundle.py --primary-review C:\private-runs\local-primary-review.json --paperreview-bundle C:\private-runs\scixz-synthesis-input.json --output C:\private-runs\parallel-review-fusion.json
+python scripts/build_parallel_review_fusion_bundle.py --primary-review C:\private-runs\local-primary-review.json --paperreview-bundle C:\private-runs\scixz-synthesis-input.json --companion-evidence C:\private-runs\tables.docx --output C:\private-runs\parallel-review-fusion.json
 ```
 
 Dispatch a fresh synthesis sub-agent that authored neither branch. It reads the frozen manuscript
 and the two artifacts, creates an agreement/disagreement matrix, independently checks retained
-issues, preserves unresolved dissent, and writes the bilingual final-review JSON. Never let an
+issues, preserves unresolved dissent, and writes the bilingual final-review JSON. The synthesis
+bundle assigns canonical `PR-xx` identifiers from the provider's numbered author questions (or a
+documented fallback section); strict rendering requires each identifier exactly once and blocks
+omissions, duplicates, and unknown IDs. Never let an
 external review alone determine an editorial recommendation, a claim of error, or a manuscript
 revision. If the external branch times out or fails, keep the completed local artifact and label any
 user-approved local-only report as degraded mode; do not pretend that two-branch fusion occurred.
+
+The uploaded-PDF fingerprint is the shared barrier. If Branch A also reads separate tables,
+supplements, figures, or source data, pass each one with `--companion-evidence`. The fusion bundle
+records its fingerprint and makes the asymmetric evidence scope explicit: PaperReview did not see
+those files, while the local and synthesis branches may use them. Strict final rendering then
+requires a bilingual evidence-scope disclosure rather than falsely claiming identical evidence.
 
 ### Artifact schema
 

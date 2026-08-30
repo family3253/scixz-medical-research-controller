@@ -26,19 +26,22 @@ def _external(fingerprint="sha256:test"):
         "schema": "scixz-paperreview-synthesis-bundle-v1",
         "status": "READY_FOR_SCIXZ_FINAL_REVIEW",
         "manuscript": {"file_name": "paper.pdf", "fingerprint": fingerprint},
-        "external_signal": {"tool": "paperreview-ai"},
+        "external_signal": {"tool": "paperreview-ai", "issue_ledger": {"issue_count": 1, "issues": [{"id": "PR-01", "text": "Concern"}]}},
     }
 
 
 def test_fusion_requires_two_completed_branches_and_creates_fresh_agent_barrier():
     bundle = MODULE.build_bundle(_primary(), _external())
 
+    assert bundle["schema"] == "scixz-parallel-review-fusion-bundle-v2"
     assert bundle["status"] == "READY_FOR_FRESH_SYNTHESIS_AGENT"
     assert bundle["barrier"]["synthesis_may_start"] is True
     contract = bundle["fresh_synthesis_agent_contract"]
     assert "did not author" in contract["separation"]
     assert any("agreement/disagreement" in step for step in contract["required_steps"])
     assert any("majority" in rule for rule in contract["prohibited"])
+    assert bundle["barrier"]["external_issue_ids_requiring_disposition"] == ["PR-01"]
+    assert bundle["barrier"]["local_issue_ids_requiring_matrix_mapping"] == ["M1"]
 
 
 def test_fusion_blocks_mismatched_frozen_manuscripts():
@@ -56,3 +59,25 @@ def test_fusion_blocks_incomplete_or_empty_primary_review():
     empty["review"] = {}
     with pytest.raises(ValueError, match="substantive review"):
         MODULE.build_bundle(empty, _external())
+
+
+def test_fusion_blocks_missing_or_duplicate_external_issue_ids():
+    missing = _external()
+    missing["external_signal"]["issue_ledger"]["issues"] = []
+    with pytest.raises(ValueError, match="canonical external issue ledger"):
+        MODULE.build_bundle(_primary(), missing)
+
+    duplicate = _external()
+    duplicate["external_signal"]["issue_ledger"] = {"issue_count": 2, "issues": [{"id": "PR-01"}, {"id": "PR-01"}]}
+    with pytest.raises(ValueError, match="duplicate"):
+        MODULE.build_bundle(_primary(), duplicate)
+
+
+def test_fusion_records_asymmetric_companion_evidence_scope():
+    companion = {"file_name": "tables.docx", "path": "C:/private/tables.docx", "fingerprint": "sha256:tables", "available_to": ["local-primary-review", "fresh-synthesis-agent"], "not_available_to": ["paperreview-ai"]}
+
+    bundle = MODULE.build_bundle(_primary(), _external(), [companion])
+
+    assert bundle["evidence_manifest"]["branch_scopes_identical"] is False
+    assert bundle["final_review_contract"]["requires_evidence_scope_disclosure"] is True
+    assert bundle["final_review_contract"]["companion_evidence_fingerprints"] == ["sha256:tables"]

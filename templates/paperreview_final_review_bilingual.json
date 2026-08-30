@@ -1,7 +1,8 @@
 {
   "metadata": {
     "manuscript_title": "Manuscript title",
-    "review_scope": "Independent methodological, reporting, and external-signal synthesis review"
+    "review_scope": "Independent methodological, reporting, and external-signal synthesis review",
+    "manuscript_fingerprint": "sha256:replace-with-frozen-manuscript-fingerprint"
   },
   "decision": {
     "zh": "大修",
@@ -34,6 +35,8 @@
   "minor_concerns": [],
   "external_signal_integration": [
     {
+      "source_issue_id": "PR-01",
+      "manuscript_location": "Methods, section/location or Not verifiable",
       "disposition": "incorporated-with-revision",
       "external_issue": {
         "zh": "概括一条外部 AI 提示的问题。",
@@ -45,6 +48,39 @@
       }
     }
   ],
+  "synthesis_trace": {
+    "external_issue_ids_expected": [
+      "PR-01"
+    ],
+    "agreement_disagreement_matrix": [
+      {
+        "id": "X1",
+        "classification": "agreement",
+        "local_issue_ids": [
+          "M1"
+        ],
+        "external_issue_ids": [
+          "PR-01"
+        ],
+        "resolution": {
+          "zh": "说明两条路径的一致、互补或分歧如何经稿件证据核验和处理。",
+          "en": "Explain how cross-branch agreement, complementarity, or disagreement was verified and resolved against manuscript evidence."
+        }
+      }
+    ],
+    "dissenting_sources": [],
+    "evidence_scope": {
+      "shared_uploaded_pdf_fingerprint": "sha256:replace-with-frozen-manuscript-fingerprint",
+      "branch_scopes_identical": false,
+      "companion_evidence_fingerprints": [
+        "sha256:replace-with-companion-evidence-fingerprint"
+      ],
+      "external_branch_limitations": {
+        "zh": "说明外部分支未读取哪些伴随表格、补充材料或数据文件，以及这对核验范围的影响。",
+        "en": "State which companion tables, supplements, or data files were unavailable to the external branch and how that limits verification."
+      }
+    }
+  },
   "limitations": [
     {
       "zh": "外部 AI 审稿仅为辅助信号，不替代独立同行评审。",
