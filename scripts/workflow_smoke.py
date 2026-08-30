@@ -183,6 +183,7 @@ def _route_checks(route: str, payload: Dict[str, Any]) -> Tuple[str, List[Dict[s
                     "every local issue id appears in the agreement/disagreement matrix exactly once",
                     "every canonical external PR-xx issue is dispositioned and mapped exactly once",
                     "companion evidence fingerprints and asymmetric branch visibility are disclosed",
+                    "repeated provider outputs with identical review-content fingerprints count as one external signal",
                 ],
             },
         })

@@ -45,6 +45,14 @@ def token_fingerprint(token: str) -> str:
     return "sha256:" + hashlib.sha256(token.encode("utf-8")).hexdigest()
 
 
+def review_content_fingerprint(payload: Dict[str, Any]) -> str:
+    content = payload.get("sections")
+    if not isinstance(content, dict) or not content:
+        content = payload.get("content") or payload
+    canonical = json.dumps(content, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return "sha256:" + hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
 def in_git_worktree(path: Path) -> bool:
     """Return whether a private artifact would enter this SciXZ checkout.
 
@@ -233,6 +241,8 @@ def fetch_review(state_path: Path, result_path: Path, artifact_path: Path, sessi
         "pages_reviewed": min(int(state["pages"]), MAX_REVIEWED_PAGES),
         "review_title": payload.get("title") or None,
         "review_sections": sorted((payload.get("sections") or {}).keys()),
+        "token_fingerprint": state["token_fingerprint"],
+        "review_content_fingerprint": review_content_fingerprint(payload),
     }
     write_private_json(artifact_path, artifact)
     state["status"] = "COMPLETED"

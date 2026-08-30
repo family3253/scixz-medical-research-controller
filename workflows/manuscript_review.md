@@ -20,7 +20,7 @@ Evidence-anchored overall assessment, major/minor concerns, editorial recommenda
 
 ## Verification
 
-Verify manuscript locations, numbers, statistical claims, reporting requirements, severity, output count, and internal consistency. For PaperReview.ai, check the frozen input fingerprint, submission date, result path, English-language boundary, and 1–15 reviewed-page boundary; independently verify every issue against the manuscript. Preserve dissent and do not call a signal proof of misconduct.
+Verify manuscript locations, numbers, statistical claims, reporting requirements, severity, output count, and internal consistency. For PaperReview.ai, check the frozen input fingerprint, submission date, result path, English-language boundary, 1–15 reviewed-page boundary, and substantive review-content fingerprint; independently verify every issue against the manuscript. Repeated results with the same content fingerprint count as one external signal. Preserve dissent and do not call a signal proof of misconduct.
 
 ## Failure/fallback
 

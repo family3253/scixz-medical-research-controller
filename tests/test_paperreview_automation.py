@@ -22,6 +22,7 @@ def _module(name):
 AUTOMATION = _module("paperreview_automation.py")
 SYNTHESIS = _module("build_paperreview_synthesis_bundle.py")
 RENDERER = _module("render_final_review_docx.py")
+REPEAT_AUDIT = _module("audit_paperreview_repeats.py")
 
 
 def _pdf(path):
@@ -108,6 +109,8 @@ def test_fetch_persists_result_and_redacted_artifact_then_synthesis_requires_mat
 
     assert fetch_result["status"] == "COMPLETED"
     assert artifact["status"] == "completed"
+    assert artifact["token_fingerprint"] == AUTOMATION.token_fingerprint("provider-secret-token")
+    assert artifact["review_content_fingerprint"].startswith("sha256:")
     assert "provider-secret-token" not in artifact_path.read_text(encoding="utf-8")
     bundle = SYNTHESIS.build_bundle(manuscript, artifact, AUTOMATION.read_private_json(raw_result))
     assert bundle["status"] == "READY_FOR_SCIXZ_FINAL_REVIEW"
@@ -125,6 +128,27 @@ def test_pending_result_is_not_misrepresented_as_completed(tmp_path):
     result = AUTOMATION.fetch_review(state, tmp_path / "result.json", tmp_path / "artifact.json", session=Session(review_status=202))
 
     assert result["status"] == "PENDING"
+
+
+def test_repeat_audit_treats_identical_provider_content_as_one_external_signal(tmp_path):
+    run_dirs = []
+    provider = {"success": True, "sections": {"summary": "Same review", "questions": "1. Same issue?"}}
+    content_hash = REPEAT_AUDIT.content_fingerprint(provider)
+    for index in (1, 2):
+        run_dir = tmp_path / f"run-{index:02d}"
+        run_dirs.append(run_dir)
+        token = f"private-token-{index}"
+        AUTOMATION.write_private_json(run_dir / "paperreview-state.json", {"status": "COMPLETED", "input_fingerprint": "sha256:paper", "review_token": token})
+        AUTOMATION.write_private_json(run_dir / "paperreview-artifact.json", {"status": "completed", "input_fingerprint": "sha256:paper", "token_fingerprint": AUTOMATION.token_fingerprint(token), "review_content_fingerprint": content_hash})
+        AUTOMATION.write_private_json(run_dir / "provider-review.json", provider)
+
+    audit = REPEAT_AUDIT.build_audit(run_dirs)
+
+    assert audit["status"] == "PASS_WITH_DUPLICATE_CONTENT"
+    assert audit["transport_success_rate"] == 1
+    assert audit["distinct_token_count"] == 2
+    assert audit["distinct_review_content_count"] == 1
+    assert audit["independent_external_signal_count"] == 1
 
 
 def _final_review():

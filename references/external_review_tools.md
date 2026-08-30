@@ -38,6 +38,7 @@ $env:PAPERREVIEW_EMAIL = "your-email@example.edu"
 python scripts/paperreview_automation.py submit --manuscript manuscript.pdf --venue Other --state C:\private-runs\paperreview-state.json --authorized-upload
 python scripts/paperreview_automation.py poll --state C:\private-runs\paperreview-state.json --result C:\private-runs\provider-review.json --artifact C:\private-runs\paperreview-artifact.json --attempts 24 --interval-seconds 900
 python scripts/build_paperreview_synthesis_bundle.py --manuscript manuscript.pdf --artifact C:\private-runs\paperreview-artifact.json --provider-review C:\private-runs\provider-review.json --output C:\private-runs\scixz-synthesis-input.json
+python scripts/audit_paperreview_repeats.py --run-dir C:\private-runs\run-01 --run-dir C:\private-runs\run-02 --output C:\private-runs\repeat-audit.json
 ```
 
 The final synthesis step is intentionally a SciXZ reviewer task rather than an automatic text
@@ -81,6 +82,12 @@ supplements, figures, or source data, pass each one with `--companion-evidence`.
 records its fingerprint and makes the asymmetric evidence scope explicit: PaperReview did not see
 those files, while the local and synthesis branches may use them. Strict final rendering then
 requires a bilingual evidence-scope disclosure rather than falsely claiming identical evidence.
+
+For reliability testing, each completed result artifact records a fingerprint of the substantive
+provider-review content. Use `audit_paperreview_repeats.py` for two or more private run directories.
+Unique task-token fingerprints with identical review-content fingerprints demonstrate repeated
+transport success, not independent review diversity. Identical outputs must remain one external
+signal and must never be counted as multiple reviewers, votes, or corroborating findings.
 
 ### Artifact schema
 

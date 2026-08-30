@@ -89,6 +89,8 @@ def validate_review_artifact(artifact: Dict[str, Any]) -> Dict[str, Any]:
         "submitted_at": artifact["submitted_at"],
         "result_artifact": artifact["result_artifact"],
         "pages_reviewed": pages,
+        "token_fingerprint": artifact.get("token_fingerprint"),
+        "review_content_fingerprint": artifact.get("review_content_fingerprint"),
         "limitations": [
             "External review is advisory only.",
             "Independently verify every issue against the frozen manuscript and domain review routes.",

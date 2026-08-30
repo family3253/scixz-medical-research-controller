@@ -55,6 +55,7 @@ def test_peer_review_and_revision_keep_evidence_locations_and_unresolved_tickets
     assert set(parallel["branches"]) == {"local_primary_review", "paperreview_external_signal"}
     assert "fresh synthesis sub-agent" in parallel["fusion_owner"]
     assert any("PR-xx" in item for item in parallel["strict_fusion_checks"])
+    assert any("one external signal" in item for item in parallel["strict_fusion_checks"])
     assert any("external advisory signal" in item for item in review["limitations"])
     assert any(item["action_status"] == "blocked_data" for item in revision["outputs"]["comment_ledger"])
     assert any("No response letter claims" in item for item in revision["limitations"])
