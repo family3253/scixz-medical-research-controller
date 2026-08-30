@@ -45,6 +45,10 @@ Skill 仓库中吸收能力。2026-08-30 的评估覆盖了本地科研写作、
 案例、模板、n8n 数据库、安装包、API 凭据、个人标识和运行状态均未上传。新增两个去模型绑定的
 Skill：[`n8n-to-skill`](bundled-skills/n8n-to-skill/) 用于安全转换工作流，
 [`image-to-table-qa`](bundled-skills/image-to-table-qa/) 用于带来源追溯和人工复核的图像转表格。
+这不是只保留评估报告的升级：每个来源族都在
+[`registry/corpus_integration_contract.json`](registry/corpus_integration_contract.json) 中映射到
+具体的 SciXZ 工作流、注册表或可执行 Skill；运行
+`python scripts/verify_corpus_integration.py` 会在任何来源没有落地 owner 时失败。
 
 ## 配套 Skill 与外部依赖
 

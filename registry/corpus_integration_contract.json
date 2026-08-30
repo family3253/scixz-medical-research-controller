@@ -1,0 +1,20 @@
+{
+  "schema": "scixz-corpus-integration-contract-v1",
+  "policy": "Every assessed source family must have a concrete adoption, canonical-owner, or explicit rejection implementation.",
+  "integrations": [
+    {"source": "dyna-2-prompts", "outcome": "adopted", "capabilities": ["stage-aware drafting", "evidence before prose"], "owners": ["workflows/manuscript_writing.md", "references/manuscript_section_depth.md"]},
+    {"source": "technical-route-templates", "outcome": "adopted", "capabilities": ["source-located diagram DSL", "specification before rendering"], "owners": ["workflows/figure_presentation.md"]},
+    {"source": "medical-ai-writing-prompts", "outcome": "adopted", "capabilities": ["section briefs", "claim-evidence verification"], "owners": ["workflows/manuscript_writing.md", "references/manuscript_section_depth.md"]},
+    {"source": "r-visualization-library", "outcome": "adopted", "capabilities": ["estimand-driven chart choice", "provenance-first reuse"], "owners": ["workflows/figure_presentation.md"]},
+    {"source": "image-to-table-package", "outcome": "new-skill", "capabilities": ["source-traceable OCR table QA"], "owners": ["bundled-skills/image-to-table-qa/SKILL.md", "bundled-skills/image-to-table-qa/scripts/build_table.py"]},
+    {"source": "misc-research-prompts", "outcome": "adopted", "capabilities": ["section depth", "claim calibration"], "owners": ["references/manuscript_section_depth.md"]},
+    {"source": "submission-tool-guide", "outcome": "adopted", "capabilities": ["source-locked batch operations", "authority gate"], "owners": ["workflows/document_operation.md", "workflows/submission_preflight.md"]},
+    {"source": "review-tool", "outcome": "adopted", "capabilities": ["reproducible review corpus", "screening and evidence stages"], "owners": ["workflows/literature_review.md"]},
+    {"source": "review-tool-upgrade", "outcome": "adopted", "capabilities": ["Vancouver first-appearance verification"], "owners": ["workflows/citation_management.md"]},
+    {"source": "xiaowei-commands-2025", "outcome": "adopted-and-constrained", "capabilities": ["staged research tasks", "unsupported-certainty rejection"], "owners": ["workflows/manuscript_writing.md", "workflows/journal_selection.md"]},
+    {"source": "family3253-skill", "outcome": "adopted", "capabilities": ["deduplicated discovery", "component provenance"], "owners": ["registry/skill_taxonomy.md", "registry/fusion_map.md"]},
+    {"source": "academic-write-all-skill", "outcome": "adopted", "capabilities": ["dependency-aware manuscript production", "review readiness gates"], "owners": ["workflows/manuscript_writing.md", "workflows/literature_review.md", "references/manuscript_section_depth.md"]},
+    {"source": "academic-write", "outcome": "canonicalized", "capabilities": ["capability catalog without duplicate routing"], "owners": ["router/skill_selector.md", "registry/fusion_map.md"]},
+    {"source": "cycwrite-skill", "outcome": "canonicalized", "capabilities": ["supersession recorded; no duplicate owner"], "owners": ["audit/prompt_corpus_assessment.md", "registry/fusion_map.md"]}
+  ]
+}

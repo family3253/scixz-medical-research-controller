@@ -46,6 +46,10 @@ prompts, examples, templates, n8n databases, binaries, API credentials, personal
 runtime state are not included. Two provider-neutral Skills were added:
 [`n8n-to-skill`](bundled-skills/n8n-to-skill/) for sanitized workflow conversion and
 [`image-to-table-qa`](bundled-skills/image-to-table-qa/) for source-traceable OCR table building.
+This is an implemented upgrade rather than an assessment-only report: the source-to-owner contract
+in [`registry/corpus_integration_contract.json`](registry/corpus_integration_contract.json) is
+validated by `python scripts/verify_corpus_integration.py` and fails when any assessed source lacks
+a concrete SciXZ workflow, registry, or executable Skill owner.
 
 ## Bundled versus external Skills
 
