@@ -541,6 +541,7 @@ def _merge_journal_index_metrics(result: Dict, index_record: Dict) -> Dict:
         'nature_index_source_url',
         'warning',
         'journal_index_tags',
+        'journal_index_provenance',
     ]:
         if index_record.get(key) not in (None, '', []):
             result[key] = index_record.get(key)

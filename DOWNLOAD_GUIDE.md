@@ -84,6 +84,16 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 
 `ShowJCR` is a data/application repository rather than a Skill; `jcr_mcp` is an optional MCP server and does not replace `sci-select`.
 
+For a zero-configuration local JCR Q source, run:
+
+```text
+python scripts/refresh_journal_index.py
+```
+
+This downloads the three public ShowJCR CSV snapshots into a per-user cache and builds
+the local SQLite index used by `scripts/journal_lookup.py`. Add `--force` to refresh.
+The raw files and generated database stay outside the repository and are not published.
+
 If the installer does not recognize a nested package, copy that package directory into the runtime's configured Skills directory and keep the directory name equal to the Skill name. Resolve the destination from your runtime configuration; do not hard-code another machine's absolute path.
 
 ## 6. Minimal download sets by task
@@ -191,6 +201,15 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 ```
 
 `ShowJCR` 是数据/应用仓库，不是 Skill；`jcr_mcp` 是可选 MCP 服务，不能替代 `sci-select`。
+
+如果希望本地查询自动返回 JCR Q，首次运行：
+
+```text
+python scripts/refresh_journal_index.py
+```
+
+脚本会把 ShowJCR 的三个公开 CSV 快照下载到当前用户缓存目录，并构建供
+`scripts/journal_lookup.py` 自动发现的 SQLite 索引；更新时使用 `--force`。原始文件和生成数据库不会上传到本仓库。
 
 仓库自带实测运行器：
 

@@ -170,7 +170,9 @@ def read_cas_2025_file(path: str) -> List[Dict]:
         title = _pick(raw, "Journal", "期刊名称", "Title", "Journal name")
         if not title:
             continue
-        partition = _normalize_partition(_pick(raw, "分区", "中科院分区", "cas_2025"))
+        partition = _normalize_partition(
+            _pick(raw, "分区", "中科院分区", "cas_2025", "大类分区")
+        )
         item = {"title": title}
         if partition:
             item["cas_2025"] = partition
@@ -183,6 +185,31 @@ def read_cas_2025_file(path: str) -> List[Dict]:
         oa = _normalize_yes_no(_pick(raw, "Open Access", "OA", "是否OA"))
         if oa:
             item["open_access"] = oa == "是"
+        web_of_science = _pick(raw, "Web of Science", "数据库", "收录类型")
+        if web_of_science:
+            item.setdefault("tags", []).append(str(web_of_science).upper().replace(" ", ""))
+        major_category = _pick(raw, "大类", "大类学科", "CAS Category")
+        if major_category:
+            item["cas_major_category"] = major_category
+        minor_categories = []
+        for key, value in raw.items():
+            match = re.fullmatch(r"小类(\d+)", str(key or "").strip())
+            if not match or value in (None, ""):
+                continue
+            index = match.group(1)
+            minor_partition = _normalize_partition(raw.get(f"小类{index}分区", ""))
+            minor_categories.append(
+                {
+                    "category": str(value).strip(),
+                    "partition": minor_partition,
+                }
+            )
+        if minor_categories:
+            item["cas_minor_categories"] = minor_categories
+        warning_marker = _pick(raw, "预警标记", "warning")
+        if warning_marker:
+            item["warning"] = warning_marker
+        _copy_issns(raw, item)
         rows.append(item)
     return rows
 
@@ -190,8 +217,17 @@ def read_cas_2025_file(path: str) -> List[Dict]:
 def read_xinrui_2026_file(path: str) -> List[Dict]:
     rows = []
     for raw in _read_table_file(path):
-        title = _pick(raw, "期刊名称", "Journal", "Journal name", "Title")
-        partition = _normalize_partition(_pick(raw, "新锐分区", "新锐", "xuankan_2026", "XinRui"))
+        title = _pick(raw, "期刊名称", "刊名", "Journal", "Journal name", "Title")
+        partition = _normalize_partition(
+            _pick(
+                raw,
+                "新锐分区",
+                "大类新锐分区",
+                "新锐",
+                "xuankan_2026",
+                "XinRui",
+            )
+        )
         if not title or not partition:
             continue
         issn1 = _normalize_issn(_pick(raw, "issn1", "ISSN", "Issn", "issn"))
@@ -205,9 +241,15 @@ def read_xinrui_2026_file(path: str) -> List[Dict]:
             item["issn"] = issn1
         if issn2 and issn2 != issn1:
             item["eissn"] = issn2
-        subject = _pick(raw, "学科", "大类学科", "field", "Field")
+        subject = _pick(raw, "学科", "大类学科", "大类中文名", "field", "Field")
         if subject:
             item["xinrui_subject"] = subject
+        database = _pick(raw, "数据库", "Web of Science", "收录类型")
+        if database:
+            item.setdefault("tags", []).append(str(database).upper().replace(" ", ""))
+        warning = _pick(raw, "预警标记", "预警", "warning")
+        if warning:
+            item["warning"] = warning
         rows.append(item)
     return rows
 
@@ -462,6 +504,14 @@ def _generic_row_to_index(row: Dict) -> Dict:
 def _copy_issns(source: Dict, target: Dict) -> None:
     issn = _normalize_issn(_pick(source, "ISSN", "issn", "issn1", "ISSN1"))
     eissn = _normalize_issn(_pick(source, "eISSN", "EISSN", "eissn", "issn2", "ISSN2"))
+    if not issn and not eissn:
+        combined = _pick(source, "ISSN/EISSN", "ISSN / EISSN", "issn/eissn")
+        if combined:
+            parts = [part.strip() for part in str(combined).split("/") if part.strip()]
+            if parts:
+                issn = _normalize_issn(parts[0])
+            if len(parts) > 1:
+                eissn = _normalize_issn(parts[1])
     if issn:
         target["issn"] = issn
     if eissn and eissn != issn:

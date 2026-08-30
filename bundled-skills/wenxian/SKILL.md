@@ -50,7 +50,7 @@ EasyScholar 使用规则：
 - 成功判定：`code=200` 且 `msg=SUCCESS`
 - 失败示例：`code=40002`（Key错误）
 - 调用 API 后，输出需标注“来源：EasyScholar API”
-- `secretKey` 视为敏感信息：回复中仅可脱敏展示（如 `f11d...8d95`），不得完整回显
+- `secretKey` 视为敏感信息：回复中只说明“已配置/未配置”，不得回显任何前缀、后缀或完整值
 
 EasyScholar 返回解析（必须遵循）：
 

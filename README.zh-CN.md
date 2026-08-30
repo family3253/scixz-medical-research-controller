@@ -122,6 +122,17 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 
 其中 `ShowJCR` 是数据/应用仓库，不是 Skill；`jcr_mcp` 是可选 MCP 服务，不能替代 `sci-select` 的查询与格式化层。
 
+要让 JCR Q 区自动出结果，首次运行仓库自带刷新命令：
+
+```text
+python scripts/refresh_journal_index.py
+```
+
+该命令会从 [ShowJCR](https://github.com/hitfyd/ShowJCR) 下载公开的
+`JCR2025-UTF8.csv`、`FQBJCR2025-UTF8.csv` 和 `XR2026-UTF8.csv` 快照，保存到当前用户缓存目录，并构建
+`sci-select` 自有 SQLite 索引。之后运行器会自动发现该索引；需要更新数据时加 `--force`。
+原始 ShowJCR 文件和生成的本地索引不会提交到公开仓库；卡片会分别标注 JCR 发布年 `2026` 和 JIF/JCR 数据年 `2025`。
+
 如果安装器无法识别嵌套包，就把相应目录复制到运行时配置的 Skills 目录，并保持目录名与 Skill 名一致。目标路径应从本机配置解析，不要硬编码其他机器的绝对路径。
 
 ### 按任务准备最小下载集

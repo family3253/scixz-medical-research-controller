@@ -30,6 +30,44 @@ def _candidate_sci_select_roots(explicit: str = "") -> Iterable[Path]:
     yield Path.home() / ".agents" / "skills" / "sci-select"
 
 
+def configure_local_index() -> Optional[Path]:
+    """Point sci-select at the index produced by refresh_journal_index.py.
+
+    An explicit ``SCI_SELECT_JOURNAL_INDEX_DB`` remains authoritative. For a
+    zero-configuration lookup, discover the refresh script's per-user cache or
+    an explicit ``SCIXZ_JOURNAL_INDEX_DB`` path and set sci-select's native
+    environment variable for this process.
+    """
+    configured = os.environ.get("SCI_SELECT_JOURNAL_INDEX_DB", "").strip()
+    if configured:
+        return Path(configured).expanduser()
+
+    candidates: List[Path] = []
+    explicit = os.environ.get("SCIXZ_JOURNAL_INDEX_DB", "").strip()
+    if explicit:
+        candidates.append(Path(explicit).expanduser())
+
+    data_dir = os.environ.get("SCIXZ_JOURNAL_DATA_DIR", "").strip()
+    if data_dir:
+        candidates.append(Path(data_dir).expanduser() / "sci_select_journals.sqlite")
+
+    if os.name == "nt":
+        local_app_data = os.environ.get("LOCALAPPDATA", "").strip()
+        base = Path(local_app_data) if local_app_data else Path.home() / "AppData" / "Local"
+        candidates.append(base / "scixz" / "journal-index" / "sci_select_journals.sqlite")
+    else:
+        cache_home = os.environ.get("XDG_CACHE_HOME", "").strip()
+        base = Path(cache_home) if cache_home else Path.home() / ".cache"
+        candidates.append(base / "scixz" / "journal-index" / "sci_select_journals.sqlite")
+
+    for candidate in candidates:
+        candidate = candidate.expanduser()
+        if candidate.is_file() and candidate.stat().st_size > 0:
+            os.environ["SCI_SELECT_JOURNAL_INDEX_DB"] = str(candidate)
+            return candidate
+    return None
+
+
 def _load_sci_select(explicit: str = ""):
     for root in _candidate_sci_select_roots(explicit):
         module_path = root / "scripts" / "journal_metrics.py"
@@ -86,6 +124,16 @@ def _easy_field(easy: Dict[str, Any], key: str) -> Any:
     return (easy.get("fields") or {}).get(key)
 
 
+def _showjcr_index_field(metrics: Dict[str, Any], *fields: str) -> bool:
+    provenance = metrics.get("journal_index_provenance")
+    if not isinstance(provenance, dict):
+        return False
+    return any(
+        provenance.get(field) in {"jcr_2025", "cas_2025", "xinrui_2026", "showjcr_db"}
+        for field in fields
+    )
+
+
 def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[str, Any]:
     index_status = _source_status(metrics, "journal-index", "no local/static match")
     letpub_status = _source_status(metrics, "letpub", "LetPub was not queried")
@@ -104,8 +152,11 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
     impact_factor_source = "sci-select/LetPub or EasyScholar"
     if metrics.get("impact_factor") or metrics.get("real_time_if") or metrics.get("jif"):
         impact_factor_status = "profile_snapshot"
+        if _showjcr_index_field(metrics, "jif_2025", "impact_factor"):
+            impact_factor_source = "sci-select/ShowJCR"
     elif _easy_field(easy or {}, "sciif"):
         impact_factor_status = "third-party-api"
+        impact_factor_source = "EasyScholar"
     else:
         impact_factor_status = "not verified"
 
@@ -161,14 +212,18 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
     else:
         warning_status = "not verified"
 
+    metric_source = "sci-select/ShowJCR" if _showjcr_index_field(metrics, "jcr_quartile", "jcr_quartile_2025") else "sci-select/ShowJCR or EasyScholar"
+    cas_source = "sci-select/ShowJCR" if _showjcr_index_field(metrics, "cas_2025", "cas_partition_2025") else "sci-select/ShowJCR or EasyScholar"
+    xinrui_source = "sci-select/ShowJCR" if _showjcr_index_field(metrics, "xuankan_2026", "xinrui_partition_2026") else "sci-select/ShowJCR or EasyScholar"
+
     card = {
         "journal_name": metrics.get("name", ""),
         "issn": metrics.get("issn", ""),
         "impact_factor": _field(impact_factor, impact_factor_source, impact_factor_status),
-        "jcr_quartile": _field(jcr, "sci-select/ShowJCR or EasyScholar", jcr_status),
-        "cas_major_quartile_2025": _field(cas_major, "sci-select/ShowJCR or EasyScholar", cas_major_status),
+        "jcr_quartile": _field(jcr, metric_source, jcr_status),
+        "cas_major_quartile_2025": _field(cas_major, cas_source, cas_major_status),
         "cas_minor_quartile_2025": _field(cas_minor, cas_minor_source, cas_minor_status),
-        "xinrui_quartile_2026": _field(xinrui, "sci-select/ShowJCR or EasyScholar", xinrui_status),
+        "xinrui_quartile_2026": _field(xinrui, xinrui_source, xinrui_status),
         "letpub_review_speed": _field(metrics.get("speed"), "LetPub", "succeeded" if letpub_status["status"] in {"succeeded", "partial"} else letpub_status["status"], letpub_status["reason"]),
         "indexing": _field(metrics.get("sci_type"), "LetPub/journal-index", "partial" if metrics.get("sci_type") else "not verified"),
         "warning": _field(warning, "sci-select/ShowJCR or EasyScholar", warning_status),
@@ -202,6 +257,7 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
 
 
 def run(journals: List[str], sci_select_path: str = "", easy_adapter_path: str = "") -> List[Dict[str, Any]]:
+    configure_local_index()
     get_metrics, _ = _load_sci_select(sci_select_path)
     if get_metrics is None:
         raise RuntimeError("sci-select is not installed or could not be loaded; install it or set SCIXZ_SCI_SELECT_PATH")

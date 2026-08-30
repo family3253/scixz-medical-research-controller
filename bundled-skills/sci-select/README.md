@@ -65,7 +65,7 @@ git clone https://github.com/keros68/sci-select.git ~/.claude/skills/sci-select
 | `nature_index` | 2026 Nature Index publication venue 标记，共 178 本 |
 | `tags` | 分区和 Nature Index 标签 |
 
-内置库不打包 ISSN、JIF、JCR Q 区和收录类型：第三方表格的 ISSN 错位会把一本期刊的 JCR 字段挂到另一本上，未逐条核验的字段一律不入库。ISSN、IF、收录类型和审稿速度由 LetPub 在线补充，缺失时显式标为未获取；**JCR Q 区没有在线来源，只有自建索引才会有这个字段**。仓库同样不打包原始 Excel、ShowJCR 的 `jcr.db` 或源码、运行缓存。
+内置库不打包 ISSN、JIF、JCR Q 区和收录类型：第三方表格的 ISSN 错位会把一本期刊的 JCR 字段挂到另一本上，未逐条核验的字段一律不入库。ISSN、IF、收录类型和审稿速度由 LetPub 在线补充，缺失时显式标为未获取；**默认库不含 JCR Q 区，但可以用 SciXZ 仓库根目录的 `scripts/refresh_journal_index.py` 自动下载公开 ShowJCR CSV 并生成本地索引**。仓库同样不打包原始 Excel、ShowJCR 的 `jcr.db` 或源码、运行缓存。
 
 运行时读取顺序：
 

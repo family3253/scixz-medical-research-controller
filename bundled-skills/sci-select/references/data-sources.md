@@ -4,7 +4,11 @@ Use this file only while retrieving or interpreting live journal data. For index
 
 ## Source authority and lookup order
 
-Runtime lookup order is user override SQLite (`SCI_SELECT_JOURNAL_INDEX_DB`), local/static JSON (`SCI_SELECT_JOURNAL_INDEX_PATH` or `_URL`), bundled `assets/sci_select_journals.sqlite`, then live public sources. Keep a source-status entry for every material lookup. A returned field is evidence from that source, not a guarantee that all other fields were checked.
+Runtime lookup order is user override SQLite (`SCI_SELECT_JOURNAL_INDEX_DB`), the
+SciXZ refresh index discovered from `SCIXZ_JOURNAL_INDEX_DB`/the per-user cache, local/static
+JSON (`SCI_SELECT_JOURNAL_INDEX_PATH` or `_URL`), bundled `assets/sci_select_journals.sqlite`,
+then live public sources. Keep a source-status entry for every material lookup. A returned
+field is evidence from that source, not a guarantee that all other fields were checked.
 
 | Source | Use for | Do not use as final authority for |
 |---|---|---|

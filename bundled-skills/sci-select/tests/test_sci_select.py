@@ -257,6 +257,103 @@ class SciSelectTests(unittest.TestCase):
             self.assertEqual(len(row["jcr_categories"]), 2)
             self.assertEqual(row["jcr_categories"][0]["rank"], "45/378")
 
+    def test_build_journal_index_parses_real_showjcr_cas_and_xinrui_headers(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            cas_path = os.path.join(tmpdir, "FQBJCR2025-UTF8.csv")
+            xinrui_path = os.path.join(tmpdir, "XR2026-UTF8.csv")
+
+            with open(cas_path, "w", encoding="utf-8-sig", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(
+                    [
+                        "Journal",
+                        "年份",
+                        "ISSN/EISSN",
+                        "Review",
+                        "OA Journal Index（OAJ）",
+                        "Open Access",
+                        "Web of Science",
+                        "标注",
+                        "大类",
+                        "大类分区",
+                        "Top",
+                        "小类1",
+                        "小类1分区",
+                    ]
+                )
+                writer.writerow(
+                    [
+                        "Journal of Global Antimicrobial Resistance",
+                        "2025",
+                        "2213-7165/2213-7173",
+                        "否",
+                        "否",
+                        "是",
+                        "SCIE",
+                        "",
+                        "医学",
+                        "3 [1379/5603]",
+                        "否",
+                        "INFECTIOUS DISEASES 感染病学",
+                        "3 [44/141]",
+                    ]
+                )
+
+            with open(xinrui_path, "w", encoding="utf-8-sig", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(
+                    [
+                        "Journal",
+                        "年份",
+                        "预警标记",
+                        "刊名",
+                        "中文刊名",
+                        "CN",
+                        "ISSN",
+                        "EISSN",
+                        "出版机构",
+                        "语种",
+                        "期刊类型",
+                        "数据库",
+                        "标注",
+                        "大类英文名",
+                        "大类中文名",
+                        "大类新锐分区",
+                        "Top",
+                    ]
+                )
+                writer.writerow(
+                    [
+                        "Journal of Global Antimicrobial Resistance",
+                        "2026",
+                        "",
+                        "Journal of Global Antimicrobial Resistance",
+                        "",
+                        "",
+                        "2213-7165",
+                        "2213-7173",
+                        "Elsevier",
+                        "English",
+                        "",
+                        "Web of Science (SCIE)",
+                        "",
+                        "Medicine",
+                        "医学",
+                        "3 区",
+                        "—",
+                    ]
+                )
+
+            payload = build_index(cas_2025_xlsx=cas_path, xinrui_2026_xlsx=xinrui_path)
+            row = payload["journals"][0]
+
+            self.assertEqual(row["cas_2025"], "3区")
+            self.assertEqual(row["issn"], "2213-7165")
+            self.assertEqual(row["eissn"], "2213-7173")
+            self.assertEqual(row["cas_minor_categories"][0]["partition"], "3区")
+            self.assertEqual(row["xuankan_2026"], "3区")
+            self.assertEqual(row["xinrui_subject"], "医学")
+
     def test_build_journal_index_accepts_nature_index_faq_html(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             ni_path = os.path.join(tmpdir, "nature-index-faq.html")

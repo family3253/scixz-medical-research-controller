@@ -122,6 +122,20 @@ git clone https://github.com/yosh3289/jcr_mcp.git
 
 `ShowJCR` is a data/application repository rather than a Skill; `jcr_mcp` is an optional MCP server rather than a replacement for `sci-select`.
 
+To make JCR Q automatic, run the repository refresh command once:
+
+```text
+python scripts/refresh_journal_index.py
+```
+
+The command downloads the public `JCR2025-UTF8.csv`, `FQBJCR2025-UTF8.csv`, and
+`XR2026-UTF8.csv` snapshots from [ShowJCR](https://github.com/hitfyd/ShowJCR), stores
+the raw files in a per-user cache, and builds a local `sci-select` SQLite index. The
+lookup runner discovers that index automatically on subsequent calls. Use `--force` to
+refresh. Raw ShowJCR files and the generated local index are intentionally not committed
+to this public repository; the generated card reports JCR release year `2026` and
+JIF/JCR data year `2025` separately.
+
 If the installer does not recognize a nested package, copy that package directory into the runtime's configured Skills directory and keep the directory name equal to the Skill name. Resolve the destination from your runtime configuration; do not hard-code another machine's absolute path.
 
 ### Minimal download sets by task

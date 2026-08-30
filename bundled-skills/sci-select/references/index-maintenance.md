@@ -23,6 +23,18 @@ python -m scripts.build_journal_index \
   --sqlite-output /path/to/sci_select_journals.sqlite
 ```
 
+When this repository is used as the SciXZ controller, the recommended one-command
+refresh downloads the current public ShowJCR CSV snapshots and builds the same local
+index without requiring a manual clone:
+
+```bash
+python scripts/refresh_journal_index.py
+```
+
+The raw files are stored in a per-user cache; the generated SQLite path is discovered by
+`scripts/journal_lookup.py`. Use `--force` to refresh. Do not commit either the raw files
+or the generated database.
+
 Lightweight deployments may instead use `SCI_SELECT_JOURNAL_INDEX_PATH` or `_URL` for either `{"meta": {...}, "journals": [...]}` or a bare journal array. Recognized fields include title/ISSN identity, `jif_2025`, `jcr_release_year`, `jcr_data_year`, `jcr_quartile_2025`, `cas_2025`, `xuankan_2026`, Nature Index fields, warning fields, and tags.
 
 ## Integrity rules
