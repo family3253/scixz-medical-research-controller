@@ -79,6 +79,16 @@ def _load_preflight(skill: str, script: str):
     raise RuntimeError(f"Unable to load {skill} preflight from bundled or sibling Skill layouts")
 
 
+def _load_script(script: str):
+    path = ROOT / "scripts" / script
+    spec = importlib.util.spec_from_file_location(f"scixz_{Path(script).stem}", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Unable to load SciXZ script: {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def _comment_ledger(comments: List[Dict[str, Any]], revision: bool) -> Tuple[List[Dict[str, Any]], List[str]]:
     ledger: List[Dict[str, Any]] = []
     failures: List[str] = []
@@ -157,6 +167,11 @@ def _route_checks(route: str, payload: Dict[str, Any]) -> Tuple[str, List[Dict[s
         evidence_locations = payload.get("evidence_locations", [])
         checks.append({"name": "evidence_locations", "passed": bool(evidence_locations), "detail": evidence_locations or "no verifiable locations"})
         outputs.update({"review_outline": {"major": payload.get("major_concerns", []), "minor": payload.get("minor_concerns", []), "evidence_locations": evidence_locations}})
+        if payload.get("paperreview_artifact"):
+            paperreview = _load_script("paperreview_adapter.py").validate_review_artifact(payload["paperreview_artifact"])
+            checks.append({"name": "optional_paperreview_artifact", "passed": paperreview["status"] == "EXTERNAL_SIGNAL_READY_FOR_VERIFICATION", "detail": paperreview})
+            outputs["optional_external_review"] = paperreview
+            limitations.append("PaperReview.ai is an external advisory signal and cannot replace independent manuscript, reporting, or statistical review.")
         status = "DIAGNOSTIC"
         limitations.append("A formal review requires independent substantive assessment and, where relevant, source data.")
     elif route in {"reviewer-response", "revision-after-review"}:

@@ -14,6 +14,7 @@ SciXZ is the medical-research central controller. It interprets the user's manda
 - Do not invent data, citations, journal metrics, patient-level conclusions, or tool results. Mark missing evidence and uncertainty.
 - Use the narrowest sufficient route. Do not load every research skill for a simple task.
 - For SciXZ `journal-selection` and `citation-management` routes, always dispatch both mandatory external adapters `jane` and `ipubmed`; if either produces no auditable run artifact, do not publish the final ranking or proofreading conclusion.
+- For `manuscript-review`, PaperReview.ai is an optional external-signal branch only: never upload a manuscript automatically, require explicit authorization for the exact PDF, and independently verify every returned issue.
 - The central controller is the only first responder for `/scixz`. Domain Skills are execution officers, not autonomous routers.
 - Classify the requested authority before execution. External side effects, destructive operations, and materially broader scope require explicit, current authorization and exact targets; prefer reversible actions where practical.
 - For explicit `/scixz` or multi-agent requests, read `collaboration/mode.md` and create a collaboration run with named roles, independent work, a critic pass, consensus, and verification.
@@ -102,6 +103,6 @@ prompt corpus, or publish credentials/runtime artifacts merely because they are 
 - Workflow contracts: `workflows/`
 - Consensus and uncertainty: `consensus/consensus_engine.md`
 - Skill registry and governance: `registry/skill_policy.md`, `registry/local_skill_catalog.json`, `registry/skill_taxonomy.md`, `registry/skill_conflicts.md`, `registry/fusion_map.md`, `registry/runtime_bindings.json`, `registry/scixz_bindings.json`
-- External research-tool adapters: `registry/external_tools.json`, `references/external_research_tools.md` (JANE and iPubMed; advisory only)
+- External research-tool adapters: `registry/external_tools.json`, `references/external_research_tools.md` (mandatory JANE/iPubMed branches); `registry/external_review_adapters.json`, `references/external_review_tools.md` (optional PaperReview.ai branch)
 - Function completeness: `registry/function_matrix.json`, `audit/function_audit.md`
 - Audit outputs: `audit/`

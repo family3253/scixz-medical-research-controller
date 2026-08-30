@@ -42,6 +42,8 @@ def test_peer_review_and_revision_keep_evidence_locations_and_unresolved_tickets
 
     assert review["status"] == "DIAGNOSTIC"
     assert review["outputs"]["review_outline"]["evidence_locations"]
+    assert review["outputs"]["optional_external_review"]["status"] == "EXTERNAL_SIGNAL_READY_FOR_VERIFICATION"
+    assert any("external advisory signal" in item for item in review["limitations"])
     assert any(item["action_status"] == "blocked_data" for item in revision["outputs"]["comment_ledger"])
     assert any("No response letter claims" in item for item in revision["limitations"])
 

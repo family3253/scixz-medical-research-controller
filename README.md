@@ -38,6 +38,8 @@ python scripts/workflow_smoke.py --all --fixtures tests/fixtures/workflow_smoke 
 
 The report contains a typed artifact per route, its required Skills, checks, limitations, next action, and a readiness score. The score measures passed deterministic intake/safety checks only; it is not a claim that an LLM review, live journal lookup, document edit, statistical result, or biological analysis was executed. Routes requiring data or external services remain explicitly gated. Two formerly unowned routes now include repository-authored, runnable preflight Skills: [`statistical-analysis`](bundled-skills/statistical-analysis/) and [`multiomics-analysis`](bundled-skills/multiomics-analysis/).
 
+For manuscript review, [PaperReview.ai](https://paperreview.ai/) is integrated as an optional manual browser-upload signal. SciXZ never uploads a manuscript or records an email automatically; the provider output must be fingerprinted, page-bounded, and independently verified by the primary review route. See [`references/external_review_tools.md`](references/external_review_tools.md).
+
 ## Corpus-informed upgrade
 
 SciXZ now has a governed `capability-absorption` route for learning from prompt libraries,

@@ -1,0 +1,35 @@
+{
+  "generated": "2026-08-30",
+  "purpose": "Optional external review adapters for SciXZ manuscript-review and revision routes.",
+  "policy": "Optional external reviews are advisory evidence only. They never replace SciXZ evidence-location checks, reporting review, statistical review, human/editorial judgment, or user authorization for an upload.",
+  "tools": [
+    {
+      "id": "paperreview-ai",
+      "name": "PaperReview.ai",
+      "homepage": "https://paperreview.ai/",
+      "mode": "manual-browser-upload",
+      "mandatory": false,
+      "routes": ["manuscript-review", "revision-after-review"],
+      "capabilities": ["supplementary AI research critique", "review suggestions", "paper-structure feedback"],
+      "input_policy": {
+        "default": "Do not upload anything automatically. Prepare only a local manifest unless the user explicitly authorizes this exact external upload.",
+        "requires_authorization": ["unpublished manuscript PDF", "peer-review material", "restricted data", "PHI"],
+        "minimum_scope": "Use a de-identified English PDF and disclose the provider page-limit boundary. Do not record or transmit email addresses in SciXZ artifacts."
+      },
+      "provider_constraints": {
+        "language": "English only",
+        "reviewed_pages_maximum": 15,
+        "provider_evidence_basis": "Provider states recommendations are derived primarily from arXiv papers.",
+        "provider_disclaimer": "Provider states that AI-generated reviews may contain mistakes."
+      },
+      "required_result_artifact": ["tool", "status=completed", "input_fingerprint", "submitted_at", "result_artifact", "language", "pages_reviewed"],
+      "evidence_limits": [
+        "Not a medical reporting-guideline, statistical, ethics, or clinical-validity review.",
+        "Not a substitute for a journal's editorial or peer-review decision.",
+        "Findings require conversion to evidence-anchored issues and independent verification before revision."
+      ],
+      "verification_owner": ["academic-paper-reviewer", "nature-review-studio", "check-reporting", "statistical-analysis"],
+      "fallback": ["academic-paper-reviewer", "nature-review-studio", "peer-review", "check-reporting"]
+    }
+  ]
+}

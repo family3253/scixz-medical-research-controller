@@ -27,7 +27,8 @@
   "manuscript-writing": {"article_type": "original research", "outline": ["Introduction", "Methods", "Results", "Discussion"], "evidence_ledger": [{"claim": "fictional claim", "source": "placeholder to verify"}]},
   "manuscript-review": {
     "manuscript": "Fictional manuscript excerpt. Results report a model metric.", "study_type": "prediction model",
-    "evidence_locations": ["Methods, model development paragraph", "Results, performance table"], "major_concerns": ["Validate outcome definition"], "minor_concerns": ["Define abbreviation"]
+    "evidence_locations": ["Methods, model development paragraph", "Results, performance table"], "major_concerns": ["Validate outcome definition"], "minor_concerns": ["Define abbreviation"],
+    "paperreview_artifact": {"tool": "paperreview-ai", "status": "completed", "input_fingerprint": "sha256:fictional", "submitted_at": "2026-08-30T12:00:00+08:00", "result_artifact": "tests/fixtures/fictitious-paperreview.md", "language": "English", "pages_reviewed": 15}
   },
   "reviewer-response": {
     "editor_decision": "major revision", "manuscript": "Fictional current manuscript", "comments": [

@@ -225,6 +225,7 @@ def main() -> int:
         (ROOT / "tests" / "fixtures" / "workflow_smoke" / "routes.json").is_file(),
         set(load_json(ROOT / "tests" / "fixtures" / "workflow_smoke" / "routes.json")) >= {item["task"] for item in matrix["functions"]},
         all((ROOT / "bundled-skills" / skill / "SKILL.md").is_file() for item in matrix["functions"] for skill in item["primary"]),
+        (ROOT / "scripts" / "paperreview_adapter.py").is_file() and any(item.get("id") == "paperreview-ai" and item.get("mandatory") is False for item in load_json(ROOT / "registry" / "external_review_adapters.json")["tools"]),
         "workflow_smoke.py" in load_text(ROOT / "README.md") and "workflow_smoke.py" in load_text(ROOT / "README.zh-CN.md"),
     ]
     category(

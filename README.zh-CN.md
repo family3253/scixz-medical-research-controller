@@ -38,6 +38,8 @@ python scripts/workflow_smoke.py --all --fixtures tests/fixtures/workflow_smoke 
 
 报告会为每条路线输出结构化工件、所需 Skill、检查项、限制、下一步与就绪度评分。该评分只表示已通过的确定性输入/安全检查比例，不表示已经完成 LLM 审稿、在线选刊、文档修改、统计计算或生物学分析。需要真实数据或外部服务的步骤仍会被明确门控。此前没有确定所有者的两条路线已经补为仓库自有、可运行的预检 Skill：[`statistical-analysis`](bundled-skills/statistical-analysis/) 与 [`multiomics-analysis`](bundled-skills/multiomics-analysis/)。
 
+审稿路线已接入 [PaperReview.ai](https://paperreview.ai/) 作为可选的人工浏览器上传辅助信号。SciXZ 不会自动上传稿件或记录邮箱；返回结果必须绑定本地输入指纹、明确实际审阅页数，并由主审稿路线独立核验。详见 [`references/external_review_tools.md`](references/external_review_tools.md)。
+
 ## 提示词/仓库全面吸收升级
 
 SciXZ 新增了受治理的 `capability-absorption` 路线，用于从提示词库、工作流导出、模板和

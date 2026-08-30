@@ -10,7 +10,7 @@ Require editor decision and comments, current manuscript, revision round, target
 
 ## Route
 
-Controller → 中书省 creates the comment ledger and revision plan → 门下省 checks scientific justification, scope, privacy, argument depth, citation allocation, and external-tool authorization → `recursive-review` with bounded tickets. Primary: `academic-paper` or `revise`. Supporting: `reviewer-response-assistant`, `scientific-writing`, `research-lit`/`deep-research` when the revision needs new evidence, optional external adapters `jane`/`ipubmed` for candidate discovery or citation triage, `bib-search-citation`/`manage-refs`, `analyze-stats`, `make-figures`, `verify-refs`, and `check-reporting`. If the introduction or discussion is rewritten, require a section brief and an introduction/discussion citation-overlap report.
+Controller → 中书省 creates the comment ledger and revision plan → 门下省 checks scientific justification, scope, privacy, argument depth, citation allocation, and external-tool authorization → `recursive-review` with bounded tickets. Primary: `academic-paper` or `revise`. Supporting: `reviewer-response-assistant`, `scientific-writing`, `research-lit`/`deep-research` when the revision needs new evidence, optional external adapters `jane`/`ipubmed` for candidate discovery or citation triage, optional authorized `paperreview-ai` for a post-revision supplementary critique, `bib-search-citation`/`manage-refs`, `analyze-stats`, `make-figures`, `verify-refs`, and `check-reporting`. If the introduction or discussion is rewritten, require a section brief and an introduction/discussion citation-overlap report.
 
 ## Outputs
 
@@ -22,7 +22,7 @@ Freeze the original, fingerprint the input, confirm every accepted comment has a
 
 ## Failure/fallback
 
-If the current manuscript, comments, or required data are missing, stop before claiming a revision. If an analysis Skill is unavailable, record a blocked ticket and offer a verified fallback with reduced confidence. If a location cannot be verified, leave it unresolved.
+If the current manuscript, comments, or required data are missing, stop before claiming a revision. If an analysis Skill is unavailable, record a blocked ticket and offer a verified fallback with reduced confidence. If a location cannot be verified, leave it unresolved. A PaperReview.ai re-review is optional and requires separate current authorization; never auto-upload the revised manuscript or represent its external signal as confirmation that revisions are sufficient.
 
 ## Execution steps
 
