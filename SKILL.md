@@ -102,7 +102,7 @@ prompt corpus, or publish credentials/runtime artifacts merely because they are 
 - Role contracts: `agents/`
 - Workflow contracts: `workflows/`
 - Consensus and uncertainty: `consensus/consensus_engine.md`
-- Skill registry and governance: `registry/skill_policy.md`, `registry/local_skill_catalog.json`, `registry/skill_taxonomy.md`, `registry/skill_conflicts.md`, `registry/fusion_map.md`, `registry/runtime_bindings.json`, `registry/scixz_bindings.json`
+- Skill registry and governance: `registry/skill_policy.md`, `registry/skill_taxonomy.md`, `registry/fusion_map.md`; machine-local catalog/conflict/binding files are generated at install time and must remain private (see `registry/runtime_bindings.example.json`)
 - External research-tool adapters: `registry/external_tools.json`, `references/external_research_tools.md` (mandatory JANE/iPubMed branches); `registry/external_review_adapters.json`, `references/external_review_tools.md` (optional PaperReview.ai branch)
-- Function completeness: `registry/function_matrix.json`, `audit/function_audit.md`
+- Function completeness: `registry/function_matrix.json`, `audit/prompt_corpus_assessment.md`
 - Audit outputs: `audit/`

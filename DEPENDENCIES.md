@@ -2,7 +2,7 @@
 
 ## Principle
 
-SciXZ owns routing, governance, collaboration, consensus, and verification contracts. Domain Skills remain separate packages so that each can be versioned, licensed, updated, or replaced independently. This repository now includes 262 deduplicated top-level companion Skills under `bundled-skills/`, including local-only components and public-source Skills present in the local catalog.
+SciXZ owns routing, governance, collaboration, consensus, and verification contracts. Domain Skills remain separate packages so that each can be versioned, licensed, updated, or replaced independently. This repository now includes 264 deduplicated top-level companion Skills under `bundled-skills/`, including local-only components and public-source Skills present in the local catalog.
 
 The bundle is a portability snapshot. It excludes explicit Proprietary packages, system/plugin-cache copies, virtual environments, dependency caches, credentials, manuscripts, datasets, browser state, and machine-local runtime records. Bundled third-party Skills keep their own license status; the top-level MIT license does not automatically relicense them.
 

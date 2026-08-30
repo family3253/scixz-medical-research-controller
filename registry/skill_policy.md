@@ -28,11 +28,11 @@ Submission-preflight integrations now installed and audited: `sci-manuscript-pre
 
 ## Local governance artifacts
 
-- `local_skill_catalog.json` — combined logical catalog across `.codex`, `.agents`, and `.claude` user roots.
+- `local_skill_catalog.json` — machine-local combined logical catalog across `.codex`, `.agents`, and `.claude` user roots; generated at install time and not committed.
 - `skill_taxonomy.md` — category index without moving physical Skill folders.
 - `skill_conflicts.md` — link aliases, cross-environment mirrors, and true same-name variants.
 - `fusion_map.md` — canonical routing and metadata-fusion decisions.
 - `<private-skill-archive>/consolidation/archive_manifest.md` — recoverable physical cleanup record.
-- `scixz_bindings.json` — the allowlisted SciXZ bundle with per-Skill status, route roles, and runtime state.
-- `runtime_bindings.json` — executable/runtime bindings, currently including the isolated `paperconan` 0.8.5 CLI.
+- `scixz_bindings.json` — machine-local allowlisted SciXZ bundle with per-Skill status, route roles, and runtime state; keep it outside the public repository.
+- `runtime_bindings.json` — machine-local executable/runtime bindings; use `registry/runtime_bindings.example.json` as the portable schema reference.
 - `external_tools.json` — explicitly allowlisted public research-tool adapters; external results remain advisory until canonical verification.

@@ -29,6 +29,7 @@ submission/
 *.token
 cookies.json
 browser-state/
+**/cache/
 paperreview-state*.json
 paperreview-artifact*.json
 paperreview-result*.json
