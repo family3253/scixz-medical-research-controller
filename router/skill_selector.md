@@ -10,7 +10,7 @@ Use this selector only after the controller reaches `APPROVED_FOR_EXECUTION`. Us
 | clinical question/design | `clinical-research-idea`, `design-study`, `experiment-plan` | `clinical-decision-support`, `check-reporting` |
 | protocol/ethics | `write-protocol` or `fill-protocol` | `check-reporting`, `deidentify`, `anthropics-docx` |
 | sample size | `calc-sample-size` | `analyze-stats`, `statistical-analysis` |
-| data preparation | `clean-data` or `generate-codebook` | `deidentify`, `version-dataset`, `anthropics-xlsx` |
+| data preparation | `clean-data` or `generate-codebook` | `deidentify`, `version-dataset`, `anthropics-xlsx`; for auditable OCR/image batches use `image-to-table-qa` after file reading |
 | causal/RWE/TTE | `design-study` or `statistical-analysis` | `analyze-stats`, `marginaleffects`, `check-reporting` |
 | manuscript writing | `academic-paper` or `scientific-writing` | `research-lit`/`deep-research` for missing evidence, `bib-search-citation`/`manage-refs` for claim-to-source allocation, `verify-refs`, `academic-paper-reviewer` or `scientific-critical-thinking` for depth critique, `check-reporting` |
 | manuscript review | `nature-review-studio` or `academic-paper-reviewer` | `scientific-critical-thinking`, `check-reporting`, `peer-review` |
@@ -23,6 +23,7 @@ Use this selector only after the controller reaches `APPROVED_FOR_EXECUTION`. Us
 | citation/reference work | `manage-refs` or `verify-refs` | required external adapters `jane` (candidate discovery) and `ipubmed` (citation-trace/title triage), `citation-management`, `academic-citation-manager`, `zotero-reviewed-import` |
 | figures/presentations | `make-figures` or `scientific-visualization` | `academic-python-plotting`, `present-paper`, `scientific-slides` |
 | project/reproducibility | `manage-project` | `version-dataset`, `sync-submission`, `verification` |
+| prompt/repository capability absorption | `skill-creator` | `deterministic-local-file-reading`, the matching document reader, `n8n-to-skill` for sanitized n8n manifests, `verification`; use `self-improving-agent` only for durable error/lesson capture |
 | academic research suite | `academic-research-suite` | `deep-research`, `scientific-writing`, `paper-audit`, `bib-search-citation` |
 | medical/grant peer review | `openclaw-medical-peer-review` or `peer-review` | `academic-paper-reviewer`, `check-reporting`, `scientific-critical-thinking` |
 | post-writing/citation cleanup | `scientific-writing` or `paper-audit` | `bib-search-citation`, `verify-refs`, `humanizer`, `academic-expression-polisher`; for introduction/discussion depth use the section-depth reference and a claim/evidence critic |

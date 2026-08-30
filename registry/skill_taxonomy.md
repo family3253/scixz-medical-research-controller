@@ -1,6 +1,6 @@
 # Local Skill taxonomy
 
-Logical Skills: 251; root entries: 419. Physical folders remain in their discovery roots; this file is a logical classification registry.
+Logical Skills: 253; root entries: 421. Physical folders remain in their discovery roots; this file is a logical classification registry.
 
 ## bioinformatics-omics
 
@@ -10,9 +10,9 @@ Count: 3
 
 ## document-office-ocr
 
-Count: 23
+Count: 24
 
-`anthropics-docx`, `anthropics-pdf`, `anthropics-pptx`, `anthropics-xlsx`, `deidentify`, `deterministic-local-file-reading`, `jupyter-notebook`, `jupyter-to-marimo`, `marimo-notebook`, `markitdown`, `ocr-document-processor`, `office-to-md`, `paddleocr-text-recognition`, `PDF OCR Extraction`, `pdf-extraction`, `pdf-ocr-skill`, `quarto-authoring`, `render-pdf-doc`, `word-pdf-even-pages`, `wps-excel`, `wps-office`, `wps-ppt`, `wps-word`
+`anthropics-docx`, `anthropics-pdf`, `anthropics-pptx`, `anthropics-xlsx`, `deidentify`, `deterministic-local-file-reading`, `image-to-table-qa`, `jupyter-notebook`, `jupyter-to-marimo`, `marimo-notebook`, `markitdown`, `ocr-document-processor`, `office-to-md`, `paddleocr-text-recognition`, `PDF OCR Extraction`, `pdf-extraction`, `pdf-ocr-skill`, `quarto-authoring`, `render-pdf-doc`, `word-pdf-even-pages`, `wps-excel`, `wps-office`, `wps-ppt`, `wps-word`
 
 ## evidence-literature
 
@@ -64,9 +64,9 @@ Count: 15
 
 ## system-orchestration
 
-Count: 37
+Count: 38
 
-`academic-pipeline`, `academic-research-suite`, `academic-write-all-skill`, `add-skill`, `context-master`, `contribute`, `find-skills`, `gsd`, `gsd-oc-select-model`, `idea-discovery`, `idea-discovery-robot`, `openspec-archiving`, `openspec-context-loading`, `openspec-implementation`, `openspec-proposal-creation`, `orchestrate`, `research-pipeline`, `research-refine-pipeline`, `scixz`, `self-improving-agent`, `setup-medsci`, `skill-creator`, `superpowers-brainstorming`, `superpowers-dispatching-parallel-agents`, `superpowers-executing-plans`, `superpowers-finishing-a-development-branch`, `superpowers-receiving-code-review`, `superpowers-requesting-code-review`, `superpowers-subagent-driven-development`, `superpowers-systematic-debugging`, `superpowers-test-driven-development`, `superpowers-using-git-worktrees`, `superpowers-using-superpowers`, `superpowers-verification-before-completion`, `superpowers-writing-plans`, `superpowers-writing-skills`, `task-status`
+`academic-pipeline`, `academic-research-suite`, `academic-write-all-skill`, `add-skill`, `context-master`, `contribute`, `find-skills`, `gsd`, `gsd-oc-select-model`, `idea-discovery`, `idea-discovery-robot`, `n8n-to-skill`, `openspec-archiving`, `openspec-context-loading`, `openspec-implementation`, `openspec-proposal-creation`, `orchestrate`, `research-pipeline`, `research-refine-pipeline`, `scixz`, `self-improving-agent`, `setup-medsci`, `skill-creator`, `superpowers-brainstorming`, `superpowers-dispatching-parallel-agents`, `superpowers-executing-plans`, `superpowers-finishing-a-development-branch`, `superpowers-receiving-code-review`, `superpowers-requesting-code-review`, `superpowers-subagent-driven-development`, `superpowers-systematic-debugging`, `superpowers-test-driven-development`, `superpowers-using-git-worktrees`, `superpowers-using-superpowers`, `superpowers-verification-before-completion`, `superpowers-writing-plans`, `superpowers-writing-skills`, `task-status`
 
 ## visualization-presentation
 
@@ -85,4 +85,3 @@ Count: 16
 Count: 55
 
 `academic-aio`, `academic-citation-manager`, `academic-expression-polisher`, `academic-manuscript-rewriter`, `academic-outline-normalizer`, `academic-paper`, `academic-paper-reviewer`, `academic-table-normalizer`, `add-journal`, `ai4scholar-排版助手`, `apa7-citation-formatter`, `auto-paper-improvement-loop`, `auto-review-loop`, `auto-review-loop-llm`, `auto-review-loop-minimax`, `check-reporting`, `citation-management`, `cross-disciplinary-review-writer`, `ddaigc`, `ddaigc-humanizer-stack`, `desk-reject-screening-editor`, `fill-icmje-coi`, `find-journal`, `humanize`, `humanizer`, `humanizer-zh`, `journal-format-converter`, `logic-skeleton-rewriter`, `manage-refs`, `nature-review-studio`, `openclaw-medical-peer-review`, `paper-audit`, `paper-by-paper-prediction-review`, `paper-compile`, `paper-plan`, `paper-write`, `paper-writing`, `peer-review`, `polish-language`, `proof-writer`, `research-review`, `research-writing-assistant`, `results-report`, `review-paper`, `reviewer-response-assistant`, `revise`, `sci-manuscript-preflight`, `scientific-writing`, `self-review`, `stata-academic-graphing`, `sync-submission`, `venue-templates`, `verify-refs`, `write-paper`, `zotero-reviewed-import`
-

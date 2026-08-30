@@ -2,7 +2,7 @@
 
 This repository now includes a deduplicated public bundle of the top-level companion Skills that were available in the local catalog when this release was prepared.
 
-- Bundled top-level Skills: 260
+- Bundled top-level Skills: 262
 - Full readable inventory: [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md)
 - Machine-readable inventory: [`registry/bundled_skill_manifest.json`](registry/bundled_skill_manifest.json)
 - Bundle directory: [`bundled-skills/`](bundled-skills/)
@@ -21,6 +21,12 @@ Install selected Skills:
 
 ```text
 python scripts/install_bundled_skills.py find-journal sci-select --overwrite
+```
+
+Repository-authored workflow-conversion Skills can be installed selectively:
+
+```text
+python scripts/install_bundled_skills.py n8n-to-skill image-to-table-qa --overwrite
 ```
 
 The generic `skills` installer can also install one subdirectory at a time:

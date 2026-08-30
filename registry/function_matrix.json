@@ -18,6 +18,7 @@
     {"task": "citation-management", "workflow": "workflows/citation_management.md", "mode": "single/panel", "primary": ["bib-search-citation", "manage-refs", "verify-refs"], "status": "complete"},
     {"task": "figure-presentation", "workflow": "workflows/figure_presentation.md", "mode": "panel", "primary": ["make-figures", "scientific-visualization"], "status": "complete"},
     {"task": "project-management", "workflow": "workflows/project_management.md", "mode": "single/panel", "primary": ["manage-project"], "status": "complete"},
+    {"task": "capability-absorption", "workflow": "workflows/capability_absorption.md", "mode": "single/panel", "primary": ["skill-creator"], "status": "complete"},
     {"task": "geo-analysis", "workflow": "workflows/geo_analysis.md", "mode": "panel/council", "primary": ["bulk-rnaseq", "research-lit"], "status": "complete"},
     {"task": "scrna-analysis", "workflow": "workflows/scrna_analysis.md", "mode": "panel/council", "primary": ["scanpy"], "status": "complete"},
     {"task": "multiomics", "workflow": "workflows/multiomics_analysis.md", "mode": "council", "primary": ["research-lit", "available omics Skill"], "status": "complete"},

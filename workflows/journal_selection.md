@@ -16,9 +16,11 @@ Controller → 中书省 extracts manuscript positioning and decision criteria �
 
 Ranked primary target and fallback cascade, scope/article-type fit, recent comparable-paper evidence, current policy/metric facts, desk-reject risks, submission preparation gaps, recommended order of submission, and mandatory external-tool run records separating JANE similarity evidence, iPubMed browser/export evidence, and canonical verification.
 
+Default to ordinal readiness/fit and scenario analysis rather than an exact acceptance probability. A numeric probability is allowed only when the model has journal- and article-type-specific, independent calibration data with a stated cohort, time window, discrimination, calibration, and validation limits. A hand-built rubric, impact factor, abstract similarity, or assumed prior acceptance rate is not a calibrated probability. Separate desk-screening and peer-review risks.
+
 ## Verification
 
-Verify current journal homepage, author guidelines, article type, indexing/policy/APC/speed claims at authoritative sources. Rank scope and design fit before impact factor. Record the date and source for time-sensitive facts. Treat JANE/iPubMed rankings as candidate-generation signals; record query/filter details and do not promote their metric or quality labels without independent verification.
+Verify current journal homepage, author guidelines, article type, indexing/policy/APC/speed claims at authoritative sources. Rank scope and design fit before impact factor. Record the date and source for time-sensitive facts. Treat JANE/iPubMed rankings as candidate-generation signals; record query/filter details and do not promote their metric or quality labels without independent verification. Reject uncalibrated numeric acceptance estimates and label any calibrated estimate with uncertainty and applicability limits.
 
 ## Failure/fallback
 

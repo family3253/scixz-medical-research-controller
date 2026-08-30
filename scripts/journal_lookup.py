@@ -216,6 +216,17 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
     cas_source = "sci-select/ShowJCR" if _showjcr_index_field(metrics, "cas_2025", "cas_partition_2025") else "sci-select/ShowJCR or EasyScholar"
     xinrui_source = "sci-select/ShowJCR" if _showjcr_index_field(metrics, "xuankan_2026", "xinrui_partition_2026") else "sci-select/ShowJCR or EasyScholar"
 
+    letpub_speed = _field(
+        metrics.get("speed"),
+        "LetPub",
+        "succeeded" if letpub_status["status"] in {"succeeded", "partial"} else letpub_status["status"],
+        letpub_status["reason"],
+    )
+    if metrics.get("letpub_source_url"):
+        letpub_speed["source_url"] = metrics["letpub_source_url"]
+    if metrics.get("letpub_retrieved_at"):
+        letpub_speed["retrieved_at"] = metrics["letpub_retrieved_at"]
+
     card = {
         "journal_name": metrics.get("name", ""),
         "issn": metrics.get("issn", ""),
@@ -224,7 +235,7 @@ def build_card(metrics: Dict[str, Any], easy: Optional[Dict[str, Any]]) -> Dict[
         "cas_major_quartile_2025": _field(cas_major, cas_source, cas_major_status),
         "cas_minor_quartile_2025": _field(cas_minor, cas_minor_source, cas_minor_status),
         "xinrui_quartile_2026": _field(xinrui, xinrui_source, xinrui_status),
-        "letpub_review_speed": _field(metrics.get("speed"), "LetPub", "succeeded" if letpub_status["status"] in {"succeeded", "partial"} else letpub_status["status"], letpub_status["reason"]),
+        "letpub_review_speed": letpub_speed,
         "indexing": _field(metrics.get("sci_type"), "LetPub/journal-index", "partial" if metrics.get("sci_type") else "not verified"),
         "warning": _field(warning, "sci-select/ShowJCR or EasyScholar", warning_status),
         "_source_status": {

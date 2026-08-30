@@ -3,7 +3,7 @@
 Generated from the local top-level Skill inventory on 2026-08-30.
 
 - Repository: https://github.com/family3253/scixz-medical-research-controller
-- Bundled top-level Skills: 260
+- Bundled top-level Skills: 262
 - Explicitly excluded entries: 5
 - Machine-local paths, credentials, virtual environments, dependency caches, browser state, manuscripts, datasets, and Proprietary skills are not bundled.
 
@@ -103,6 +103,7 @@ Generated from the local top-level Skill inventory on 2026-08-30.
 | `idea-creator` | `bundled-skills/idea-creator` | agents | not declared | 0.01 |
 | `idea-discovery` | `bundled-skills/idea-discovery` | agents | not declared | 0.009 |
 | `idea-discovery-robot` | `bundled-skills/idea-discovery-robot` | agents | not declared | 0.014 |
+| `image-to-table-qa` | `bundled-skills/image-to-table-qa` | scixz | MIT (repository-authored) | 0.01 |
 | `intake-project` | `bundled-skills/intake-project` | agents | not declared | 0.01 |
 | `journal-figure-polisher` | `bundled-skills/journal-figure-polisher` | agents | not declared | 0.004 |
 | `journal-format-converter` | `bundled-skills/journal-format-converter` | agents | not declared | 0.002 |
@@ -139,6 +140,7 @@ Generated from the local top-level Skill inventory on 2026-08-30.
 | `model-validation` | `bundled-skills/model-validation` | agents | not declared | 0.048 |
 | `monitor-experiment` | `bundled-skills/monitor-experiment` | agents | not declared | 0.002 |
 | `multi-search-engine` | `bundled-skills/multi-search-engine` | agents | not declared | 0.029 |
+| `n8n-to-skill` | `bundled-skills/n8n-to-skill` | scixz | MIT (repository-authored) | 0.03 |
 | `nature-review-studio` | `bundled-skills/nature-review-studio` | codex | not declared | 0.04 |
 | `neat-freak` | `bundled-skills/neat-freak` | codex | not declared | 0.078 |
 | `notion` | `bundled-skills/notion` | agents | not declared | 0.005 |

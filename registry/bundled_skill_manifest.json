@@ -3,11 +3,12 @@
   "repository": "https://github.com/family3253/scixz-medical-research-controller",
   "policy": "Bundled from local top-level skill packages after deduplication; excludes system/plugin caches, explicit Proprietary skills, virtual environments, dependency caches, browser state, credentials, manuscript/data artifacts, and the SciXZ controller itself because it is the repository root package.",
   "sourcePriority": [
+    "scixz",
     "agents",
     "codex"
   ],
   "counts": {
-    "bundledTopLevelSkills": 260,
+    "bundledTopLevelSkills": 262,
     "excludedExplicit": 5
   },
   "excluded": [
@@ -785,6 +786,14 @@
       "approxSizeMB": 0.014
     },
     {
+      "name": "image-to-table-qa",
+      "folder": "image-to-table-qa",
+      "bundledPath": "bundled-skills/image-to-table-qa",
+      "sourceRoot": "scixz",
+      "license": "MIT (repository-authored)",
+      "approxSizeMB": 0.01
+    },
+    {
       "name": "intake-project",
       "folder": "intake-project",
       "bundledPath": "bundled-skills/intake-project",
@@ -1071,6 +1080,14 @@
       "sourceRoot": "agents",
       "license": "not declared in SKILL.md",
       "approxSizeMB": 0.029
+    },
+    {
+      "name": "n8n-to-skill",
+      "folder": "n8n-to-skill",
+      "bundledPath": "bundled-skills/n8n-to-skill",
+      "sourceRoot": "scixz",
+      "license": "MIT (repository-authored)",
+      "approxSizeMB": 0.03
     },
     {
       "name": "nature-review-studio",

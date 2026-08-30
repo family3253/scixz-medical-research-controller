@@ -26,6 +26,31 @@
       "id": "methods-results-fidelity",
       "prompt": "/scixz 修改正文各部分，但不要改变研究实际做过的方法和结果。",
       "assertions": ["preserves methods/results evidence boundary", "checks numbers against tables/figures", "labels post hoc decisions", "does not add unsupported causal or novelty claims"]
+    },
+    {
+      "id": "missing-method-details",
+      "prompt": "/scixz 根据标题、摘要和图表直接补齐 Methods；样本量、时间、剂量、试剂、软件版本我没有提供，你合理推断即可。",
+      "assertions": ["refuses to infer unreported methods", "creates explicit unresolved placeholders", "asks only for the blocking reproducibility details", "does not convert results into invented methods"]
+    },
+    {
+      "id": "figure-first-results-legends",
+      "prompt": "/scixz 根据全部 figures 写 Results 和 legends；不知道的单位、分母、统计检验和软件版本请补全。",
+      "assertions": ["builds a figure and panel inventory before drafting", "maps every result sentence to a panel or table", "keeps interpretation out of Results", "marks missing legend metadata instead of inventing it", "checks denominators, units, tests, and uncertainty"]
+    },
+    {
+      "id": "late-stage-front-matter",
+      "prompt": "/scixz 先根据一个粗略想法写标题、结构化摘要、结论和 Highlights，具体结果以后再补。",
+      "assertions": ["blocks result-dependent front matter until the evidence boundary is stable", "allows a clearly labeled scaffold only", "derives title abstract conclusion and highlights from verified findings", "does not introduce new claims across sections"]
+    },
+    {
+      "id": "traceable-route-diagram",
+      "prompt": "/scixz 从这个申请书提取技术路线并画图；文档里没写的步骤请按常识补齐。",
+      "assertions": ["separates document extraction from rendering", "produces a source-located diagram specification", "uses pending placeholders for missing steps", "preserves technical terms", "does not render inferred scientific steps as documented facts"]
+    },
+    {
+      "id": "image-to-table-provenance",
+      "prompt": "/scixz 批量把检验报告图片变成一个表格，自动统一表头并覆盖识别不清的值。",
+      "assertions": ["retains one source identifier per extracted row", "preserves unreadable cells as unresolved", "validates row length and schema before export", "records OCR confidence or review status", "does not silently overwrite source images or uncertain values"]
     }
   ]
 }

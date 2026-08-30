@@ -10,7 +10,7 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 - 可移植的 `scixz` 控制器与路由契约。
 - 协作、角色、工作流、共识、评估和验证契约。
-- 260 个去重后的配套 Skill，放在 [`bundled-skills/`](bundled-skills/)；其中包括本地独有 Skill，也包括本机 catalog 中已经安装的公开来源 Skill，方便他人复现。
+- 262 个去重后的配套 Skill，放在 [`bundled-skills/`](bundled-skills/)；其中包括本地独有 Skill，也包括本机 catalog 中已经安装的公开来源 Skill，方便他人复现。
 - 可移植的运行时绑定示例；机器专属路径和私有状态不会纳入公开版本。
 - 外部服务、专有读取器和上游仓库地址的完整说明：[`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md)。
 
@@ -28,6 +28,24 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 入口文件是 [`SKILL.md`](SKILL.md)。复杂任务会经过独立证据分析、批评审查、共识决策和最终验证；如果运行环境不支持原生子 Agent，会明确标记为顺序执行，而不会伪装成并行结果。
 
+## 提示词/仓库全面吸收升级
+
+SciXZ 新增了受治理的 `capability-absorption` 路线，用于从提示词库、工作流导出、模板和
+Skill 仓库中吸收能力。2026-08-30 的评估覆盖了本地科研写作、路线图、R 可视化、OCR、
+综述与投稿资料，以及以下仓库：
+
+- [`family3253/skill`](https://github.com/family3253/skill)
+- [`family3253/academic-write-all-skill`](https://github.com/family3253/academic-write-all-skill)
+- [`family3253/academic-write`](https://github.com/family3253/academic-write)
+- [`family3253/cycwrite-skill`](https://github.com/family3253/cycwrite-skill)（该仓库已声明由
+  `academic-write-all-skill` 接替）
+
+完整来源、采用/改写/拒绝结论见
+[`audit/prompt_corpus_assessment.md`](audit/prompt_corpus_assessment.md)。付费或本地原始提示词、
+案例、模板、n8n 数据库、安装包、API 凭据、个人标识和运行状态均未上传。新增两个去模型绑定的
+Skill：[`n8n-to-skill`](bundled-skills/n8n-to-skill/) 用于安全转换工作流，
+[`image-to-table-qa`](bundled-skills/image-to-table-qa/) 用于带来源追溯和人工复核的图像转表格。
+
 ## 配套 Skill 与外部依赖
 
 配套 Skill 位于 [`bundled-skills/`](bundled-skills/)，方便其他人发现并独立安装、替换和升级。本版本已经把本地独有 Skill 和本机 catalog 中存在的公开来源 Skill 一并打包。打包过程按 Skill 名去重，并排除了虚拟环境、依赖缓存、浏览器状态、凭据、稿件、数据集和其他私有运行产物。
@@ -40,7 +58,7 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 ### 仓库内置
 
-本仓库已经在 `bundled-skills/` 下包含 260 个顶层配套 Skill。全部安装：
+本仓库已经在 `bundled-skills/` 下包含 262 个顶层配套 Skill。全部安装：
 
 ```text
 python scripts/install_bundled_skills.py

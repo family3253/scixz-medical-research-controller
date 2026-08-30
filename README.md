@@ -10,7 +10,7 @@ The controller uses a three-department gate—中书省 (draft), 门下省 (revi
 
 - The portable `scixz` controller and its routing contracts.
 - Collaboration, role, workflow, consensus, evaluation, and verification contracts.
-- A deduplicated public bundle of 260 companion Skills under [`bundled-skills/`](bundled-skills/), including local-only Skills and public-source Skills that would otherwise be hard for another user to reconstruct from this machine.
+- A deduplicated public bundle of 262 companion Skills under [`bundled-skills/`](bundled-skills/), including local-only Skills and public-source Skills that would otherwise be hard for another user to reconstruct from this machine.
 - Portable runtime-binding examples; machine-specific paths and private state are intentionally excluded.
 - A complete dependency and download guide for external services, proprietary readers, and source repositories: [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
 
@@ -28,6 +28,25 @@ Install this repository as the `scixz` Skill, then invoke it with a coordinated 
 
 The entry point is [`SKILL.md`](SKILL.md). For complex requests, SciXZ creates independent evidence passes, a critic pass, a consensus decision, and a verification gate. If native sub-agents are unavailable, the same stages run as explicitly labelled sequential passes.
 
+## Corpus-informed upgrade
+
+SciXZ now has a governed `capability-absorption` route for learning from prompt libraries,
+workflow exports, templates, and Skill repositories. The 2026-08-30 assessment reviewed local
+academic-writing/diagram/R/OCR/review materials and these repositories:
+
+- [`family3253/skill`](https://github.com/family3253/skill)
+- [`family3253/academic-write-all-skill`](https://github.com/family3253/academic-write-all-skill)
+- [`family3253/academic-write`](https://github.com/family3253/academic-write)
+- [`family3253/cycwrite-skill`](https://github.com/family3253/cycwrite-skill), which identifies
+  `academic-write-all-skill` as its successor
+
+The assessment and adoption/rejection decisions are documented in
+[`audit/prompt_corpus_assessment.md`](audit/prompt_corpus_assessment.md). Original paid/local
+prompts, examples, templates, n8n databases, binaries, API credentials, personal identifiers, and
+runtime state are not included. Two provider-neutral Skills were added:
+[`n8n-to-skill`](bundled-skills/n8n-to-skill/) for sanitized workflow conversion and
+[`image-to-table-qa`](bundled-skills/image-to-table-qa/) for source-traceable OCR table building.
+
 ## Bundled versus external Skills
 
 Companion Skills are placed under [`bundled-skills/`](bundled-skills/) so others can find and install them independently. This release now includes both local-only Skills and public-source Skills that were present in the local catalog. The bundle is deduplicated by Skill name and excludes virtual environments, dependency caches, browser state, credentials, manuscripts, datasets, and other private runtime artifacts.
@@ -40,7 +59,7 @@ Skills with an explicit proprietary license, such as the `anthropics-*` document
 
 ### Included in this repository
 
-The repository includes 260 top-level companion Skills under `bundled-skills/`. Install all of them with:
+The repository includes 262 top-level companion Skills under `bundled-skills/`. Install all of them with:
 
 ```text
 python scripts/install_bundled_skills.py

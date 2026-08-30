@@ -578,6 +578,8 @@ def _merge_letpub_metrics(result: Dict, letpub: Dict) -> Dict:
         'partition_detail': letpub.get('ch_sci_2025'),
         'sci_type': result.get('sci_type') or letpub.get('_sci_type') or letpub.get('sci_type', ''),
         'speed': letpub.get('speed', ''),
+        'letpub_source_url': letpub.get('letpub_source_url', ''),
+        'letpub_retrieved_at': letpub.get('letpub_retrieved_at', ''),
         'accept': letpub.get('accept', ''),
         'warning': result.get('warning') or letpub.get('warning', False),
         'publisher_letpub': letpub.get('publisher', ''),

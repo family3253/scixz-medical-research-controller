@@ -16,6 +16,8 @@ Controller → 户部 resolves and fingerprints inputs → 中书省 defines gat
 
 Blocker/high/moderate/minor issue list, reference/claim/figure/table consistency findings, reporting/ethics/data-availability gaps, target-journal readiness, source-data signals when applicable, and a submission decision with limitations.
 
+The decision is a readiness gate, not a percentage chance of acceptance. Use separate findings for desk-screening fit, methodological peer-review risk, reporting/compliance risk, and fixable presentation issues; never collapse them into false precision.
+
 ## Verification
 
 Check source paths, citations, claim support, numbering, statistics/reporting gaps, target-journal requirements, current policy facts, and whether every automated or external signal has a human-verification boundary. Do not call “no finding” proof of readiness. iPubMed title-level warnings must be reconciled with PubMed/CrossRef/retraction records before they affect the gate.

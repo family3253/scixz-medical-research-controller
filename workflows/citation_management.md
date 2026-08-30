@@ -20,6 +20,8 @@ Verified/uncertain reference table, normalized entries, claim-to-citation sugges
 
 Normalize DOI/PMID/arXiv identifiers, compare title/authors/year, distinguish preprints from peer-reviewed sources, map each source to the proposition it supports, flag secondary sources used where primary evidence is available, report introduction/discussion overlap with reuse reasons, and preserve uncertainty when a match is not exact. JANE/iPubMed candidates remain external signals until `verify-refs` or another authoritative source confirms them.
 
+For Vancouver/numbered styles, assign final numbers from first appearance only after the body order is stable. Rebuild grouped/ranged citations and reorder the reference list from a verified old-to-new mapping; then check that every in-text number resolves exactly once, every reference is cited, no orphan citation remains, and tables/figures/supplements use the same numbering. Never renumber by blind text substitution without parsing the bibliography boundary.
+
 ## Failure/fallback
 
 If APIs or web access are unavailable, mark the route `BLOCKED` until both mandatory external run records are available. A local-only diagnostic may be prepared, but it cannot be presented as the completed proofreading conclusion. Never fill missing bibliographic data by guessing.

@@ -4,7 +4,7 @@ This guide answers a practical question: after cloning this repository, what is 
 
 ## 1. Included in this repository
 
-This repository includes 260 deduplicated top-level companion Skills under `bundled-skills/`. Install all bundled Skills with:
+This repository includes 262 deduplicated top-level companion Skills under `bundled-skills/`. Install all bundled Skills with:
 
 ```text
 python scripts/install_bundled_skills.py
@@ -17,6 +17,12 @@ python scripts/install_bundled_skills.py find-journal sci-select --overwrite
 ```
 
 See [`BUNDLED_SKILL_MANIFEST.md`](BUNDLED_SKILL_MANIFEST.md) for the full list.
+
+The repository-authored `n8n-to-skill` and `image-to-table-qa` packages are already included. Install both with:
+
+```text
+python scripts/install_bundled_skills.py n8n-to-skill image-to-table-qa --overwrite
+```
 
 ## 2. Verified public Skill sources
 
@@ -122,7 +128,7 @@ Add the domain Skill for the requested analysis (for example `bulk-rnaseq` or `s
 
 ## 1. 仓库内置
 
-本仓库已经在 `bundled-skills/` 下内置 260 个去重后的顶层配套 Skill。全部安装：
+本仓库已经在 `bundled-skills/` 下内置 262 个去重后的顶层配套 Skill。全部安装：
 
 ```text
 python scripts/install_bundled_skills.py

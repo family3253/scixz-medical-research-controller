@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from datetime import datetime, timezone
 from typing import Dict, List, Optional
 
 import requests
@@ -134,6 +135,13 @@ def lookup_journal(
     detail = get_journal_detail(journal_id)
     if not detail:
         detail = {}
+
+    detail["letpub_source_url"] = (
+        f"{BASE}/index.php?journalid={journal_id}&page=journalapp&view=detail"
+    )
+    detail["letpub_retrieved_at"] = (
+        datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    )
 
     detail["_journal_id"] = journal_id
     if search_hit:

@@ -20,6 +20,7 @@ Classify the request by the user's actual goal, not by an incidental file type. 
 | citation-management | DOI, references, citation check, BibTeX, Zotero | verified references and normalized citations |
 | figure-presentation | figures, plots, visual abstract, slides | publication figure or presentation artifact |
 | project-management | project status, memory, release, reproducibility | project manifest, checklist, timeline |
+| capability-absorption | learn prompts/repositories/Skills, strengthen SciXZ, absorb workflows | provenance map, capability decisions, Skill changes, evals |
 | geo-analysis | GEO, bulk RNA-seq, DEGs, GEOquery | dataset rationale, reproducible pipeline |
 | scrna-analysis | scRNA-seq, Seurat, Scanpy, cell annotation | QC, integration, annotation, downstream plan |
 | multiomics | proteomics, metabolomics, epigenomics, MOFA, DIABLO | integration design, validation, mechanism |

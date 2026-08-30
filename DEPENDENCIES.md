@@ -2,7 +2,7 @@
 
 ## Principle
 
-SciXZ owns routing, governance, collaboration, consensus, and verification contracts. Domain Skills remain separate packages so that each can be versioned, licensed, updated, or replaced independently. This repository now includes 260 deduplicated top-level companion Skills under `bundled-skills/`, including local-only components and public-source Skills present in the local catalog.
+SciXZ owns routing, governance, collaboration, consensus, and verification contracts. Domain Skills remain separate packages so that each can be versioned, licensed, updated, or replaced independently. This repository now includes 262 deduplicated top-level companion Skills under `bundled-skills/`, including local-only components and public-source Skills present in the local catalog.
 
 The bundle is a portability snapshot. It excludes explicit Proprietary packages, system/plugin-cache copies, virtual environments, dependency caches, credentials, manuscripts, datasets, browser state, and machine-local runtime records. Bundled third-party Skills keep their own license status; the top-level MIT license does not automatically relicense them.
 
@@ -13,6 +13,8 @@ The bundle is a portability snapshot. It excludes explicit Proprietary packages,
 | Core controller | `scixz` | — | Codex-compatible Skill runtime |
 | Known-journal lookup | `sci-select` when installed from the bundle; run `python scripts/refresh_journal_index.py` once for automatic JCR Q | [`sci-select`](https://github.com/keros68/sci-select) for upstream updates | The refresh script downloads [`ShowJCR`](https://github.com/hitfyd/ShowJCR) public CSV snapshots (2026 JCR release / 2025 JIF-JCR / 2025 CAS / 2026 XinRui) into a user cache and builds a local index; optionally use the EasyScholar adapter with `EASY_SCHOLAR_SECRET_KEY`, or expose ShowJCR through [`jcr_mcp`](https://github.com/yosh3289/jcr_mcp); LetPub review speed is a live/browser field |
 | Local file intake | `deterministic-local-file-reading` | — | Add the reader matching the file: `anthropics-docx`, `anthropics-pdf`, `anthropics-xlsx`, or `anthropics-pptx` |
+| Prompt/repository/n8n capability absorption | `skill-creator`, `n8n-to-skill` | — | Static inspection by default; preserve provenance/license, never copy credentials or execute workflow nodes during conversion |
+| Image/report OCR to auditable table | `image-to-table-qa` after a verified OCR reader | OCR runtime/Skill appropriate to the source | Keep source ID, units, flags, confidence/review state, schema QA, and privacy authorization |
 | Manuscript review | Bundled public/local review Skills when available | [`nature-review-studio`](https://github.com/mumdark/nature-review-studio/tree/main/skill) **or** [`academic-paper-reviewer`](https://github.com/bystander563/academic-paper-reviewer-portable); [`check-reporting`](https://github.com/Aperivue/check-reporting/tree/main/skills/check-reporting) for upstream updates | Use the bundled snapshot for reproducibility; compare upstream before upgrading |
 | Revision after review | `revise`, `academic-paper`, `verify-refs`, and many supporting writing Skills when installed from the bundle | Upstream public repositories for updates | Add `analyze-stats`/`make-figures` only when a new analysis/figure is required |
 | Journal selection | `find-journal` | — | JANE **and** iPubMed are mandatory evidence branches; verify current journal policy at the journal site |

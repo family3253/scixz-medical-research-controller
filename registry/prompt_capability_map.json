@@ -1,0 +1,16 @@
+{
+  "schema": "scixz-prompt-capability-map-v1",
+  "decisions": [
+    {"capability": "staged-manuscript-production", "decision": "strengthen", "owner": "workflows/manuscript_writing.md"},
+    {"capability": "section-dependency-and-fidelity", "decision": "strengthen", "owner": "references/manuscript_section_depth.md"},
+    {"capability": "review-corpus-gating", "decision": "already-covered", "owner": "workflows/literature_review.md"},
+    {"capability": "citation-authenticity-and-order", "decision": "strengthen", "owner": "workflows/citation_management.md"},
+    {"capability": "traceable-route-diagram", "decision": "strengthen", "owner": "workflows/figure_presentation.md"},
+    {"capability": "image-to-table-qa", "decision": "new-skill", "owner": "bundled-skills/image-to-table-qa"},
+    {"capability": "n8n-workflow-conversion", "decision": "new-skill", "owner": "bundled-skills/n8n-to-skill"},
+    {"capability": "literature-monitoring-and-push", "decision": "already-covered", "owner": "bundled-skills/wenxian"},
+    {"capability": "uncalibrated-acceptance-probability", "decision": "reject", "owner": "workflows/journal_selection.md"},
+    {"capability": "credential-bearing-workflow-publication", "decision": "reject", "owner": "references/prompt_corpus_absorption.md"},
+    {"capability": "prompt-corpus-verbatim-copy", "decision": "reject", "owner": "workflows/capability_absorption.md"}
+  ]
+}

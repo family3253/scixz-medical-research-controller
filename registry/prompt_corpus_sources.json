@@ -1,0 +1,21 @@
+{
+  "schema": "scixz-prompt-corpus-sources-v1",
+  "assessed_at": "2026-08-30",
+  "policy": "Capability-level absorption only unless redistribution rights and distinctness are verified.",
+  "sources": [
+    {"id": "dyna-2-prompts", "kind": "local-paid-pdf-corpus", "items": 18, "license_state": "personal-use-restricted", "absorption": "concepts-only"},
+    {"id": "technical-route-templates", "kind": "local-template-library", "items": 191, "license_state": "unknown", "absorption": "schema-and-layout-patterns-only"},
+    {"id": "medical-ai-writing-prompts", "kind": "local-prompt-library", "items": 60, "unique_prompt_families": 30, "license_state": "unknown", "absorption": "concepts-only"},
+    {"id": "r-visualization-library", "kind": "mixed-code-data-template-library", "items": 18339, "license_state": "mixed", "absorption": "routing-and-provenance-patterns-only"},
+    {"id": "image-to-table-package", "kind": "n8n-runtime-package", "items": 992, "license_state": "unknown", "security": ["credential-finding", "binaries", "runtime-state"], "absorption": "static-workflow-patterns-only"},
+    {"id": "misc-research-prompts", "kind": "local-prompt-library", "items": 21, "license_state": "unknown", "absorption": "concepts-only"},
+    {"id": "submission-tool-guide", "kind": "browser-workflow-guide", "items": 11, "license_state": "unknown", "absorption": "source-lock-pattern-only"},
+    {"id": "review-tool", "kind": "n8n-runtime-package", "items": 96, "license_state": "unknown", "security": ["credential-tables", "user-state", "execution-history"], "absorption": "static-workflow-patterns-only"},
+    {"id": "review-tool-upgrade", "kind": "n8n-runtime-package", "items": 48, "license_state": "unknown", "security": ["runtime-state", "local-journal-data"], "absorption": "static-workflow-and-verification-patterns-only"},
+    {"id": "xiaowei-commands-2025", "kind": "local-pdf-prompt-corpus", "pages": 40, "prompt_families": 51, "license_state": "unknown", "absorption": "concepts-only"},
+    {"id": "family3253-skill", "kind": "github-skill-bundle", "url": "https://github.com/family3253/skill", "commit": "9fa25de68906590ecac40df8f81eec342082f1a0", "skill_entry_points": 62, "license_state": "per-component-mixed-no-root-license", "absorption": "provenance-and-discovery"},
+    {"id": "academic-write-all-skill", "kind": "github-skill", "url": "https://github.com/family3253/academic-write-all-skill", "commit": "64185a90a1529130eb05eae16a68064d9170354f", "license_state": "no-root-license-found", "absorption": "routing-and-quality-patterns"},
+    {"id": "academic-write", "kind": "github-vendored-skill-bundle", "url": "https://github.com/family3253/academic-write", "commit": "32914abd8d687499d0153c0d7d78e4a873db5918", "license_state": "per-upstream-mixed-no-root-license", "absorption": "capability-catalog-only"},
+    {"id": "cycwrite-skill", "kind": "github-superseded-skill", "url": "https://github.com/family3253/cycwrite-skill", "commit": "8d014a48ab35477b56dfe48cc78240768d1719c1", "license_state": "no-root-license-found", "superseded_by": "academic-write-all-skill", "absorption": "none-duplicate-owner"}
+  ]
+}

@@ -21,11 +21,26 @@ section_brief:
 
 ## Section-by-section depth standard
 
+### Section dependency graph
+
+Do not treat manuscript sections as independent prompt slots. Use this evidence order when an artifact depends on study findings:
+
+```text
+study facts + Methods inputs
+  -> verified analyses/tables/figures
+  -> figure legends + Results
+  -> Discussion
+  -> abstract + conclusion + highlights + final title
+```
+
+The Introduction may be planned earlier, but its final gap/objective must remain consistent with the actual design and completed evidence. If an upstream artifact is missing, provide a clearly labeled scaffold or placeholder list rather than a falsely complete downstream section.
+
 ### Title and abstract
 
 - Identify the population, exposure/intervention, outcome, design, or central contribution that the study actually supports.
 - Keep the abstract claim-calibrated: objective, design, population, principal methods, effect estimates/uncertainty, and bounded conclusion.
 - Do not turn background language into a novelty claim, and do not cite references in the abstract unless the target venue explicitly requires them.
+- Generate the final title, abstract, conclusion, keywords, and highlights only after the principal results and design language are stable. Check that every result-dependent statement has a matching source result and that character/word limits are measured rather than guessed.
 
 ### Introduction
 
@@ -52,9 +67,26 @@ Depth means reproducibility, not verbosity. Make design decisions auditable:
 
 Do not use the methods section to justify results after seeing them. Any post hoc decision must be labeled as such.
 
+Build a missing-detail register before prose. Sample size, dates, eligibility, doses, reagents, instruments, software versions, preprocessing, model options, and ethics identifiers absent from the source remain `[TO CONFIRM: field]`; they are not inferable from a figure, result, neighboring paper, or “typical practice.” Ask only for details that block reproducibility or the requested output.
+
 ### Results
 
 Organize results around the prespecified questions and analysis population. Report denominators, effect estimates, uncertainty intervals, relevant absolute measures, and multiplicity or model diagnostics when applicable. Keep interpretation out of the results section; explain meaning in the discussion. Every number must reconcile with tables, figures, supplements, and the consistency manifest.
+
+For figure-led studies, create a `figure_evidence_map` before writing:
+
+```yaml
+figure_evidence_map:
+  - panel: Figure 1A
+    question: "what this panel tests"
+    population_or_sample: "source-defined denominator"
+    variables: []
+    estimate_or_pattern: "source value only"
+    uncertainty_and_test: "source value or TO CONFIRM"
+    legend_metadata_missing: []
+```
+
+Every Results sentence and legend clause must map to a panel/table or recorded analysis. Do not infer units, significance tests, replicate definitions, normalization, abbreviations, or software settings.
 
 ### Discussion
 
@@ -73,6 +105,14 @@ Deep discussion is demonstrated by explicit reasoning, not by length. A useful p
 ### Conclusion
 
 Answer the research question in proportion to the design and evidence. Include the practical or scientific implication only when it follows from the findings and limitations. Do not introduce a new result, new citation-dependent claim, or untested mechanism in the conclusion.
+
+### Translation, polishing, and shortening
+
+- Freeze terminology/glossary, numbers, units, citation markers, headings, and paragraph order before translation when the user requests structural fidelity.
+- Use an internal `source -> draft -> checked final` sequence. The checked final must preserve negation, direction, magnitude, uncertainty, causal strength, and attribution.
+- Diagnose before rewriting. Ordinary polishing, substantive rewriting, shortening, and similarity-reduction are different operations and require different authority.
+- A target-journal exemplar may guide information density, tense, or section shape, but it is not evidence and must not be imitated closely.
+- Humanization should remove formulaic rhythm and inflated language without altering scientific meaning. Do not promise or optimize for detector scores.
 
 ## Introduction/discussion citation allocation
 
@@ -113,3 +153,5 @@ A section-level writing ticket is complete only when:
 - introduction/discussion citation overlap has been reviewed and justified;
 - no new unsupported result, causal claim, novelty claim, mechanism, or recommendation was introduced;
 - unresolved evidence gaps are visible in the handoff rather than silently smoothed over.
+- figure-led Results and legends reconcile to the figure evidence map, and downstream front matter contains no finding absent from the stable Results;
+- translation/polishing preserves numbers, citations, terminology, modality, and causal strength.
