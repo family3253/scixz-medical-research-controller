@@ -24,7 +24,7 @@ make mistakes. Treat all returned text as an `external-signal`, not as a verifie
    outside the repository; no browser cookie, email, or token enters the result artifact.
 6. Build the bounded synthesis package. The SciXZ reviewer reads the frozen manuscript and this
    package, independently verifies issues, and produces the bilingual final-review JSON.
-7. Render the verified final-review JSON into Chinese and English Word files.
+7. Complete the bilingual editorial structure profile and render the verified final-review JSON into full Chinese and English Word reports.
 8. Convert the provider output into atomic issues with manuscript locations, evidence, severity,
    and an independent disposition. Unverifiable findings remain unresolved.
 
@@ -45,13 +45,20 @@ The final synthesis step is intentionally a SciXZ reviewer task rather than an a
 merge: a deterministic program cannot substantively verify a medical/statistical critique without
 the manuscript evidence. The reviewer writes a validated bilingual `final-review.json` using
 [`templates/paperreview_final_review_bilingual.json`](../templates/paperreview_final_review_bilingual.json)
-as the structural template, then:
+and completes [`templates/editorial_review_structure_bilingual.json`](../templates/editorial_review_structure_bilingual.json)
+for the human-facing editorial structure, then:
 
 ```text
-python scripts/render_final_review_docx.py --input C:\private-runs\final-review.json --fusion-bundle C:\private-runs\parallel-review-fusion.json --output-dir C:\private-runs\final-review-docx
+python scripts/render_editorial_review_docx.py --input C:\private-runs\final-review.json --structure-profile C:\private-runs\editorial-review-structure.json --fusion-bundle C:\private-runs\parallel-review-fusion.json --output-dir C:\private-runs\final-review-docx
 ```
 
-This produces `scixz_final_review_zh.docx` and `scixz_final_review_en.docx`.
+This produces `scixz_editorial_review_zh.docx` and `scixz_editorial_review_en.docx`. The full
+editorial structure is the primary human-facing output: materials reviewed, decision, reviewer
+panel, P0/P1/P2/P3 findings, sources, required actions, acceptance criteria, adversarial stress
+test, author questions, dimension scores, and revision roadmap. The strict external-signal
+dispositions, cross-branch matrix, and evidence-scope boundary remain visible as appendices.
+`render_final_review_docx.py` may be run separately for a compact machine-audit attachment; that
+attachment must never replace the full editorial report.
 
 ### Routing rule
 

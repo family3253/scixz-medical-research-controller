@@ -54,6 +54,14 @@ def test_peer_review_and_revision_keep_evidence_locations_and_unresolved_tickets
     assert parallel["branch_evidence_scopes_may_differ"] is True
     assert set(parallel["branches"]) == {"local_primary_review", "paperreview_external_signal"}
     assert "fresh synthesis sub-agent" in parallel["fusion_owner"]
+    formal = parallel["formal_output_contract"]
+    assert formal["primary_renderer"] == "scripts/render_editorial_review_docx.py"
+    assert formal["structure_profile"] == "templates/editorial_review_structure_bilingual.json"
+    assert formal["languages"] == ["zh", "en"]
+    assert "P0/P1/P2/P3 findings" in formal["required_sections"]
+    assert "author questions" in formal["required_sections"]
+    assert formal["strict_fusion_audit_location"] == "appendices"
+    assert "attachment only" in formal["compact_renderer_role"]
     assert any("PR-xx" in item for item in parallel["strict_fusion_checks"])
     assert any("one external signal" in item for item in parallel["strict_fusion_checks"])
     assert any("external advisory signal" in item for item in review["limitations"])

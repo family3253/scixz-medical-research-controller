@@ -1,0 +1,26 @@
+{
+  "review_metadata": {
+    "review_type": {"zh": "第一轮完整多视角同行评审", "en": "First-round full multi-perspective peer review"},
+    "review_date": "YYYY-MM-DD",
+    "main_manuscript": {"zh": "稿件标题", "en": "Manuscript title"},
+    "companion_files": [{"zh": "伴随表格或图片文件", "en": "Companion tables or figures file"}]
+  },
+  "editorial_decision_note": {"zh": "说明编辑决定的核心依据。", "en": "Explain the core basis for the editorial decision."},
+  "reviewer_panel": [
+    {"id": "EIC", "perspective": {"zh": "编辑与期刊标准", "en": "Editorial and journal standards"}, "recommendation": {"zh": "大修", "en": "Major revision"}, "confidence": "4/5"},
+    {"id": "R1", "perspective": {"zh": "方法学与统计", "en": "Methods and statistics"}, "recommendation": {"zh": "大修", "en": "Major revision"}, "confidence": "4/5"},
+    {"id": "R2", "perspective": {"zh": "临床与领域专业", "en": "Clinical and domain expertise"}, "recommendation": {"zh": "大修", "en": "Major revision"}, "confidence": "4/5"},
+    {"id": "DA", "perspective": {"zh": "反方压力测试", "en": "Adversarial stress test"}, "recommendation": {"zh": "发现重大问题", "en": "Major concerns identified"}, "confidence": "4/5"}
+  ],
+  "major_issue_profiles": [
+    {"concern_id": "M1", "title": {"zh": "主要问题标题", "en": "Major issue title"}, "source": {"zh": "审稿角色与稿件位置", "en": "Review roles and manuscript locations"}, "acceptance_criteria": {"zh": "可核验的验收标准", "en": "Verifiable acceptance criterion"}}
+  ],
+  "minor_issue_profiles": [{"concern_id": "N1", "title": {"zh": "次级问题标题", "en": "Secondary issue title"}}],
+  "recommended_revisions": [{"zh": "P2/P3建议修改项", "en": "P2/P3 recommended revision"}],
+  "adversarial_stress_test": {"zh": "给出对核心论证最强的替代解释。", "en": "State the strongest alternative explanation for the central claim."},
+  "author_questions": [{"zh": "作者必须回答的问题", "en": "Question the authors must answer"}],
+  "dimension_scores": [{"dimension": {"zh": "方法学严谨性", "en": "Methodological rigor"}, "score": 50, "assessment": {"zh": "较弱", "en": "Weak"}}],
+  "reporting_completeness": {"zh": "说明统计与报告完整性及其依据。", "en": "State reporting completeness and its basis."},
+  "revision_roadmap": [{"priority": {"zh": "优先级1：结构与数据有效性", "en": "Priority 1: structural and data validity"}, "items": [{"zh": "可执行任务", "en": "Actionable task"}]}],
+  "recommended_revision_period": {"zh": "6-8周，修订后重新送审", "en": "6-8 weeks, followed by re-review"}
+}

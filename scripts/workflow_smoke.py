@@ -179,6 +179,20 @@ def _route_checks(route: str, payload: Dict[str, Any]) -> Tuple[str, List[Dict[s
                 },
                 "fusion_barrier": "both requested branches completed with identical manuscript fingerprints",
                 "fusion_owner": "fresh synthesis sub-agent that authored neither branch",
+                "formal_output_contract": {
+                    "primary_renderer": "scripts/render_editorial_review_docx.py",
+                    "structure_profile": "templates/editorial_review_structure_bilingual.json",
+                    "languages": ["zh", "en"],
+                    "required_sections": [
+                        "materials reviewed", "editorial decision", "reviewer panel",
+                        "overall assessment and strengths", "P0/P1/P2/P3 findings",
+                        "source attribution", "required actions", "acceptance criteria",
+                        "adversarial stress test", "author questions", "dimension scores",
+                        "revision roadmap",
+                    ],
+                    "strict_fusion_audit_location": "appendices",
+                    "compact_renderer_role": "optional machine-audit attachment only",
+                },
                 "strict_fusion_checks": [
                     "every local issue id appears in the agreement/disagreement matrix exactly once",
                     "every canonical external PR-xx issue is dispositioned and mapped exactly once",
