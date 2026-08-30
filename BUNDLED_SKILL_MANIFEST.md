@@ -3,7 +3,7 @@
 Generated from the local top-level Skill inventory on 2026-08-30.
 
 - Repository: https://github.com/family3253/scixz-medical-research-controller
-- Bundled top-level Skills: 262
+- Bundled top-level Skills: 264
 - Explicitly excluded entries: 5
 - Machine-local paths, credentials, virtual environments, dependency caches, browser state, manuscripts, datasets, and Proprietary skills are not bundled.
 
@@ -140,6 +140,7 @@ Generated from the local top-level Skill inventory on 2026-08-30.
 | `model-validation` | `bundled-skills/model-validation` | agents | not declared | 0.048 |
 | `monitor-experiment` | `bundled-skills/monitor-experiment` | agents | not declared | 0.002 |
 | `multi-search-engine` | `bundled-skills/multi-search-engine` | agents | not declared | 0.029 |
+| `multiomics-analysis` | `bundled-skills/multiomics-analysis` | scixz | MIT (repository-authored) | 0.008 |
 | `n8n-to-skill` | `bundled-skills/n8n-to-skill` | scixz | MIT (repository-authored) | 0.03 |
 | `nature-review-studio` | `bundled-skills/nature-review-studio` | codex | not declared | 0.04 |
 | `neat-freak` | `bundled-skills/neat-freak` | codex | not declared | 0.078 |
@@ -233,6 +234,7 @@ Generated from the local top-level Skill inventory on 2026-08-30.
 | `shiny-bslib` | `bundled-skills/shiny-bslib` | agents | MIT | 0.116 |
 | `skill-creator` | `bundled-skills/skill-creator` | agents | not declared | 0.22 |
 | `stata-academic-graphing` | `bundled-skills/stata-academic-graphing` | agents | not declared | 0.005 |
+| `statistical-analysis` | `bundled-skills/statistical-analysis` | scixz | MIT (repository-authored) | 0.008 |
 | `storage-analyzer` | `bundled-skills/storage-analyzer` | codex | not declared | 0.062 |
 | `summarize` | `bundled-skills/summarize` | agents | not declared | 0.002 |
 | `superpowers-brainstorming` | `bundled-skills/superpowers-brainstorming` | agents | not declared | 0.05 |

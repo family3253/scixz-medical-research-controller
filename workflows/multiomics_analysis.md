@@ -10,7 +10,7 @@ Require biological question, matched samples, omics modalities, feature types, m
 
 ## Route
 
-Controller → 户部 checks sample matching and provenance → 中书省 defines integration unit → `council` when mechanism or clinical translation is claimed. Primary: an available omics-specific Skill or `research-lit` for design. Supporting: `pathway-enrichment`, `scientific-critical-thinking`, `statistical-analysis`, `scientific-schematics` when available.
+Controller → 户部 checks sample matching and provenance → 中书省 defines integration unit → `council` when mechanism or clinical translation is claimed. Primary: `multiomics-analysis` for reproducible preflight and `research-lit` for design. Supporting: `pathway-enrichment`, `scientific-critical-thinking`, `statistical-analysis`, `scientific-schematics` when available.
 
 ## Outputs
 
@@ -23,3 +23,7 @@ Check sample alignment, leakage, batch, scaling, missingness, multiple testing, 
 ## Failure/fallback
 
 If modalities are not matched or validation is absent, narrow the claim to exploratory association and report the design ceiling. Do not invent cross-omics links.
+
+## Executable preflight
+
+Run `bundled-skills/multiomics-analysis/scripts/validate_multiomics_plan.py` on a JSON plan before integration. It blocks unmatched samples, unverified provenance, missing batch/missingness handling, and absent validation design. A successful preflight validates intake only; it cannot be reported as a biological result.

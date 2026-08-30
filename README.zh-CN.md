@@ -10,7 +10,7 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 
 - 可移植的 `scixz` 控制器与路由契约。
 - 协作、角色、工作流、共识、评估和验证契约。
-- 262 个去重后的配套 Skill，放在 [`bundled-skills/`](bundled-skills/)；其中包括本地独有 Skill，也包括本机 catalog 中已经安装的公开来源 Skill，方便他人复现。
+- 264 个去重后的配套 Skill，放在 [`bundled-skills/`](bundled-skills/)；其中包括本地独有 Skill，也包括本机 catalog 中已经安装的公开来源 Skill，方便他人复现。
 - 可移植的运行时绑定示例；机器专属路径和私有状态不会纳入公开版本。
 - 外部服务、专有读取器和上游仓库地址的完整说明：[`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md)。
 
@@ -27,6 +27,16 @@ SciXZ 是一个可移植的 Codex Skill，用于协调医学科研工作流。�
 ```
 
 入口文件是 [`SKILL.md`](SKILL.md)。复杂任务会经过独立证据分析、批评审查、共识决策和最终验证；如果运行环境不支持原生子 Agent，会明确标记为顺序执行，而不会伪装成并行结果。
+
+## 可运行的工作流验证
+
+21 条已登记的 SciXZ 路线都配有离线确定性冒烟夹具。运行全量路线矩阵：
+
+```text
+python scripts/workflow_smoke.py --all --fixtures tests/fixtures/workflow_smoke --output workflow-smoke-report.json
+```
+
+报告会为每条路线输出结构化工件、所需 Skill、检查项、限制、下一步与就绪度评分。该评分只表示已通过的确定性输入/安全检查比例，不表示已经完成 LLM 审稿、在线选刊、文档修改、统计计算或生物学分析。需要真实数据或外部服务的步骤仍会被明确门控。此前没有确定所有者的两条路线已经补为仓库自有、可运行的预检 Skill：[`statistical-analysis`](bundled-skills/statistical-analysis/) 与 [`multiomics-analysis`](bundled-skills/multiomics-analysis/)。
 
 ## 提示词/仓库全面吸收升级
 
@@ -62,7 +72,7 @@ Skill：[`n8n-to-skill`](bundled-skills/n8n-to-skill/) 用于安全转换工作�
 
 ### 仓库内置
 
-本仓库已经在 `bundled-skills/` 下包含 262 个顶层配套 Skill。全部安装：
+本仓库已经在 `bundled-skills/` 下包含 264 个顶层配套 Skill。全部安装：
 
 ```text
 python scripts/install_bundled_skills.py

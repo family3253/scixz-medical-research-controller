@@ -1,6 +1,12 @@
 {
   "generated": "2026-08-29",
   "contract": ["Entry and scope", "Inputs", "Route", "Outputs", "Verification", "Failure/fallback"],
+  "smoke_test": {
+    "runner": "scripts/workflow_smoke.py",
+    "fixtures": "tests/fixtures/workflow_smoke/routes.json",
+    "mode": "offline deterministic contract validation",
+    "boundary": "A smoke result validates intake, safety gates, handoff artifacts, and explicit blocked/diagnostic behavior. It does not replace a real LLM, external service, authorized document edit, or domain analysis runtime."
+  },
   "functions": [
     {"task": "research-question", "workflow": "workflows/research_question.md", "mode": "panel", "primary": ["clinical-research-idea", "research-ideation"], "status": "complete"},
     {"task": "literature-review", "workflow": "workflows/literature_review.md", "mode": "panel/council", "primary": ["deep-research", "research-lit", "meta-analysis"], "status": "complete"},
@@ -8,7 +14,7 @@
     {"task": "protocol-ethics", "workflow": "workflows/protocol_ethics.md", "mode": "panel", "primary": ["write-protocol", "fill-protocol"], "status": "complete"},
     {"task": "sample-size", "workflow": "workflows/sample_size.md", "mode": "panel", "primary": ["calc-sample-size"], "status": "complete"},
     {"task": "data-preparation", "workflow": "workflows/data_preparation.md", "mode": "panel", "primary": ["clean-data", "generate-codebook"], "status": "complete"},
-    {"task": "statistical-analysis", "workflow": "workflows/statistical_analysis.md", "mode": "panel/council", "primary": ["analyze-stats", "statistical-analysis"], "status": "complete"},
+    {"task": "statistical-analysis", "workflow": "workflows/statistical_analysis.md", "mode": "panel/council", "primary": ["statistical-analysis", "analyze-stats"], "status": "complete"},
     {"task": "manuscript-writing", "workflow": "workflows/manuscript_writing.md", "mode": "single/panel", "primary": ["academic-paper", "scientific-writing"], "status": "complete"},
     {"task": "manuscript-review", "workflow": "workflows/manuscript_review.md", "mode": "council", "primary": ["nature-review-studio", "academic-paper-reviewer"], "status": "complete"},
     {"task": "reviewer-response", "workflow": "workflows/reviewer_response.md", "mode": "panel/recursive-review", "primary": ["reviewer-response-assistant", "nature-review-studio"], "status": "complete"},
@@ -21,7 +27,7 @@
     {"task": "capability-absorption", "workflow": "workflows/capability_absorption.md", "mode": "single/panel", "primary": ["skill-creator"], "status": "complete"},
     {"task": "geo-analysis", "workflow": "workflows/geo_analysis.md", "mode": "panel/council", "primary": ["bulk-rnaseq", "research-lit"], "status": "complete"},
     {"task": "scrna-analysis", "workflow": "workflows/scrna_analysis.md", "mode": "panel/council", "primary": ["scanpy"], "status": "complete"},
-    {"task": "multiomics", "workflow": "workflows/multiomics_analysis.md", "mode": "council", "primary": ["research-lit", "available omics Skill"], "status": "complete"},
+    {"task": "multiomics", "workflow": "workflows/multiomics_analysis.md", "mode": "council", "primary": ["multiomics-analysis", "research-lit"], "status": "complete"},
     {"task": "document-operation", "workflow": "workflows/document_operation.md", "mode": "single", "primary": ["deterministic-local-file-reading"], "status": "complete"}
   ]
 }

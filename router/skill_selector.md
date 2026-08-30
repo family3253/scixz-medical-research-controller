@@ -29,7 +29,7 @@ Use this selector only after the controller reaches `APPROVED_FOR_EXECUTION`. Us
 | post-writing/citation cleanup | `scientific-writing` or `paper-audit` | `bib-search-citation`, `verify-refs`, `humanizer`, `academic-expression-polisher`; for introduction/discussion depth use the section-depth reference and a claim/evidence critic |
 | bulk RNA-seq/GEO | `bulk-rnaseq` or `research-lit` | `pathway-enrichment`, `scientific-visualization`, `check-reporting` |
 | scRNA-seq | `scanpy` | `pathway-enrichment`, `scientific-critical-thinking`, `statistical-analysis` |
-| multiomics/mechanism | `research-lit` plus an available omics skill | `pathway-enrichment`, `scientific-schematics`, `clinical-research-idea` |
+| multiomics/mechanism | `multiomics-analysis` | `research-lit`, `pathway-enrichment`, `scientific-schematics`, `clinical-research-idea` |
 | local manuscript/file intake | `deterministic-local-file-reading` | `anthropics-pdf`, `anthropics-docx`, `anthropics-xlsx`, `anthropics-pptx` |
 
 Do not invoke two skills merely because their names overlap. If a canonical Skill already owns the task, record other candidates as alternatives in the handoff rather than running them redundantly. If a listed Skill is not installed or callable, use the controller's availability/fallback gate instead of silently substituting it.

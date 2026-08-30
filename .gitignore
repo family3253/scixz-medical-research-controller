@@ -6,6 +6,7 @@ private-journal-profiles/
 run_manifests/
 runs/
 build/
+workflow-smoke-report.json
 
 # Research and submission artifacts
 *.docx

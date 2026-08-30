@@ -83,6 +83,9 @@ def main() -> int:
     matrix_checks = [
         all(item.get("status") == "complete" for item in matrix["functions"]),
         all((ROOT / item["workflow"]).exists() for item in matrix["functions"]),
+        matrix.get("smoke_test", {}).get("runner") == "scripts/workflow_smoke.py",
+        (ROOT / matrix.get("smoke_test", {}).get("runner", "missing")).is_file(),
+        (ROOT / matrix.get("smoke_test", {}).get("fixtures", "missing")).is_file(),
     ]
     category(
         "workflow completeness",
@@ -211,9 +214,24 @@ def main() -> int:
     ]
     category(
         "evaluation coverage",
-        15,
+        10,
         suite_checks,
         f"{len(suite_files)} JSON evaluation suites; prompt execution remains an LLM-level follow-up",
+    )
+
+    smoke_checks = [
+        (ROOT / "scripts" / "workflow_smoke.py").is_file(),
+        (ROOT / "tests" / "test_workflow_smoke.py").is_file(),
+        (ROOT / "tests" / "fixtures" / "workflow_smoke" / "routes.json").is_file(),
+        set(load_json(ROOT / "tests" / "fixtures" / "workflow_smoke" / "routes.json")) >= {item["task"] for item in matrix["functions"]},
+        all((ROOT / "bundled-skills" / skill / "SKILL.md").is_file() for item in matrix["functions"] for skill in item["primary"]),
+        "workflow_smoke.py" in load_text(ROOT / "README.md") and "workflow_smoke.py" in load_text(ROOT / "README.zh-CN.md"),
+    ]
+    category(
+        "runnable workflow smoke coverage",
+        5,
+        smoke_checks,
+        "all matrix routes have deterministic fixtures and typed offline artifacts",
     )
 
     total = round(sum(item["score"] for item in results), 2)

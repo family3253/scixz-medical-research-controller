@@ -8,7 +8,7 @@
     "codex"
   ],
   "counts": {
-    "bundledTopLevelSkills": 262,
+    "bundledTopLevelSkills": 264,
     "excludedExplicit": 5
   },
   "excluded": [
@@ -1082,6 +1082,14 @@
       "approxSizeMB": 0.029
     },
     {
+      "name": "multiomics-analysis",
+      "folder": "multiomics-analysis",
+      "bundledPath": "bundled-skills/multiomics-analysis",
+      "sourceRoot": "scixz",
+      "license": "MIT (repository-authored)",
+      "approxSizeMB": 0.008
+    },
+    {
       "name": "n8n-to-skill",
       "folder": "n8n-to-skill",
       "bundledPath": "bundled-skills/n8n-to-skill",
@@ -1824,6 +1832,14 @@
       "sourceRoot": "agents",
       "license": "not declared in SKILL.md",
       "approxSizeMB": 0.005
+    },
+    {
+      "name": "statistical-analysis",
+      "folder": "statistical-analysis",
+      "bundledPath": "bundled-skills/statistical-analysis",
+      "sourceRoot": "scixz",
+      "license": "MIT (repository-authored)",
+      "approxSizeMB": 0.008
     },
     {
       "name": "storage-analyzer",

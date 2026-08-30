@@ -1,0 +1,59 @@
+{
+  "research-question": {
+    "question": "Can a transparent model estimate a fictional 30-day outcome?",
+    "population": "fictional adult cohort",
+    "outcome": "fictional 30-day outcome"
+  },
+  "literature-review": {
+    "review_type": "systematic",
+    "question": "What validation evidence exists for a fictional model?",
+    "databases": ["PubMed"],
+    "eligibility": "pre-specified population and outcome",
+    "corpus": {"full_text_included": 1, "abstract_only": 2}
+  },
+  "study-design": {"question": "fictional association", "design": "retrospective cohort", "analysis_unit": "participant"},
+  "protocol-ethics": {"protocol_title": "Fictional protocol", "study_design": "retrospective cohort", "data_governance": "de-identified access only"},
+  "sample-size": {"outcome": "binary", "design": "cohort", "target_effect": "odds ratio 1.5", "power": 0.8},
+  "data-preparation": {
+    "dataset": {"rows": 2, "columns": 3, "raw_rows": [{"source_cell": "A2", "value": "12", "confirmed": true}, {"source_cell": "B2", "value": "?", "confirmed": false}]},
+    "analysis_unit": "participant",
+    "privacy_constraints": "no identifiers"
+  },
+  "statistical-analysis": {
+    "analysis_unit": "participant", "outcome": "binary outcome", "estimand": "risk difference at 30 days", "design": "cohort",
+    "assumptions": ["exchangeability", "positivity"], "analysis_plan": "pre-specify adjusted regression and sensitivity analyses",
+    "runtime_plan": {"analysis_unit": "participant", "outcome": "binary outcome", "estimand": "risk difference at 30 days", "design": "cohort", "objective": "causal", "primary_analysis": "adjusted regression", "assumptions": ["exchangeability", "positivity"], "missing_data_plan": "multiple imputation with complete-case sensitivity analysis", "sensitivity_analyses": ["alternative confounder set"], "multiplicity_plan": "primary outcome fixed; false discovery rate for secondary outcomes", "reproducibility": {"seed": 42, "versioned_code": true}, "variable_operationalization": "fictional-codebook.md"}
+  },
+  "manuscript-writing": {"article_type": "original research", "outline": ["Introduction", "Methods", "Results", "Discussion"], "evidence_ledger": [{"claim": "fictional claim", "source": "placeholder to verify"}]},
+  "manuscript-review": {
+    "manuscript": "Fictional manuscript excerpt. Results report a model metric.", "study_type": "prediction model",
+    "evidence_locations": ["Methods, model development paragraph", "Results, performance table"], "major_concerns": ["Validate outcome definition"], "minor_concerns": ["Define abbreviation"]
+  },
+  "reviewer-response": {
+    "editor_decision": "major revision", "manuscript": "Fictional current manuscript", "comments": [
+      {"id": "R1-1", "text": "Clarify eligibility criteria.", "severity": "major", "stance": "accept", "action": "Revise Methods", "evidence_reference": "Methods source protocol"},
+      {"id": "R1-2", "text": "Add an unsupported analysis.", "severity": "minor", "stance": "defend", "action": "Explain design limitation", "evidence_reference": "pre-specified protocol"}
+    ]
+  },
+  "revision-after-review": {
+    "editor_decision": "major revision", "manuscript": "Fictional current manuscript", "comments": [
+      {"id": "R2-1", "text": "Add sensitivity analysis.", "severity": "major", "stance": "partial-accept", "action": "Run sensitivity analysis", "requires_data": true, "data_available": false},
+      {"id": "R2-2", "text": "Clarify terminology.", "severity": "minor", "stance": "accept", "action": "Revise Introduction", "final_location": "Introduction paragraph 2"}
+    ]
+  },
+  "journal-lookup": {"journal": "Example Journal"},
+  "journal-selection": {
+    "manuscript_fingerprint": {"research_question": "fictional validation question"}, "candidates": [{"name": "Example Journal"}],
+    "external_artifacts": {"jane": {"status": "succeeded"}, "ipubmed": {"status": "succeeded"}}
+  },
+  "citation-management": {
+    "citation_style": "Vancouver", "citations": [{"key": "alpha", "first_appearance": 1}, {"key": "beta", "first_appearance": 2}]
+  },
+  "figure-presentation": {"figure_brief": "Effect estimate with confidence interval", "data_provenance": "fictional versioned analysis table"},
+  "project-management": {"project": "fictional study", "deliverables": ["protocol", "analysis plan"]},
+  "capability-absorption": {"source_manifest": "registry/prompt_corpus_sources.json"},
+  "geo-analysis": {"accession_or_topic": "fictional GEO topic", "species": "human", "comparison": "fictional case versus control", "provenance_verified": false},
+  "scrna-analysis": {"data_format": "h5ad", "sample_identities": ["S1", "S2"], "biological_replicates": 2, "provenance_verified": false},
+  "multiomics": {"question": "fictional cross-omics association", "modalities": ["RNA", "protein"], "sample_matching": "matched design claimed", "provenance_verified": false, "runtime_plan": {"question": "fictional cross-omics association", "modalities": ["RNA", "protein"], "analysis_unit": "participant", "sample_matching": {"matched": true, "ledger": "fictional sample map"}, "provenance": {"verified": true}, "batch": "recorded by modality", "missingness_plan": "pre-specified per modality", "integration_objective": "exploratory association", "validation_design": "independent cohort", "claim_level": "associational", "leakage_control": "fit preprocessing within discovery folds and validate independently"}},
+  "document-operation": {"document": "fictional-manuscript.docx", "requested_operation": "read and validate"}
+}

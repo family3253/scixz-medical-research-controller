@@ -23,3 +23,7 @@ Check data types, independence, distribution/model assumptions, missingness, mul
 ## Failure/fallback
 
 If assumptions fail, report the failure and offer a defensible alternative or sensitivity analysis. If data are unavailable, produce a plan with assumptions, not fabricated results.
+
+## Executable preflight
+
+Run `bundled-skills/statistical-analysis/scripts/validate_analysis_plan.py` on a JSON plan before computation. It requires an explicit objective, estimand, primary analysis, assumptions, missing-data plan, and sensitivity analyses. A successful preflight validates plan completeness only and does not generate estimates.

@@ -10,7 +10,7 @@ The controller uses a three-department gate—中书省 (draft), 门下省 (revi
 
 - The portable `scixz` controller and its routing contracts.
 - Collaboration, role, workflow, consensus, evaluation, and verification contracts.
-- A deduplicated public bundle of 262 companion Skills under [`bundled-skills/`](bundled-skills/), including local-only Skills and public-source Skills that would otherwise be hard for another user to reconstruct from this machine.
+- A deduplicated public bundle of 264 companion Skills under [`bundled-skills/`](bundled-skills/), including local-only Skills and public-source Skills that would otherwise be hard for another user to reconstruct from this machine.
 - Portable runtime-binding examples; machine-specific paths and private state are intentionally excluded.
 - A complete dependency and download guide for external services, proprietary readers, and source repositories: [`DOWNLOAD_GUIDE.md`](DOWNLOAD_GUIDE.md).
 
@@ -27,6 +27,16 @@ Install this repository as the `scixz` Skill, then invoke it with a coordinated 
 ```
 
 The entry point is [`SKILL.md`](SKILL.md). For complex requests, SciXZ creates independent evidence passes, a critic pass, a consensus decision, and a verification gate. If native sub-agents are unavailable, the same stages run as explicitly labelled sequential passes.
+
+## Runnable workflow verification
+
+Every one of the 21 declared SciXZ routes has an offline deterministic smoke fixture. Run the complete route matrix with:
+
+```text
+python scripts/workflow_smoke.py --all --fixtures tests/fixtures/workflow_smoke --output workflow-smoke-report.json
+```
+
+The report contains a typed artifact per route, its required Skills, checks, limitations, next action, and a readiness score. The score measures passed deterministic intake/safety checks only; it is not a claim that an LLM review, live journal lookup, document edit, statistical result, or biological analysis was executed. Routes requiring data or external services remain explicitly gated. Two formerly unowned routes now include repository-authored, runnable preflight Skills: [`statistical-analysis`](bundled-skills/statistical-analysis/) and [`multiomics-analysis`](bundled-skills/multiomics-analysis/).
 
 ## Corpus-informed upgrade
 
@@ -63,7 +73,7 @@ Skills with an explicit proprietary license, such as the `anthropics-*` document
 
 ### Included in this repository
 
-The repository includes 262 top-level companion Skills under `bundled-skills/`. Install all of them with:
+The repository includes 264 top-level companion Skills under `bundled-skills/`. Install all of them with:
 
 ```text
 python scripts/install_bundled_skills.py
