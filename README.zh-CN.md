@@ -193,6 +193,8 @@ python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --
 报告会分开给出范围/发表先例证据、风险扣分和期刊背景分，并在可获得时输出 JCR、中科院、
 新锐、OA/APC、LetPub 字段及来源状态。JANE 和 iPubMed 的带日期结果工件缺一不可；缺失时
 只允许诊断，不发布最终排序，且分数绝不表示录用概率。
+报告中的 `manuscript_fingerprint` 只是语义定位画像；运行器不会把论文内容 SHA-256、原稿真实
+路径或私有运行目录写入选刊输出。
 
 **审阅并修回 DOCX 稿件**
 

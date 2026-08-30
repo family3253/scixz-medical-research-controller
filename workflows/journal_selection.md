@@ -26,9 +26,12 @@ ranking requires successful JANE and iPubMed run artifacts. For every candidate,
 - fit reasons, policy/desk-screening risks, missing/currentness conflicts, source-status map, and
   one concrete next verification or submission-preflight action.
 
-At report level include the manuscript fingerprint, constraints, JANE/iPubMed query/date/result
-paths, blocked requirements, method for ordering candidates, a diagnostic candidate list when
-blocked, and separate boundaries for desk screening, peer review, and acceptance probability.
+At report level include a manuscript-derived semantic profile (direction, population, question,
+methods, and contribution type), constraints, JANE/iPubMed query/date/evidence status, blocked
+requirements, method for ordering candidates, a diagnostic candidate list when blocked, and
+separate boundaries for desk screening, peer review, and acceptance probability. This profile is
+not a content fingerprint: never compute or store the manuscript's SHA-256, raw manuscript path,
+or local run directory in a selection report. Keep full artifact paths in the private run only.
 
 Default to ordinal readiness/fit and scenario analysis rather than an exact acceptance probability. A numeric probability is allowed only when the model has journal- and article-type-specific, independent calibration data with a stated cohort, time window, discrimination, calibration, and validation limits. A hand-built rubric, impact factor, abstract similarity, or assumed prior acceptance rate is not a calibrated probability. Separate desk-screening and peer-review risks.
 
