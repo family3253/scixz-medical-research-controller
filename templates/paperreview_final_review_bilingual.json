@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "manuscript_title": "Manuscript title",
+    "review_scope": "Independent methodological, reporting, and external-signal synthesis review"
+  },
+  "decision": {
+    "zh": "大修",
+    "en": "Major revision"
+  },
+  "overall_assessment": {
+    "zh": "请依据冻结稿件和独立核验结果填写总体评价。",
+    "en": "Complete this assessment from the frozen manuscript and independently verified evidence."
+  },
+  "strengths": [
+    {
+      "zh": "请填写一条经核验的优点。",
+      "en": "Provide one independently verified strength."
+    }
+  ],
+  "major_concerns": [
+    {
+      "id": "M1",
+      "location": "Methods, section/location",
+      "concern": {
+        "zh": "请填写可定位、可核验的主要问题。",
+        "en": "State a locatable, independently verified major concern."
+      },
+      "recommendation": {
+        "zh": "请填写可执行的修改建议。",
+        "en": "State an actionable revision request."
+      }
+    }
+  ],
+  "minor_concerns": [],
+  "external_signal_integration": [
+    {
+      "disposition": "incorporated-with-revision",
+      "external_issue": {
+        "zh": "概括一条外部 AI 提示的问题。",
+        "en": "Summarize one issue raised by the external AI review."
+      },
+      "rationale": {
+        "zh": "说明独立核验的稿件位置、证据与采纳/拒绝理由。",
+        "en": "Record the independently verified manuscript location, evidence, and reason for the disposition."
+      }
+    }
+  ],
+  "limitations": [
+    {
+      "zh": "外部 AI 审稿仅为辅助信号，不替代独立同行评审。",
+      "en": "External AI review is advisory evidence and does not replace independent peer review."
+    }
+  ]
+}

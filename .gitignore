@@ -29,6 +29,11 @@ submission/
 *.token
 cookies.json
 browser-state/
+paperreview-state*.json
+paperreview-artifact*.json
+paperreview-result*.json
+provider-review*.json
+final-review*.json
 
 # OS/editor files
 Thumbs.db

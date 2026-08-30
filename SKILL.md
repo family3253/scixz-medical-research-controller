@@ -14,7 +14,7 @@ SciXZ is the medical-research central controller. It interprets the user's manda
 - Do not invent data, citations, journal metrics, patient-level conclusions, or tool results. Mark missing evidence and uncertainty.
 - Use the narrowest sufficient route. Do not load every research skill for a simple task.
 - For SciXZ `journal-selection` and `citation-management` routes, always dispatch both mandatory external adapters `jane` and `ipubmed`; if either produces no auditable run artifact, do not publish the final ranking or proofreading conclusion.
-- For `manuscript-review`, PaperReview.ai is an optional external-signal branch only: never upload a manuscript automatically, require explicit authorization for the exact PDF, and independently verify every returned issue.
+- For `manuscript-review`, PaperReview.ai is an optional external-signal branch only: require explicit authorization for the exact English PDF before its guarded upload/poll automation runs, keep email and token only in private local state, and independently verify every returned issue before it can affect the final review.
 - The central controller is the only first responder for `/scixz`. Domain Skills are execution officers, not autonomous routers.
 - Classify the requested authority before execution. External side effects, destructive operations, and materially broader scope require explicit, current authorization and exact targets; prefer reversible actions where practical.
 - For explicit `/scixz` or multi-agent requests, read `collaboration/mode.md` and create a collaboration run with named roles, independent work, a critic pass, consensus, and verification.
@@ -69,7 +69,7 @@ scope fit or a submission recommendation.
 
 For a non-blocking request, complete the controller gate and execution in the same turn. Do not force a separate acknowledgement round merely to display the internal bureaucracy. Ask the user only when an ambiguity, authority gap, missing input, or external dependency genuinely changes the route.
 
-For manuscript review or reviewer response, hand off to `nature-review-studio` when its two-file DOCX/Markdown contract is appropriate. Do not duplicate that skill's deliverables in the SciXZ narrative.
+For manuscript review or reviewer response, hand off to `nature-review-studio` when its two-file DOCX/Markdown contract is appropriate. Do not duplicate that skill's deliverables in the SciXZ narrative. When the user explicitly requests the PaperReview.ai branch and bilingual Word final reports, read `references/external_review_tools.md`, execute the authorized upload/poll scripts, build the frozen-input synthesis bundle, independently resolve each external issue, and render the validated bilingual final-review JSON. Do not claim that upload, provider completion, or substantive synthesis occurred unless their private/local artifacts exist.
 
 ## Explicit command examples
 

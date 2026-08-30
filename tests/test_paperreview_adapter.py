@@ -37,11 +37,12 @@ def test_result_artifact_requires_english_completed_and_page_boundary():
     assert "pages_reviewed within 1..15" in invalid["missing"]
 
 
-def test_registry_records_optional_manual_upload_boundary():
+def test_registry_records_optional_authorized_automation_boundary():
     registry = json.loads((ROOT / "registry" / "external_review_adapters.json").read_text(encoding="utf-8"))
     tool = registry["tools"][0]
 
     assert tool["id"] == "paperreview-ai"
     assert tool["mandatory"] is False
-    assert tool["mode"] == "manual-browser-upload"
+    assert tool["mode"] == "authorized-http-upload-and-poll"
+    assert tool["input_policy"]["default"].startswith("Do not upload anything unless")
     assert tool["provider_constraints"]["reviewed_pages_maximum"] == 15

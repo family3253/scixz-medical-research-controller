@@ -10,11 +10,11 @@ Require manuscript path or text, file type, study type if known, target journal 
 
 ## Route
 
-Controller → 中书省 identifies study type, main claim, contribution, and design ceiling → 门下省 checks privacy, ethics, causal framing, and output contract → `council` for publication-level review. Primary: `nature-review-studio` for formal synchronized output or `academic-paper-reviewer` for analysis-only review. Supporting: `sci-manuscript-preflight`, `scientific-critical-thinking`, `check-reporting`, `peer-review`, `paperconan` when source data exist, and conditional statistics/design Skills. If explicitly authorized, add `paperreview-ai` as a non-automated browser-upload supplementary critique branch after local intake; use `scripts/paperreview_adapter.py` to prepare and validate its local run record.
+Controller → 中书省 identifies study type, main claim, contribution, and design ceiling → 门下省 checks privacy, ethics, causal framing, and output contract → `council` for publication-level review. Primary: `nature-review-studio` for formal synchronized output or `academic-paper-reviewer` for analysis-only review. Supporting: `sci-manuscript-preflight`, `scientific-critical-thinking`, `check-reporting`, `peer-review`, `paperconan` when source data exist, and conditional statistics/design Skills. If explicitly authorized, add `paperreview-ai` as an automated upload-and-poll supplementary critique branch after local intake; use `scripts/paperreview_automation.py`, then `scripts/build_paperreview_synthesis_bundle.py` before final synthesis.
 
 ## Outputs
 
-Evidence-anchored overall assessment, major/minor concerns, editorial recommendation, cross-review consensus, uncertainty, and revision tasks. Any PaperReview.ai result is retained as an `external-signal` and converted into a separately labelled, evidence-anchored issue ledger. Formal `nature-review-studio` output is exactly one DOCX plus one same-stem Markdown file.
+Evidence-anchored overall assessment, major/minor concerns, editorial recommendation, cross-review consensus, uncertainty, and revision tasks. Any PaperReview.ai result is retained as an `external-signal` and converted into a separately labelled, evidence-anchored issue ledger. The final synthesis must record the disposition of every external issue. When bilingual Word output is requested, render the verified final-review JSON through `scripts/render_final_review_docx.py` as one Chinese and one English DOCX. Formal `nature-review-studio` output is exactly one DOCX plus one same-stem Markdown file.
 
 ## Verification
 
@@ -30,4 +30,5 @@ If the manuscript is unavailable, stop and request it. If formal rendering is un
 2. Run independent methodology, statistics, clinical, reviewer, and editor perspectives as justified.
 3. Run Critic, Consensus/政事堂, and Verifier in dependency order.
 4. Hand off to the selected formal review owner only after verification.
-5. Only after explicit authorization, prepare the optional PaperReview.ai browser-upload manifest. Do not auto-upload, collect an email, or let the resulting signal replace the primary review.
+5. Only after explicit authorization, submit and poll the optional PaperReview.ai run using a private local state file. Do not expose the email or access token, and do not let the resulting signal replace the primary review.
+6. Build the synthesis bundle, independently assess each external issue, write the bilingual final-review JSON, and render the Chinese/English DOCX reports.

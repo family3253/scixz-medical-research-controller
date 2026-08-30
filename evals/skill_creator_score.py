@@ -224,8 +224,17 @@ def main() -> int:
         (ROOT / "tests" / "test_workflow_smoke.py").is_file(),
         (ROOT / "tests" / "fixtures" / "workflow_smoke" / "routes.json").is_file(),
         set(load_json(ROOT / "tests" / "fixtures" / "workflow_smoke" / "routes.json")) >= {item["task"] for item in matrix["functions"]},
-        all((ROOT / "bundled-skills" / skill / "SKILL.md").is_file() for item in matrix["functions"] for skill in item["primary"]),
-        (ROOT / "scripts" / "paperreview_adapter.py").is_file() and any(item.get("id") == "paperreview-ai" and item.get("mandatory") is False for item in load_json(ROOT / "registry" / "external_review_adapters.json")["tools"]),
+        all(
+            (ROOT / "bundled-skills" / skill / "SKILL.md").is_file()
+            or (ROOT.parent / skill / "SKILL.md").is_file()
+            for item in matrix["functions"]
+            for skill in item["primary"]
+        ),
+        (ROOT / "scripts" / "paperreview_adapter.py").is_file()
+        and (ROOT / "scripts" / "paperreview_automation.py").is_file()
+        and (ROOT / "scripts" / "build_paperreview_synthesis_bundle.py").is_file()
+        and (ROOT / "scripts" / "render_final_review_docx.py").is_file()
+        and any(item.get("id") == "paperreview-ai" and item.get("mandatory") is False and item.get("mode") == "authorized-http-upload-and-poll" for item in load_json(ROOT / "registry" / "external_review_adapters.json")["tools"]),
         "workflow_smoke.py" in load_text(ROOT / "README.md") and "workflow_smoke.py" in load_text(ROOT / "README.zh-CN.md"),
     ]
     category(

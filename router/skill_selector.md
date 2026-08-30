@@ -13,7 +13,7 @@ Use this selector only after the controller reaches `APPROVED_FOR_EXECUTION`. Us
 | data preparation | `clean-data` or `generate-codebook` | `deidentify`, `version-dataset`, `anthropics-xlsx`; for auditable OCR/image batches use `image-to-table-qa` after file reading |
 | causal/RWE/TTE | `design-study` or `statistical-analysis` | `analyze-stats`, `marginaleffects`, `check-reporting` |
 | manuscript writing | `academic-paper` or `scientific-writing` | `research-lit`/`deep-research` for missing evidence, `bib-search-citation`/`manage-refs` for claim-to-source allocation, `verify-refs`, `academic-paper-reviewer` or `scientific-critical-thinking` for depth critique, `check-reporting` |
-| manuscript review | `nature-review-studio` or `academic-paper-reviewer` | `scientific-critical-thinking`, `check-reporting`, `peer-review`; optional authorized `paperreview-ai` external-signal branch |
+| manuscript review | `nature-review-studio` or `academic-paper-reviewer` | `scientific-critical-thinking`, `check-reporting`, `peer-review`; optional explicitly authorized `paperreview-ai` upload/poll signal, followed by independent issue disposition and bilingual Word rendering when requested |
 | submission preflight | `sci-manuscript-preflight` | `paper-audit`, `verify-refs`, `check-reporting`, `scientific-writing`, `academic-expression-polisher` |
 | source-data/research-integrity audit | `paperconan` when source tables/assets are supplied | `sci-manuscript-preflight`, `verify-refs`, `scientific-critical-thinking` |
 | reviewer response | `reviewer-response-assistant` | `nature-review-studio`, `academic-write-all-skill`, `verification` |
