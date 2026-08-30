@@ -17,6 +17,11 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor
 
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path
+except ImportError:
+    from private_artifact_guard import ensure_private_output_path
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LANGUAGES = {"zh": "中文", "en": "English"}
@@ -260,6 +265,7 @@ def render(review: Dict[str, Any], profile: Dict[str, Any], language: str, outpu
     for item in review["limitations"]:
         BASE._bullet(document, bilingual(item, language, "limitation"))
 
+    output = ensure_private_output_path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     document.save(output)
     with zipfile.ZipFile(output) as archive:

@@ -5,6 +5,10 @@ memory/
 private-journal-profiles/
 run_manifests/
 runs/
+private-runs/
+manuscript-runs/
+journal-selection-runs/
+selection-runs/
 build/
 workflow-smoke-report.json
 
@@ -35,6 +39,12 @@ paperreview-artifact*.json
 paperreview-result*.json
 provider-review*.json
 final-review*.json
+*selection-report*.json
+*journal-selection*.json
+*.fingerprint.json
+*paperreview-synthesis*.json
+*parallel-review-fusion*.json
+*repeat-audit*.json
 
 # OS/editor files
 Thumbs.db

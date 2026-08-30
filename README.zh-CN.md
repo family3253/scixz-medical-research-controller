@@ -188,8 +188,8 @@ python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --
 
 该运行器会加载已安装的 `sci-select`，调用本地索引和 LetPub；如果配置了 `EASY_SCHOLAR_SECRET_KEY`，再合并 EasyScholar。未配置时不会发送 EasyScholar 请求，并会明确保留字段状态。
 
-对于“根据稿件选刊”，SciXZ 现在输出可评分、可追溯的证据报告，而不是只列期刊名。运行
-`python scripts/journal_selection.py --text-file manuscript.txt --jane-artifact jane-run.json --ipubmed-artifact ipubmed-run.json --output selection-report.json`。
+对于“根据稿件选刊”，SciXZ 现在输出可评分、可追溯的证据报告，而不是只列期刊名。稿件、外部运行工件和报告必须放在仓库外的本地私有目录；运行器会拒绝把稿件衍生报告写入源代码目录。运行
+`python scripts/journal_selection.py --text-file C:\private-runs\manuscript.txt --jane-artifact C:\private-runs\jane-run.json --ipubmed-artifact C:\private-runs\ipubmed-run.json --output C:\private-runs\selection-report.json`。
 报告会分开给出范围/发表先例证据、风险扣分和期刊背景分，并在可获得时输出 JCR、中科院、
 新锐、OA/APC、LetPub 字段及来源状态。JANE 和 iPubMed 的带日期结果工件缺一不可；缺失时
 只允许诊断，不发布最终排序，且分数绝不表示录用概率。

@@ -2,6 +2,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "journal_selection.py"
 SPEC = importlib.util.spec_from_file_location("scixz_journal_selection", MODULE_PATH)
@@ -87,6 +89,8 @@ def test_final_selection_card_has_rich_fields_and_non_predictive_score():
     )
 
     assert report["decision_status"] == "FINAL_EVIDENCE_RANKING"
+    assert report["privacy"]["raw_manuscript_in_report"] is False
+    assert report["privacy"]["content_sha256_in_report"] is False
     card = report["final_ranking"][0]
     assert card["rank"] == 1
     assert card["journal"] == "Example Journal"
@@ -100,6 +104,19 @@ def test_final_selection_card_has_rich_fields_and_non_predictive_score():
     assert "acceptance probability" in card["score"]["interpretation"]
     assert card["scope_and_precedent"]["official_scope_status"] == "verified"
     assert card["next_action"]
+
+
+def test_selection_report_redacts_digest_and_local_artifact_path():
+    profile = {**PROFILE, "content_sha256": "sha256:" + "a" * 64, "manuscript_path": r"C:\private\manuscript.pdf"}
+    artifact = {**_artifact("jane"), "result_artifact": r"C:\private\selection\jane.json", "summary": "source sha256:" + "b" * 64}
+
+    report = MODULE.build_report(profile, [RECORD], {"jane": artifact, "ipubmed": _artifact("ipubmed")})
+    serialized = json.dumps(report, ensure_ascii=False)
+
+    assert "sha256:" + "a" * 64 not in serialized
+    assert "sha256:" + "b" * 64 not in serialized
+    assert r"C:\private\selection" not in serialized
+    assert report["mandatory_external_evidence"]["jane"]["result_artifact"] == "jane.json"
 
 
 def test_external_artifact_requires_query_date_and_result_path():
@@ -135,6 +152,17 @@ def test_cli_runs_an_evidence_gated_report_from_artifacts(tmp_path):
     assert report["decision_status"] == "FINAL_EVIDENCE_RANKING"
     assert report["final_ranking"][0]["journal"] == "Example Journal"
 
+    with pytest.raises(SystemExit) as blocked:
+        MODULE.main(
+            [
+                "--bundle", str(bundle_path),
+                "--jane-artifact", str(jane_path),
+                "--ipubmed-artifact", str(ipubmed_path),
+                "--output", str(MODULE.SOURCE_ROOT / "selection.json"),
+            ]
+        )
+    assert blocked.value.code == 2
+
 
 def test_live_metric_enrichment_preserves_ranking_evidence():
     class Selector:
@@ -162,3 +190,11 @@ def test_runner_loads_the_bundled_sci_select_owner():
 
     assert callable(selector.select_journals)
     assert callable(selector.get_journal_metrics)
+
+
+def test_selection_reports_cannot_be_written_inside_source_tree(tmp_path):
+    outside = MODULE.ensure_private_output_path(tmp_path / "selection-report.json")
+    assert outside == (tmp_path / "selection-report.json").resolve()
+
+    with pytest.raises(ValueError, match="outside the checkout"):
+        MODULE.ensure_private_output_path(MODULE.SOURCE_ROOT / "selection-report.json")

@@ -9,6 +9,11 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path
+except ImportError:
+    from private_artifact_guard import ensure_private_output_path
+
 
 SCHEMA = "scixz-parallel-review-fusion-bundle-v2"
 PRIMARY_STATUSES = {"COMPLETED", "READY_FOR_FUSION"}
@@ -206,7 +211,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         bundle = build_bundle(load_json(Path(args.primary_review)), load_json(Path(args.paperreview_bundle)), companions)
     except (OSError, ValueError) as exc:
         parser.exit(2, f"Parallel review fusion blocked: {exc}\n")
-    Path(args.output).write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    try:
+        output = ensure_private_output_path(Path(args.output))
+    except ValueError as exc:
+        parser.exit(2, f"Parallel review fusion bundle blocked: {exc}\n")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": bundle["status"], "output": args.output}, ensure_ascii=False))
     return 0
 

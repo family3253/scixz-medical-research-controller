@@ -191,8 +191,11 @@ python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --
 The runner loads the installed `sci-select`, uses the local index plus LetPub, and optionally merges EasyScholar when `EASY_SCHOLAR_SECRET_KEY` is configured. Without that variable it skips EasyScholar without sending a request and keeps the field status explicit.
 
 For manuscript-driven journal selection, SciXZ now emits a scored evidence report rather than a
-bare list. Run `python scripts/journal_selection.py --text-file manuscript.txt --jane-artifact
-jane-run.json --ipubmed-artifact ipubmed-run.json --output selection-report.json`. The report
+bare list. Keep the manuscript, external run artifacts, and report in a private directory outside
+this checkout; the runner refuses to write a manuscript-derived report into the source tree. Run
+`python scripts/journal_selection.py --text-file C:\private-runs\manuscript.txt --jane-artifact
+C:\private-runs\jane-run.json --ipubmed-artifact C:\private-runs\ipubmed-run.json
+--output C:\private-runs\selection-report.json`. The report
 separates scope/precedent evidence, risk penalty, and venue context; it includes field-level JCR,
 CAS, XinRui, OA/APC, and LetPub data where available. It exits without a final ranking until both
 dated external artifacts are present, and never treats the score as acceptance probability.

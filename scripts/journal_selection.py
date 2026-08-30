@@ -6,12 +6,40 @@ from __future__ import annotations
 import argparse
 import importlib
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path as _ensure_private_output_path
+except ImportError:
+    from private_artifact_guard import ensure_private_output_path as _ensure_private_output_path
+
 
 MANDATORY_TOOLS = ("jane", "ipubmed")
+SOURCE_ROOT = Path(__file__).resolve().parents[1]
+_SHA256_LITERAL = re.compile(r"sha256:[0-9a-f]{64}", re.IGNORECASE)
+
+
+def _redact_private_literals(value: Any) -> Any:
+    """Remove manuscript digests from values that may have come from providers."""
+    if isinstance(value, str):
+        return _SHA256_LITERAL.sub("[redacted-sha256]", value)
+    if isinstance(value, list):
+        return [_redact_private_literals(item) for item in value]
+    if isinstance(value, dict):
+        return {key: _redact_private_literals(item) for key, item in value.items()}
+    return value
+
+
+def _safe_artifact_reference(value: Any) -> Any:
+    """Keep URLs, but never publish a local evidence directory in a selection report."""
+    if not isinstance(value, str) or not value.strip():
+        return value
+    if value.startswith(("http://", "https://")):
+        return _redact_private_literals(value)
+    return Path(value).name
 
 
 def _value(value: Any) -> Any:
@@ -46,8 +74,8 @@ def validate_external_artifact(tool: str, artifact: Optional[Dict[str, Any]]) ->
         "status": "succeeded",
         "query": artifact.get("query") or artifact.get("query_url"),
         "retrieved_at": artifact.get("retrieved_at") or artifact.get("query_date"),
-        "result_artifact": artifact.get("result_artifact") or artifact.get("result_path") or artifact.get("export_path"),
-        "summary": str(artifact.get("summary", "")),
+        "result_artifact": _safe_artifact_reference(artifact.get("result_artifact") or artifact.get("result_path") or artifact.get("export_path")),
+        "summary": _redact_private_literals(str(artifact.get("summary", ""))),
     }
 
 
@@ -132,9 +160,16 @@ def build_report(profile: Dict[str, Any], ranked_records: Iterable[Dict[str, Any
     blocked = [tool for tool, result in external.items() if result["status"] != "succeeded"]
     ordered = sorted((dict(record) for record in ranked_records), key=lambda record: (-int(record.get("score", 0) or 0), -int(record.get("fit_score", 0) or 0), str(record.get("name", "")).lower()))
     cards = [_candidate_card(record, index) for index, record in enumerate(ordered, 1)]
-    return {
+    report = {
         "decision_status": "BLOCKED" if blocked else "FINAL_EVIDENCE_RANKING",
         "selection_basis": "Scope and recent publication precedents rank before venue metrics. Scores are decision-aid evidence, not acceptance predictions.",
+        "privacy": {
+            "raw_manuscript_in_report": False,
+            "manuscript_path_in_report": False,
+            "content_sha256_in_report": False,
+            "external_upload_performed": False,
+            "note": "Keep this manuscript-derived report and all source artifacts outside the SciXZ checkout.",
+        },
         "manuscript_fingerprint": {key: profile.get(key) for key in ("direction_summary", "research_object", "research_question", "contribution_type", "methods", "categories", "exclusions")},
         "mandatory_external_evidence": external,
         "blocking_requirements": blocked,
@@ -146,6 +181,7 @@ def build_report(profile: Dict[str, Any], ranked_records: Iterable[Dict[str, Any
             "acceptance_probability": "Not estimated without journal/article-type-specific independent calibration data.",
         },
     }
+    return _redact_private_literals(report)
 
 
 def _candidate_sci_select_roots() -> Iterable[Path]:
@@ -178,6 +214,16 @@ def _load_json(path: str) -> Dict[str, Any]:
     if not isinstance(payload, dict):
         raise ValueError(f"Expected an object in {path}")
     return payload
+
+
+def ensure_private_output_path(path: Path) -> Path:
+    """Reject manuscript-derived reports written inside the SciXZ source tree.
+
+    Selection reports can contain manuscript-derived positioning and external
+    artifact locations. Keeping them outside the checkout prevents accidental
+    inclusion in a commit or public mirror.
+    """
+    return _ensure_private_output_path(path, SOURCE_ROOT)
 
 
 def enrich_selection_metrics(selector: Any, bundle: Dict[str, Any]) -> Dict[str, Any]:
@@ -256,7 +302,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         parser.exit(1, f"journal selection failed: {exc}\n")
     serialized = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
-        Path(args.output).write_text(serialized + "\n", encoding="utf-8")
+        try:
+            destination = ensure_private_output_path(Path(args.output))
+        except ValueError as exc:
+            parser.exit(2, f"journal selection blocked: {exc}\n")
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(serialized + "\n", encoding="utf-8")
     print(serialized)
     return 0 if report["decision_status"] != "BLOCKED" or args.allow_diagnostic else 2
 

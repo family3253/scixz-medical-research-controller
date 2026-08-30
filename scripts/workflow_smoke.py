@@ -12,12 +12,19 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import json
+import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX_PATH = ROOT / "registry" / "function_matrix.json"
+
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from private_artifact_guard import ensure_private_output_path
 
 
 ROUTE_REQUIREMENTS = {
@@ -326,7 +333,12 @@ def main(argv: List[str] | None = None) -> int:
     report = run_all(fixtures, None if args.all else [args.route])
     rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     if args.output:
-        Path(args.output).write_text(rendered, encoding="utf-8")
+        try:
+            output = ensure_private_output_path(Path(args.output), ROOT)
+        except ValueError as exc:
+            parser.exit(2, f"workflow smoke blocked: {exc}\n")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(rendered, encoding="utf-8")
     print(rendered, end="")
     return 0 if report["summary"]["statuses"]["BLOCKED"] == 0 else 2
 

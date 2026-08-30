@@ -2,6 +2,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "scripts" / "paperreview_adapter.py"
@@ -46,3 +48,11 @@ def test_registry_records_optional_authorized_automation_boundary():
     assert tool["mode"] == "authorized-http-upload-and-poll"
     assert tool["input_policy"]["default"].startswith("Do not upload anything unless")
     assert tool["provider_constraints"]["reviewed_pages_maximum"] == 15
+
+
+def test_adapter_refuses_to_write_manuscript_derived_output_inside_checkout(tmp_path):
+    manuscript = tmp_path / "fictional.pdf"
+    manuscript.write_bytes(b"%PDF-1.4\nfictional")
+
+    with pytest.raises(ValueError, match="outside the checkout"):
+        MODULE.ensure_private_output_path(ROOT / "paperreview-output.json", ROOT)

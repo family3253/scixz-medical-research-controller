@@ -4,12 +4,14 @@ from pathlib import Path
 import pytest
 
 
-MODULE_PATH = (
-    Path(__file__).resolve().parents[1]
-    / "bundled-skills"
-    / "image-to-table-qa"
-    / "scripts"
-    / "build_table.py"
+ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = next(
+    path
+    for path in (
+        ROOT / "bundled-skills" / "image-to-table-qa" / "scripts" / "build_table.py",
+        ROOT.parent / "image-to-table-qa" / "scripts" / "build_table.py",
+    )
+    if path.is_file()
 )
 SPEC = importlib.util.spec_from_file_location("scixz_image_table", MODULE_PATH)
 MODULE = importlib.util.module_from_spec(SPEC)
@@ -59,4 +61,3 @@ def test_build_table_rejects_duplicate_source_rows():
 
     with pytest.raises(ValueError, match="duplicate source"):
         MODULE.build_table(payload)
-

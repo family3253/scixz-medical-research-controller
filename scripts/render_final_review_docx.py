@@ -16,6 +16,11 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path
+except ImportError:
+    from private_artifact_guard import ensure_private_output_path
+
 
 LANGUAGES = {"zh": "中文", "en": "English"}
 REQUIRED = ("metadata", "decision", "overall_assessment", "strengths", "major_concerns", "minor_concerns", "external_signal_integration", "limitations")
@@ -297,6 +302,7 @@ def render(review: Dict[str, Any], language: str, output: Path) -> None:
     for item in review["limitations"]:
         _bullet(document, _text(item, language, "limitations", []))
 
+    output = ensure_private_output_path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     document.save(output)
     with zipfile.ZipFile(output) as archive:

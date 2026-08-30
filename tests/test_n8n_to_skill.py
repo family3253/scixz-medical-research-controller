@@ -4,12 +4,14 @@ import sqlite3
 from pathlib import Path
 
 
-MODULE_PATH = (
-    Path(__file__).resolve().parents[1]
-    / "bundled-skills"
-    / "n8n-to-skill"
-    / "scripts"
-    / "extract_n8n_manifest.py"
+ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = next(
+    path
+    for path in (
+        ROOT / "bundled-skills" / "n8n-to-skill" / "scripts" / "extract_n8n_manifest.py",
+        ROOT.parent / "n8n-to-skill" / "scripts" / "extract_n8n_manifest.py",
+    )
+    if path.is_file()
 )
 SPEC = importlib.util.spec_from_file_location("scixz_n8n_manifest", MODULE_PATH)
 MODULE = importlib.util.module_from_spec(SPEC)
@@ -80,4 +82,3 @@ def test_sqlite_manifest_reads_workflow_graph_without_credentials_table(tmp_path
     assert manifest["workflows"][0]["name"] == "PubMed review"
     assert manifest["workflows"][0]["external_hosts"] == ["eutils.ncbi.nlm.nih.gov"]
     assert "SENSITIVE_SENTINEL" not in serialized
-

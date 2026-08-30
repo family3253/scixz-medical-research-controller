@@ -83,13 +83,23 @@ def _download(url: str, destination: Path, timeout: int = 60) -> None:
 
 
 def _load_builder():
-    builder_path = Path(__file__).resolve().parents[1] / "bundled-skills" / "sci-select" / "scripts" / "build_journal_index.py"
-    spec = importlib.util.spec_from_file_location("scixz_sci_select_index_builder", builder_path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"Cannot load sci-select index builder: {builder_path}")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    root = Path(__file__).resolve().parents[1]
+    candidates = (
+        root / "bundled-skills" / "sci-select" / "scripts" / "build_journal_index.py",
+        root.parent / "sci-select" / "scripts" / "build_journal_index.py",
+        Path.home() / ".codex" / "skills" / "sci-select" / "scripts" / "build_journal_index.py",
+        Path.home() / ".agents" / "skills" / "sci-select" / "scripts" / "build_journal_index.py",
+    )
+    for builder_path in candidates:
+        if not builder_path.is_file():
+            continue
+        spec = importlib.util.spec_from_file_location("scixz_sci_select_index_builder", builder_path)
+        if spec is None or spec.loader is None:
+            continue
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+    raise RuntimeError("Cannot load sci-select index builder from bundled or local Skill layouts")
 
 
 def refresh_index(

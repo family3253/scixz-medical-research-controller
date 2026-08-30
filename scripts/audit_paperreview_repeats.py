@@ -10,6 +10,11 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path
+except ImportError:
+    from private_artifact_guard import ensure_private_output_path
+
 
 SCHEMA = "scixz-paperreview-repeat-audit-v1"
 
@@ -109,7 +114,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         parser.exit(2, f"PaperReview repeat audit blocked: {exc}\n")
     rendered = json.dumps(audit, ensure_ascii=False, indent=2) + "\n"
     if args.output:
-        Path(args.output).write_text(rendered, encoding="utf-8")
+        try:
+            output = ensure_private_output_path(Path(args.output))
+        except ValueError as exc:
+            parser.exit(2, f"PaperReview repeat audit blocked: {exc}\n")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(rendered, encoding="utf-8")
     print(rendered, end="")
     return 0 if audit["status"].startswith("PASS") else 2
 

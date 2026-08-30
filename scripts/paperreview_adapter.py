@@ -10,13 +10,21 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
+try:
+    from scripts.private_artifact_guard import ensure_private_output_path
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from private_artifact_guard import ensure_private_output_path
+
 
 TOOL = "paperreview-ai"
 MAX_PAGES = 15
+SOURCE_ROOT = Path(__file__).resolve().parents[1]
 
 
 def fingerprint(path: Path) -> str:
@@ -124,7 +132,12 @@ def main(argv: List[str] | None = None) -> int:
         result = validate_review_artifact(_load_json(args.validate_artifact))
     rendered = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.output:
-        Path(args.output).write_text(rendered, encoding="utf-8")
+        try:
+            output = ensure_private_output_path(Path(args.output), SOURCE_ROOT)
+        except ValueError as exc:
+            parser.exit(2, f"PaperReview adapter blocked: {exc}\n")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(rendered, encoding="utf-8")
     print(rendered, end="")
     return 0 if result["status"] in {"READY_FOR_MANUAL_UPLOAD", "READY_FOR_MANUAL_UPLOAD_WITH_PAGE_LIMIT", "EXTERNAL_SIGNAL_READY_FOR_VERIFICATION"} else 2
 

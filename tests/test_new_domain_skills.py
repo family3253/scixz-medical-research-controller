@@ -6,6 +6,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _skill_script(skill, script):
+    for path in (
+        ROOT / "bundled-skills" / skill / "scripts" / script,
+        ROOT.parent / skill / "scripts" / script,
+    ):
+        if path.is_file():
+            return path
+    raise FileNotFoundError(f"Skill script not found: {skill}/{script}")
+
+
 def _module(relative):
     spec = importlib.util.spec_from_file_location(relative.stem, relative)
     module = importlib.util.module_from_spec(spec)
@@ -14,7 +24,7 @@ def _module(relative):
 
 
 def test_statistical_plan_skill_is_runnable_and_blocks_missing_sensitivity_plan():
-    module = _module(ROOT / "bundled-skills" / "statistical-analysis" / "scripts" / "validate_analysis_plan.py")
+    module = _module(_skill_script("statistical-analysis", "validate_analysis_plan.py"))
     result = module.validate({"analysis_unit": "participant", "outcome": "binary", "estimand": "risk difference", "design": "cohort", "objective": "causal", "primary_analysis": "regression", "assumptions": ["positivity"], "missing_data_plan": "multiple imputation", "sensitivity_analyses": ["complete case"], "multiplicity_plan": "FDR", "reproducibility": {"seed": 42}})
     blocked = module.validate({"analysis_unit": "participant"})
 
@@ -23,7 +33,7 @@ def test_statistical_plan_skill_is_runnable_and_blocks_missing_sensitivity_plan(
 
 
 def test_multiomics_skill_is_runnable_and_requires_matching_and_provenance():
-    module = _module(ROOT / "bundled-skills" / "multiomics-analysis" / "scripts" / "validate_multiomics_plan.py")
+    module = _module(_skill_script("multiomics-analysis", "validate_multiomics_plan.py"))
     plan = {"question": "association", "modalities": ["RNA", "protein"], "analysis_unit": "participant", "sample_matching": {"matched": True}, "provenance": {"verified": True}, "batch": "recorded", "missingness_plan": "pre-specified", "integration_objective": "exploratory", "validation_design": "independent cohort", "claim_level": "associational", "leakage_control": "fold-local preprocessing"}
     result = module.validate(plan)
     plan["sample_matching"] = {"matched": False}
@@ -37,5 +47,10 @@ def test_repository_authored_domain_skills_are_in_the_public_bundle_manifest():
     names = {item["name"] for item in manifest["skills"]}
 
     assert {"statistical-analysis", "multiomics-analysis"} <= names
-    bundle_skills = [path for path in (ROOT / "bundled-skills").iterdir() if (path / "SKILL.md").is_file()]
-    assert manifest["counts"]["bundledTopLevelSkills"] == len(bundle_skills)
+    bundle_root = ROOT / "bundled-skills"
+    if bundle_root.is_dir():
+        bundle_skills = [path for path in bundle_root.iterdir() if (path / "SKILL.md").is_file()]
+        assert manifest["counts"]["bundledTopLevelSkills"] == len(bundle_skills)
+    else:
+        assert (_skill_script("statistical-analysis", "validate_analysis_plan.py")).is_file()
+        assert (_skill_script("multiomics-analysis", "validate_multiomics_plan.py")).is_file()
