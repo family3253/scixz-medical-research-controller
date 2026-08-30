@@ -91,27 +91,39 @@ def main() -> int:
         f"{len(workflow_files)} workflow files; {len(matrix['functions'])} matrix functions",
     )
 
-    bindings = load_json(ROOT / "registry" / "scixz_bindings.json")["bindings"]
-    catalog_doc = load_json(ROOT / "registry" / "local_skill_catalog.json")
-    catalog_names = {item["name"] for item in catalog_doc["skills"]}
-    binding_checks = [
-        bool(bindings),
-        all(item.get("skill_status") == "installed" for item in bindings),
-        all(item.get("binding_state") == "ready" for item in bindings),
-        all(Path(item["skill_md"]).exists() for item in bindings),
-        all(
-            item["name"] in catalog_names
-            for item in bindings
-        ),
-        any(item["name"] == "paperconan" and item.get("runtime_status") == "ready" for item in bindings),
-        any(item["name"] == "verification" for item in bindings),
-        any(item["name"] == "statistical-analysis" for item in bindings),
-    ]
+    bindings_path = ROOT / "registry" / "scixz_bindings.json"
+    catalog_path = ROOT / "registry" / "local_skill_catalog.json"
+    if bindings_path.exists() and catalog_path.exists():
+        bindings = load_json(bindings_path)["bindings"]
+        catalog_doc = load_json(catalog_path)
+        catalog_names = {item["name"] for item in catalog_doc["skills"]}
+        binding_checks = [
+            bool(bindings),
+            all(item.get("skill_status") == "installed" for item in bindings),
+            all(item.get("binding_state") == "ready" for item in bindings),
+            all(Path(item["skill_md"]).exists() for item in bindings),
+            all(item["name"] in catalog_names for item in bindings),
+            any(item["name"] == "paperconan" and item.get("runtime_status") == "ready" for item in bindings),
+            any(item["name"] == "verification" for item in bindings),
+            any(item["name"] == "statistical-analysis" for item in bindings),
+        ]
+        binding_detail = f"{len(bindings)} local allowlisted bindings; catalog count {catalog_doc['logical_skill_count']}"
+    else:
+        bundled = ROOT / "bundled-skills"
+        portable_owners = ("sci-select", "find-journal", "academic-paper", "verify-refs")
+        binding_checks = [
+            bundled.is_dir(),
+            all((bundled / name / "SKILL.md").is_file() for name in portable_owners),
+            (ROOT / "scripts" / "journal_selection.py").is_file(),
+            (ROOT / "scripts" / "journal_lookup.py").is_file(),
+            (ROOT / "scripts" / "verify_corpus_integration.py").is_file(),
+        ]
+        binding_detail = "portable bundle owners found; local runtime bindings were intentionally not packaged"
     category(
         "skill and runtime availability",
         10,
         binding_checks,
-        f"{len(bindings)} allowlisted bindings; catalog count {catalog_doc['logical_skill_count']}",
+        binding_detail,
     )
 
     engine = load_text(ROOT / "controller" / "skill_decision_engine.md")
@@ -178,12 +190,14 @@ def main() -> int:
         "ipubmed" in revision.lower() or "external" in revision.lower(),
         "External websites are not Skills" in engine and "cannot publish" in engine,
         len(load_json(ROOT / "evals" / "external_tool_evals.json")["tests"]) >= 5,
+        (ROOT / "scripts" / "journal_selection.py").is_file(),
+        "journal_selection.py" in journal_workflow and "decomposed score" in journal_workflow,
     ]
     category(
         "external research-tool adapters",
         20,
         external_checks,
-        "JANE public URL/API and iPubMed browser-assisted/export boundaries",
+        "JANE/iPubMed evidence gates plus the executable journal-selection report",
     )
 
     # Existing suites are counted as coverage evidence, not executed behavior.

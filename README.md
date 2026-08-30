@@ -177,6 +177,13 @@ python scripts/journal_lookup.py "Journal of Global Antimicrobial Resistance" --
 
 The runner loads the installed `sci-select`, uses the local index plus LetPub, and optionally merges EasyScholar when `EASY_SCHOLAR_SECRET_KEY` is configured. Without that variable it skips EasyScholar without sending a request and keeps the field status explicit.
 
+For manuscript-driven journal selection, SciXZ now emits a scored evidence report rather than a
+bare list. Run `python scripts/journal_selection.py --text-file manuscript.txt --jane-artifact
+jane-run.json --ipubmed-artifact ipubmed-run.json --output selection-report.json`. The report
+separates scope/precedent evidence, risk penalty, and venue context; it includes field-level JCR,
+CAS, XinRui, OA/APC, and LetPub data where available. It exits without a final ranking until both
+dated external artifacts are present, and never treats the score as acceptance probability.
+
 Implementation note: `jcr_mcp` currently exposes a general journal-search/partition interface and does not replace the field-level provenance contract by itself. For separate JCR/CAS/XinRui columns, use `sci-select` with ShowJCR/CSV/SQLite data or extend the MCP response schema; LetPub review speed still requires a live page/browser check.
 
 **Review and revise a DOCX manuscript**

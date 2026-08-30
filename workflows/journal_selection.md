@@ -14,7 +14,21 @@ Controller → 中书省 extracts manuscript positioning and decision criteria �
 
 ## Outputs
 
-Ranked primary target and fallback cascade, scope/article-type fit, recent comparable-paper evidence, current policy/metric facts, desk-reject risks, submission preparation gaps, recommended order of submission, and mandatory external-tool run records separating JANE similarity evidence, iPubMed browser/export evidence, and canonical verification.
+Return the `journal-selection` evidence report, not a short list of journal names. The final
+ranking requires successful JANE and iPubMed run artifacts. For every candidate, include:
+
+- rank and candidate status; canonical title/ISSN; article-type and scope fit status with official
+  URL, scope evidence, recent comparable-paper count, and examples;
+- a decomposed score: scope/precedent evidence, risk penalty, and separate venue-context score;
+  state explicitly that it is a ranking aid, not an acceptance probability or manuscript-quality score;
+- IF/JIF with release/data year; JCR quartile and categories; 2025 CAS major/minor quartiles; 2026
+  XinRui classification; coverage; OA/APC; warning status; LetPub review-speed text with URL/date;
+- fit reasons, policy/desk-screening risks, missing/currentness conflicts, source-status map, and
+  one concrete next verification or submission-preflight action.
+
+At report level include the manuscript fingerprint, constraints, JANE/iPubMed query/date/result
+paths, blocked requirements, method for ordering candidates, a diagnostic candidate list when
+blocked, and separate boundaries for desk screening, peer review, and acceptance probability.
 
 Default to ordinal readiness/fit and scenario analysis rather than an exact acceptance probability. A numeric probability is allowed only when the model has journal- and article-type-specific, independent calibration data with a stated cohort, time window, discrimination, calibration, and validation limits. A hand-built rubric, impact factor, abstract similarity, or assumed prior acceptance rate is not a calibrated probability. Separate desk-screening and peer-review risks.
 
@@ -25,3 +39,11 @@ Verify current journal homepage, author guidelines, article type, indexing/polic
 ## Failure/fallback
 
 If the manuscript is insufficient for fit assessment, return the missing-input list and do not publish a final ranking. If JANE or iPubMed is unavailable, mark the route `BLOCKED` and report the missing run artifact; do not continue with a final `find-journal` recommendation. If current metrics or policies cannot be verified, mark them stale/unknown rather than guessing.
+
+Run `python scripts/journal_selection.py` with the manuscript text (or a precomputed
+`sci-select` bundle) and both external run artifacts to generate the machine-readable report.
+The runner returns a diagnostic report but exits nonzero when either mandatory artifact is absent,
+unless `--allow-diagnostic` was selected explicitly.
+For text-driven runs it refreshes selected candidate cards through the full `sci-select` known-
+journal lookup path so the report can include LetPub speed/OA fields when available; use
+`--skip-live-enrichment` only for a deliberately offline or deterministic rerun.
