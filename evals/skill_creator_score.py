@@ -233,6 +233,7 @@ def main() -> int:
         (ROOT / "scripts" / "paperreview_adapter.py").is_file()
         and (ROOT / "scripts" / "paperreview_automation.py").is_file()
         and (ROOT / "scripts" / "build_paperreview_synthesis_bundle.py").is_file()
+        and (ROOT / "scripts" / "build_parallel_review_fusion_bundle.py").is_file()
         and (ROOT / "scripts" / "render_final_review_docx.py").is_file()
         and any(item.get("id") == "paperreview-ai" and item.get("mandatory") is False and item.get("mode") == "authorized-http-upload-and-poll" for item in load_json(ROOT / "registry" / "external_review_adapters.json")["tools"]),
         "workflow_smoke.py" in load_text(ROOT / "README.md") and "workflow_smoke.py" in load_text(ROOT / "README.zh-CN.md"),

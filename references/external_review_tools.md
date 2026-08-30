@@ -54,10 +54,24 @@ This produces `scixz_final_review_zh.docx` and `scixz_final_review_en.docx`.
 
 ### Routing rule
 
-Use the provider only as an optional additional critique perspective after local deterministic
-intake. `academic-paper-reviewer` or `nature-review-studio` remains the primary review owner;
-`check-reporting` and `statistical-analysis` retain their domain checks. Never let an external
-review alone determine an editorial recommendation, a claim of error, or a manuscript revision.
+Use the provider as an optional parallel critique branch after the same local deterministic intake.
+Start it at the same time as the local primary review so its slower processing does not delay local
+methodology, statistics, reporting, or clinical review. The local branch must be completed without
+reading the provider result. `academic-paper-reviewer` or `nature-review-studio` remains the primary
+review owner; `check-reporting` and `statistical-analysis` retain their domain checks.
+
+After both branches complete, validate their shared manuscript fingerprint and run:
+
+```text
+python scripts/build_parallel_review_fusion_bundle.py --primary-review C:\private-runs\local-primary-review.json --paperreview-bundle C:\private-runs\scixz-synthesis-input.json --output C:\private-runs\parallel-review-fusion.json
+```
+
+Dispatch a fresh synthesis sub-agent that authored neither branch. It reads the frozen manuscript
+and the two artifacts, creates an agreement/disagreement matrix, independently checks retained
+issues, preserves unresolved dissent, and writes the bilingual final-review JSON. Never let an
+external review alone determine an editorial recommendation, a claim of error, or a manuscript
+revision. If the external branch times out or fails, keep the completed local artifact and label any
+user-approved local-only report as degraded mode; do not pretend that two-branch fusion occurred.
 
 ### Artifact schema
 

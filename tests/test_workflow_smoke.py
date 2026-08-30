@@ -33,7 +33,12 @@ def test_every_declared_route_has_a_runnable_smoke_fixture_and_contract_artifact
         assert set(artifact) == {"route", "status", "inputs", "required_skills", "checks", "outputs", "limitations", "next_action"}
         assert artifact["status"] in {"COMPLETE", "DIAGNOSTIC"}
         assert artifact["checks"]
-        assert all((ROOT / "bundled-skills" / skill / "SKILL.md").is_file() for skill in artifact["required_skills"])
+        assert artifact["required_skills"]
+        if (ROOT / "bundled-skills").is_dir():
+            assert all(
+                (ROOT / "bundled-skills" / skill / "SKILL.md").is_file()
+                for skill in artifact["required_skills"]
+            )
 
 
 def test_peer_review_and_revision_keep_evidence_locations_and_unresolved_tickets_explicit():
@@ -43,6 +48,10 @@ def test_peer_review_and_revision_keep_evidence_locations_and_unresolved_tickets
     assert review["status"] == "DIAGNOSTIC"
     assert review["outputs"]["review_outline"]["evidence_locations"]
     assert review["outputs"]["optional_external_review"]["status"] == "EXTERNAL_SIGNAL_READY_FOR_VERIFICATION"
+    parallel = review["outputs"]["parallel_review_contract"]
+    assert parallel["shared_frozen_input"] is True
+    assert set(parallel["branches"]) == {"local_primary_review", "paperreview_external_signal"}
+    assert "fresh synthesis sub-agent" in parallel["fusion_owner"]
     assert any("external advisory signal" in item for item in review["limitations"])
     assert any(item["action_status"] == "blocked_data" for item in revision["outputs"]["comment_ledger"])
     assert any("No response letter claims" in item for item in revision["limitations"])

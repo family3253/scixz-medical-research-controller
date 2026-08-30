@@ -166,7 +166,18 @@ def _route_checks(route: str, payload: Dict[str, Any]) -> Tuple[str, List[Dict[s
     elif route == "manuscript-review":
         evidence_locations = payload.get("evidence_locations", [])
         checks.append({"name": "evidence_locations", "passed": bool(evidence_locations), "detail": evidence_locations or "no verifiable locations"})
-        outputs.update({"review_outline": {"major": payload.get("major_concerns", []), "minor": payload.get("minor_concerns", []), "evidence_locations": evidence_locations}})
+        outputs.update({
+            "review_outline": {"major": payload.get("major_concerns", []), "minor": payload.get("minor_concerns", []), "evidence_locations": evidence_locations},
+            "parallel_review_contract": {
+                "shared_frozen_input": True,
+                "branches": {
+                    "local_primary_review": "independent",
+                    "paperreview_external_signal": "optional-explicit-authorization",
+                },
+                "fusion_barrier": "both requested branches completed with identical manuscript fingerprints",
+                "fusion_owner": "fresh synthesis sub-agent that authored neither branch",
+            },
+        })
         if payload.get("paperreview_artifact"):
             paperreview = _load_script("paperreview_adapter.py").validate_review_artifact(payload["paperreview_artifact"])
             checks.append({"name": "optional_paperreview_artifact", "passed": paperreview["status"] == "EXTERNAL_SIGNAL_READY_FOR_VERIFICATION", "detail": paperreview})

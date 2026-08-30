@@ -10,7 +10,7 @@
       "mode": "authorized-http-upload-and-poll",
       "mandatory": false,
       "routes": ["manuscript-review", "revision-after-review"],
-      "capabilities": ["authorized PDF submission", "asynchronous review polling", "supplementary AI research critique", "review suggestions", "paper-structure feedback", "bilingual final-review DOCX rendering"],
+      "capabilities": ["authorized PDF submission", "asynchronous review polling", "parallel supplementary AI research critique", "same-fingerprint fusion barrier", "fresh synthesis sub-agent handoff", "review suggestions", "paper-structure feedback", "bilingual final-review DOCX rendering"],
       "input_policy": {
         "default": "Do not upload anything unless the user explicitly authorizes this exact external upload. The email is read only from a local environment variable and is never logged.",
         "requires_authorization": ["unpublished manuscript PDF", "peer-review material", "restricted data", "PHI"],
@@ -30,6 +30,11 @@
         "Findings require conversion to evidence-anchored issues and independent verification before revision."
       ],
       "verification_owner": ["academic-paper-reviewer", "nature-review-studio", "check-reporting", "statistical-analysis"],
+      "orchestration": {
+        "wave": "Run concurrently with the isolated local primary-review branch after one frozen intake.",
+        "barrier": "Do not start final synthesis until both requested branches are complete and reference the same manuscript fingerprint.",
+        "fusion_owner": "A fresh synthesis sub-agent that authored neither branch and independently verifies retained issues."
+      },
       "fallback": ["academic-paper-reviewer", "nature-review-studio", "peer-review", "check-reporting"]
     }
   ]

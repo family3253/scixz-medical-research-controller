@@ -10,7 +10,9 @@ Require manuscript path or text, file type, study type if known, target journal 
 
 ## Route
 
-Controller → 中书省 identifies study type, main claim, contribution, and design ceiling → 门下省 checks privacy, ethics, causal framing, and output contract → `council` for publication-level review. Primary: `nature-review-studio` for formal synchronized output or `academic-paper-reviewer` for analysis-only review. Supporting: `sci-manuscript-preflight`, `scientific-critical-thinking`, `check-reporting`, `peer-review`, `paperconan` when source data exist, and conditional statistics/design Skills. If explicitly authorized, add `paperreview-ai` as an automated upload-and-poll supplementary critique branch after local intake; use `scripts/paperreview_automation.py`, then `scripts/build_paperreview_synthesis_bundle.py` before final synthesis.
+Controller → 中书省 identifies study type, main claim, contribution, and design ceiling → 门下省 checks privacy, ethics, causal framing, and output contract → `council` for publication-level review. After one deterministic intake freezes the manuscript fingerprint, start two independent branches in the same parallel wave. Branch A is the local primary chain: `nature-review-studio` for formal synchronized output or `academic-paper-reviewer` for analysis-only review, supported by `sci-manuscript-preflight`, `scientific-critical-thinking`, `check-reporting`, `peer-review`, `paperconan` when source data exist, and conditional statistics/design Skills. Branch B is the optional, explicitly authorized PaperReview upload/poll chain using `scripts/paperreview_automation.py` and `scripts/build_paperreview_synthesis_bundle.py`. Branch B may be slower and must never delay the start or alter the independent reasoning of Branch A.
+
+Final synthesis is a barrier stage, not part of either branch. When both artifacts are complete and reference the same fingerprint, run `scripts/build_parallel_review_fusion_bundle.py` and dispatch a fresh synthesis sub-agent that did not participate in Branch A or B. Give it only the frozen manuscript and two completed branch artifacts. It must independently verify evidence, build an agreement/disagreement matrix, preserve dissent, disposition each external issue, and produce the final bilingual review contract.
 
 ## Outputs
 
@@ -22,13 +24,13 @@ Verify manuscript locations, numbers, statistical claims, reporting requirements
 
 ## Failure/fallback
 
-If the manuscript is unavailable, stop and request it. If formal rendering is unavailable, return an analysis-only review and state the missing artifact capability. If PaperReview.ai is unavailable or not authorized, skip it without blocking the primary review. If an optional Skill is unavailable, use an approved fallback with reduced confidence and record the limitation.
+If the manuscript is unavailable, stop and request it. If formal rendering is unavailable, return an analysis-only review and state the missing artifact capability. If PaperReview.ai is unavailable or not authorized, skip it without blocking the primary review and do not claim two-branch fusion. If PaperReview was requested but remains pending, finish and freeze Branch A, wait only until the declared external-review deadline, and report the pending state. After timeout or provider failure, publish a clearly labelled local-primary review only if the user accepts that degraded mode; otherwise leave final synthesis blocked. A failed synthesis sub-agent is retried once; after a second failure, mark fusion failed and preserve both branch artifacts rather than silently merging them in the coordinator.
 
 ## Execution steps
 
-1. Perform deterministic intake and freeze the evidence pack.
-2. Run independent methodology, statistics, clinical, reviewer, and editor perspectives as justified.
-3. Run Critic, Consensus/政事堂, and Verifier in dependency order.
-4. Hand off to the selected formal review owner only after verification.
-5. Only after explicit authorization, submit and poll the optional PaperReview.ai run using a private local state file. Do not expose the email or access token, and do not let the resulting signal replace the primary review.
-6. Build the synthesis bundle, independently assess each external issue, write the bilingual final-review JSON, and render the Chinese/English DOCX reports.
+1. Perform deterministic intake once and freeze the manuscript/evidence fingerprint shared by both branches.
+2. In parallel, run Branch A's independent methodology, statistics, clinical, reporting, reviewer, and editor perspectives and, when explicitly authorized, start Branch B's PaperReview upload/poll run in private local state.
+3. Complete and freeze the local primary-review artifact without reading the PaperReview result. Polling continues independently within its bounded deadline.
+4. Validate both branch artifacts and their identical input fingerprints. Do not cross the fusion barrier while either requested branch is pending or invalid.
+5. Build the strict fusion bundle and dispatch a fresh synthesis sub-agent with no hidden branch history. It compares both issue ledgers, independently checks the manuscript, resolves or preserves disagreements, and records every external disposition.
+6. Run Critic, Consensus/政事堂, and Verifier on the fused output, then write the bilingual final-review JSON and render the Chinese/English DOCX reports.

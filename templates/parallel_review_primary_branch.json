@@ -1,0 +1,25 @@
+{
+  "schema": "scixz-local-primary-review-v1",
+  "status": "COMPLETED",
+  "branch_id": "local-primary-review",
+  "manuscript": {
+    "file_name": "manuscript.pdf",
+    "fingerprint": "sha256:replace-with-frozen-manuscript-fingerprint"
+  },
+  "review": {
+    "overall_assessment": "Independent assessment of the frozen manuscript.",
+    "decision": "Major revision",
+    "strengths": [],
+    "major_concerns": [],
+    "minor_concerns": [],
+    "limitations": []
+  },
+  "review_roles": [
+    "editor",
+    "methodology",
+    "statistics",
+    "clinical-domain",
+    "reporting"
+  ],
+  "evidence_policy": "Every issue must include a manuscript location and an independently checked rationale."
+}
