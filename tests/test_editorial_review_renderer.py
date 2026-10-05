@@ -40,7 +40,7 @@ def profile():
         "recommended_revisions": [bilingual("统一术语。", "Harmonize terminology.")],
         "adversarial_stress_test": bilingual("替代解释是监测偏倚。", "The alternative explanation is surveillance bias."),
         "author_questions": [bilingual("事件何时发生？", "When did events occur?")],
-        "dimension_scores": [{"dimension": bilingual("方法学", "Methods"), "score": 50, "assessment": bilingual("较弱", "Weak")}],
+        "dimension_scores": [{"dimension": bilingual("方法学", "Methods"), "status": bilingual("需修订", "Needs revision"), "score": 50, "assessment": bilingual("较弱", "Weak"), "basis": bilingual("关键时间顺序未充分说明。", "Key temporality is insufficiently specified.")}],
         "reporting_completeness": bilingual("报告不充分。", "Reporting is incomplete."),
         "revision_roadmap": [{"priority": bilingual("优先级1", "Priority 1"), "items": [bilingual("重做分析。", "Re-run the analysis.")]}],
         "recommended_revision_period": bilingual("6-8周", "6-8 weeks"),

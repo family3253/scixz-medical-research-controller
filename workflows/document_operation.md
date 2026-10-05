@@ -25,3 +25,14 @@ Check file existence, reader success, text sufficiency, page/sheet/slide counts,
 ## Failure/fallback
 
 Use one documented backup only after the primary reader fails. Stop after both documented routes fail; do not bounce through unrelated readers or silently change the user's intent.
+
+## Word/DOCX metadata
+
+For any output with a `.docx` extension, set and verify Word core metadata before reporting success. The required values are:
+
+```text
+author = chenyechao
+last_modified_by = chenyechao
+```
+
+This applies even when the visible manuscript is blinded or uses a separate author list. Metadata author identity and visible manuscript authorship are separate fields.

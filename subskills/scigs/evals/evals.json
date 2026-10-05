@@ -1,0 +1,23 @@
+{
+  "skill_name": "formatting-journal-submissions",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Format this existing DOCX for a named biomedical journal. Verify the current official author instructions, keep scientific content locked, preserve citation-manager fields, and return a DOCX plus a change log.",
+      "expected_output": "The agent creates a requirements evidence file, applies only confirmed formatting actions, refuses to flatten dynamic fields, renders the final DOCX, and reports READY/READY_WITH_MANUAL_ACTIONS/BLOCKED with evidence.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Prepare a double-anonymous version of an existing clinical manuscript with separate figures and supplements. Do not rewrite results or self-citations.",
+      "expected_output": "The agent creates a copy, scans visible and hidden identity surfaces including supplements, preserves scientific text, inventories assets, and blocks release if identity leakage or rendering evidence remains unresolved.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Convert the plain-text references in this manuscript to the target journal style using DOI metadata, but do not touch Zotero or EndNote fields.",
+      "expected_output": "The agent uses verified metadata and fallbacks, refuses dynamic-field flattening, audits citation-to-bibliography integrity, and logs every reference change.",
+      "files": []
+    }
+  ]
+}

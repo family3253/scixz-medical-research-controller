@@ -198,3 +198,43 @@ def test_selection_reports_cannot_be_written_inside_source_tree(tmp_path):
 
     with pytest.raises(ValueError, match="outside the checkout"):
         MODULE.ensure_private_output_path(MODULE.SOURCE_ROOT / "selection-report.json")
+
+
+def test_selection_report_preserves_metric_contract_and_aliases():
+    aliased = {
+        **RECORD,
+        "impact_factor": None,
+        "jif_2025": "5.1",
+        "jcr_quartile": None,
+        "jcr_quartile_2025": "Q1",
+        "cas_partition_2025": None,
+        "cas_2025": "2区",
+        "xinrui_partition_2026": None,
+        "xuankan_2026": "1区",
+    }
+    report = MODULE.build_report(
+        PROFILE,
+        [aliased],
+        {"jane": _artifact("jane"), "ipubmed": _artifact("ipubmed")},
+    )
+
+    card = report["final_ranking"][0]
+    assert card["metrics"]["impact_factor"]["value"] == "5.1"
+    assert card["metrics"]["jcr_quartile"]["value"] == "Q1"
+    assert card["metrics"]["cas_major_quartile_2025"]["value"] == "2区"
+    assert card["metrics"]["xinrui_quartile_2026"]["value"] == "1区"
+    assert card["metrics"]["metric_status"]["status"] == "complete"
+    assert report["metric_contract"]["required_fields"]
+
+
+def test_selection_report_explicitly_marks_missing_metrics():
+    sparse = {"name": "Sparse Journal", "issn": "1111-1111", "score": 1}
+    report = MODULE.build_report(
+        PROFILE,
+        [sparse],
+        {"jane": _artifact("jane"), "ipubmed": _artifact("ipubmed")},
+    )
+    status = report["final_ranking"][0]["metrics"]["metric_status"]
+    assert status["status"] == "missing"
+    assert "impact_factor" in status["missing_fields"]
+    assert report["final_ranking"][0]["metrics"]["impact_factor"]["value"] is None

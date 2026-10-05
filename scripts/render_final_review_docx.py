@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
 from docx import Document
+from docx_metadata import set_docx_author
 from docx.enum.table import WD_TABLE_ALIGNMENT, WD_CELL_VERTICAL_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
@@ -217,7 +218,7 @@ def render(review: Dict[str, Any], language: str, output: Path) -> None:
     if errors:
         raise ValueError("; ".join(errors))
     label = LANGUAGES[language]
-    document = Document()
+    document = set_docx_author(Document())
     _configure(document)
     title = "SciXZ 最终同行评审意见" if language == "zh" else "SciXZ Final Peer-Review Report"
     subtitle = "已核验的外部 AI 审稿信号仅作辅助参考" if language == "zh" else "Verified external AI-review signals are advisory evidence only"

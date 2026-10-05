@@ -1,0 +1,134 @@
+{
+  "suite": "nature-skills",
+  "source": "https://github.com/Yuan1z0825/nature-skills",
+  "commit": "50851efc109c981be6cdc1ed5171a2eaa739d20a",
+  "license": "Apache-2.0 (repository LICENSE)",
+  "installed_root": "C:\\Users\\chenyechao\\.codex\\skills and C:\\Users\\chenyechao\\.agents\\skills",
+  "existing_related": "nature-review-studio is retained as a separate existing skill",
+  "controller_role": "route-only additive extension; existing SciXZ primary Skills, gates, and deliverables remain authoritative",
+  "skills": [
+    {
+      "name": "nature-academic-search",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-academic-search\\SKILL.md",
+      "description": "Search literature across sources, verify or manage citations, and build MeSH strategies or citation-impact audits. Use for 文献检索、引文核对、参考文献管理、严格他引 and evidence-backed citer profiles; not for translating a paper or drafting manuscript prose.",
+      "sha256_12": "3ed327e3e9c5"
+    },
+    {
+      "name": "nature-citation",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-citation\\SKILL.md",
+      "description": "Find and verify Nature/CNS-family literature supporting manuscript claims, with claim-to-source mapping and reference-manager export. Use for Nature系列引用、CNS支撑文献、分段补引用 when this journal scope is requested; use broader literature search for unrestricted sources.",
+      "sha256_12": "f0436639c2bc"
+    },
+    {
+      "name": "nature-data",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-data\\SKILL.md",
+      "description": "Draft or audit manuscript Data/Code Availability statements, dataset access routes, repository plans, and FAIR metadata. Use for 数据可用性声明、数据共享、数据仓库选择 and dataset citations; not general data cleaning or statistical analysis.",
+      "sha256_12": "4ef9c383411b"
+    },
+    {
+      "name": "nature-downloader",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-downloader\\SKILL.md",
+      "description": "Use when a user needs lawful academic full text, CNKI institutional access, English OA retrieval, publisher API access, institutional browser fallback, or supporting information downloads.",
+      "sha256_12": "0351f9069e77"
+    },
+    {
+      "name": "nature-experiment-log",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-experiment-log\\SKILL.md",
+      "description": "标准化实验日志记录——直接上传或读取本地图片、语音和文字，产出带 YAML frontmatter 的 Markdown；可选集成飞书 CLI 与 Obsidian。",
+      "sha256_12": "1f7fffcbc950"
+    },
+    {
+      "name": "nature-figure",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-figure\\SKILL.md",
+      "description": ">- Create, revise, audit, and export manuscript scientific figures in Python or R. Use for 论文配图、科研绘图、多面板图 and submission-ready plots, or explicitly requested AI-generated graphical abstracts and mechanism schematics. Not for interactive dashboards, data cleaning, or statistics-only analysis.",
+      "sha256_12": "46f2cf74d473"
+    },
+    {
+      "name": "nature-image2ppt",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-image2ppt\\SKILL.md",
+      "description": "Reconstruct slide images, screenshots, scanned PDFs, or image-only PPTX files as object-level editable PowerPoint. Use for 图片转可编辑PPT、截图还原PPT and diagram reconstruction; not authoring a new deck from research notes.",
+      "sha256_12": "0b49331f7b97"
+    },
+    {
+      "name": "nature-literature-pipeline",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-literature-pipeline\\SKILL.md",
+      "description": "| Complete automated literature discovery pipeline: multi-source search → six-dimension scoring → fine reading → formatted delivery → archival. Combines a configurable engine with daily cron-driven application layer. Works with Feishu, Telegram, or any messaging platform.",
+      "sha256_12": "1dcaa692457e"
+    },
+    {
+      "name": "nature-paper-card",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-paper-card\\SKILL.md",
+      "description": "Build a structured deep-reading Paper Card for one scientific paper, analysing methods, experiment-to-claim evidence, limitations, and research ideas. Use for 论文精读卡、方法拆解、证据链分析; not full-paper bilingual translation or formal peer review.",
+      "sha256_12": "a71e3dbc4465"
+    },
+    {
+      "name": "nature-paper-to-patent",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-paper-to-patent\\SKILL.md",
+      "description": "Turn research papers or inventor materials into evidence-grounded Chinese invention patent drafts and technical disclosures. Use for 技术交底书、专利撰写、现有技术对比 and Chinese DOCX patent packages; not general manuscript writing.",
+      "sha256_12": "b65243157add"
+    },
+    {
+      "name": "nature-paper2ppt",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-paper2ppt\\SKILL.md",
+      "description": "Create or improve a Chinese academic PPTX from a scientific paper or research reading notes, with source figures and speaker notes. Use for 论文做PPT、文献汇报、组会PPT and paper-based conference or defense presentations.",
+      "sha256_12": "a8d0fd14ca08"
+    },
+    {
+      "name": "nature-polishing",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-polishing\\SKILL.md",
+      "description": "Polish, translate, or tighten existing academic prose while preserving facts, terminology, and evidence boundaries. Use for 论文润色、学术翻译、正文精简, or manuscript LaTeX layout fixes. Use nature-writing when the main task is drafting new sections or rebuilding the manuscript argument.",
+      "sha256_12": "9391b2a24873"
+    },
+    {
+      "name": "researchwrite",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-proposal-writer\\SKILL.md",
+      "description": "Compose, revise, or audit research proposals, opening reports, and research plans from supporting evidence. Use for 研究计划、开题报告、科研项目申请书. Invoked as researchwrite for compatibility; use nature-writing for general manuscript sections.",
+      "sha256_12": "9be8ae52f909"
+    },
+    {
+      "name": "nature-reader",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-reader\\SKILL.md",
+      "description": "Create source-grounded Chinese-English paper readers with aligned text, figures, tables, and equations. Use for 全文翻译、中英文对照、论文精读 or source-linked questions about a paper; respect a requested excerpt or question without generating a full reader.",
+      "sha256_12": "999a5c1b1165"
+    },
+    {
+      "name": "nature-ref-verifier",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-ref-verifier\\SKILL.md",
+      "description": ">- 对学术文献逐条执行多源交叉验证，逐字段对比作者、标题、年份、卷期、页码， 标记卷年/DOI年冲突、作者顺序异常、页码偏差等问题，输出结构化验证报告。 可批量处理整篇论文/开题报告的参考文献列表，也可单条校验，支持与 Zotero 同步修正。",
+      "sha256_12": "6a975074d7a1"
+    },
+    {
+      "name": "nature-response",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-response\\SKILL.md",
+      "description": ">- Draft, audit, or revise responses to peer review, revision cover letters, and marked-manuscript or LaTeX revision packages. Use for 审稿意见回复、逐点回复、返修信、 rebuttals and edits to existing response drafts. Initial-submission materials belong to nature-writing; simulated peer review belongs to nature-reviewer.",
+      "sha256_12": "a8283db56e73"
+    },
+    {
+      "name": "nature-reviewer",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-reviewer\\SKILL.md",
+      "description": "Provide evidence-grounded mock peer review of scientific manuscripts or excerpts, covering significance, validity, and major/minor concerns. Use for 模拟审稿、投稿前自审、审稿人视角评估; not author rebuttal drafting.",
+      "sha256_12": "8ca28cc8e8bd"
+    },
+    {
+      "name": "nature-shared",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-shared\\SKILL.md",
+      "description": "Internal shared-reference support package for installed Nature Skills, including nature-writing, nature-polishing, nature-response, nature-reader, and nature-paper2ppt. Do not invoke it as a standalone user workflow. Load only the specific core or journal-format file requested by another Nature skill.",
+      "sha256_12": "3d914e73f023"
+    },
+    {
+      "name": "nature-statistics",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-statistics\\SKILL.md",
+      "description": "Audit or improve manuscript statistical reporting, including experimental units, replication, uncertainty, tests, and figure statistics. Use for 统计审查、统计方法小节、图注统计 and reviewer concerns; compute new analyses only when requested with data.",
+      "sha256_12": "89d2a101fc45"
+    },
+    {
+      "name": "nature-writing",
+      "path": "C:\\Users\\chenyechao\\.codex\\skills\\nature-writing\\SKILL.md",
+      "description": "Draft or restructure scientific manuscript arguments, sections, and initial-submission materials from author-provided evidence. Use for 论文写作、章节起草、论证重构、正文压缩、首次投稿材料. Use nature-polishing for language-only edits to existing prose and nature-response for post-decision correspondence.",
+      "sha256_12": "ce7c4d20329b"
+    }
+  ],
+  "integration_mode": "additive",
+  "activation": "explicit Nature-style request or narrowly justified supplemental capability",
+  "replacement_policy": "never replace an existing SciXZ primary Skill or output contract solely because a Nature Skill overlaps"
+}

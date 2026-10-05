@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCIGS Journal Submission Formatter"
+  short_description: "Prepare a traceable, content-locked DOCX submission package for a target journal"
+  default_prompt: "Use $formatting-journal-submissions for this existing manuscript. Verify the current official Instructions for Authors first, preserve scientific content and live citation fields, apply only confirmed format actions, check anonymity and assets, render every page, and return the DOCX plus FORMAT_CHANGE_LOG.md."

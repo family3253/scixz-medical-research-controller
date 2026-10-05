@@ -122,3 +122,10 @@ For `/scixz 审稿 manuscript.pdf`:
 - 门下省 checks manuscript availability, target language, ethics and privacy boundary, output contract, and duplicate-report risk.
 - 尚书省 issues only the required tickets: file intake, independent review, critic, consensus, verifier, and formal rendering.
 - Optional statistics or reporting Skills are added only when the manuscript actually needs them.
+## Nature Skills additive extension overlay
+
+Nature Skills are optional extensions to the existing SciXZ route graph. The controller must preserve the route's original `primary` Skills, evidence gates, collaboration mode, and output contract. Add a `nature-*` Skill only when the user requests Nature-style treatment or when a specific supplemental capability is needed. Record it as `optional_extension`, not as a replacement owner. `nature-review-studio` remains the formal synchronized DOCX+Markdown review owner when that contract is requested; `nature-reviewer` may add an independent Nature-style perspective but cannot replace the review council.
+
+## DOCX metadata gate
+
+Any ticket whose output contract includes `docx` must include a finalizer check for the Word core-properties author and last-modified-by fields. Both must equal `chenyechao`. This check is independent of visible author anonymization. A failed or unavailable metadata check blocks the artifact from being reported as complete.

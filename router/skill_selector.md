@@ -33,3 +33,24 @@ Use this selector only after the controller reaches `APPROVED_FOR_EXECUTION`. Us
 | local manuscript/file intake | `deterministic-local-file-reading` | `anthropics-pdf`, `anthropics-docx`, `anthropics-xlsx`, `anthropics-pptx` |
 
 Do not invoke two skills merely because their names overlap. If a canonical Skill already owns the task, record other candidates as alternatives in the handoff rather than running them redundantly. If a listed Skill is not installed or callable, use the controller's availability/fallback gate instead of silently substituting it.
+## Nature Skills suite integration (additive extension layer)
+
+The Nature Skills suite is **not a replacement router**. Keep the existing SciXZ primary owner and add a Nature Skill only when the request explicitly asks for Nature-style output or when a clearly scoped supplemental capability is needed.
+
+| Existing SciXZ route | Optional Nature extension | Additive role |
+|---|---|---|
+| manuscript-writing | `nature-writing` | Nature-style drafting pass or argument refinement after/beside the original writing owner |
+| language polishing | `nature-polishing` | Nature-style language, translation, or compression pass; preserve facts and evidence boundaries |
+| manuscript-review | `nature-reviewer` | Additional Nature-style reviewer perspective; preserve the original council and review contract |
+| reviewer-response | `nature-response` | Additional rebuttal/cover-letter audit or Nature-style response pass |
+| literature-review / citation-management | `nature-academic-search`, `nature-citation`, `nature-ref-verifier` | Supplemental search, claim-to-source mapping, or reference verification; existing JANE/iPubMed gates remain mandatory where applicable |
+| figure-presentation | `nature-figure` | Optional publication-figure audit, refinement, or export pass |
+| paper presentation | `nature-paper2ppt`, `nature-image2ppt` | Optional paper-to-PPT or editable-slide production alongside the existing presentation route |
+| paper reading | `nature-reader`, `nature-paper-card` | Optional bilingual reader or evidence-chain card in addition to the requested summary/review |
+| statistics / data availability | `nature-statistics`, `nature-data` | Optional reporting-transparency and Data/Code Availability checks |
+
+The original primary Skill remains the owner. If a Nature extension is dispatched, record it as `optional_extension` in the handoff and do not duplicate or silently replace the primary deliverable.
+
+## DOCX delivery invariant
+
+For every route that creates or modifies Word output, add the `docx_author_metadata` verification step. The required metadata author is `chenyechao`; do not infer it from the manuscript's visible author list.

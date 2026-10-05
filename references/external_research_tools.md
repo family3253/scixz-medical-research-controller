@@ -92,3 +92,7 @@ external_tool_run:
   verification_owner: find-journal | verify-refs | sci-manuscript-preflight
   limitations: []
 ```
+
+## Journal metric persistence
+
+The journal-selection controller must not silently drop IF/JIF, JCR, CAS, XinRui, coverage, OA/APC, or review-speed fields. Preserve them in diagnostic reports even when mandatory external evidence blocks final ranking. Missing values are explicit unknowns with source-status and missing-field annotations.

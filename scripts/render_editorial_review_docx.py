@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from docx import Document
+from docx_metadata import set_docx_author
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
@@ -106,6 +107,15 @@ def validate_profile(profile: Dict[str, Any], review: Dict[str, Any]) -> List[st
     for key in ("reviewer_panel", "recommended_revisions", "author_questions", "dimension_scores", "revision_roadmap"):
         if not isinstance(profile.get(key), list) or not profile[key]:
             errors.append(f"{key} must be a non-empty list")
+    for index, item in enumerate(profile.get("dimension_scores", []), 1):
+        if not isinstance(item, dict):
+            errors.append(f"dimension_scores[{index}] must be an object")
+            continue
+        for field in ("dimension", "status", "assessment", "basis"):
+            for language in LANGUAGES:
+                bilingual(item.get(field), language, f"dimension_scores[{index}].{field}", errors)
+        if not isinstance(item.get("score"), (int, float)):
+            errors.append(f"dimension_scores[{index}].score must be numeric")
     return errors
 
 
@@ -151,7 +161,7 @@ def render(review: Dict[str, Any], profile: Dict[str, Any], language: str, outpu
     errors = BASE.validate(review) + validate_profile(profile, review)
     if errors:
         raise ValueError("; ".join(errors))
-    document = Document()
+    document = set_docx_author(Document())
     BASE._configure(document)
     title = "同行评审报告（中文版）" if language == "zh" else "Peer-Review Report (English)"
     title_paragraph = document.add_paragraph()
@@ -231,8 +241,8 @@ def render(review: Dict[str, Any], profile: Dict[str, Any], language: str, outpu
         _numbered(document, bilingual(item, language, "author_question"))
 
     BASE._heading(document, "维度评分" if language == "zh" else "Dimension Scores")
-    score_headers = ["维度", "得分", "评价"] if language == "zh" else ["Dimension", "Score", "Assessment"]
-    score_rows = [[bilingual(item["dimension"], language, "dimension"), str(item["score"]), bilingual(item["assessment"], language, "assessment")] for item in profile["dimension_scores"]]
+    score_headers = ["维度", "状态", "得分", "评价", "判断依据"] if language == "zh" else ["Dimension", "Status", "Score", "Assessment", "Basis"]
+    score_rows = [[bilingual(item["dimension"], language, "dimension"), bilingual(item["status"], language, "status"), str(item["score"]), bilingual(item["assessment"], language, "assessment"), bilingual(item["basis"], language, "basis")] for item in profile["dimension_scores"]]
     _table(document, score_headers, score_rows)
     document.add_paragraph(bilingual(profile["reporting_completeness"], language, "reporting_completeness"))
 

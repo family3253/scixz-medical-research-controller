@@ -1,0 +1,33 @@
+schema_version: 1
+journal: ""
+article_type: ""
+retrieved_at: "YYYY-MM-DD"
+review_model: "unverified"
+source_records: []
+requirements:
+  - id: "R001"
+    category: "manuscript_structure"
+    rule: ""
+    evidence: ""
+    applies_to: ""
+    source_url: ""
+    source_type: "unverified"
+    accessed_at: "YYYY-MM-DD"
+    verification: "unverified"
+    planned_change: ""
+    change_class: "formatting"
+    status: "pending"
+actions:
+  page_size: null
+  margins_pt: {top: null, right: null, bottom: null, left: null}
+  default_font_name: null
+  default_font_size_pt: null
+  line_spacing: null
+  paragraph_spacing_after_pt: null
+  line_numbers: null
+  page_numbers: null
+  reference_style: null
+  preserve_dynamic_fields: true
+  anonymization_required: null
+conflicts: []
+unverified_items: []

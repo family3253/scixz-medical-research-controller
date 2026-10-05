@@ -18,6 +18,85 @@ except ImportError:
 
 
 MANDATORY_TOOLS = ("jane", "ipubmed")
+
+
+# Canonical metric contract. Older sci-select bundles and companion Skills may use
+# aliases or nest metrics under ``metrics``; normalize them before ranking/reporting
+# so IF/JCR/CAS/XinRui are never silently dropped by the controller.
+METRIC_ALIASES = {
+    "impact_factor": ("impact_factor", "jif", "jif_2025", "if_2023", "if"),
+    "if_year": ("if_year", "impact_factor_year", "jif_year"),
+    "jcr_release_year": ("jcr_release_year", "jcr_year", "jcr_release"),
+    "jcr_data_year": ("jcr_data_year", "jcr_metric_year"),
+    "jcr_quartile": ("jcr_quartile", "jcr_quartile_2025", "jcr_q"),
+    "jcr_categories": ("jcr_categories", "jcr_category", "jcr_subjects"),
+    "cas_partition_2025": ("cas_partition_2025", "cas_2025", "cas_partition", "partition"),
+    "cas_minor_categories": ("cas_minor_categories", "cas_minor", "cas_minor_subjects"),
+    "xinrui_partition_2026": ("xinrui_partition_2026", "xinrui_2026", "xuankan_2026", "xinrui_partition"),
+    "sci_type": ("sci_type", "coverage", "indexing", "database_coverage"),
+    "open_access": ("open_access", "is_oa", "oa"),
+    "oa_price": ("oa_price", "apc_usd", "apc", "article_processing_charge"),
+    "speed": ("speed", "review_speed", "letpub_review_speed"),
+    "letpub_source_url": ("letpub_source_url", "review_speed_source_url"),
+    "letpub_retrieved_at": ("letpub_retrieved_at", "review_speed_retrieved_at"),
+    "warning": ("warning", "warning_status", "is_warning"),
+}
+REQUIRED_METRIC_FIELDS = (
+    "impact_factor",
+    "jcr_quartile",
+    "cas_partition_2025",
+    "xinrui_partition_2026",
+    "sci_type",
+    "open_access",
+    "oa_price",
+    "speed",
+    "warning",
+)
+
+
+def _normalize_metric_record(record: Dict[str, Any]) -> Dict[str, Any]:
+    """Return a flat record with canonical metric keys preserved."""
+    current = dict(record)
+    nested = current.get("metrics") if isinstance(current.get("metrics"), dict) else {}
+    for canonical, aliases in METRIC_ALIASES.items():
+        if _value(current.get(canonical)) is not None:
+            continue
+        for key in aliases:
+            value = nested.get(key) if _value(nested.get(key)) is not None else current.get(key)
+            if _value(value) is not None:
+                current[canonical] = value
+                break
+    return current
+
+
+def _metric_status(metrics: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+    # Map canonical source fields to the stable public report shape.
+    public_values = {
+        "impact_factor": (metrics.get("impact_factor") or {}).get("value"),
+        "jcr_quartile": (metrics.get("jcr_quartile") or {}).get("value"),
+        "cas_partition_2025": (metrics.get("cas_major_quartile_2025") or {}).get("value"),
+        "xinrui_partition_2026": (metrics.get("xinrui_quartile_2026") or {}).get("value"),
+        "sci_type": (metrics.get("coverage") or {}).get("value"),
+        "open_access": (metrics.get("oa_apc") or {}).get("open_access"),
+        "oa_price": (metrics.get("oa_apc") or {}).get("apc_usd"),
+        "speed": (metrics.get("letpub_review_speed") or {}).get("value"),
+        "warning": (metrics.get("warning") or {}).get("value"),
+    }
+    present = []
+    missing = []
+    for field in REQUIRED_METRIC_FIELDS:
+        value = public_values.get(field)
+        if _value(value) is None:
+            missing.append(field)
+        else:
+            present.append(field)
+    return {
+        "status": "complete" if not missing else ("partial" if present else "missing"),
+        "required_fields": list(REQUIRED_METRIC_FIELDS),
+        "present_fields": present,
+        "missing_fields": missing,
+        "note": "Missing values are explicit unknowns; they must not be omitted from the report.",
+    }
 SOURCE_ROOT = Path(__file__).resolve().parents[1]
 _SHA256_LITERAL = re.compile(r"sha256:[0-9a-f]{64}", re.IGNORECASE)
 
@@ -80,6 +159,7 @@ def validate_external_artifact(tool: str, artifact: Optional[Dict[str, Any]]) ->
 
 
 def _metric_fields(record: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    record = _normalize_metric_record(record)
     letpub = _source_status(record, "letpub")
     journal_index = _source_status(record, "journal-index")
     metrics = {
@@ -102,6 +182,7 @@ def _metric_fields(record: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
     present = sum(present_field(metrics[key]) for key in metrics)
     metrics["data_completeness"] = {"present_fields": present, "total_fields": 9, "percent": round(present * 100 / 9, 1)}
+    metrics["metric_status"] = _metric_status(metrics)
     return metrics
 
 
@@ -129,6 +210,7 @@ def _next_action(card: Dict[str, Any]) -> str:
 
 
 def _candidate_card(record: Dict[str, Any], rank: int) -> Dict[str, Any]:
+    record = _normalize_metric_record(record)
     card = {
         "rank": rank,
         "journal": record.get("name", ""),
@@ -158,7 +240,7 @@ def build_report(profile: Dict[str, Any], ranked_records: Iterable[Dict[str, Any
     """Build a publication-decision aid from already ranked candidate records."""
     external = {tool: validate_external_artifact(tool, external_artifacts.get(tool)) for tool in MANDATORY_TOOLS}
     blocked = [tool for tool, result in external.items() if result["status"] != "succeeded"]
-    ordered = sorted((dict(record) for record in ranked_records), key=lambda record: (-int(record.get("score", 0) or 0), -int(record.get("fit_score", 0) or 0), str(record.get("name", "")).lower()))
+    ordered = sorted((_normalize_metric_record(dict(record)) for record in ranked_records), key=lambda record: (-int(record.get("score", 0) or 0), -int(record.get("fit_score", 0) or 0), str(record.get("name", "")).lower()))
     cards = [_candidate_card(record, index) for index, record in enumerate(ordered, 1)]
     report = {
         "decision_status": "BLOCKED" if blocked else "FINAL_EVIDENCE_RANKING",
@@ -175,6 +257,10 @@ def build_report(profile: Dict[str, Any], ranked_records: Iterable[Dict[str, Any
         "blocking_requirements": blocked,
         "final_ranking": [] if blocked else cards,
         "diagnostic_candidates": cards,
+        "metric_contract": {
+            "required_fields": list(REQUIRED_METRIC_FIELDS),
+            "rule": "Every candidate card must expose IF/JCR/CAS/XinRui and other metric fields, with unknown values represented explicitly.",
+        },
         "submission_readiness_boundary": {
             "desk_screening": "Requires current scope, article-type, and guideline verification.",
             "peer_review": "Not inferred from journal rank, metrics, or similarity evidence.",
@@ -252,6 +338,7 @@ def enrich_selection_metrics(selector: Any, bundle: Dict[str, Any]) -> Dict[str,
                 use_cache=False,
                 source_mode="full",
             )
+            fresh = _normalize_metric_record(fresh)
             for key, value in fresh.items():
                 if value not in (None, "", [], {}):
                     current[key] = value

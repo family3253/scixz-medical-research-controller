@@ -50,3 +50,9 @@ unless `--allow-diagnostic` was selected explicitly.
 For text-driven runs it refreshes selected candidate cards through the full `sci-select` known-
 journal lookup path so the report can include LetPub speed/OA fields when available; use
 `--skip-live-enrichment` only for a deliberately offline or deterministic rerun.
+
+## Metric persistence invariant
+
+Every candidate card and every diagnostic/final selection report must expose the complete metric contract, even when a source is unavailable. At minimum, preserve explicit fields for IF/JIF, IF year, JCR quartile/categories, 2025 CAS major/minor partitions, 2026 XinRui, coverage, OA/APC, review speed, and warning status. Unknown values must appear as explicit `null`/empty values with source status and missing-field lists; they must never disappear from the output.
+
+Before ranking or rendering, normalize legacy aliases such as `jif_2025`, `jcr_quartile_2025`, `cas_2025`, and `xuankan_2026` into the canonical metric fields. The metric contract is independent of JANE/iPubMed availability: a blocked route may not publish a final ranking, but its diagnostic candidates must still carry the metric fields and their evidence state.
