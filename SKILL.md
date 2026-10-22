@@ -129,3 +129,22 @@ All Word documents generated, rendered, converted, reformatted, or modified thro
 - Preserve the manuscript's visible author list and anonymization status; this rule concerns document metadata only.
 - If a Word artifact cannot be verified, mark the route `DEGRADED_ROUTE` or `BLOCKED` rather than claiming completion.
 - Use `scripts/docx_metadata.py` and `scripts/verify_docx_author.py` for deterministic setting and verification.
+
+## Word/DOCX visible-format invariant
+
+DOCX core metadata does not prove that a submission package is visually consistent. For any manuscript, title page, cover letter, declaration, table, figure-caption, or supplementary Word artifact modified through SciXZ, run `scripts/audit_docx_format.py` before accepting the package.
+
+- Default text profile: Times New Roman 12 pt, double line spacing, 0 pt paragraph spacing before/after, and margins of at least 1 inch.
+- Preserve justified body text and existing first-line indents when they are part of the manuscript design; keep headings visibly distinct at 12 pt bold or follow the target journal template.
+- Allow a table-specific exception only when it is documented: table cells may use 9 pt Times New Roman, single spacing, and 0 pt paragraph spacing; narrow margins may be used for wide tables only when visual overflow has been checked.
+- Treat unexpected font, size, line-spacing, paragraph-spacing, margin, or table-cell findings as `MAJOR` until the target guide or an author decision documents the exception.
+- Record the audit path, profile, file count, findings, and visual-check limitation in the private preflight report. Read `references/docx_formatting_policy.md` for the full contract.
+
+## Final submission-package hygiene invariant
+
+A journal submission package must be clean at the point of delivery. Separate the upload set from internal working artifacts. Before reporting a package as final, run `scripts/audit_submission_package.py`, confirm the clean result, and create any ZIP only after that audit.
+
+- Upload directories contain only files requested or accepted by the target journal: manuscript, title/author information when required, cover letter, disclosures, tables, figures, and supplementary files.
+- README files, Markdown notes, JSON/TSV audits, manifests, scripts, logs, backups, temporary exports, and ZIP/RAR archives stay outside the upload directory.
+- The clean-package audit is separate from DOCX metadata and visible-format audits; all three gates must pass before delivery.
+- If the target author guide is ambiguous, preserve uncertainty in the working report and keep the upload directory conservative.

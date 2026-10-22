@@ -36,3 +36,7 @@ last_modified_by = chenyechao
 ```
 
 This applies even when the visible manuscript is blinded or uses a separate author list. Metadata author identity and visible manuscript authorship are separate fields.
+
+## Word/DOCX visible formatting
+
+For any DOCX output, also run `scripts/audit_docx_format.py` on every Word file in the output package. The default profile is Times New Roman 12 pt, double spacing, 0 pt before/after, and at least 1-inch margins. Use the documented table exception only for wide tables that have been visually checked. A metadata pass without a formatting audit is incomplete.

@@ -129,3 +129,7 @@ Nature Skills are optional extensions to the existing SciXZ route graph. The con
 ## DOCX metadata gate
 
 Any ticket whose output contract includes `docx` must include a finalizer check for the Word core-properties author and last-modified-by fields. Both must equal `chenyechao`. This check is independent of visible author anonymization. A failed or unavailable metadata check blocks the artifact from being reported as complete.
+
+## DOCX visible-format gate
+
+Any ticket that produces or modifies Word files must include a formatting-audit finalizer using `scripts/audit_docx_format.py`. The finalizer checks font family, body/title/table sizes, line spacing, paragraph spacing, margins, and documented table exceptions. A successful metadata check alone is insufficient; unexpected formatting findings block completion or require an explicit target-journal exception with visual verification.

@@ -20,7 +20,7 @@ The decision is a readiness gate, not a percentage chance of acceptance. Use sep
 
 ## Verification
 
-Check source paths, citations, claim support, numbering, statistics/reporting gaps, target-journal requirements, current policy facts, and whether every automated or external signal has a human-verification boundary. Do not call “no finding” proof of readiness. iPubMed title-level warnings must be reconciled with PubMed/CrossRef/retraction records before they affect the gate.
+Check source paths, citations, claim support, numbering, statistics/reporting gaps, target-journal requirements, current policy facts, DOCX font/size/spacing/margin consistency, and whether every automated or external signal has a human-verification boundary. Run `scripts/audit_docx_format.py` for every Word artifact and preserve its report. Run `scripts/audit_submission_package.py` on the final upload directory and keep audit reports outside that directory. The clean upload directory must not contain README, Markdown, JSON, TSV, audit, manifest, backup, script, log, or archive artifacts. Do not call “no finding” proof of readiness. iPubMed title-level warnings must be reconciled with PubMed/CrossRef/retraction records before they affect the gate.
 
 ## Failure/fallback
 
