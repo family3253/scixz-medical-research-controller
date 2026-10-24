@@ -27,15 +27,28 @@ Wide tables may use a documented exception:
 
 Do not silently shrink the main manuscript to make a table fit. Use a separate table file, landscape section, supplementary table, or target-journal template when appropriate.
 
+## Paragraph-level layout rules
+
+Font and size checks alone miss most visible inconsistencies, because they read only the runs. The audit therefore also inspects paragraph properties and reports them as `layout:` findings. Treat every `layout:` finding as `MAJOR` unless the target journal's template documents the deviation.
+
+- One indent rule per region. All prose paragraphs inside the main text (from the `1. Introduction` heading to `List of abbreviations` / `References`) share a single first-line indent; front matter, captions, table notes, references, and declarations follow one consistent rule of their own. A paragraph that is flush left among indented neighbours is a defect, not a style choice.
+- Exact indent values. Do not mix `firstLine` and `firstLineChars` on the same paragraph: the rendered indent then depends on the font size. Do not leave values such as 482 twips beside 480.
+- Headings. Left-aligned, not justified; no first-line indent; one size per document (12 pt bold unless the template defines a hierarchy); `keepNext` set so a heading cannot be orphaned at a page break.
+- Explicit run properties. Every run carries `rFonts` (Times New Roman) and `sz`. A run that relies on `docDefaults` inherits the theme font, which is usually not Times New Roman, and the default size, which is usually 11 pt. A run holding only symbol glyphs (a checkbox, a tick) may use a symbol font.
+- Blank lines. No two consecutive empty paragraphs between blocks. Leading vertical spacing before the first paragraph of a short form is permitted.
+- Text hygiene. No leading whitespace inside a paragraph, no words glued together by a lost space, no missing space after a full stop, no paragraph opening with a lowercase word.
+- Page geometry. All sections of one document use the same page size; a title page on A4 and a body on Letter is a defect.
+- Tables. Cell alignment is consistent within a table; centred spanning labels are the only exception.
+
 ## Audit procedure
 
 Before accepting a DOCX package:
 
 1. Audit every DOCX file, including title page, cover letter, declarations, table files, supplementary narrative files, and reviewer-facing attachments.
 2. Record the effective font, size, line spacing, paragraph spacing, margins, alignment, and table-cell exception for each file.
-3. Run `scripts/audit_docx_format.py` on the package directory.
-4. Treat any unexpected font, size, margin, or paragraph-spacing finding as `MAJOR` until the author or target guide provides a documented exception.
-5. Re-run the audit after any Word modification, conversion, or package rename.
+3. Run `scripts/audit_docx_format.py` on the package directory. The paragraph-level checks run by default; `--no-layout` disables them for artifacts that are not manuscript-style documents.
+4. Treat any unexpected font, size, margin, paragraph-spacing, or `layout:` finding as `MAJOR` until the author or target guide provides a documented exception.
+5. Re-run the audit after any Word modification, conversion, or package rename. A tool that writes `word/document.xml` directly can leave runs without `rFonts`/`sz` or strip `docProps/core.xml`; re-audit both after every such write.
 6. Keep the audit report beside the private package; do not put private manuscript paths, hashes, or reports into a public release.
 
 ## Verification boundary

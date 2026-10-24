@@ -98,6 +98,8 @@ prompt corpus, or publish credentials/runtime artifacts merely because they are 
 - Collaboration protocol: `collaboration/mode.md`, `collaboration/roles.md`, `collaboration/protocol.md`, `collaboration/state_schema.md`
 - Revision workflow: `workflows/reviewer_response.md`, `workflows/revision_after_review.md`
 - Section-level writing quality: `references/manuscript_section_depth.md` (required for substantive正文 drafting, introduction/discussion strengthening, and post-review rewriting)
+- Claim-forward prose gate: `references/prose_defensive_writing.md` and `scripts/audit_prose.py` (anti-defensive writing plus the press-release principle; required before delivering any manuscript, abstract, cover letter, or response letter)
+- Visible-format gate: `references/docx_formatting_policy.md` and `scripts/audit_docx_format.py` (font/size/margin profile plus the paragraph-level layout checks)
 - Prompt/repository learning: `workflows/capability_absorption.md`, `references/prompt_corpus_absorption.md`
 - Role contracts: `agents/`
 - Workflow contracts: `workflows/`
@@ -138,7 +140,29 @@ DOCX core metadata does not prove that a submission package is visually consiste
 - Preserve justified body text and existing first-line indents when they are part of the manuscript design; keep headings visibly distinct at 12 pt bold or follow the target journal template.
 - Allow a table-specific exception only when it is documented: table cells may use 9 pt Times New Roman, single spacing, and 0 pt paragraph spacing; narrow margins may be used for wide tables only when visual overflow has been checked.
 - Treat unexpected font, size, line-spacing, paragraph-spacing, margin, or table-cell findings as `MAJOR` until the target guide or an author decision documents the exception.
+- The audit also runs paragraph-level layout checks (`layout:` findings); use `--no-layout` only when the artifact is not a manuscript-style document. These cover the defects that font/size checks alone cannot see:
+  - first-line indent drift — one body paragraph flush left among indented neighbours, or an indent value that is not a round number (e.g. 482 twips beside 480);
+  - ambiguous indents — `firstLine` and `firstLineChars` set together, so the rendered indent depends on font size;
+  - headings that are justified instead of left-aligned, carry a first-line indent, or lack `keepNext` (a heading can then be orphaned at a page break);
+  - mixed heading sizes within one document;
+  - `docDefaults` below 12 pt, and runs with no explicit `rFonts` or `sz`, which silently render in the theme font at the default size; a run holding only symbol glyphs may use a symbol font;
+  - leading whitespace at the start of a paragraph, and two or more consecutive empty paragraphs between blocks (leading vertical spacing before the first paragraph is allowed);
+  - words glued together by a lost space (`TablesFile`), a missing space after a full stop, and a paragraph that opens with a lowercase word;
+  - mixed page sizes across sections of one document;
+  - mixed cell alignment inside one table (centred spanning labels excepted).
+- Run the audit on every Word artifact in the upload set, not just the manuscript: cover letter, declaration, title page, and supplementary files usually inherit an 11 pt default or a stray 14 pt heading that the manuscript no longer has.
 - Record the audit path, profile, file count, findings, and visual-check limitation in the private preflight report. Read `references/docx_formatting_policy.md` for the full contract.
+
+## Prose quality / claim-forward writing invariant
+
+Manuscript text, abstracts, cover letters, and response letters are read as a press conference, not as a self-audit. Before delivery, run `scripts/audit_prose.py` on the manuscript and on any prose artifact that will be read by an editor or reviewer.
+
+- Two rule sets are enforced together: anti-defensive writing (no unnecessary disclaimers, self-weakening quantifiers, apology framing, reflexive contrast, stacked hedges, or pre-emptive explanations) and the press-release principle (no process chronology, no self-verdicts, no unwinnable contests, and every Results block carries a quantified claim).
+- Treat `P1` findings as blocking. Read each one in context, then apply the priority ladder: delete → narrow the claim → switch the evaluation dimension → explain as a trade-off → reorganise the section → redefine the story. State a weakness plainly only when it is unavoidable and affects the core conclusion.
+- Treat `P2` findings as requiring a decision. `P3` findings are informational; a finished manuscript is expected to keep a few, such as "interpreted descriptively rather than causally" in Methods.
+- Keep necessary precision exactly once, in Methods, Discussion, or Limitations. Never place a caveat in the abstract, key messages, or conclusion unless it changes the meaning of the headline number.
+- Do not strip qualifiers that define the design or the metric: "interpreted descriptively rather than causally", "a predefined geographic grouping rather than a World Bank income classification", "a normative welfare valuation rather than observed expenditure", "for welfare valuation only". These are scope statements, not defensiveness.
+- The detector is lexical. It cannot decide whether a contrast carries information or whether a hedge is warranted, so never delete a sentence solely because the script matched it, and never report a passing run as proof that the paper has a clear headline. Read `references/prose_defensive_writing.md` for the full policy, the pattern tables, and the rule-to-severity map.
 
 ## Final submission-package hygiene invariant
 
