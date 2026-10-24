@@ -148,8 +148,10 @@ DOCX core metadata does not prove that a submission package is visually consiste
   - `docDefaults` below 12 pt, and runs with no explicit `rFonts` or `sz`, which silently render in the theme font at the default size; a run holding only symbol glyphs may use a symbol font;
   - leading whitespace at the start of a paragraph, and two or more consecutive empty paragraphs between blocks (leading vertical spacing before the first paragraph is allowed);
   - words glued together by a lost space (`TablesFile`), a missing space after a full stop, and a paragraph that opens with a lowercase word;
-  - mixed page sizes across sections of one document;
-  - mixed cell alignment inside one table (centred spanning labels excepted).
+  - mixed page sizes across sections of one document (a landscape table section is accepted when the two sizes are the same sheet rotated);
+  - mixed cell alignment inside one table (centred spanning labels excepted);
+  - paragraphs carrying two `<w:pPr>` children, the residue of a script that moved a `sectPr` out of a text paragraph;
+- Structure checks cannot see blank pages. When landscape table sections are used, render the file and list every page with three or fewer text blocks: a page holding only the footer is a blank page, and the usual cause is a `sectPr` attached to the last text paragraph of a page that is already full. Give the break its own empty paragraph, or keep all tables in one landscape section separated by explicit page breaks.
 - Run the audit on every Word artifact in the upload set, not just the manuscript: cover letter, declaration, title page, and supplementary files usually inherit an 11 pt default or a stray 14 pt heading that the manuscript no longer has.
 - Record the audit path, profile, file count, findings, and visual-check limitation in the private preflight report. Read `references/docx_formatting_policy.md` for the full contract.
 

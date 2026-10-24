@@ -21,6 +21,21 @@ KNOWN_HEADINGS = {
 }
 
 
+
+def has_landscape_section(path):
+    """True when at least one sectPr declares landscape orientation."""
+    try:
+        with zipfile.ZipFile(path) as z:
+            doc = ET.fromstring(z.read('word/document.xml'))
+    except Exception:
+        return False
+    for sp in doc.iter(W + 'sectPr'):
+        pg = sp.find(W + 'pgSz')
+        if pg is not None and (pg.get(W + 'orient') or '').lower() == 'landscape':
+            return True
+    return False
+
+
 def _doc_paras(path):
     """Return (records, page_sizes, default_size, findings) read straight from the XML.
 
@@ -126,13 +141,9 @@ def layout_findings(path: Path):
     miss = sum(r['missing_size'] for r in records)
     if miss:
         out.append('layout:runs_without_explicit_size=%d' % miss)
-        try:
-            default_half_points = int(default_size) if default_size is not None else None
-        except (TypeError, ValueError):
-            default_half_points = None
-        if default_half_points is not None and default_half_points < 24:
-            out.append('layout:docdefault_size=%s;expected>=24 (12 pt) so the %d runs '
-                       'without an explicit size render below 12 pt' % (default_size, miss))
+        if default_size is not None and default_size != '24':
+            out.append('layout:docdefault_size=%s;expected=24 (11 pt) so the %d runs '
+                       'without an explicit size render 11 pt' % (default_size, miss))
     mf = sum(r['missing_font'] for r in records)
     if mf:
         out.append('layout:runs_without_rFonts=%d (falls back to the theme font)' % mf)
@@ -208,8 +219,18 @@ def layout_findings(path: Path):
             out.append('layout:lowercase_sentence_start;text=%s' % t[:60])
 
     # --- page geometry
+    # Mixed page sizes are normally a defect (a title page on A4 and a body on
+    # Letter). A landscape section is the one legitimate reason for two sizes,
+    # so it is accepted when the pair is the same sheet rotated and the document
+    # also declares a landscape orientation.
     if len(set(page_sizes)) > 1:
-        out.append('layout:page_size_mismatch=%s' % sorted(set(page_sizes)))
+        same_sheet_rotated = (
+            len(set(page_sizes)) == 2
+            and {tuple(sorted(sz)) for sz in set(page_sizes)}.__len__() == 1
+            and has_landscape_section(path)
+        )
+        if not same_sheet_rotated:
+            out.append('layout:page_size_mismatch=%s' % sorted(set(page_sizes)))
 
     # --- table cell alignment
     with zipfile.ZipFile(path) as z:
@@ -223,6 +244,17 @@ def layout_findings(path: Path):
                 vals[v] += 1
         if len(vals) > 1:
             out.append('layout:table_%d_alignment_mixed=%s' % (ti + 1, dict(vals)))
+
+    # --- duplicated pPr children
+    # Scripts that move a sectPr out of a text paragraph leave the empty
+    # <w:pPr/> behind, giving the paragraph two pPr children. That is
+    # schema-invalid and later edits split paragraphs at the wrong offset.
+    dup = 0
+    for pe in doc.iter(W+'p'):
+        if len(pe.findall(W+'pPr')) > 1:
+            dup += 1
+    if dup:
+        out.append('layout:paragraph_duplicate_pPr=%d' % dup)
 
     return out
 
