@@ -90,3 +90,13 @@ def test_abstract_without_number_is_blocking(tmp_path):
     result = mod.audit(p)
     assert any(f['rule'] == 'abstract_without_headline' for f in result['findings'])
     assert result['status'] == 'FAIL'
+
+
+def test_chinese_section_headings_raise_high_impact_severity(tmp_path):
+    p = tmp_path / 'zh_sections.md'
+    p.write_text('# 摘要\n结果：该估计存在不确定性，需要注意的是范围有限。\n', encoding='utf-8')
+    result = mod.audit(p)
+    hits = [f for f in result['findings'] if f['rule'] == 'zh_defensive']
+    assert hits
+    assert all(f['section'] == 'abstract' for f in hits)
+    assert any(f['severity'] == 'P1' for f in hits)

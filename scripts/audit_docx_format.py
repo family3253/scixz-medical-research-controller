@@ -126,9 +126,13 @@ def layout_findings(path: Path):
     miss = sum(r['missing_size'] for r in records)
     if miss:
         out.append('layout:runs_without_explicit_size=%d' % miss)
-        if default_size is not None and default_size != '24':
-            out.append('layout:docdefault_size=%s;expected=24 (11 pt) so the %d runs '
-                       'without an explicit size render 11 pt' % (default_size, miss))
+        try:
+            default_half_points = int(default_size) if default_size is not None else None
+        except (TypeError, ValueError):
+            default_half_points = None
+        if default_half_points is not None and default_half_points < 24:
+            out.append('layout:docdefault_size=%s;expected>=24 (12 pt) so the %d runs '
+                       'without an explicit size render below 12 pt' % (default_size, miss))
     mf = sum(r['missing_font'] for r in records)
     if mf:
         out.append('layout:runs_without_rFonts=%d (falls back to the theme font)' % mf)

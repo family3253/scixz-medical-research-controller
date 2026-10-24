@@ -36,16 +36,25 @@ W = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
 # Order matters: specific numbered sections before the generic numbered pattern.
 HEAD_PATTERNS = [
     (r'^abstract$', 'abstract'),
+    (r'^摘要$', 'abstract'),
     (r'^key messages?$', 'key_messages'),
+    (r'^关键消息$', 'key_messages'),
     (r'^highlights?$', 'key_messages'),
     (r'^\d+(\.\d+)?\.?\s*limitations?', 'limitations'),
+    (r'^(?:局限性|研究局限)$', 'limitations'),
     (r'^\d+\.?\s*introduction', 'introduction'),
+    (r'^引言$', 'introduction'),
     (r'^\d+\.?\s*methods?', 'methods'),
+    (r'^(?:方法|研究方法)$', 'methods'),
     (r'^\d+\.?\s*results?', 'results'),
+    (r'^结果$', 'results'),
     (r'^\d+\.?\s*discussion', 'discussion'),
+    (r'^讨论$', 'discussion'),
     (r'^\d+\.?\s*conclusions?', 'conclusions'),
+    (r'^结论$', 'conclusions'),
     (r'^\d+(\.\d+)?\.?\s', 'methods_or_results'),
     (r'^(references?|bibliography)$', 'references'),
+    (r'^(?:参考文献|文献)$', 'references'),
     (r'^declarations?$', 'declarations'),
     (r'^(list of abbreviations|abbreviations)$', 'back_matter'),
     (r'^(additional files|tables and figure captions|figure captions|supplementary.*)$', 'back_matter'),
@@ -190,7 +199,7 @@ CAVEAT = (r'\b(?:limitation|caveat|caution|uncertain|uncertainty|imprecise|wide 
 COMPILED = [(rid, sev, re.compile(pat, re.I), act) for rid, sev, pat, act in RULES]
 HEDGE_RE = re.compile(HEDGES, re.I)
 CAVEAT_RE = re.compile(CAVEAT, re.I)
-SENT_SPLIT = re.compile(r'(?<=[.;:!?])\s+(?=[A-Z(\[])')
+SENT_SPLIT = re.compile(r'(?<=[.;:!?。！？；])\s*(?=[A-Z(\[\u4e00-\u9fff])')
 
 
 # --------------------------------------------------------------------------- input
